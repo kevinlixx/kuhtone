@@ -64,9 +64,9 @@ main {
 .title--main{
     text-align: center;
 }
+
 .psicologos--contenedor{
     min-width: 320px;
-    max-width: 1080px;
 }
 .psicologos--card{
     display: flex;
@@ -79,18 +79,20 @@ main {
     height: 104px;
     border-radius: 80px;
 }
-.info--description{
+.info--description {
     display: flex;
 }
 .psicologo--description{
     margin: 10px;
     text-align: justify;
     font-size: 1.0rem;
+    font-weight: bold;
 }
+
 .mas_info--description{
     display: inline-flex;
     text-decoration: underline;
-    color: blue;
+    color: #008bef;
 }
 
 .back--bottom{

@@ -61,11 +61,11 @@ main {
     min-width: 320px;
     height: auto;
 }
-
-
+.psicologo-ifo--card{
+    min-width: 320px;
+}
 .psicologo--card{
     display: flex;
-    width: 90%;
     margin: 20px;
     align-items: center;
     justify-content: center;

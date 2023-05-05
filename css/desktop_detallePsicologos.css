@@ -1,0 +1,99 @@
+:root{
+    --turquoise: #568281;
+    --font-color: #FFFFFF;
+    --section-color: #D3E1E1;
+    --beige: #d6c19d;
+    --black: #000000 ;
+    --orange: #         ;
+}
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html{
+    font-size: 62.5%;
+    font-family: 'DM Sans', sans-serif;
+    min-width: 320px;
+}
+.menu-section{
+    justify-content: end;
+    width: 100px;
+    height: 40px;
+    position: relative;
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    padding: 16px;
+    margin-block: 3px;}
+.menu-section li{
+    display: inline-block;
+}
+.menu-section li a{
+    display: inline-block;
+   font-size: 1.4rem;
+   margin: 5px;
+   text-decoration: none;
+   color: var(--turquoise);
+}
+header .menu-header{
+    display:none;
+}
+
+.psicologo-info--card{
+    align-self: center;
+}
+.section--card{
+display: block;
+}
+.psicologo--card{
+    width: 100%;
+}
+.psicologo-description--container{
+    width: 50%;
+    display: flex ;
+    align-items: center;
+    
+}
+.psicologo-description--container h3{
+    font-size: 2.4rem;
+    margin: 10px;
+}
+.psicologo-description--container p{
+    margin: 20px;
+    display: flex;
+    font-size: 1.4rem;
+    text-align: justify;  
+}
+
+.psicologo-perfil--container{
+    width: 271px;
+}
+.psicologo-perfil--container h3{
+    font-size: 2.4rem;
+}
+.psicologo-perfil--container h4{
+    font-size: 1.4rem;
+}
+.psicologo-perfil--container p{
+    font-size: 1.4rem;
+    text-align: justify;  
+}
+
+.psicologo-experience--container{
+    display: flex;
+    justify-content: center;
+}
+.section-experience--container{
+    width: 70%
+}
+.psicologo-experience--container h3{
+    font-size: 2.4rem;
+}
+.psicologo-experience--container p{
+    font-size: 1.4rem;
+    text-align: justify;  
+}
+.back--bottom{
+    left: 85%;
+}
