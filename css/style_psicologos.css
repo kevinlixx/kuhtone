@@ -61,7 +61,59 @@ main {
     min-width: 320px;
     height: auto;
 }
+.title--main{
+    text-align: center;
+}
+.psicologos--contenedor{
+    min-width: 320px;
+    max-width: 1080px;
+}
+.psicologos--card{
+    display: flex;
+    width: 90%;
+    margin: 20px;
+    align-items: center;
+}
+.figure--card{
+    width: 94px;
+    height: 104px;
+    border-radius: 80px;
+}
+.info--description{
+    display: flex;
+}
+.psicologo--description{
+    margin: 10px;
+    text-align: justify;
+    font-size: 1.0rem;
+}
+.mas_info--description{
+    display: inline-flex;
+    text-decoration: underline;
+    color: blue;
+}
 
+.back--bottom{
+    display: flex;
+    background-color: var(--section-color);
+    text-decoration: none;
+    color: var(--black);
+    font-weight: bold;
+    font-size: 1.4rem;
+    text-align: center;
+    margin: 10px;   
+    width: 75.96px;
+    height: 33.26px;
+    border-radius: 15px;
+    padding: 5px;
+    justify-content: center;
+    position: relative;
+    left: 70%;
+    transition: 300ms;
+}
+.back--bottom:hover{
+    background-color: var(--turquoise);
+}
 /* para el footer */
 .pie-pagina {
     position: relative;
