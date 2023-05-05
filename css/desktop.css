@@ -4,7 +4,8 @@
     --section-color: #D3E1E1;
     --beige: #d6c19d;
     --black: #000000 ;
-    --orange: #         ;
+    --orange: #fdb249 ;
+    --hour_turquoise: #20D2C8; 
 }
 *{
     box-sizing: border-box;
@@ -39,5 +40,4 @@ html{
 
 header .menu-header{
     display:none;
-    
 }

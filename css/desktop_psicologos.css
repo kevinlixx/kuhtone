@@ -40,6 +40,20 @@ header .menu-header{
     display:none;
 }
 
+.title--main{
+    font-size: 2.8rem;
+}
+.figure--card{
+    width: 100px;
+    
+}
+.psicologo--description h4{
+    font-size: 2.5rem;
+}
+.psicologo--description p{
+    font-size: 2.0rem;
+}
+
 .back--bottom{
     left: 85%;
 }

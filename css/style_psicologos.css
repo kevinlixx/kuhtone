@@ -4,7 +4,7 @@
     --section-color: #D3E1E1;
     --beige: #d6c19d;
     --black: #000000 ;
-    --orange: #         ;
+    --orange: #fdb249 ;
 }
 *{
     box-sizing: border-box;
@@ -63,6 +63,7 @@ main {
 }
 .title--main{
     text-align: center;
+    margin: 20px;
 }
 
 .psicologos--contenedor{
@@ -82,11 +83,14 @@ main {
 .info--description {
     display: flex;
 }
-.psicologo--description{
+.psicologo--description h4 {
+    margin-left: 6px;
+    font-size: 1.8rem;
+}
+.psicologo--description p{
     margin: 10px;
     text-align: justify;
-    font-size: 1.0rem;
-    font-weight: bold;
+    font-size: 1.2rem;
 }
 
 .mas_info--description{

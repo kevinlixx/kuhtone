@@ -2,6 +2,16 @@
 .section--card{
     display: flex;
 }
+
+
+.section-experience--container{
+    width: 70%;
+}
+.psicologo-experience--container{
+    display: flex;
+    justify-content: center;
+}
+.psicologo-perfil--container{}
 .back--bottom{
     left: 80%;
 }

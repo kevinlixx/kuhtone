@@ -87,7 +87,8 @@ main {
     margin: 20px;
 }
 .psicologo-description--container p{
-    font-size: 0.9rem;
+    font-size: 1.1rem;
+    text-align: justify;
 }
 .psicologo-perfil--container{
     justify-content: right;
@@ -97,13 +98,13 @@ main {
 }
 .psicologo-perfil--container h4{
     font-weight: bold;
-    font-size: 0.9rem;
+    font-size: 1.2rem;
     text-align: left;
     margin-left: 30px;
 }
 .psicologo-perfil--container p{
     font-weight: 100;
-    font-size: 0.8rem;
+    font-size: 1.1rem;
     text-align: left;
     margin-left: 30px;
     margin-bottom: 5px;
@@ -121,7 +122,8 @@ main {
     margin: 20px;
 }
 .psicologo-experience--container p{
-    font-size: 0.9rem;
+    font-size: 1.1rem;
+    text-align: justify;
 }
 
 .asignar--bottom{
