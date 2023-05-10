@@ -1,9 +1,13 @@
 <?php
+                
+session_start();
 include("./conexion.php");
 $id= $_GET['id'];
+
 $profesional ="SELECT * FROM profesional WHERE id_profesional = $id";
 $consulta = mysqli_query($conection, $profesional ) or die ("Error al traer los datos");
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -166,12 +170,15 @@ $consulta = mysqli_query($conection, $profesional ) or die ("Error al traer los 
                         <p >'.$consulta_total["experiencia"].' 
                         </p>
                         </section>
-                    </div>
-                    <a href=\'./horario_citas.php?id='.$consulta_total["id_profesional"].'\' class="asignar--bottom">asignar</a>
-                    <a href="./psicologos.php" class="back--bottom">volver</a>
+                    </div>           
         ';
-    }
+       
+                $_SESSION['id_profesional'] = $consulta_total["id_profesional"];
+            }
     ?>
+                    <a href='./horario_citas.php' class="asignar--bottom">asignar</a>
+                    <a href="./psicologos.php" class="back--bottom">volver</a>
+    
     </main>
    <footer class="pie-pagina">
    <div class="footer_copy">

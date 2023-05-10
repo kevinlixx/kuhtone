@@ -1,13 +1,17 @@
+
+
 <?php
 include("./conexion.php");
-$id= $_GET['id'];
-$profesional ="SELECT * FROM profesional WHERE id_profesional = $id";
-$disponibilidad ="SELECT * FROM disponibilidad WHERE id_profesional = $id";
+session_start();
+$id_profesional = $_SESSION['id_profesional'];
+
+$profesional ="SELECT * FROM profesional WHERE id_profesional = $id_profesional";
+$disponibilidad ="SELECT * FROM disponibilidad WHERE id_profesional = $id_profesional";
 $consulta = mysqli_query($conection, $profesional ) or die ("Error al traer los datos");
 $consulta_disponibilidad = mysqli_query($conection, $disponibilidad ) or die ("Error al traer los datos");
 
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>

@@ -4,8 +4,9 @@ header('Content-Type: application/json');
 // Obtener el valor de $id de la URL
 
 
-$id=1;
-// Conectar con la base de datos
+session_start();
+$id_profesional = $_SESSION['id_profesional'];
+// onectar con la base de datos
 $host = 'localhost';
 $dbname = 'kuhtone';
 $username = 'root';
@@ -16,7 +17,7 @@ try {
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
   // Consultar las fechas disponibles desde la base de datos
-  $query = "SELECT fecha_disponibilidad FROM disponibilidad WHERE id_profesional= $id";
+  $query = "SELECT fecha_disponibilidad FROM disponibilidad WHERE id_profesional= $id_profesional";
   $stmt = $conn->prepare($query);
   $stmt->execute();
   $fechas_db = array();
@@ -38,3 +39,4 @@ echo json_encode($fechas_db);
 // Cerrar la conexión con la base de datos
 $conn = null;
 
+?>
