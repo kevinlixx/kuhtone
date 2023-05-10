@@ -17,6 +17,26 @@ html{
     font-family: 'DM Sans', sans-serif;
     min-width: 320px;
 }
+header .menu-section{
+    display: flex;
+}
+.menu ul{
+    height: auto;
+}
+.menu ul li{
+    margin-top: 0px;
+}
+.menu nav img{
+    display: none;
+}
+.menu nav{
+    position: static;
+    right: none;
+    height: auto;
+    background: none;
+    padding: 0px;
+
+}
 .menu-section{
     justify-content: end;
     width: 100px;
@@ -37,8 +57,15 @@ html{
    text-decoration: none;
    color: var(--turquoise);
 }
-header .menu-header{
-    display:none;
+.menu #btn_menu{
+    display: none;
+}
+.menu ul {
+    display: flex;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    display: block;
 }
 
 .psicologo-info--card{
@@ -47,9 +74,7 @@ header .menu-header{
 .section--card{
 display: block;
 }
-.psicologo--card{
-    width: 100%;
-}
+
 .psicologo-description--container{
     width: 50%;
     display: flex ;
@@ -57,7 +82,7 @@ display: block;
     
 }
 .psicologo-description--container h3{
-    font-size: 2.4rem;
+    font-size: 2.0rem;
     margin: 10px;
 }
 .psicologo-description--container p{
@@ -68,10 +93,10 @@ display: block;
 }
 
 .psicologo-perfil--container{
-    width: 271px;
+    width: 200px;
 }
 .psicologo-perfil--container h3{
-    font-size: 2.4rem;
+    font-size: 2.0rem;
 }
 .psicologo-perfil--container h4{
     font-size: 1.4rem;
@@ -93,8 +118,8 @@ display: block;
 }
 .psicologo-experience--container p{
     font-size: 1.4rem;
-    text-align: justify;  
+    text-align: center   ;  
 }
 .back--bottom{
-    left: 85%;
+    left: 80%;
 }

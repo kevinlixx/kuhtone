@@ -1,3 +1,4 @@
+/* lo que debe tener si o si el aplciativo */
 :root{
     --turquoise: #568281;
     --font-color: #FFFFFF;
@@ -16,6 +17,7 @@ html{
     font-family: 'DM Sans', sans-serif;
     min-width: 320px;
 }
+
 header{
     position: relative;
     display: flex;
@@ -44,7 +46,7 @@ header .figure_header{
     display: none;
    
 }
-header .menu-header{
+.menu{
     justify-content: end;
     width: 100px;
     height: 40px;
@@ -56,12 +58,146 @@ header .menu-header{
     margin-block: 3px;
 }
 
+.menu ul{
+    display: flex;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+.menu ul li{
+    list-style: none;
+    margin-left: 36px;
+}
+
+.menu ul li a{
+    text-decoration: none;
+    font-size: 1.4rem;
+    margin: 5px;
+    color: #528281;
+    transition: color 0.4s ease;
+}
+.menu ul li a:hover{
+    color:black;
+}
+#selected{
+    background:transparent;
+    border:2px solid #fdb249;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 12px;
+    border-radius: 50px;
+    transition: 0.4s ;
+} 
+#selected:hover{
+    color: black;
+}
+
+.logo img{
+    width: 160px;
+    
+}
+.menu nav{
+    display: block;
+    position: fixed;
+    top: 0;
+    right: -250px;
+    background: white;
+    width: 250px;
+    height: 72vh;
+    padding: 40px;
+    z-index: 1;
+    transition: all 300ms;
+}
+
+.menu ul{
+    flex-direction: column;
+    color: #d3e1e1;
+    text-align: center;
+    text-align-last:left;
+    height: 10px;
+    width: auto;
+}
+
+.menu ul li{
+    margin-top: 30px;
+    margin-left: 0;
+}
+
+.menu ul li a{
+    color:var(--turquoise);
+}
+
+#selected{
+    background:transparent;
+    border:2px solid #fdb249;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    background-size: auto;
+    display:inline-flex;
+    transition: 0.4s ; 
+    justify-content: center;  
+
+}
+
+.menu nav img{
+    margin:10px;
+    display: block;
+    text-align: center;
+    width: 120px;
+    height: auto;
+    background-color: transparent;
+    background-position:0cqb;
+    border-radius: 10px;
+    /* box-shadow: 0 2px 4px var(--turquoise); */
+    display: inline-block;
+    margin-left: 10px;
+}
+
+#back_menu{ /* el tamaño del menu que se mostrara */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: none;
+}
+
+.menu #btn_menu{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    color: #528281;
+    background: rgba(226, 219, 219, 0.1);
+    font-size: 30px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 300ms;
+}
+
+.menu #btn_menu:hover{
+    background:rgba(226, 219, 219, 0.1);
+}
+
+header .menu-header{
+    justify-content: end;
+    width: 100px;
+    height: 40px;
+    position: relative;
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    padding: 16px;
+    margin-block: 3px;
+}
 main {
     width: 100%;
     min-width: 320px;
     height: auto;
 }
-.psicologo-ifo--card{
+.psicologo-info--card{
     min-width: 320px;
 }
 .psicologo--card{
@@ -80,6 +216,9 @@ main {
     width: 100%;
     justify-content: center;
 }
+.psicologo-description--container h3{
+    font-size: 1.6rem;
+}
 .psicologo-description--container{
     justify-content: left;
     width: 147px;
@@ -87,24 +226,28 @@ main {
     margin: 20px;
 }
 .psicologo-description--container p{
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     text-align: justify;
 }
 .psicologo-perfil--container{
     justify-content: right;
-    width: 120px;
+    width: 140px;
     text-align: center;
     margin: 20px;
 }
+.psicologo-perfil--container h3{
+    font-size: 1.6rem;
+    margin: 5px;
+}
 .psicologo-perfil--container h4{
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     text-align: left;
     margin-left: 30px;
 }
 .psicologo-perfil--container p{
     font-weight: 100;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     text-align: left;
     margin-left: 30px;
     margin-bottom: 5px;
@@ -116,14 +259,16 @@ main {
 }
 
 .psicologo-experience--container{
-    
     min-width: 290px;
     text-align: center;
     margin: 20px;
 }
+.psicologo-experience--container h3{
+    font-size: 1.6rem;
+}
 .psicologo-experience--container p{
-    font-size: 1.1rem;
-    text-align: justify;
+    font-size: 1.2rem;
+    text-align: center;
 }
 
 .asignar--bottom{

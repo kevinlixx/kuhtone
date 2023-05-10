@@ -17,6 +17,26 @@ html{
     font-family: 'DM Sans', sans-serif;
     min-width: 320px;
 }
+header .menu-section{
+    display: flex;
+}
+.menu ul{
+    height: auto;
+}
+.menu ul li{
+    margin-top: 0px;
+}
+.menu nav img{
+    display: none;
+}
+.menu nav{
+    position: static;
+    right: none;
+    height: auto;
+    background: none;
+    padding: 0px;
+
+}
 .menu-section{
     justify-content: end;
     width: 100px;
@@ -37,7 +57,13 @@ html{
    text-decoration: none;
    color: var(--turquoise);
 }
-
-header .menu-header{
-    display:none;
+.menu #btn_menu{
+    display: none;
+}
+.menu ul {
+    display: flex;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    display: block;
 }
