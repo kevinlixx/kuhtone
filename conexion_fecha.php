@@ -17,7 +17,7 @@ try {
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
   // Consultar las fechas disponibles desde la base de datos
-  $query = "SELECT fecha_disponibilidad FROM disponibilidad WHERE id_profesional= $id_profesional";
+  $query = "SELECT fecha_disponibilidad FROM disponibilidad WHERE (id_profesional= $id_profesional) AND (id_estadoDisponibilidad = 1)";
   $stmt = $conn->prepare($query);
   $stmt->execute();
   $fechas_db = array();

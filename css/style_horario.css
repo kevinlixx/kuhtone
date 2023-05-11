@@ -269,7 +269,7 @@ main {
   }
    /* Calendario tamaño*/
   .calendar {
-    width: 300px ;
+    width: 278px ;
     min-width:250px;
     background-color: #ffffff;
   }
@@ -330,7 +330,7 @@ main {
   .days div {
     font-size: 1.6rem;
     margin: 0.089rem;
-    width: calc(25.2rem / 7);
+    width: calc(23.2rem / 7);
     margin: 3px;
     height: 40px;
     display: flex;

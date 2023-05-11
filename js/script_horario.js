@@ -55,26 +55,74 @@ const renderCalendar = (dates) => {
   for (let i = 1; i <= lastDay; i++) {
     let foundDate = false;
     for (let j = 0; j < dates.length; j++) {
-        let d = new Date(dates[j]);
-
-        if (i == d.getDate()+1 && date.getMonth() == d.getMonth() && date.getFullYear() == d.getFullYear()) {
-            days += `<div class="today">${i}</div>`;
-            foundDate = true;
-            break;
-            
-        }
+      let d = new Date(dates[j]);
+      if (i === d.getUTCDate() && date.getUTCMonth() === d.getUTCMonth() && date.getUTCFullYear() === d.getUTCFullYear()) {
+        days += `<div class="today" data-date="${d.getUTCFullYear()}-${d.getUTCMonth() + 1}-${d.getUTCDate()}">${i}</div>`;
+        foundDate = true;
+        break;
+      }
     }
     if (!foundDate) {
-        days += `<div>${i}</div>`;
+      days += `<div data-date="${date.getFullYear()}-${date.getMonth() + 1}-${i}">${i}</div>`;
     }
-}
+  }
+  
+  
 
   for (let j = 1; j <= nextDays; j++) {
     days += `<div class="next-date">${j}</div>`;
   }
 
   monthDays.innerHTML = days;
+  const dayElements = monthDays.querySelectorAll('[data-date]');
+  dayElements.forEach(day => {
+    day.addEventListener('click', () => {
+      const selectedDate = day.dataset.date;
+      fetchAvailableHours(selectedDate);
+    });
+  });
 };
+const fetchAvailableHours = (selectedDate) => {
+  fetch(`conexion_horas.php?fecha=${selectedDate}`)
+    .then(response => response.json())
+    .then(data => {
+      showAvailableHours(data);
+    })
+    .catch(error => console.error(error));
+};
+
+const showAvailableHours = (hours) => {
+  const availableHoursElement = document.querySelector('#available-hours');
+
+  // Limpiar cualquier contenido anterior del div
+  availableHoursElement.innerHTML = '';
+
+  // Si no hay horas disponibles, mostrar un mensaje indicando que no hay horas disponibles
+  if (hours.length === 0) {
+    availableHoursElement.textContent = 'No hay horas disponibles para esta fecha.';
+    return;
+  }
+
+  // Iterar sobre las horas disponibles y agregar un div para cada hora
+  hours.forEach(hour => {
+    const hourDiv = document.createElement('div');
+    hourDiv.textContent = hour;
+    availableHoursElement.appendChild(hourDiv);
+  });
+};
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const monthDays = document.querySelector('.days');
+  const dayElements = monthDays.querySelectorAll('[data-date]');
+  dayElements.forEach(day => {
+    day.addEventListener('click', () => {
+      const selectedDate = day.dataset.date;
+      fetchAvailableHours(selectedDate);
+    });
+  });
+});
 
 document.querySelector(".prev").addEventListener("click", () => {
   date.setMonth(date.getMonth() - 1);
@@ -94,6 +142,23 @@ const fetchDatesAndRenderCalendar = () => {
     })
     .catch(error => console.error(error));
 };
+
+const days = document.querySelectorAll('.days div');
+
+days.forEach(day => {
+  day.addEventListener('click', () => {
+    const dateStr = day.dataset.date;
+    const date = new Date(dateStr);
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    const dayOfMonth = date.getDate() + 1;
+    const selectedDate = `${year}-${month}-${dayOfMonth}`;
+    fetchAvailableHours(selectedDate);
+  });
+});
+
+
+
 
 fetchDatesAndRenderCalendar();
 

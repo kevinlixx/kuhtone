@@ -133,15 +133,8 @@ $consulta_disponibilidad = mysqli_query($conection, $disponibilidad ) or die ("E
 
       
 
-            <div class="horariodispo">';
-            while($consultaTotal_disponibilidad= mysqli_fetch_array($consulta_disponibilidad))
-          {
-            $hora = $consultaTotal_disponibilidad["hora_inicio"];
-            $hora_disponible = date('H:i', strtotime($hora));
-            echo'
-              <div>'.$hora_disponible.'</div>
+            <div class="horariodispo" id="available-hours">
               '; 
-            }
             echo'
             </div>
             </div>
