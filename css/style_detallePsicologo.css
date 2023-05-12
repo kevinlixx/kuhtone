@@ -288,6 +288,10 @@ main {
     margin: auto;
     transition: 300ms;
 }
+.asignar--bottom:hover{
+    background-color: var(--turquoise);
+}
+
 .back--bottom{
     display: flex;
     background-color: var(--section-color);

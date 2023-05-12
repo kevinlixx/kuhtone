@@ -359,7 +359,6 @@ main {
     background-color: #20D2C8;
     border-radius: 50%;
   }
-
    /* la seccion de las horas */
   .select--hour{
     font-size: 1.7rem;
@@ -368,6 +367,9 @@ main {
   }
   .selecthora{
     display: flex;
+    margin: 20px;
+    font-size: 1.6rem;
+    text-align: center;
   }
   .hora{
     font-size: 2.0rem;
@@ -404,6 +406,26 @@ main {
     padding: 10px;
    
   }
+  .asignar--bottom{
+    display: flex;
+    background-color: var(--section-color);
+    text-decoration: none;
+    color: var(--black);
+    font-weight: bold;
+    font-size: 1.4rem;
+    text-align: center;
+    margin-top: 10px;   
+    width: 170px;
+    height: 33.26px;
+    border-radius: 15px;
+    padding: 5px;
+    justify-content: center;
+    margin: auto;
+    transition: 300ms;
+}
+    .asignar--bottom:hover{
+    background-color: var(--turquoise);
+}
   .back--bottom{
     display: flex;
     background-color: var(--section-color);

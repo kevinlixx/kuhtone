@@ -103,15 +103,37 @@ const showAvailableHours = (hours) => {
     return;
   }
 
+    // Agregar event listener a los elementos con la clase "today"
+const todayElements = document.querySelectorAll('.today');
+todayElements.forEach(todayElement => {
+  todayElement.addEventListener('click', () => {
+    const selectedFechaElement = document.getElementById('selected-fecha');
+    selectedFechaElement.value = todayElement.getAttribute('data-date');
+  });
+});
   // Iterar sobre las horas disponibles y agregar un div para cada hora
   hours.forEach(hour => {
     const hourDiv = document.createElement('div');
     hourDiv.textContent = hour;
+    /* hourDiv.classList.add('hora_dispo');/* para agregar clase a los div */ 
     availableHoursElement.appendChild(hourDiv);
   });
 };
+document.addEventListener("DOMContentLoaded", function() {
+  // Obtener el elemento input
+  const hiddenInput = document.querySelector('#selectedHour');
 
+  // Obtener los divs de horas disponibles
+  const availableHours = document.querySelectorAll('#available-hours');
 
+  // Agregar un event listener a cada div
+  availableHours.forEach(hourDiv => {
+    hourDiv.addEventListener('click', () => {
+      // Obtener el valor de la hora y asignarlo al valor del input
+      hiddenInput.value = hourDiv.textContent;
+    });
+  });
+});
 
 document.addEventListener('DOMContentLoaded', () => {
   const monthDays = document.querySelector('.days');

@@ -6,9 +6,7 @@ session_start();
 $id_profesional = $_SESSION['id_profesional'];
 
 $profesional ="SELECT * FROM profesional WHERE id_profesional = $id_profesional";
-$disponibilidad ="SELECT * FROM disponibilidad WHERE id_profesional = $id_profesional";
 $consulta = mysqli_query($conection, $profesional ) or die ("Error al traer los datos");
-$consulta_disponibilidad = mysqli_query($conection, $disponibilidad ) or die ("Error al traer los datos");
 
 ?>
 
@@ -83,7 +81,10 @@ $consulta_disponibilidad = mysqli_query($conection, $disponibilidad ) or die ("E
       while($consulta_total= mysqli_fetch_array($consulta))
             {
                 echo'
+
+    <form method="POST" action="#">          
       <div class="psicologos--contenedor">
+      <input type="hidden" name="id_profesional" value="'.$id_profesional.'">
           <section class="psicologos--card">
               <figure class="figure--card"> 
                   <img 
@@ -123,22 +124,48 @@ $consulta_disponibilidad = mysqli_query($conection, $disponibilidad ) or die ("E
             <div>Vie</div>
             <div>Sab</div>
           </div>
-          <div class="days"></div>
+          <input type="hidden" id="selected-fecha" name="selected-fecha" value="" required>
+          <div class="days" id="days-dispo"></div>
         </div>
       </div>
-      
       <!-- esta parte es la de seleccionar la hora -->
-      <h2 class="select--hour">Selecciona la hora</h2>
-      <div class="selecthora">
+            <h2 class="select--hour">Selecciona la hora</h2>
+            <div class="selecthora">
+              <input type="hidden" id="selectedHour" name="selectedHour" value="" required>
 
-      
-
-            <div class="horariodispo" id="available-hours">
-              '; 
+              <div class="horariodispo" id="available-hours"/>
+              </div>';
+              ?>
+            <?php
             echo'
+
             </div>
-            </div>
-            
+            <input type="submit" value="Realizar agendamiento" class="asignar--bottom" name="registro-agendamiento"  required>
+
+            ';
+            if(isset($_POST['registro-agendamiento'])) {
+              $id_agendamiento = "";
+              $fecha_agendada = $_POST['selected-fecha'];
+              $hora_agendada = $_POST['selectedHour'];
+              $disponibilidad = "SELECT * FROM disponibilidad WHERE (fecha_disponibilidad = '$fecha_agendada') AND (hora_inicio = '$hora_agendada')";
+              $consulta_disponibilidad = mysqli_query($conection, $disponibilidad) or die ("Error al traer los datos");
+              if($consulta_disponibilidadTotal = mysqli_fetch_array($consulta_disponibilidad)) {
+                  $id_disponibilidad = $consulta_disponibilidadTotal["id_disponibilidad"];
+                  $instruccion_SQL = "INSERT INTO agendamiento (id_agendamiento, id_paciente, id_disponibilidad, link_teams) VALUES ('$id_agendamiento', 1, '$id_disponibilidad', '')";
+                  $resultado = mysqli_query($conection, $instruccion_SQL) or trigger_error("Query Failed! SQL-Error: ".mysqli_error($conection), E_USER_ERROR);
+                  $instruccion_update = "CALL modificarEstado_dispo ($id_disponibilidad)";
+                  $status =  mysqli_query($conection, $instruccion_update) or trigger_error("Query Failed! SQL-Error: ".mysqli_error($conection), E_USER_ERROR);
+                  if($resultado) {
+                      echo "<script>alert('Se ha registrado exitosamente el agendamiento');</script>";
+                  } else {
+                      echo "<script>alert('error en realizar el agendamiento');</script>";
+                  } 
+                  mysqli_close($conection);
+              }
+          }
+          
+            echo'
+    </form>
             <a href=\'./detalle_psicologo.php?id='.$consulta_total["id_profesional"].'\' class="back--bottom">volver</a>
             ';
             
