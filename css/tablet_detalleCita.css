@@ -1,0 +1,26 @@
+
+
+.figure--card img{
+    width: 135px;
+    height: 140px;
+}
+.section--card{
+    display: flex;
+    justify-content: center;
+}
+
+.section-calendar--container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.section-calendar--container section{
+ margin-left: 10px;
+}
+
+.back--bottom{
+    left: 80%;
+}
+.calendar--container h3{
+   
+}

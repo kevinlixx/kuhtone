@@ -277,6 +277,7 @@ main {
  
    /* la seccion de la cabeza del calendario*/
   .month {
+
     background-color: #20D2C8;
     display: flex;
     justify-content: space-between;
@@ -414,11 +415,10 @@ main {
     font-weight: bold;
     font-size: 1.4rem;
     text-align: center;
-    margin-top: 10px;   
-    width: 170px;
-    height: 33.26px;
+    margin-top: 10px; 
     border-radius: 15px;
-    padding: 5px;
+    border-color: var(--font-color);
+    padding: 8px;
     justify-content: center;
     margin: auto;
     transition: 300ms;

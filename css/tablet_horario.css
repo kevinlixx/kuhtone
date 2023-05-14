@@ -1,0 +1,13 @@
+.figure--card{
+    width: 200px;
+    height: 150px;
+}
+.figure--card img{
+    width: 200px;
+    height: 150px;
+}
+
+.psicologo--description p{
+    font-size:1.4rem;
+    
+}

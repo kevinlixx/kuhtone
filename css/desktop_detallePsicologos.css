@@ -67,7 +67,14 @@ header .menu-section{
     padding: 0;
     display: block;
 }
-
+.figure--card{
+    width: 175px;
+    height: 175px;
+}
+.figure--card img{
+    width: 175px;
+    height: 175px;
+}
 .psicologo-info--card{
     align-self: center;
 }

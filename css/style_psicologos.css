@@ -238,6 +238,8 @@ main {
     display: inline-flex;
     text-decoration: underline;
     color: #008bef;
+    margin-left: 6px;
+
 }
 
 .back--bottom{

@@ -18,7 +18,7 @@ $consulta = mysqli_query($conection, $profesional ) or die ("Error al traer los 
     <title>Agendamiento</title>
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/style_horario.css" />
-    <link rel="stylesheet" href="./css/tablet.css" media="screen and (min-width: 600px)"/>
+    <link rel="stylesheet" href="./css/tablet_horario.css" media="screen and (min-width: 600px)"/>
     <link rel="stylesheet" href="./css/desktop_horario.css" media="screen and (min-width: 800px)"/>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link
@@ -151,13 +151,18 @@ $consulta = mysqli_query($conection, $profesional ) or die ("Error al traer los 
               $consulta_disponibilidad = mysqli_query($conection, $disponibilidad) or die ("Error al traer los datos");
               if($consulta_disponibilidadTotal = mysqli_fetch_array($consulta_disponibilidad)) {
                   $id_disponibilidad = $consulta_disponibilidadTotal["id_disponibilidad"];
-                  $instruccion_SQL = "INSERT INTO agendamiento (id_agendamiento, id_paciente, id_disponibilidad, link_teams) VALUES ('$id_agendamiento', 1, '$id_disponibilidad', '')";
+                  $hora_final= $consulta_disponibilidadTotal["hora_final"];
+                  
+                  $link_teams = "https://teams.microsoft.com/l/meetup-join/19:Gu0DchhxSqIfnsnc0S4kTNH_6GgzxgB-I0X_X9RcnQ01@thread.tacv2/1684020271948?context=%7B%22Tid%22:%22b1ba85eb-a253-4467-9ee8-d4f8ed4df300%22,%22Oid%22:%221f586e41-8496-48b3-bc69-eda655c7bd93%22%7D";
+
+                  $instruccion_SQL = "INSERT INTO agendamiento (id_agendamiento, id_paciente, id_disponibilidad, link_teams) VALUES ('$id_agendamiento', 1, '$id_disponibilidad', '$link_teams')";
                   $resultado = mysqli_query($conection, $instruccion_SQL) or trigger_error("Query Failed! SQL-Error: ".mysqli_error($conection), E_USER_ERROR);
                   $instruccion_update = "CALL modificarEstado_dispo ($id_disponibilidad)";
                   $status =  mysqli_query($conection, $instruccion_update) or trigger_error("Query Failed! SQL-Error: ".mysqli_error($conection), E_USER_ERROR);
                   if($resultado) {
-                      echo "<script>alert('Se ha registrado exitosamente el agendamiento');</script>";
-                  } else {
+                    echo "<script>alert('Se ha registrado exitosamente el agendamiento');
+                    window.location.href = './detalle_cita.php?id_dispo=".$id_disponibilidad."';</script>";          
+                  } else {  
                       echo "<script>alert('error en realizar el agendamiento');</script>";
                   } 
                   mysqli_close($conection);

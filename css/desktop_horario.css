@@ -75,7 +75,14 @@ header .menu-section{
 display: block;
 }
 
-
+.figure--card{
+    width: 312px;
+    height: 198px
+}
+.figure--card img{
+    width: 300px;
+    height: 200px;
+}
 .psicologo--description p{
     font-size: 1.8rem;
 }
@@ -122,6 +129,10 @@ font-size: 2.6rem;
     font-size: 2.2rem;
     width: 100px;
     height: 40px;
+}
+.asignar--bottom{
+    font-size: 1.6rem;
+
 }
 .back--bottom{
     left: 80%;

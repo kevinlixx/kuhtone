@@ -1,4 +1,9 @@
 
+
+.figure--card img{
+    width: 135px;
+    height: 140px;
+}
 .section--card{
     display: flex;
     justify-content: center;
