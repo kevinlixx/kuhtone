@@ -198,12 +198,11 @@ main {
     height: auto;
 }
 .psicologo-info--card{
-    margin-left: 20px;
-    min-width: 220px;
+    min-width: 320px;
 }
 .psicologo--card{
     display: flex;
-    margin: 10px;
+    margin: 20px;
     align-items: center;
     justify-content: center;
 }
@@ -212,19 +211,29 @@ main {
     height: 140px;
     border-radius: 80px;
 }
-.figure--card img{
-    width: 135px;
-    height: 140px;
-
-}
 .psicologo-details--container{
     display: flex;
-    margin-left: 10px;
+    width: 100%;
+    justify-content: center;
+}
+.psicologo-description--container h3{
+    font-size: 1.6rem;
+}
+.psicologo-description--container{
+    justify-content: left;
+    width: 147px;
+    text-align: center;
+    margin: 20px;
+}
+.psicologo-description--container p{
+    font-size: 1.2rem;
+    text-align: justify;
 }
 .psicologo-perfil--container{
-    width: 100%;
     justify-content: right;
+    width: 140px;
     text-align: center;
+    margin: 20px;
 }
 .psicologo-perfil--container h3{
     font-size: 1.6rem;
@@ -249,60 +258,20 @@ main {
     position: absolute;
 }
 
-.calendar--container{
+.psicologo-experience--container{
     min-width: 290px;
     text-align: center;
     margin: 20px;
 }
-.calendar--logo{
-    display: flex;
-    height: 18px;
-    justify-content: center;
-}
-.calendar--container h3{
+.psicologo-experience--container h3{
     font-size: 1.6rem;
-    margin-left: 5px;
 }
-.calendar--container h4{
-    font-size: 1.4rem;
-    text-align: justify;
-    margin: 5px;
-}
-.calendar--container p{
-    font-size: 1.3rem;
-    text-align: justify;
-    margin: 5px;
-}
-
-
-.qr--img{
-    width: 250px;
-}
-
-.qr--info {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-}
-
-.qr--info a{
-    width: 140px;
-    text-align: center;
+.psicologo-experience--container p{
     font-size: 1.2rem;
-    font-weight: bold;
-    color: #008bef;
-}
-.qr--info img{
-    width: 26px;
-    height: 24px;
+    text-align: center;
 }
 
-.bottom--container{
-    display: flex;
-    justify-content: center;
-}
-.change--bottom{
+.asignar--bottom{
     display: flex;
     background-color: var(--section-color);
     text-decoration: none;
@@ -311,35 +280,15 @@ main {
     font-size: 1.4rem;
     text-align: center;
     margin: 10px;   
-    width: 120px;
-    height: 33px;
+    width: 75.96px;
+    height: 33.26px;
     border-radius: 15px;
     padding: 5px;
     justify-content: center;
+    margin: auto;
     transition: 300ms;
 }
-.change--bottom:hover{
-    background-color: var(--turquoise);
-}
-
-.cancel--bottom{
-    display: flex;
-    background-color: var(--section-color);
-    text-decoration: none;
-    color: var(--black);
-    font-weight: bold;
-    font-size: 1.4rem;
-    text-align: center;
-    margin: 10px;   
-    width: 120px;
-    height: 33px;
-    border-radius: 15px;
-    padding: 5px;
-    justify-content: center;
-    transition: 300ms;
-    border-color: var(--font-color);
-}
-.cancel--bottom:hover{
+.asignar--bottom:hover{
     background-color: var(--turquoise);
 }
 

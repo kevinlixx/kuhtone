@@ -157,7 +157,8 @@ $consulta = mysqli_query($conection, $profesional ) or die ("Error al traer los 
 
                   $instruccion_SQL = "INSERT INTO agendamiento (id_agendamiento, id_paciente, id_disponibilidad, link_teams) VALUES ('$id_agendamiento', 1, '$id_disponibilidad', '$link_teams')";
                   $resultado = mysqli_query($conection, $instruccion_SQL) or trigger_error("Query Failed! SQL-Error: ".mysqli_error($conection), E_USER_ERROR);
-                  $instruccion_update = "CALL modificarEstado_dispo ($id_disponibilidad)";
+                  $off_dispo = 2;
+                  $instruccion_update = "CALL modificarEstado_dispo ($id_disponibilidad,$off_dispo)";
                   $status =  mysqli_query($conection, $instruccion_update) or trigger_error("Query Failed! SQL-Error: ".mysqli_error($conection), E_USER_ERROR);
                   if($resultado) {
                     echo "<script>alert('Se ha registrado exitosamente el agendamiento');

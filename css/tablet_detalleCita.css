@@ -17,7 +17,9 @@
 .section-calendar--container section{
  margin-left: 10px;
 }
-
+.calendar--container p{
+    text-align: center;
+}
 .back--bottom{
     left: 80%;
 }

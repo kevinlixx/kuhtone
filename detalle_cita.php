@@ -65,6 +65,7 @@ $consulta_agendamiento = mysqli_query($conection, $agendamiento ) or die ("Error
         </a>
     </header>
     <main>
+        <form action="#" method="POST">
     <?php
          if($consulta_agenda= mysqli_fetch_array($consulta_agendamiento))
             {
@@ -174,20 +175,56 @@ $consulta_agendamiento = mysqli_query($conection, $agendamiento ) or die ("Error
                                     <p>'.$consulta_dispo["hora_inicio"].'</p>
                                     </section>  
                                     </div> 
-                                    <div id="qr--link">
-                                    <img  class="qr--img"src="qr_generator.php" alt="Código QR">
+                                    <div  class="qr--generator">
+                                    <figure>
+                                    <img  class="qr--img"src="./qr_generator.php" alt="Código QR">
+                                    </figure>
+                                    <section class="qr--info">
+                                    <img class:"teams--logo" src="./img/teams--logo.svg">
+                                    <a href="'.$consulta_agenda["link_teams"].'">Encuentro virtual en la plataforma Teams</a>
+                                    </section>
                                     </div>         
                                 ';
+
+            ?>  
+                                </div> 
+                                    <div class="bottom--container">
+                                        <?php
+                                        echo'
+                                        <a href="./modificar_cita.php?id_agenda='.$consulta_agenda["id_agendamiento"].'" class="change--bottom">modificar cita</a>
+                                        <input type="submit" value="Cancelar cita" class="cancel--bottom" name="eliminar" required>
+                                        ';
+                                        ?>
+                                    </div>
+                                    <a href="./psicologos.php" class="back--bottom">volver</a>
+            <?php
+                         if(isset($_POST ['eliminar'])){
+                            $id_agenda =$consulta_agenda ['id_agendamiento'];
+                            $instruccion_SQL="DELETE FROM agendamiento WHERE id_agendamiento = $id_agenda";
+                            $dispo_on=$consulta_dispo['id_disponibilidad'];
+                            $on_dispo = 1;
+                            $instruccion_updateOn = "CALL modificarEstado_dispo($dispo_on,$on_dispo)";
+                            $status_on =  mysqli_query($conection, $instruccion_updateOn) or trigger_error("Query Failed! SQL-Error: ".mysqli_error($conection), E_USER_ERROR);
+                            $resultados = mysqli_query($conection,$instruccion_SQL) or trigger_error("Query Failed! SQL-Error: ".mysql_error($conection), E_USER_ERROR);
+                            
+                            if($resultados){
+                            echo "<script>alert('Se ha eliminado exitosamente el agendamiento');
+                                    window.location.href ='./psicologos.php';</script>";          
+                                } else {  
+                                    echo "<script>alert('error en eliminar el agendamiento');</script>";
+                                } 
+                                mysqli_close($conection);
                     
+                            
+                         }
+                                             
 
                 }
             }
         }
-    ?>
 
-                                 </div> 
-                                        <a href="./psicologos.php" class="back--bottom">volver</a>
-    
+    ?>
+    </form>
     </main>
    <footer class="pie-pagina">
    <div class="footer_copy">

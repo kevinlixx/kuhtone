@@ -197,149 +197,78 @@ main {
     min-width: 320px;
     height: auto;
 }
-.psicologo-info--card{
-    margin-left: 20px;
-    min-width: 220px;
-}
-.psicologo--card{
-    display: flex;
-    margin: 10px;
-    align-items: center;
-    justify-content: center;
-}
-.figure--card{
-    width: 135px;
-    height: 140px;
-    border-radius: 80px;
-}
-.figure--card img{
-    width: 135px;
-    height: 140px;
-
-}
-.psicologo-details--container{
-    display: flex;
-    margin-left: 10px;
-}
-.psicologo-perfil--container{
-    width: 100%;
-    justify-content: right;
-    text-align: center;
-}
-.psicologo-perfil--container h3{
-    font-size: 1.6rem;
-    margin: 5px;
-}
-.psicologo-perfil--container h4{
-    font-weight: bold;
-    font-size: 1.4rem;
-    text-align: left;
-    margin-left: 30px;
-}
-.psicologo-perfil--container p{
-    font-weight: 100;
-    font-size: 1.2rem;
-    text-align: left;
-    margin-left: 30px;
-    margin-bottom: 5px;
-}
-
-.perfil--logos{
-    display: flex;
-    position: absolute;
-}
-
-.calendar--container{
-    min-width: 290px;
+.title--main{
     text-align: center;
     margin: 20px;
 }
-.calendar--logo{
+.figure-consult {
     display: flex;
-    height: 18px;
     justify-content: center;
 }
-.calendar--container h3{
-    font-size: 1.6rem;
-    margin-left: 5px;
+.figure-consult img{
+    width: 212px;
+    height: 187px;
 }
-.calendar--container h4{
-    font-size: 1.4rem;
-    text-align: justify;
-    margin: 5px;
+.form--consult{
+    display: flex;
+    min-width: 230px;
+    padding: 10px;
+    justify-content: center;
 }
-.calendar--container p{
-    font-size: 1.3rem;
-    text-align: justify;
-    margin: 5px;
-}
-
-
-.qr--img{
-    width: 250px;
-}
-
-.qr--info {
+.div--content{
     display: flex;
     align-items: center;
-    justify-content: center;
-    
-}
 
-.qr--info a{
-    width: 140px;
+}
+.form--logo{
+    position: fixed;
+    margin-left: 10px;
+}
+.form--consult input{
     text-align: center;
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #008bef;
+    background: #eeecec;
+    padding: 10px;
+    border-radius: 17px;
+    border: 1px;
+    font-size: 18px;
 }
-.qr--info img{
-    width: 26px;
-    height: 24px;
+.cites--container{
+    margin: 10px;
 }
-
-.bottom--container{
-    display: flex;
-    justify-content: center;
-}
-.change--bottom{
+.container--history{
+    margin-top: 10px;
     display: flex;
     background-color: var(--section-color);
-    text-decoration: none;
-    color: var(--black);
-    font-weight: bold;
-    font-size: 1.4rem;
-    text-align: center;
-    margin: 10px;   
-    width: 120px;
-    height: 33px;
-    border-radius: 15px;
-    padding: 5px;
-    justify-content: center;
-    transition: 300ms;
+    border-radius: 70px;
+    padding: 10px;
+    align-items: center;
 }
-.change--bottom:hover{
-    background-color: var(--turquoise);
+.info--container {
+    width: 80%;
+}
+.info--container section{
+    display: flex;
+}
+.info--container p{
+    margin-left: 5px;
+}
+.info--container h4{
+    margin-left: 10px;
 }
 
-.cancel--bottom{
+.container--history a{
     display: flex;
-    background-color: var(--section-color);
+    width: 60px;
+    background-color: #8bc2c1;
     text-decoration: none;
-    color: var(--black);
-    font-weight: bold;
-    font-size: 1.4rem;
     text-align: center;
-    margin: 10px;   
-    width: 120px;
-    height: 33px;
+    margin: 10px 0px;
     border-radius: 15px;
-    padding: 5px;
-    justify-content: center;
+    padding: 10px;
     transition: 300ms;
-    border-color: var(--font-color);
+    justify-content: end;
 }
-.cancel--bottom:hover{
+.container--history a:hover{
     background-color: var(--turquoise);
 }
 
@@ -361,6 +290,7 @@ main {
     left: 70%;
     transition: 300ms;
 }
+
 .back--bottom:hover{
     background-color: var(--turquoise);
 }
