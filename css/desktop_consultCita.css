@@ -1,0 +1,109 @@
+:root{
+    --turquoise: #568281;
+    --font-color: #FFFFFF;
+    --section-color: #D3E1E1;
+    --beige: #d6c19d;
+    --black: #000000 ;
+    --orange: #fdb249 ;
+    --hour_turquoise: #20D2C8; 
+}
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html{
+    font-size: 62.5%;
+    font-family: 'DM Sans', sans-serif;
+    min-width: 320px;
+}
+header .menu-section{
+    display: flex;
+}
+.menu ul{
+    height: auto;
+}
+.menu ul li{
+    margin-top: 0px;
+}
+.menu nav img{
+    display: none;
+}
+.menu nav{
+    position: static;
+    right: none;
+    height: auto;
+    background: none;
+    padding: 0px;
+
+}
+.menu-section{
+    justify-content: end;
+    width: 100px;
+    height: 40px;
+    position: relative;
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    padding: 16px;
+    margin-block: 3px;}
+.menu-section li{
+    display: inline-block;
+}
+.menu-section li a{
+    display: inline-block;
+   font-size: 1.4rem;
+   margin: 5px;
+   text-decoration: none;
+   color: var(--turquoise);
+}
+.menu #btn_menu{
+    display: none;
+}
+.menu ul {
+    display: flex;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+.title--main{
+    font-size: 2.8rem;
+}
+.figure--card{
+    width: 150px;
+    height: 150px;
+}
+.figure--card img{
+    width: 150px;
+    height: 150px;
+}
+.psicologo--description h4{
+    font-size: 2.5rem;
+}
+.psicologo--description p{
+    font-size: 2.0rem;
+}
+.subtitle{
+    display: flex;
+    justify-content: center;
+    font-size: 2.4rem;
+}
+.cites--container{
+    display: grid;
+    justify-content: center;
+/*     grid-template-columns: auto auto auto; */
+  /*   grid-row-gap: 100px;
+    grid-column-gap: 300px; */
+}
+.info--container{
+    margin-right: 8px;
+    width: 80%;
+}
+.container--history{
+    margin: 8px;
+}
+.back--bottom{
+    left: 85%;
+}

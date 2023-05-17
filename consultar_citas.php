@@ -15,8 +15,8 @@ include("./conexion.php");
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@300;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style_consultCita.css">
-    <link rel="stylesheet" href="./css/tablet_psicologos.css" media="screen and (min-width: 600px)"/>
-    <link rel="stylesheet" href="./css/desktop_psicologos.css" media="screen and (min-width: 800px)"/>
+    <link rel="stylesheet" href="./css/tablet_consultCita.css" media="screen and (min-width: 600px)"/>
+    <link rel="stylesheet" href="./css/desktop_consultCita.css" media="screen and (min-width: 800px)"/>
 </head>
 <body>
 <header>
@@ -24,7 +24,7 @@ include("./conexion.php");
             <figure class="figure_header"> 
                 <img 
                 src="./img/logo_header.svg" 
-                alt="lgo de kuhtone"
+                alt="logo de kuhtone"
                 />  
                 <figcaption></figcaption> 
             </figure>
@@ -75,25 +75,40 @@ include("./conexion.php");
             <input class="input--consult" type="text" name="consult--calendar" placeholder="Digite el id de la cita">
             </div>
         </form>
-        <div class= "cites--container">
         <h2 class= "subtitle"> Tus citas </h2>
-        <div class ="container--history"> 
-            <div class="info--container">
-                <section>
-                    <h4>ID angendamiento:</h4>
-                    <p>1 </p>
-                </section>
-                <section>
-                    <h4>Fecha de agendamiento:</h4>
-                    <p>2 ferero 2021</p>
-                </section>
-                <section>
-                    <h4>Hora de agendamiento:</h4>
-                    <p>12:00</p>
-                </section>
-            </div>
-            <a  class="mas--select"href=""> Ver más</a>
-        </div>
+        <div class= "cites--container">
+        
+        <?php
+         $consulta = mysqli_query($conection, "SELECT * FROM agendamiento") or die ("Error al traer los datos");
+            if(mysqli_num_rows($consulta) > 0)
+            {
+                while($consulta_agenda= mysqli_fetch_array($consulta))
+                {
+                    $dispo = mysqli_query($conection, "SELECT * FROM disponibilidad WHERE id_disponibilidad= '".$consulta_agenda['id_disponibilidad']."'") or die ("Error al traer los datos");
+                    while($consulta_dispo= mysqli_fetch_array($dispo))
+                    {
+                        echo '
+                            <div class ="container--history"> 
+                                <div class="info--container">
+                                    <section>
+                                        <h4>ID angendamiento:</h4>
+                                        <p>'.$consulta_agenda["id_agendamiento"].' </p>
+                                    </section>
+                                    <section>
+                                        <h4>Fecha de agendamiento:</h4>
+                                        <p>'.$consulta_dispo["fecha_disponibilidad"].'</p>
+                                    </section>
+                                    <section>
+                                        <h4>Hora de agendamiento:</h4>
+                                        <p>'.$consulta_dispo["hora_inicio"].'</p>
+                                    </section>
+                                </div>
+                                <a  class="mas--select"href = "./detalle_cita.php?id_dispo='.$consulta_agenda['id_disponibilidad'].'"> Ver más</a>
+                            </div>';
+                    }
+                }
+            }
+            ?>
         
         </div>
         

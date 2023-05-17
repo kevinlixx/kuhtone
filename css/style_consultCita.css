@@ -221,7 +221,7 @@ main {
 
 }
 .form--logo{
-    position: fixed;
+    position: absolute;
     margin-left: 10px;
 }
 .form--consult input{
@@ -232,8 +232,15 @@ main {
     border: 1px;
     font-size: 18px;
 }
+.subtitle {
+    display: flex;
+    justify-content: center;
+    font-size: 2.0rem;
+}
 .cites--container{
+    display: grid;
     margin: 10px;
+    justify-content: center;
 }
 .container--history{
     margin-top: 10px;
@@ -251,9 +258,11 @@ main {
 }
 .info--container p{
     margin-left: 5px;
+    font-size: 1.1rem;
 }
 .info--container h4{
     margin-left: 10px;
+    font-size: 1.1rem;
 }
 
 .container--history a{

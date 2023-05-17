@@ -1,0 +1,12 @@
+.cites--container {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: auto auto;
+}
+.container--history {
+    margin: 8px;
+}
+
+.back--bottom{
+    left: 80%;
+}
