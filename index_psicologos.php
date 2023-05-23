@@ -40,7 +40,7 @@
                     <?php
                       echo'
                       <li><a href="./index_psicologos.php?id_perfil='.$id_profesional.'">Inicio</a></li>
-                        <li><a href="./perfil.php?id_perfil='.$id_profesional.'">Mi disponibilidad</a></li>
+                        <li><a href="./insert_disponibilidad.php?id_perfil='.$id_profesional.'">Mi disponibilidad</a></li>
                         <li><a href="./perfil.php?id_perfil='.$id_profesional.'">Mi perfil</a></li>
                         <li><a href="./index.php" id="selected">Cerrar Sesion</a></li>';
                         ?>
@@ -63,8 +63,11 @@
             <div class="container-all" >
               <h1 class="title-categorias" id="catego">Opciones </h1>
               <div class="container-caja" id="container">
-                <a href="#"
-                  ><div class="caja caja1">
+                <?php
+                echo'
+                <a href="./insert_disponibilidad.php?id_perfil='.$id_profesional.'"">';
+                ?>
+                  <div class="caja caja1">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-stats" width="52" height="52" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff9300" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                         <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />

@@ -1,6 +1,6 @@
 <?php
     include("./conexion.php");
- /*    $id_paciente= $_GET['id_perfil']; */
+    $id_profesional= $_GET['id_perfil'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,9 +39,9 @@
                     <ul> 
                     <?php
                       echo'
-                      <li><a href="./index_usr.php?id_perfil='.$id_paciente.'">Inicio</a></li>
-                        <li><a href="./consultar_citas.php?id_perfil='.$id_paciente.'">Mis citas</a></li>
-                        <li><a href="./perfil.php?id_perfil='.$id_paciente.'">Mi perfil</a></li>
+                      <li><a href="./index_psicologos.php?id_perfil='.$id_profesional.'">Inicio</a></li>
+                        <li><a href="./insert_disponibilidad.php?id_perfil='.$id_profesional.'">Mi disponibilidad</a></li>
+                        <li><a href="./perfil.php?id_perfil='.$id_profesional.'">Mi perfil</a></li>
                         <li><a href="./index.php" id="selected">Cerrar Sesion</a></li>';
                         ?>
                     </ul>
@@ -60,11 +60,6 @@
     <main>
         <?php
                     echo'
-
-';
-                    
-                
-                    ?>
                     <section class="seccion-perfil-usuario">
                         </div>
                         <div class="perfil-usuario-body">
@@ -72,7 +67,7 @@
                             <figure class="dispo_logo">
                                 <img src="./img/logo_dispo.svg" alt="">
                             </figure>
-                            <form action="" method="GET">
+                            <form action="" method="POST">
                             <div class="input--dispo">
                                 <h3>Insertar Disponibilidad</h3>
                                 <p>Fecha</p>
@@ -82,10 +77,34 @@
                                 <p>Hora de finalización</p>
                                 <input  class="input-info" type="time" name="hora_final">
                             </div>
-                            <input class="input-submit" type="submit" value="Registrar">
+                            <input class="input-submit" name="registrar" type="submit" value="Registrar">
                             </div>
-                            
-                            </form>
+                        ';
+                        if(isset($_POST ['registrar'])){
+                            $id_disponibilidad ="";
+                            $fecha_disponibilidad =$_POST['fecha_disponibilidad'];
+                            $hora_inicio = $_POST['hora_inicio'];
+                            $hora_final= $_POST['hora_final'];
+                            $estadoDisponibilidad= 1;
+
+                                $instruccion_SQL = "INSERT INTO  disponibilidad (id_disponibilidad, fecha_disponibilidad, hora_inicio, hora_final, id_profesional, id_estadoDisponibilidad)
+                                VALUES ('$id_disponibilidad','$fecha_disponibilidad','$hora_inicio','$hora_final.','$id_profesional','$estadoDisponibilidad')";
+                                    $resultado = mysqli_query($conection,$instruccion_SQL) or trigger_error("Query Failed! SQL-Error: ".mysqli_error($conection), E_USER_ERROR);
+                                    if($resultado) {
+                                        $id_perfil = mysqli_insert_id($conection);
+                                        echo "<script>alert('Se ha registrado exitosamente');
+                                        window.location.href='./perfil.php?id_perfil=".$id_profesional."';</script>";       
+                                } else {  
+                                        echo "<script>alert('error en realizar el registro');</script>";
+                                } 
+                            mysqli_close($conection);
+                                    
+                        }
+                                        
+                            ?>
+                                            
+
+ </form>
 ';
 </main>
 <footer class="pie-pagina">
