@@ -1,0 +1,398 @@
+/* lo que debe tener si o si el aplciativo */
+:root{
+    --turquoise: #568281;
+    --font-color: #FFFFFF;
+    --section-color: #D3E1E1;
+    --beige: #d6c19d;
+    --black: #000000 ;
+    --orange: #         ;
+}
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html{
+    font-size: 62.5%;
+    font-family: 'DM Sans', sans-serif;
+    min-width: 240px;
+}
+
+header{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    min-width: 320px; /* dimension más chica de los celulareas */
+    height: 50px;
+    text-align:center;
+    border-bottom: 2px inset;
+}
+header .section_header{
+    width: 100%;
+    height: 49px;
+    position: relative;
+    display: flex;
+}
+header .figure_header{
+    width: 100px;
+    height: 48px;
+    position: relative;
+    display: flex;
+    margin-block: 3px;
+}
+.menu-section{
+    display: none;
+   
+}
+.menu{
+    justify-content: end;
+    width: 100px;
+    height: 40px;
+    position: relative;
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    padding: 16px;
+    margin-block: 3px;
+}
+
+.menu ul{
+    display: flex;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+.menu ul li{
+    list-style: none;
+    margin-left: 36px;
+}
+
+.menu ul li a{
+    text-decoration: none;
+    font-size: 1.4rem;
+    margin: 5px;
+    color: #528281;
+    transition: color 0.4s ease;
+    transition: 0.4s;
+}
+.menu ul li a:hover{
+    color:black;
+    margin-left:3rem;
+}
+#selected{
+    background:transparent;
+    border:2px solid #fdb249;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 12px;
+    border-radius: 50px;
+    transition: 0.4s ;
+} 
+#selected:hover{
+    color: black;
+}
+
+.logo img{
+    width: 160px;
+    
+}
+.menu nav{
+    display: block;
+    position: fixed;
+    top: 0;
+    right: -250px;
+    background: white;
+    width: 250px;
+    height: 72vh;
+    padding: 40px;
+    z-index: 1;
+    transition: all 300ms;
+}
+
+.menu ul{
+    flex-direction: column;
+    color: #d3e1e1;
+    text-align: center;
+    text-align-last: left;
+    height: 10px;
+    width: auto;
+    text-align: center;
+}
+
+.menu ul li{
+    margin-top: 30px;
+    margin-left: 0;
+}
+
+.menu ul li a{
+    color:var(--turquoise);
+}
+
+#selected{
+    background:transparent;
+    border:2px solid #fdb249;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    background-size: auto;
+    display:inline-flex;
+    transition: 0.4s ; 
+    justify-content: center;  
+
+}
+
+.menu nav img{
+    margin:10px;
+    display: block;
+    text-align: center;
+    width: 120px;
+    height: auto;
+    background-color: transparent;
+    background-position:0cqb;
+    border-radius: 10px;
+    /* box-shadow: 0 2px 4px var(--turquoise); */
+    display: inline-block;
+    margin-left: 10px;
+}
+
+#back_menu{ /* el tamaño del menu que se mostrara */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    z-index: 1;
+}
+
+.menu #btn_menu{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    color: #528281;
+    background: rgba(226, 219, 219, 0.1);
+    font-size: 30px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 300ms;
+}
+#btn_menu:checked ~ main {
+    background-color: #333;
+  }
+
+.menu #btn_menu:hover{
+    background:rgba(12, 12, 12, 0.1);
+}
+
+
+header .menu-header{
+    justify-content: end;
+    width: 100px;
+    height: 40px;
+    position: relative;
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    padding: 16px;
+    margin-block: 3px;
+}
+
+/* contenido de la pagina */
+.container{
+    -webkit-box-align: center;
+    align-items: center;
+    
+    /* background-image: url(../images/Background-page.svg); *//*llama la imagen del avion*/
+    
+}
+/* .comtainer{
+    max-width: 1200px;
+    height: 70%;
+    margin: auto;
+    display: flex;
+    background-size: auto 100%;
+    align-items: center;
+    justify-content: space-between;
+} */
+.container {
+    max-width: 1200px;
+    height: 70%;
+    padding: 20px 10px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(40rem, 1fr));
+    justify-content: space-between;
+    background-position: right;
+    background-repeat: no-repeat;
+}
+
+.container .text {
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content:center; /* added */
+}
+
+.container .text h1 {
+    font-size: 36px;
+    font-weight: 600;
+    text-align:center; 
+}
+
+.container .text p {
+    font-size: 2rem;
+    margin-top: 40px;
+    margin-right: 1.5rem;
+    text-align: center;
+}
+
+.container .text input {
+    padding: 18px 80px;
+    border: none;
+    font-size: 16px;
+    border-radius: 50px;
+    margin-top: 40px;
+    background: linear-gradient(to right, #D3E1E1, #20d2c8/*var(--turquoise)*/);
+    color: black;
+    cursor: pointer;
+    box-shadow: 1px 1px 30px -12px var(--turquoise);
+    transition: all 300ms;
+}
+
+.container .text input:hover {
+    box-shadow: 1px 1px 30px -6px #161111;
+}
+
+.container .image_svg{
+    margin-left: auto;
+    margin-right:auto; /* added */
+    width: 45rem;
+    height: 450px;
+    animation: move-vector 2s linear infinite;
+}
+
+@keyframes move-vector {
+    0%{
+        transform: translateY(15px); 
+    }50%{ /*El primer fotograma (0%) establece que el elemento se desplazará hacia abajo (translateY(15px)) 15 píxeles desde su posición original.*/
+        transform: translateY(0px);
+    }100%{/*El segundo fotograma (50%) establece que el elemento volverá a su posición original (0 píxeles de desplazamiento). */
+        transform: translateY(15px);
+    }/*El tercer fotograma (100%) establece que el elemento se desplazará hacia abajo otros 15 píxeles*/
+  }
+
+main {
+    width: 100%;
+    min-width: 320px;
+    height: auto/* 500px */;
+}
+/*segunda seccion*/
+.container_cov {
+    padding: 1rem 0rem;
+    background-color: var(--white);
+    position: relative;
+    display: block;
+    
+    }
+.cover{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    text-align: center;
+    gap: 2rem;
+    justify-content: center;
+    padding: 0rem;
+    background-color: rgb(243, 244, 253);
+}
+ /*    .cover{
+    display: grid;
+    grid-template-columns: 1fr;
+    position: relative;
+    text-align: center;
+    gap: 2rem;
+    justify-content: center;
+    padding: 0rem;
+    background-color: rgb(243, 244, 253);
+    
+    } */
+    .cover .text{
+    justify-content: center;
+    display: grid;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    
+    }
+    .cover .text h2{
+    text-align: center;
+    font-size: 2.4rem;
+    padding-bottom: 2.4rem ;
+    margin-bottom: 1.5rem;
+    }
+    
+    .cover .text .opcs p{
+    display: grid;
+    grid-template-columns: auto;
+    font-size: 2rem;
+    text-align: left;
+    margin-left: 60px;
+    margin-right: 1.5rem;
+    padding-bottom: 30px;
+    
+}
+
+.perfil--logos svg{
+    display: flex;
+    width: 2.4rem;
+    height: auto;
+    position:absolute;
+    margin-left: 30px;
+    margin-right: 1.5rem;
+    padding-bottom: 30px;
+    
+}
+    .cover .psyco_svg {
+    -webkit-box-pack: center;
+    flex-direction: column-reverse;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+}
+    .cover .psyco_svg img{
+    margin-left: 1.4rem;
+    margin-top: 1.4rem;
+    margin-right: 2rem;
+    padding: 5px;
+    /* min-width: 100%;
+    max-width: 100%;
+    min-height: 100%;
+    max-height: 100%; 
+    width: auto;
+    height: auto; 
+    /* justify-content: left;
+    position: relative; */
+    border-radius: 0px 60% 60% 0px;
+    position: relative;
+    }
+
+/* para el footer */
+.pie-pagina {
+    position: relative;
+    width: 100%;
+    background-color:var(--font-color);
+    text-align: center;
+    min-width: 320px;
+}
+.pie-pagina .footer_copy{
+    background-color: var(--section-color);
+    padding: 15px 10px;
+    text-align: center;
+    color:var(--turquoise);
+}
+.pie-pagina .footer_copy small{
+    font-size: 15px;
+}

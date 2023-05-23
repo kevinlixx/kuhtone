@@ -1,0 +1,349 @@
+    /* lo que debe tener si o si el aplciativo */
+    :root{
+        --turquoise: #568281;
+        --font-color: #FFFFFF;
+        --section-color: #D3E1E1;
+        --beige: #d6c19d;
+        --black: #000000 ;
+        --orange: #fdb249 ;
+        --hour_turquoise: #20D2C8; 
+    }
+    *{
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    html{
+        font-size: 62.5%;
+        font-family: 'DM Sans', sans-serif;
+        min-width: 240px;
+    }
+
+    header{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        min-width: 320px; /* dimension más chica de los celulareas */
+        height: 50px;
+        text-align:center;
+        border-bottom: 2px inset;
+    }
+    header .section_header{
+        width: 100%;
+        height: 49px;
+        position: relative;
+        display: flex;
+    }
+    header .figure_header{
+        width: 100px;
+        height: 48px;
+        position: relative;
+        display: flex;
+        margin-block: 3px;
+    }
+    .menu-section{
+        display: none;
+    
+    }
+    .menu{
+        justify-content: end;
+        width: 100px;
+        height: 40px;
+        position: relative;
+        display: flex;
+        flex-grow: 1;
+        align-items: center;
+        padding: 16px;
+        margin-block: 3px;
+    }
+
+    .menu ul{
+        display: flex;
+        position: relative;
+        margin: 0;
+        padding: 0;
+    }
+
+    .menu ul li{
+        list-style: none;
+        margin-left: 36px;
+    }
+
+    .menu ul li a{
+        text-decoration: none;
+        font-size: 1.4rem;
+        margin: 5px;
+        color: #528281;
+        transition: color 0.4s ease;
+        transition: 0.4s;
+    }
+    .menu ul li a:hover{
+        color:black;
+        margin-left: 3rem;
+    }
+    #selected{
+        background:transparent;
+        border:2px solid #fdb249;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        padding: 10px;
+        border-radius: 50px;
+        text-align: center;
+        transition: 0.4s ;
+    } 
+    #selected:hover{
+        color: black;
+        margin-left: 3rem;
+    }
+
+    .logo img{
+        width: 160px;
+        
+    }
+    .menu nav{
+        display: block;
+        position: fixed;
+        top: 0;
+        right: -250px;
+        background: white;
+        width: 250px;
+        height: 72vh;
+        padding: 40px;
+        z-index: 2;
+        transition: all 300ms;
+    }
+
+    .menu ul{
+        flex-direction: column;
+        color: #d3e1e1;
+        text-align: center;
+        text-align-last: left;
+        height: 10px;
+        width: auto;
+        text-align: center;
+    }
+
+    .menu ul li{
+        margin-top: 30px;
+        margin-left: 0;
+    }
+
+    .menu ul li a{
+        color:var(--turquoise);
+    }
+
+    .menu nav img{
+        margin:10px;
+        display: block;
+        text-align: center;
+        width: 120px;
+        height: auto;
+        background-color: transparent;
+        background-position:0cqb;
+        border-radius: 10px;
+        /* box-shadow: 0 2px 4px var(--turquoise); */
+        display: inline-block;
+        margin-left: 10px;
+    }
+    #back_menu{ /* el tamaño del menu que se mostrara */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.5);
+        display: none;
+        z-index: 1;
+    }
+    
+    .menu #btn_menu{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        color: #528281;
+        background: rgba(226, 219, 219, 0.1);
+        font-size: 30px;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 300ms;
+    }
+    #btn_menu:checked ~ main {
+        background-color: #333;
+      }
+    
+    .menu #btn_menu:hover{
+        background:rgba(12, 12, 12, 0.1);
+    }
+
+    header .menu-header{
+        justify-content: end;
+        width: 100px;
+        height: 40px;
+        position: relative;
+        display: flex;
+        flex-grow: 1;
+        align-items: center;
+        padding: 16px;
+        margin-block: 3px;
+    }
+    main {
+        width: 100%;
+        min-width: 320px;
+        margin-top: 5rem;
+    }
+    .container-all {
+        display: grid;
+        max-width: 100rem;
+        margin-top: 4rem;
+        max-width: 20rem;
+        margin: auto;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    #container{
+        padding: 40px 40px;
+        display: flex;
+        justify-content: center;
+        display: block;
+        position: relative ;
+      }
+     
+
+      .title-categorias{
+        font-size: 40px;
+        margin: auto;
+    }
+    #catego{
+        padding: 0px 100px;
+        display: flex;
+        border-radius: 50px;
+        justify-content: center;
+        background: linear-gradient(to right, #2db4ae, #f8f8f8, #2db4ae );
+        box-shadow: 1px 1px 30px -12px #b3c9c8;
+        transition: all 300ms;
+        border: solid #f8f8f8;
+    }
+
+    .container-caja {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 5rem;
+        justify-content: center;
+    }
+    .container-caja a {
+        text-decoration: none;
+        color: black;
+        display: block;
+    }
+    .caja {
+        width: 30rem;
+        height: 280px;
+        padding: 20px;
+        margin: 20px;
+        background: rgb(244, 242, 242);
+        /* box-shadow: 1.5px 1.5px 1.5px 1.5px black; */
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+        display: block;
+        position: relative;
+        transition: 300ms;
+    }
+    .caja:hover {
+        transform: translate(5px, -5px);
+        box-shadow: -10px 10px 20px -10px rgb(0, 0, 0, 0.5);
+    } 
+
+    .caja .icon,
+    .caja h4,
+    .caja p {
+    position: relative; /* para que funcione la animación y se ponga por encima*/
+    z-index: 1; /* para que se ponga encima de todo */
+    transition: all 300ms;
+    }
+    .caja .icon {
+        font-size: 40px;
+        color: rgb(160, 121, 95);
+        transform: translatey(30px);
+      }
+      
+      .caja:hover .icon {
+        color: #ffffff;
+        font-size: 30px;
+        transform: translateY(0);
+      }
+
+
+    .caja h4,
+    .caja p {
+      margin-top: 10 px;
+    }
+    .caja h4 {
+    font-size: 30px;
+    transform: translatey(30px);
+    }
+   
+    .caja:hover h4 {
+    transform: translateY(0);
+    color: white;
+    }
+    
+    .caja p {
+    font-size: 14px;
+    transform: translatey(100px); /* moverlo 100px en el eje y */
+    opacity: 0;
+    }
+
+    .caja:hover p {
+    transform: translateY(0);
+    opacity: 1;
+    color: white;
+    }
+
+    .caja .animacion {
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        top: 250px;
+        left: -170px;
+        border-radius: 100%;
+        transition: all 300ms;
+        background: linear-gradient(to bottom, #995c06, #fdb249);
+    }
+    .caja:hover .animacion {
+        /* para que cuando se pasa el mouse realice la animación */
+        width: 40rem;
+        height: 40rem;
+        top: -150px;
+        left: -70px;
+    }
+
+    .caja2 .animacion {
+        background: linear-gradient(to bottom, var(--turquoise), var(--hour_turquoise));
+    }
+
+    .caja3 .animacion {
+        background: linear-gradient(to bottom,#7edfdf, #94b7b9);
+    }
+    
+    .pie-pagina {
+        position: relative;
+        width: 100%;
+        background-color:var(--font-color);
+        text-align: center;
+        min-width: 320px;
+    }
+    .pie-pagina .footer_copy{
+        background-color: var(--section-color);
+        padding: 15px 10px;
+        text-align: center;
+        color:var(--turquoise);
+    }
+    .pie-pagina .footer_copy small{
+        font-size: 15px;
+    }

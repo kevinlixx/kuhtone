@@ -269,6 +269,7 @@ main {
     display: flex;
     width: 60px;
     background-color: #8bc2c1;
+    color: var(--black);
     text-decoration: none;
     text-align: center;
     margin: 10px 0px;

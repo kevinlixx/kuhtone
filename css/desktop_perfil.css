@@ -12,11 +12,7 @@
     margin: 0;
     padding: 0;
 }
-html{
-    font-size: 62.5%;
-    font-family: 'DM Sans', sans-serif;
-    min-width: 320px;
-}
+
 header .menu-section{
     display: flex;
 }
@@ -52,7 +48,7 @@ header .menu-section{
 }
 .menu-section li a{
     display: inline-block;
-   font-size: 1.4rem;
+   font-size: 14px;
    margin: 5px;
    text-decoration: none;
    color: var(--turquoise);
@@ -66,42 +62,4 @@ header .menu-section{
     margin: 0;
     padding: 0;
     display: block;
-}
-
-.title--main{
-    font-size: 2.8rem;
-}
-.figure--card{
-    width: 150px;
-    height: 150px;
-}
-.figure--card img{
-    width: 150px;
-    height: 150px;
-}
-.psicologo--description h4{
-    font-size: 2.5rem;
-}
-.psicologo--description p{
-    font-size: 2.0rem;
-}
-.subtitle{
-    display: flex;
-    justify-content: center;
-    font-size: 2.4rem;
-}
-.cites--container{
-    display: grid;
-    justify-content: center;
-     grid-template-columns: auto auto auto;
-}
-.info--container{
-    margin-right: 8px;
-    width: 80%;
-}
-.container--history{
-    margin: 8px;
-}
-.back--bottom{
-    left: 85%;
 }
