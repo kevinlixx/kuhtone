@@ -37,10 +37,14 @@
                 <nav id="nav" class="menu-section">
                     <img src="img/logo_header.svG" alt="">
                     <ul> 
-                        <li><a href="#">Realizar agendamiento</a></li>
-                        <li><a href="#">Reportes</a></li>
-                        <li><a href="#">Mi perfil</a></li>
-                        <li><a href="./index.php" id="selected">Cerrar Sesion</a></li>
+                    <?php
+                      echo'
+                      <li><a href="./index_psicologos.php?id_perfil='.$id_profesional.'">Inicio</a></li>
+                        <li><a href="./perfil.php?id_perfil='.$id_profesional.'">Mi disponibilidad</a></li>
+                        <li><a href="./perfil.php?id_perfil='.$id_profesional.'">Mi perfil</a></li>
+                        <li><a href="./index.php" id="selected">Cerrar Sesion</a></li>';
+                        ?>
+                        
                     </ul>
                 </nav>
             </div>
@@ -70,7 +74,7 @@
                         <path d="M7 3v4" />
                         <path d="M3 11h16" />
                       </svg>
-                    <h4>Programar Agendamiento</h4>
+                    <h4>Programar agendamiento</h4>
                     <p>Aqui puedes programar los agendamientos de las citas</p>
                     <div class="animacion">
                     </div>
@@ -88,8 +92,8 @@
                         <path d="M8 11h4" />
                         <path d="M8 15h3" />
                       </svg>
-                    <h4>Ver Reportes</h4>
-                    <p>Aquí puedes ver la lista de reportes realizados.</p>
+                    <h4>Mi disponibilidad</h4>
+                    <p>Aquí puedes ver la lista de disponibilidad hechas por ti.</p>
                     <div class="animacion"></div></div
                 ></a>
               </div>
