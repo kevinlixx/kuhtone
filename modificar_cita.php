@@ -3,6 +3,7 @@
 include("./conexion.php");
 session_start();
 $id_agenda= $_GET['id_agenda'];
+$id_paciente= $_GET['id_perfil'];
 
 $agendamiento ="SELECT * FROM agendamiento WHERE id_agendamiento = $id_agenda";
 $consulta_agendamiento = mysqli_query($conection, $agendamiento ) or die ("Error al traer los datos");
@@ -99,8 +100,9 @@ $consulta_agendamiento = mysqli_query($conection, $agendamiento ) or die ("Error
                                   <figcaption></figcaption> 
                               </figure>
                               <div class="psicologo--description">
-                              <p>'.$consulta_profesional["descripcion"].'</p>
-                              <a href="./psicologos.php" class="mas_info--description">cambiar de psicologo</a>
+                              <p>'.$consulta_profesional["descripcion"].'</p>';
+                              /* <a href="./psicologos.php" class="mas_info--description">cambiar de psicologo</a> */
+                              echo'
                             </div>
                           </section>
 
@@ -174,7 +176,7 @@ $consulta_agendamiento = mysqli_query($conection, $agendamiento ) or die ("Error
                   $status_on =  mysqli_query($conection, $instruccion_updateOn) or trigger_error("Query Failed! SQL-Error: ".mysqli_error($conection), E_USER_ERROR);
                   if($resultado) {
                     echo "<script>alert('Se ha modificado exitosamente el agendamiento');
-                    window.location.href = './detalle_cita.php?id_dispo=".$id_disponibilidad."';</script>";          
+                    window.location.href = './detalle_cita.php?id_dispo=".$id_disponibilidad."&id_perfil=".$id_paciente."';</script>";          
                   } else {  
                       echo "<script>alert('error en realizar la modificación del agendamiento');</script>";
                   } 

@@ -3,6 +3,7 @@
 session_start();
 include("./conexion.php");
 $id= $_GET['id'];
+$id_paciente= $_GET['id_perfil'];
 
 $profesional ="SELECT * FROM profesional WHERE id_profesional = $id";
 $consulta = mysqli_query($conection, $profesional ) or die ("Error al traer los datos");
@@ -46,10 +47,12 @@ $consulta = mysqli_query($conection, $profesional ) or die ("Error al traer los 
                 <nav id="nav" class="menu-section">
                     <img src="img/logo_header.svG" alt="">
                     <ul> 
-                        <li><a href="./psicologos.html" >Inicio</a></li>
-                        <li><a href="#">Asignar cita</a></li>
-                        <li><a href="#" >Mis citas</a></li>
-                        <li><a href="#" id="selected">Iniciar Sesion</a></li>
+                    <?php
+                      echo'
+                        <li><a href="./consultar_citas.php?id_perfil='.$id_paciente.'">Mis citas</a></li>
+                        <li><a href="./perfil.php?id_perfil='.$id_paciente.'">Mi perfil</a></li>
+                        <li><a href="./index.php" id="selected">Cerrar Sesion</a></li>';
+                        ?>
                     </ul>
                 </nav>
             </div>
@@ -175,9 +178,10 @@ $consulta = mysqli_query($conection, $profesional ) or die ("Error al traer los 
        
                 $_SESSION['id_profesional'] = $consulta_total["id_profesional"];
             }
-    ?>
-                    <a href='./horario_citas.php' class="asignar--bottom">asignar</a>
-                    <a href="./psicologos.php" class="back--bottom">volver</a>
+            echo'
+                    <a href="./horario_citas.php?id_perfil='.$id_paciente.'" class="asignar--bottom">asignar</a>
+                    <a href="./psicologos.php?id_perfil='.$id_paciente.'" class="back--bottom">volver</a>';
+                    ?>
     
     </main>
    <footer class="pie-pagina">

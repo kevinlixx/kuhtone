@@ -96,10 +96,15 @@
                             $sentencia->execute();
                             $insertar = $sentencia ->get_result();
                                 if($fila = $insertar->fetch_assoc()){
-                                    echo '<script>alert("te has iniciado correctamente");window.location.href="./index_admin.php";  </script>';
+                                    $consulta = "SELECT * FROM administrador WHERE correo= '$correo' AND contrasena= '$contrasena' AND estado_cuenta = '1' ";
+                                    $consult = mysqli_query($conection, $consulta ) or die ("Error al traer los datos");
+
+                                    if($busqueda= mysqli_fetch_array($consult)){
+                                    echo '<script>alert("te has iniciado correctamente");window.location.href="./index_admin.php?id_perfil='.$busqueda["id_admin"].'";  </script>';
+                                    }
                                 }else{
                                     echo "<script>alert('Usuario o contraseña incorrecto intente nuevamente')</script>";
-                                    echo "<script>location.href='login-register.php'</script>";
+                                    echo "<script>location.href='login-register_admi.php'</script>";
                                 }
                         }
                             ?>

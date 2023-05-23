@@ -3,6 +3,7 @@
 session_start();
 include("./conexion.php");
 $id_dispo= $_GET['id_dispo'];
+$id_paciente= $_GET['id_perfil'];
 
 $agendamiento ="SELECT * FROM agendamiento WHERE id_disponibilidad = $id_dispo";
 $consulta_agendamiento = mysqli_query($conection, $agendamiento ) or die ("Error al traer los datos");
@@ -47,10 +48,12 @@ $consulta_agendamiento = mysqli_query($conection, $agendamiento ) or die ("Error
                 <nav id="nav" class="menu-section">
                     <img src="img/logo_header.svG" alt="">
                     <ul> 
-                        <li><a href="./psicologos.html" >Inicio</a></li>
-                        <li><a href="#">Asignar cita</a></li>
-                        <li><a href="#" >Mis citas</a></li>
-                        <li><a href="#" id="selected">Iniciar Sesion</a></li>
+                    <?php
+                      echo'
+                        <li><a href="./consultar_citas.php?id_perfil='.$id_paciente.'">Mis citas</a></li>
+                        <li><a href="./perfil.php?id_perfil='.$id_paciente.'">Mi perfil</a></li>
+                        <li><a href="./index.php" id="selected">Cerrar Sesion</a></li>';
+                        ?>
                     </ul>
                 </nav>
             </div>
@@ -191,13 +194,15 @@ $consulta_agendamiento = mysqli_query($conection, $agendamiento ) or die ("Error
                                     <div class="bottom--container">
                                         <?php
                                         echo'
-                                        <a href="./modificar_cita.php?id_agenda='.$consulta_agenda["id_agendamiento"].'" class="change--bottom">modificar cita</a>
+                                        <a href="./modificar_cita.php?id_agenda='.$consulta_agenda["id_agendamiento"].'&id_perfil='.$id_paciente.'" class="change--bottom">modificar cita</a>
                                         <input type="submit" value="Cancelar cita" class="cancel--bottom" name="eliminar" required>
                                         ';
                                         ?>
                                     </div>
-                                    <a href="./psicologos.php" class="back--bottom">volver</a>
-            <?php
+            <?php                  
+                                 echo'   
+                                    <a href="./consultar_citas.php?id_perfil='.$id_paciente.'" class="back--bottom">volver</a>';
+            
                          if(isset($_POST ['eliminar'])){
                             $id_agenda =$consulta_agenda ['id_agendamiento'];
                             $instruccion_SQL="DELETE FROM agendamiento WHERE id_agendamiento = $id_agenda";
@@ -209,7 +214,7 @@ $consulta_agendamiento = mysqli_query($conection, $agendamiento ) or die ("Error
                             
                             if($resultados){
                             echo "<script>alert('Se ha eliminado exitosamente el agendamiento');
-                                    window.location.href ='./psicologos.php';</script>";          
+                                    window.location.href ='./index_usr.php?id_perfil=".$id_paciente."';</script>";          
                                 } else {  
                                     echo "<script>alert('error en eliminar el agendamiento');</script>";
                                 } 

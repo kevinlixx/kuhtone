@@ -96,10 +96,15 @@
                             $sentencia->execute();
                             $insertar = $sentencia ->get_result();
                                 if($fila = $insertar->fetch_assoc()){
-                                    echo '<script>alert("se has iniciado correctamente");window.location.href="./index_psicologos.php";  </script>';
+                                    $consulta = "SELECT * FROM profesional WHERE correo_profesional= '$correo' AND contrasena_profesional= '$contrasena' AND estado_cuenta = '1' ";
+                                    $consult = mysqli_query($conection, $consulta ) or die ("Error al traer los datos");
+
+                                    if($busqueda= mysqli_fetch_array($consult)){
+                                    echo '<script>alert("se has iniciado correctamente");window.location.href="./index_psicologos.php?id_perfil='.$busqueda["id_profesional"].'";  </script>';
+                                    }
                                 }else{
                                     echo "<script>alert('Usuario o contraseña incorrecto intente nuevamente')</script>";
-                                    echo "<script>location.href='login-register.php'</script>";
+                                    echo "<script>location.href='login-register_psico.php'</script>";
                                 }
                         }
                             ?>

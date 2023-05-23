@@ -60,7 +60,6 @@
                         <input type="button" value="Empieza Ya!">
                         </a>
                     </div>
-    
                     <div class="image_svg">
                         <img src="img/woman-choosing_.svg" alt="seleccion cita"> <!--muestra el fondo simbolico/-->
                     </div>

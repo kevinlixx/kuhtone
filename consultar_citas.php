@@ -1,5 +1,7 @@
 <?php
 include("./conexion.php");
+$id_paciente= $_GET['id_perfil'];
+
 ?>
 
 <!DOCTYPE html>
@@ -41,10 +43,13 @@ include("./conexion.php");
                 <nav id="nav" class="menu-section">
                     <img src="img/logo_header.svG" alt="">
                     <ul> 
-                        <li><a href="./psicologos.html" >Inicio</a></li>
-                        <li><a href="#">Asignar cita</a></li>
-                        <li><a href="#" >Mis citas</a></li>
-                        <li><a href="#" id="selected">Iniciar Sesion</a></li>
+                    <?php
+                      echo'
+                      <li><a href="./index_usr.php?id_perfil='.$id_paciente.'">Inicio</a></li>
+                        <li><a href="./consultar_citas.php?id_perfil='.$id_paciente.'">Mis citas</a></li>
+                        <li><a href="./perfil.php?id_perfil='.$id_paciente.'">Mi perfil</a></li>
+                        <li><a href="./index.php" id="selected">Cerrar Sesion</a></li>';
+                        ?>
                     </ul>
                 </nav>
             </div>
@@ -65,21 +70,21 @@ include("./conexion.php");
                 alt="img de cita"/>  
                 <figcaption></figcaption> 
             </figure> 
-        <h1 class="title--main">Consultar Agendamiento</h1>
+        <!-- <h1 class="title--main">Consultar Agendamiento</h1>
         <form class="form--consult" method="POST" action="#">
-            <div class ="div--content">
+             <div class ="div--content">
             <figure class= form--logo>
             <img src="./img/experience_logo.svg" alt="logo de un agenda">
             </figure>
-             <!--<i class="fa-regular fa-user-tie-hair" style="color: #303030;"></i> -->
+             <i class="fa-regular fa-user-tie-hair" style="color: #303030;"></i> 
             <input class="input--consult" type="text" name="consult--calendar" placeholder="Digite el id de la cita">
-            </div>
+            </div> --> 
         </form>
         <h2 class= "subtitle"> Tus citas </h2>
         <div class= "cites--container">
         
         <?php
-         $consulta = mysqli_query($conection, "SELECT * FROM agendamiento") or die ("Error al traer los datos");
+         $consulta = mysqli_query($conection, "SELECT * FROM agendamiento WHERE id_paciente = '$id_paciente'") or die ("Error al traer los datos");
             if(mysqli_num_rows($consulta) > 0)
             {
                 while($consulta_agenda= mysqli_fetch_array($consulta))
@@ -103,10 +108,15 @@ include("./conexion.php");
                                         <p>'.$consulta_dispo["hora_inicio"].'</p>
                                     </section>
                                 </div>
-                                <a  class="mas--select"href = "./detalle_cita.php?id_dispo='.$consulta_agenda['id_disponibilidad'].'"> Ver más</a>
+                                <a class="mas--select" href="./detalle_cita.php?id_dispo='.$consulta_agenda['id_disponibilidad'].'&id_perfil='.$id_paciente.'">Ver más</a>
+
                             </div>';
                     }
                 }
+            }
+            else{
+                echo '<script>alert("No tiene ninguan cita registrada");
+                window.location.href="./psicologos.php?id_perfil='.$id_paciente.'";</script>';
             }
             ?>
         

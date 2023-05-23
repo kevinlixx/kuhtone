@@ -1,3 +1,7 @@
+<?php
+    include("./conexion.php");
+    $id_paciente= $_GET['id_perfil'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,10 +37,13 @@
                 <nav id="nav" class="menu-section">
                     <img src="img/logo_header.svG" alt="">
                     <ul> 
-                        <li><a href="#">Mis citas</a></li>
-                        <!-- <li><a href="./detalle_psicologo.html">Agendar cita</a></li> -->
-                        <li><a href="#">Mi perfil</a></li>
-                        <li><a href="./index.php" id="selected">Cerrar Sesion</a></li>
+                    <?php
+                      echo'
+                      <li><a href="./index_usr.php?id_perfil='.$id_paciente.'">Inicio</a></li>
+                        <li><a href="./consultar_citas.php?id_perfil='.$id_paciente.'">Mis citas</a></li>
+                        <li><a href="./perfil.php?id_perfil='.$id_paciente.'">Mi perfil</a></li>
+                        <li><a href="./index.php" id="selected">Cerrar Sesion</a></li>';
+                        ?>
                     </ul>
                 </nav>
             </div>
@@ -55,7 +62,11 @@
             <div class="container-all" >
               <h1 class="title-categorias" id="catego">Opciones </h1>
               <div class="container-caja" id="container">
-                <a href="#"
+                <?php
+                echo'
+                <a href="./psicologos.php?id_perfil='.$id_paciente.'"
+                ';
+                ?>
                   ><div class="caja caja1">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-plus" width="52" height="52" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff9300" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -72,7 +83,10 @@
                     </div>
                   </div>
               </a>
-                <a href="#">
+              <?php
+              echo'
+                <a href="./consultar_citas.php?id_perfil='.$id_paciente.'">';
+                ?>
                   <div class="caja caja2">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock-search" width="52" height="52" viewBox="0 0 24 24" stroke-width="1.5" stroke="#009988" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -81,11 +95,11 @@
                         <path d="M18 18m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
                         <path d="M20.2 20.2l1.8 1.8" />
                       </svg>
-                    <h4>Ver cita</h4>
-                    <p>Aquí puedes ver los detalles de tus próximas citas para mantenerte organizado y al día.</p>
+                    <h4>Mis citas</h4>
+                    <p>Aqui puedes ver un registro completo de todas tus citas </p>
                     <div class="animacion"></div></div
                 ></a>
-                <a href="#"
+                <!-- <a href="#"
                   ><div class="caja caja3">
                       <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-history" width="52" height="52" viewBox="0 0 24 24" stroke-width="1.5" stroke="#7edfdf" fill="none" stroke-linecap="round" stroke-linejoin="round">
                       <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -96,7 +110,7 @@
                     <p>¡Aqui puedes ver un registro completo de todas tus citas anteriores.
                     </p>
                     <div class="animacion"></div></div
-                ></a>
+                ></a> -->
                 
               </div>
             </div>

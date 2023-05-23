@@ -1,5 +1,6 @@
 <?php
 include("./conexion.php");
+$id_paciente= $_GET['id_perfil'];
 ?>
 
 <!DOCTYPE html>
@@ -41,10 +42,13 @@ include("./conexion.php");
                 <nav id="nav" class="menu-section">
                     <img src="img/logo_header.svG" alt="">
                     <ul> 
-                        <li><a href="./psicologos.html" >Inicio</a></li>
-                        <li><a href="#">Asignar cita</a></li>
-                        <li><a href="#" >Mis citas</a></li>
-                        <li><a href="#" id="selected">Iniciar Sesion</a></li>
+                    <?php
+                      echo'
+                      <li><a href="./index_usr.php?id_perfil='.$id_paciente.'">Inicio</a></li>
+                        <li><a href="./consultar_citas.php?id_perfil='.$id_paciente.'">Mis citas</a></li>
+                        <li><a href="./perfil.php?id_perfil='.$id_paciente.'">Mi perfil</a></li>
+                        <li><a href="./index.php" id="selected">Cerrar Sesion</a></li>';
+                        ?>
                     </ul>
                 </nav>
             </div>
@@ -78,14 +82,15 @@ include("./conexion.php");
                                 </figure>
                                 <div class="psicologo--description">
                                 <h4>Descripción</h4>
-                                <p class="">'.$consulta_total["descripcion"].'<a href=\'./detalle_psicologo.php?id='.$consulta_total["id_profesional"].'\'class="mas_info--description">ver más</a></p>
+                                <p class="">'.$consulta_total["descripcion"].'<a href=\'./detalle_psicologo.php?id='.$consulta_total["id_profesional"].'&id_perfil='.$id_paciente.'\'class="mas_info--description">ver más</a></p>
                             </section>
                             ';
                         
                         }
                     }
-                ?>  
-                            <a href="./index.html" class="back--bottom">volver</a>
+                    echo'
+                            <a href="./index_usr.php?id_perfil='.$id_paciente.'" class="back--bottom">volver</a>';
+                            ?>  
                         </div>
                         </div>
                        

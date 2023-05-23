@@ -1,6 +1,7 @@
 <?php
     include("./conexion.php");
     $id_paciente= $_GET['id_perfil'];
+ 
 ?>
 
 <!DOCTYPE html>
@@ -38,10 +39,12 @@
                 <nav id="nav" class="menu-section">
                     <img src="img/logo_header.svG" alt="">
                     <ul> 
-                        <li><a href="./psicologos.html" >Inicio</a></li>
-                        <li><a href="#">Asignar cita</a></li>
-                        <li><a href="#" >Mis citas</a></li>
-                        <li><a href="#" id="selected">Iniciar Sesion</a></li>
+                    <?php
+                      echo'
+                        <li><a href="./consultar_citas.php?id_perfil='.$id_paciente.'">Mis citas</a></li>
+                        <li><a href="./perfil.php?id_perfil='.$id_paciente.'">Mi perfil</a></li>
+                        <li><a href="./index.php" id="selected">Cerrar Sesion</a></li>';
+                        ?>
                     </ul>
                 </nav>
             </div>
@@ -61,7 +64,7 @@
             $consulta_paciente = mysqli_query($conection, $paciente ) or die ("Error al traer los datos");
                 if($consulta_perfil= mysqli_fetch_array($consulta_paciente)){
                     echo'
-                    <form method="GET" action="#" enctype="multipart/form-data">
+                    <form method="POST" action="./modificar_imgPerfil.php?id_perfil='.$id_paciente.'" enctype="multipart/form-data">
                         <section class="seccion-perfil-usuario">
                             <div class="perfil-usuario-header">
                                 <div class="perfil-usuario-portada">
@@ -83,12 +86,12 @@
                             </div>
                         </section>
                         ';
-                        if(isset($_GET ['actualiza_img'])){
+                        if(isset($_POST ['actualiza_img'])){
                             if($_FILES['imagen_producto']['size']>2024000){
                               echo "solo se permiten imagenes menores a 2MB";
                               exit;
                             }
-                            $dir="img/"; /* agrega la imagen añadida a la carpeta dodne queremos guardar la imagen*/ 
+                            $dir="./img/"; /* agrega la imagen añadida a la carpeta dodne queremos guardar la imagen*/ 
                             $nombre_archivo = $_FILES['imagen_producto']['name'];
                               
                             if(!move_uploaded_file($_FILES['imagen_producto']['tmp_name'],$dir.$nombre_archivo)) 
@@ -102,7 +105,8 @@
                     $actualizar_SQL = "UPDATE paciente SET foto_perfil='$imagen_producto' Where id_paciente='$id_paciente'";
                         $resultado = mysqli_query($conection,$actualizar_SQL) or trigger_error("Query Failed! SQL-Error: ".mysql_error($conection), E_USER_ERROR);
                         if($resultado){ 
-                          echo '<script>alert("se ha actualizado correctamente");window.location.href="./perfil.php?id_perfil='.$id_paciente.'";  </script>';
+                          echo '<script>alert("se ha actualizado correctamente");
+                          window.location.href="./perfil.php?id_perfil='.$id_paciente.'";  </script>';
                         }
                         else {
                           echo '<script>alert("no se puedo actualizar correctamente");window.history.go(-1);</script>';

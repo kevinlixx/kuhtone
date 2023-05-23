@@ -1,3 +1,7 @@
+<?php
+    include("./conexion.php");
+    $id_profesional= $_GET['id_perfil'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
