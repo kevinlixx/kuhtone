@@ -1,6 +1,6 @@
 <?php
     include("./conexion.php");
-    $id_paciente= $_GET['id_perfil'];
+    $id_profesional= $_GET['id_perfil'];
 ?>
 
 <!DOCTYPE html>
@@ -40,9 +40,9 @@
                     <ul> 
                     <?php
                       echo'
-                      <li><a href="./index_usr.php?id_perfil='.$id_paciente.'">Inicio</a></li>
-                        <li><a href="./consultar_citas.php?id_perfil='.$id_paciente.'">Mis citas</a></li>
-                        <li><a href="./perfil.php?id_perfil='.$id_paciente.'">Mi perfil</a></li>
+                      <li><a href="./index_psicologos.php?id_perfil='.$id_profesional.'">Inicio</a></li>
+                        <li><a href="./consultar_dispo.php?id_perfil='.$id_profesional.'">Mi disponibilidad</a></li>
+                        <li><a href="./perfil_psicologo.php?id_perfil='.$id_profesional.'">Mi perfil</a></li>
                         <li><a href="./index.php" id="selected">Cerrar Sesion</a></li>';
                         ?>
                     </ul>
@@ -60,9 +60,9 @@
     </header>
     <main>
     <?php
-            $paciente ="SELECT * FROM paciente WHERE id_paciente =$id_paciente";
-            $consulta_paciente = mysqli_query($conection, $paciente ) or die ("Error al traer los datos");
-                if($consulta_perfil= mysqli_fetch_array($consulta_paciente)){
+            $profesional ="SELECT * FROM profesional WHERE id_profesional =$id_profesional";
+            $consulta_profesional = mysqli_query($conection, $profesional) or die ("Error al traer los datos");
+                if($consulta_perfil= mysqli_fetch_array($consulta_profesional)){
                     echo'
                     <form method="POST" action="#">
                         <section class="seccion-perfil-usuario">
@@ -70,7 +70,7 @@
                                 <div class="perfil-usuario-portada">
                                     <div class="perfil-usuario-avatar">
                                         <img src="'.$consulta_perfil["foto_perfil"].'" alt="img-avatar">
-                                        <a href= "./modificar_imgPerfil.php?id_perfil='.$id_paciente.'">
+                                        <a href= "./modificar_imgPsico.php?id_perfil='.$id_profesional.'">
                                         <button type="button" class="boton-avatar">
                                             <i class="far fa-image"></i>
                                         </button>
@@ -83,7 +83,7 @@
                             </div>
                             <div class="perfil-usuario-body">
                                 <div class="perfil-usuario-bio">
-                                    <input type="hidden" value= "'.$id_paciente.'" name="id" >
+                                    <input type="hidden" value= "'.$id_profesional.'" name="id" >
                                     <input type="hidden" value= "'.$consulta_perfil["foto_perfil"].'" name="foto_perfil" >
                                     <input type="hidden" value= "'.$consulta_perfil["estado_cuenta"].'" name="estado_cuenta" >
                                     <input type="text" value= "'.$consulta_perfil["nombres"].'" name="nombres" >
@@ -94,12 +94,12 @@
                                         <div class="footer-users">
                                             <i class="icono fas fa-map-signs"></i> 
                                             <p>Direccion de correo</p>
-                                            <input type="email" value= "'.$consulta_perfil["correo"].'" name="correo">
+                                            <input type="email" value= "'.$consulta_perfil["correo_profesional"].'" name="correo">
                                         </div>
                                         <div class="footer-users">
                                             <i class="icono fas fa-map-signs"></i> 
                                             <p>Contraseña</p>
-                                            <input type="password" value= "'.$consulta_perfil["contrasena"].'" name="contrasena">
+                                            <input type="password" value= "'.$consulta_perfil["contrasena_profesional"].'" name="contrasena">
                                         </div>
                                         <div class="footer-users">
                                             <i class="fa-solid fa-phone"></i>
@@ -158,11 +158,34 @@
                                             <p>Numero Documento</p>
                                             <input name="nro_documento" type="number" value ="'.$consulta_perfil['nro_documento'].'">
                                         </div>
+                                        <div class="footer-users psico">
+                                                <i class="fa-solid fa-building-columns"></i>
+                                            <h4>Universidad egresada</h4>
+                                            <input name="nom_universidad" type="text" value ="'.$consulta_perfil['nom_universidad'].'">
+                                        </div>
+                                        </div>
+                                        <div class="perfil-usuario-footer">
+                                        <div class="footer-users psico">
+                                            <i class="fa-solid fa-building"></i>
+                                            <h4>Experencia</h4>
+                                            <input name="experiencia" type="text" value ="'.$consulta_perfil['experiencia'].'">
+                                        </div>
+                                        
+                                        <div class="footer-users psico">
+                                        <i class="fa-solid fa-graduation-cap"></i>
+                                            <h4>Especialización</h4>
+                                            <input name="especializacion" type="text" value ="'.$consulta_perfil['especializacion'].'">
+                                        </div>
+                                        <div class="footer-users psico">
+                                            <i class="fa-solid fa-book"></i>
+                                            <h4>Descripción</h4>
+                                            <input name="descripcion" type="text" value ="'.$consulta_perfil['descripcion'].'">
+                                        </div>
                                         
                                     </div>
                                     <input class="button" type="submit" value="Modificar Datos" name="modificar">
-                                    <input class="button" type="submit" value="Eliminar Cuenta cuenta" name="inhabilitar">
-                                    <a href="./perfil.php?id_perfil='.$id_paciente.'" class="button">volver</a>
+                                    <input class="button" type="submit" value="Eliminar cuenta" name="inhabilitar">
+                                    <a href="./perfil_psicologo.php?id_perfil='.$id_profesional.'" class="button">volver</a>
                                 </div>
                             </div>
                         </section>
@@ -181,13 +204,17 @@
                             $genero =$_POST['genero'];
                             $tipo_documento =$_POST['tipo_documento'];
                             $nro_documento = $_POST['nro_documento'];
+                            $nom_universidad = $_POST['nom_universidad'];
+                            $descripcion = $_POST['descripcion'];
+                            $especializacion = $_POST['especializacion'];
+                            $experiencia = $_POST['experiencia'];
                             $estado_cuenta = $_POST['estado_cuenta'];
                     
-                        $actualizar_SQL = "UPDATE paciente SET foto_perfil ='$foto_perfil',nombres='$nombres',apellidos='$apellidos',fecha_nacimiento='$fecha_nacimiento',id_genero='$genero',id_tipoDocumento='$tipo_documento',nro_documento='$nro_documento',telefono_movil='$telefono_movil',correo='$correo',contrasena='$contrasena',estado_cuenta='$estado_cuenta'  Where id_paciente='$id'";
+                        $actualizar_SQL = "UPDATE profesional SET nombres='$nombres',apellidos='$apellidos',foto_perfil ='$foto_perfil',fecha_nacimiento='$fecha_nacimiento',id_genero='$genero',id_tipoDocumento='$tipo_documento',nro_documento='$nro_documento',nom_universidad='$nom_universidad',descripcion='$descripcion',especializacion='$especializacion',experiencia='$experiencia',telefono_movil='$telefono_movil',correo_profesional='$correo',contrasena_profesional='$contrasena',estado_cuenta='$estado_cuenta'  Where id_profesional='$id_profesional'";
                             $resultado = mysqli_query($conection,$actualizar_SQL) or trigger_error("Query Failed! SQL-Error: ".mysqli_error($conection), E_USER_ERROR);
                             if($resultado){
                               
-                              echo '<script>alert("se ha actualizado correctamente");window.location.href="./perfil.php?id_perfil='.$id_paciente.'";  </script>';
+                              echo '<script>alert("se ha actualizado correctamente");window.location.href="./perfil_psicologo.php?id_perfil='.$id_profesional.'";  </script>';
                             }
                             else {
                               echo '<script>alert("no se puedo actualizar correctamente");window.history.go(-1);  </script>';
@@ -197,7 +224,7 @@
                            
                          }
                          if(isset($_POST ['inhabilitar'])){
-                            $inhabilitar_SQL = "UPDATE paciente SET estado_cuenta='2'  Where id_paciente='$id_paciente'";
+                            $inhabilitar_SQL = "UPDATE profesional SET estado_cuenta='2'  Where id_profesional='$id_profesional'";
                             $resultado = mysqli_query($conection,$inhabilitar_SQL) or trigger_error("Query Failed! SQL-Error: ".mysqli_error($conection), E_USER_ERROR);
                             if($resultado){
                               

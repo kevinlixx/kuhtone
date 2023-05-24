@@ -329,8 +329,15 @@ main{
 .perfil-usuario-footer .footer-users{
     padding: 12px 12px 12px 12px;
     text-align: center;
-    
-
+}
+.perfil-usuario-footer .footer-users.psico{
+    display: flex;
+    flex-direction: column;
+    padding: 12px 12px 12px 12px;
+    text-align: justify;
+    max-width: 308px;
+    justify-content: center;
+    align-items: center;
 }
 .perfil-usuario-footer .footer-users input{
     text-align: center;

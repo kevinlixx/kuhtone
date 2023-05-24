@@ -40,8 +40,8 @@
                     <?php
                       echo'
                       <li><a href="./index_psicologos.php?id_perfil='.$id_profesional.'">Inicio</a></li>
-                        <li><a href="./insert_disponibilidad.php?id_perfil='.$id_profesional.'">Mi disponibilidad</a></li>
-                        <li><a href="./perfil.php?id_perfil='.$id_profesional.'">Mi perfil</a></li>
+                        <li><a href="./consultar_dispo.php?id_perfil='.$id_profesional.'">Mi disponibilidad</a></li>
+                        <li><a href="./perfil_psicologo.php?id_perfil='.$id_profesional.'">Mi perfil</a></li>
                         <li><a href="./index.php" id="selected">Cerrar Sesion</a></li>';
                         ?>
                         
@@ -83,7 +83,10 @@
                     </div>
                   </div>
               </a>
-                <a href="#">
+              <?php
+                echo'
+                <a href="./consultar_dispo.php?id_perfil='.$id_profesional.'">';
+                ?>
                   <div class="caja caja2">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-report" width="52" height="52" viewBox="0 0 24 24" stroke-width="1.5" stroke="#009988" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>

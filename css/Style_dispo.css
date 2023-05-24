@@ -261,8 +261,11 @@ main{
     margin-top: 20px;
 
 }
+.bottom{
+    display: flex;
+}
 .perfil-usuario-bio .input-submit{
-    width: 150px;
+    width: 84px;
     display: flex;
     height: 30px;
     margin: auto;
@@ -292,6 +295,22 @@ main{
 .input--dispo{
     display: flex;
     flex-direction: column;
+}
+.back--bottom{
+    background-color: var(--section-color);
+    text-decoration: none;
+    color: var(--black);
+    text-align: center;
+    margin: 10px;   
+    width: 76px;
+    border-radius: 15px;
+    padding: 5px;
+    justify-content: center;
+    transition: 300ms;
+}
+.back--bottom:hover{
+    background-color: var(--turquoise);
+    color: var(--font-color);
 }
 /* para el footer */
 .pie-pagina {
