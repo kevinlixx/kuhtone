@@ -110,8 +110,8 @@ $id_profesional= $_GET['id_perfil'];
                     }
                 }
             else{
-                echo '<script>alert("No tiene ninguan cita registrada");
-                window.location.href="./psicologos.php?id_perfil='.$id_paciente.'";</script>';
+                echo '<script>alert("No tiene ninguna disponibilidad registrada");
+                window.location.href="./insert_disponibilidad.php?id_perfil='.$id_profesional.'";</script>';
             }
             ?>
         

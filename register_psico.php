@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 
     <script src="https://kit.fontawesome.com/e1d55cc160.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./css/style_login-register.css">
+    <link rel="stylesheet" href="./css/style_register.css">
     <link rel="stylesheet" href="./css/desktop_detallePsicologos.css" media="screen and (min-width: 800px)"/>
 </head>
 <body>
@@ -61,9 +61,9 @@
                         <button id="btn__iniciar-sesion">Iniciar Sesión</button>
                     </div>
                     <div class="caja__trasera-register">
-                        <h3>¿Aún no tienes una cuenta?</h3>
-                        <p>Regístrate para que puedas iniciar sesión</p>
-                        <button id="btn__registrarse">Regístrarse</button>
+                        <h3>Bienvenido</h3>
+                        <p>Regístra al nuevo psicologo</p>
+                        
                     </div>
                 </div>
 
@@ -117,7 +117,7 @@
                                 />  
                                 <figcaption></figcaption> 
                             </figure>
-                        <h2>Regístrar</h2>
+                        <h2>Regístrarse</h2>
                         <div class="grid">
                             <div class="grupo__input">
                                 <i  class="fa-solid fa-user"></i>
@@ -178,7 +178,23 @@
                             </div>
                             <div class="grupo__input">
                                 <i class="fa-solid fa-id-card"></i>
-                                <input class="document" type="number" placeholder="Numero Documento" name="documento">
+                                <input  type="number" placeholder="Numero Documento" name="documento">
+                            </div>
+                            <div class="grupo__input">
+                                <i class="fa-solid fa-building-columns"></i>
+                                <input  type="text" placeholder="universidad egresada" name="universidad">
+                            </div>
+                            <div class="grupo__input">
+                                <i class="fa-solid fa-book"></i>
+                                <input  type="text" placeholder="descripcion" name="descripcion">
+                            </div>
+                            <div class="grupo__input">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                                <input  type="text" placeholder="especializacion" name="especializacion">
+                            </div>
+                            <div class="grupo__input">
+                                <i class="fa-solid fa-building"></i>
+                                <input class="document" type="text" placeholder="experiencia" name="experiencia">
                             </div>
                             <input class="button" type="submit" value="Registrarse" name="registrar">
                             <?php
@@ -194,15 +210,19 @@
                                     $fecha_nacimiento =$_POST['fecha_nacimiento'];
                                     $tipo_document =$_POST['tipo_document'];
                                     $documento = $_POST['documento'];
+                                    $nom_universidad = $_POST['universidad'];
+                                    $descripcion = $_POST['descripcion'];
+                                    $especializacion= $_POST['especializacion'];
+                                    $experiencia = $_POST['experiencia'];
                                     $estado_cuenta = 1;
 
-                                        $instruccion_SQL = "INSERT INTO  paciente(id_paciente, foto_perfil, nombres, apellidos, fecha_nacimiento, id_genero, id_tipoDocumento, nro_documento, telefono_movil, correo, contrasena, estado_cuenta)
-                                        VALUES ('$id','$img','$nombres','$apellidos.','$fecha_nacimiento','$genero','$tipo_document','$documento','$telefono_movil','$correo','$contrasena','$estado_cuenta')";
+                                        $instruccion_SQL = "INSERT INTO profesional(id_profesional, nombres, apellidos, foto_perfil, fecha_nacimiento, id_genero, id_tipoDocumento, nro_documento, nom_universidad,descripcion, especializacion,experiencia, telefono_movil, correo_profesional, contrasena_profesional, estado_cuenta)
+                                        VALUES ('$id','$nombres','$apellidos','$img','$fecha_nacimiento','$genero','$tipo_document','$documento','$nom_universidad','$descripcion','$especializacion','$experiencia','$telefono_movil','$correo','$contrasena','$estado_cuenta')";
                                             $resultado = mysqli_query($conection,$instruccion_SQL) or trigger_error("Query Failed! SQL-Error: ".mysqli_error($conection), E_USER_ERROR);
                                             if($resultado) {
                                                 $id_perfil = mysqli_insert_id($conection);
                                                 echo "<script>alert('Se ha registrado exitosamente');
-                                                window.location.href='./perfil.php?id_perfil=".$id_perfil."';</script>";       
+                                                window.location.href='./perfil_psicologo.php?id_perfil=".$id_perfil."';</script>";       
                                         } else {  
                                                   echo "<script>alert('error en realizar el registro');</script>";
                                         } 

@@ -1,6 +1,6 @@
 <?php
     include("./conexion.php");
-    $id_profesional= $_GET['id_perfil'];
+    $id_admin= $_GET['id_perfil'];
  
 ?>
 
@@ -41,9 +41,8 @@
                     <ul> 
                     <?php
                       echo'
-                      <li><a href="./index_psicologos.php?id_perfil='.$id_profesional.'">Inicio</a></li>
-                        <li><a href="./consultar_dispo.php?id_perfil='.$id_profesional.'">Mi disponibilidad</a></li>
-                        <li><a href="./perfil_psicologo.php?id_perfil='.$id_profesional.'">Mi perfil</a></li>
+                      <li><a href="./index_admin.php?id_perfil='.$id_admin.'">Inicio</a></li>
+                        <li><a href="./perfil_admin.php?id_perfil='.$id_admin.'">Mi perfil</a></li>
                         <li><a href="./index.php" id="selected">Cerrar Sesion</a></li>';
                         ?>
                     </ul>
@@ -61,11 +60,11 @@
     </header>
     <main>
     <?php
-            $profesional ="SELECT * FROM profesional WHERE id_profesional =$id_profesional";
-            $consulta_profesional = mysqli_query($conection, $profesional ) or die ("Error al traer los datos");
-                if($consulta_perfil= mysqli_fetch_array($consulta_profesional)){
+            $admin ="SELECT * FROM administrador WHERE id_admin =$id_admin";
+            $consulta_admin = mysqli_query($conection, $admin ) or die ("Error al traer los datos");
+                if($consulta_perfil= mysqli_fetch_array($consulta_admin)){
                     echo'
-                    <form method="POST" action="./modificar_imgPsico.php?id_perfil='.$id_profesional.'" enctype="multipart/form-data">
+                    <form method="POST" action="./modificar_imgPerfil.php?id_perfil='.$id_admin.'" enctype="multipart/form-data">
                         <section class="seccion-perfil-usuario">
                             <div class="perfil-usuario-header">
                                 <div class="perfil-usuario-portada">
@@ -83,7 +82,7 @@
                                 <input type="submit" class="button" name="actualiza_img" value="actualizar foto">
                                 
                                 </div>
-                                <a href="./modificar_perfilPsico.php?id_perfil='.$id_profesional.'" class="button">volver</a>
+                                <a href="./modificar_admin.php?id_perfil='.$id_admin.'" class="button">volver</a>
                             </div>
                         </section>
                         ';
@@ -103,11 +102,11 @@
                         $imagen_producto=$dir.$nombre_archivo;
                         
                 
-                    $actualizar_SQL = "UPDATE profesional SET foto_perfil='$imagen_producto' Where id_profesional='$id_profesional'";
+                    $actualizar_SQL = "UPDATE administrador SET foto_perfil='$imagen_producto' Where id_admin='$id_admin'";
                         $resultado = mysqli_query($conection,$actualizar_SQL) or trigger_error("Query Failed! SQL-Error: ".mysql_error($conection), E_USER_ERROR);
                         if($resultado){ 
                           echo '<script>alert("se ha actualizado correctamente");
-                          window.location.href="./perfil_psicologo.php?id_perfil='.$id_profesional.'";  </script>';
+                          window.location.href="./perfil.php?id_perfil='.$id_admin.'";  </script>';
                         }
                         else {
                           echo '<script>alert("no se puedo actualizar correctamente");window.history.go(-1);</script>';

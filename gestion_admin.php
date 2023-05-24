@@ -43,7 +43,6 @@
                         <li><a href="./perfil_admin.php?id_perfil='.$id_admin.'">Mi perfil</a></li>
                         <li><a href="./index.php" id="selected">Cerrar Sesion</a></li>';
                         ?>
-                        
                     </ul>
                 </nav>
             </div>
@@ -60,12 +59,9 @@
     <main>
         <main>
             <div class="container-all" >
-              <h1 class="title-categorias" id="catego">Que cuenta deseas gestionar? </h1>
+              <h1 class="title-categorias" id="catego">Opciones </h1>
               <div class="container-caja" id="container">
-                <?php
-                echo'
-                <a href="./gestion_paciente.php?id_perfil='.$id_admin.'"';
-                ?>
+                <a href="#"
                   ><div class="caja caja1">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-database-plus" width="52" height="52" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff9300" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -76,16 +72,13 @@
                         <path d="M16 19h6" />
                         <path d="M19 16v6" />
                       </svg>
-                    <h4>Usuario</h4>
-                    <p>Aqui puedes gestionar los usuarios.</p>
+                    <h4>Registrar Administrador</h4>
+                    <p>Aqui puedes registrar los diferentes profesionales.</p>
                     <div class="animacion">
                     </div>
                   </div>
               </a>
-              <?php
-              echo'
-                <a href="./gestion_psicologos.php?id_perfil='.$id_admin.'">';
-                ?>
+                <a href="#">
                   <div class="caja caja2">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-switch-3" width="52" height="52" viewBox="0 0 24 24" stroke-width="1.5" stroke="#009988" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -94,23 +87,21 @@
                         <path d="M3 7h2.397a5 5 0 0 1 4.096 2.133l4.014 5.734a5 5 0 0 0 4.096 2.133h3.397" />
                         <path d="M18 20l3 -3l-3 -3" />
                       </svg>
-                    <h4>Profesional</h4>
-                    <p>Aquí puedes gestionar los profesionales.</p>
+                    <h4>Modificar Usuario</h4>
+                    <p>Aquí puedes modificar su informacion o datos personales del paciente.</p>
                     <div class="animacion"></div></div
                 ></a>
-                echo'
-                <a href="./gestion_admin.php?id_perfil='.$id_admin.'">';
-                ?>
-                  <div class="caja caja2">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-switch-3" width="52" height="52" viewBox="0 0 24 24" stroke-width="1.5" stroke="#009988" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <a href="#"
+                  ><div class="caja caja3">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-cancel" width="52" height="52" viewBox="0 0 24 24" stroke-width="1.5" stroke="#7edfdf" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                        <path d="M3 17h2.397a5 5 0 0 0 4.096 -2.133l.177 -.253m3.66 -5.227l.177 -.254a5 5 0 0 1 4.096 -2.133h3.397" />
-                        <path d="M18 4l3 3l-3 3" />
-                        <path d="M3 7h2.397a5 5 0 0 1 4.096 2.133l4.014 5.734a5 5 0 0 0 4.096 2.133h3.397" />
-                        <path d="M18 20l3 -3l-3 -3" />
+                        <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
+                        <path d="M6 21v-2a4 4 0 0 1 4 -4h3.5" />
+                        <path d="M19 19m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+                        <path d="M17 21l4 -4" />
                       </svg>
-                    <h4>Administrador</h4>
-                    <p>Aquí puedes gestionar los Administradores.</p>
+                    <h4>Inhabilitar Cuenta</h4>
+                    <p>Aqui puedes cancelar o eliminar cuenta en caso de inactividad.</p>
                     <div class="animacion"></div></div
                 ></a>
                 

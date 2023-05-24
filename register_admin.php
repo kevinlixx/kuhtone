@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 
     <script src="https://kit.fontawesome.com/e1d55cc160.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./css/style_login-register.css">
+    <link rel="stylesheet" href="./css/style_register.css">
     <link rel="stylesheet" href="./css/desktop_detallePsicologos.css" media="screen and (min-width: 800px)"/>
 </head>
 <body>
@@ -61,9 +61,8 @@
                         <button id="btn__iniciar-sesion">Iniciar Sesión</button>
                     </div>
                     <div class="caja__trasera-register">
-                        <h3>¿Aún no tienes una cuenta?</h3>
-                        <p>Regístrate para que puedas iniciar sesión</p>
-                        <button id="btn__registrarse">Regístrarse</button>
+                        <h3>Bienvenido</h3>
+                        <p>Regístra al nuevo administrador</p>
                     </div>
                 </div>
 
@@ -117,7 +116,7 @@
                                 />  
                                 <figcaption></figcaption> 
                             </figure>
-                        <h2>Regístrar</h2>
+                        <h2>Regístrarse</h2>
                         <div class="grid">
                             <div class="grupo__input">
                                 <i  class="fa-solid fa-user"></i>
