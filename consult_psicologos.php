@@ -1,6 +1,6 @@
 <?php
 include("./conexion.php");
-$id_paciente= $_GET['id_perfil'];
+$id_admin= $_GET['id_perfil'];
 ?>
 
 <!DOCTYPE html>
@@ -44,9 +44,8 @@ $id_paciente= $_GET['id_perfil'];
                     <ul> 
                     <?php
                       echo'
-                      <li><a href="./index_usr.php?id_perfil='.$id_paciente.'">Inicio</a></li>
-                        <li><a href="./consultar_citas.php?id_perfil='.$id_paciente.'">Mis citas</a></li>
-                        <li><a href="./perfil.php?id_perfil='.$id_paciente.'">Mi perfil</a></li>
+                      <li><a href="./index_admin.php?id_perfil='.$id_admin.'">Inicio</a></li>
+                        <li><a href="./perfil_admin.php?id_perfil='.$id_admin.'">Mi perfil</a></li>
                         <li><a href="./index.php" id="selected">Cerrar Sesion</a></li>';
                         ?>
                     </ul>
@@ -65,7 +64,7 @@ $id_paciente= $_GET['id_perfil'];
     <main>
         <h1 class="title--main">Escoge tu psicologo</h1>
         <?php
-         $consulta = mysqli_query($conection, "SELECT * FROM profesional WHERE estado_cuenta = 1" ) or die ("Error al traer los datos");
+         $consulta = mysqli_query($conection, "SELECT * FROM profesional") or die ("Error al traer los datos");
             if(mysqli_num_rows($consulta) > 0)
             {
                 while($consulta_total= mysqli_fetch_array($consulta))
@@ -82,14 +81,14 @@ $id_paciente= $_GET['id_perfil'];
                                 </figure>
                                 <div class="psicologo--description">
                                 <h4>Descripción</h4>
-                                <p class="">'.$consulta_total["descripcion"].'<a href=\'./detalle_psicologo.php?id='.$consulta_total["id_profesional"].'&id_perfil='.$id_paciente.'\'class="mas_info--description">ver más</a></p>
+                                <p class="">'.$consulta_total["descripcion"].'<a href=\'./mod_perfilPsico.php?id='.$consulta_total["id_profesional"].'&id_perfil='.$id_admin.'\'class="mas_info--description">Modificar</a></p>
                             </section>
                             ';
                         
                         }
                     }
                     echo'
-                            <a href="./index_usr.php?id_perfil='.$id_paciente.'" class="back--bottom">volver</a>';
+                            <a href="./gestion_psicologos.php?id_perfil='.$id_admin.'" class="back--bottom">volver</a>';
                             ?>  
                         </div>
                         </div>

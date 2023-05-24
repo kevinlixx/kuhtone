@@ -61,7 +61,11 @@
             <div class="container-all" >
               <h1 class="title-categorias" id="catego">Opciones </h1>
               <div class="container-caja" id="container">
-                <a href="#"
+                <?php
+                echo'
+                <a href="./register_admin.php?id_perfil='.$id_admin.'"
+                ';
+                ?>
                   ><div class="caja caja1">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-database-plus" width="52" height="52" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff9300" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -78,7 +82,10 @@
                     </div>
                   </div>
               </a>
-                <a href="#">
+              <?php
+              echo '
+                <a href="./consult_admin.php?id_perfil='.$id_admin.'">';
+                ?>
                   <div class="caja caja2">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-switch-3" width="52" height="52" viewBox="0 0 24 24" stroke-width="1.5" stroke="#009988" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -87,11 +94,11 @@
                         <path d="M3 7h2.397a5 5 0 0 1 4.096 2.133l4.014 5.734a5 5 0 0 0 4.096 2.133h3.397" />
                         <path d="M18 20l3 -3l-3 -3" />
                       </svg>
-                    <h4>Modificar Usuario</h4>
-                    <p>Aquí puedes modificar su informacion o datos personales del paciente.</p>
+                    <h4>Modificar Cuentas</h4>
+                    <p>Aquí puedes modificar su informacion o datos personales del adminsitrador.</p>
                     <div class="animacion"></div></div
                 ></a>
-                <a href="#"
+                <!-- <a href="#"
                   ><div class="caja caja3">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-cancel" width="52" height="52" viewBox="0 0 24 24" stroke-width="1.5" stroke="#7edfdf" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -103,7 +110,7 @@
                     <h4>Inhabilitar Cuenta</h4>
                     <p>Aqui puedes cancelar o eliminar cuenta en caso de inactividad.</p>
                     <div class="animacion"></div></div
-                ></a>
+                ></a> -->
                 
               </div>
             </div>

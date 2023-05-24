@@ -274,7 +274,9 @@ header .menu-header{
     height: 450px;
     animation: move-vector 2s linear infinite;
 }
-
+/* .container .image_svg img{
+    width: 200px;
+} */
 @keyframes move-vector {
     0%{
         transform: translateY(15px); 

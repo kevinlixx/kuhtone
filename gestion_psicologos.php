@@ -61,7 +61,10 @@
             <div class="container-all" >
               <h1 class="title-categorias" id="catego">Opciones </h1>
               <div class="container-caja" id="container">
-                <a href="#"
+                <?php
+                echo'
+                <a href="./register_psico.php?id_perfil='.$id_admin.'"';
+                ?>
                   ><div class="caja caja1">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-database-cog" width="52" height="52" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff9300" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -83,7 +86,10 @@
                     </div>
                   </div>
               </a>
-                <a href="#">
+              <?php
+              echo '
+                <a href="./consult_psicologos.php?id_perfil='.$id_admin.'">';
+                ?>
                   <div class="caja caja2">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-search" width="52" height="52" viewBox="0 0 24 24" stroke-width="1.5" stroke="#009988" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -92,11 +98,11 @@
                         <path d="M18 18m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
                         <path d="M20.2 20.2l1.8 1.8" />
                       </svg>
-                    <h4>Modificar Profesional</h4>
+                    <h4>Modificar cuenta de psicologos</h4>
                     <p>Aquí puedes modificar su informacion o datos personales.</p>
                     <div class="animacion"></div></div
                 ></a>
-                <a href="#"
+                <!-- <a href="#"
                   ><div class="caja caja3">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-x" width="52" height="52" viewBox="0 0 24 24" stroke-width="1.5" stroke="#7edfdf" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -108,7 +114,7 @@
                     <h4>Inhabilitar Cuenta</h4>
                     <p>Aqui puedes cancelar o eliminar cuenta en caso de inactividad.</p>
                     <div class="animacion"></div></div
-                ></a>
+                ></a> -->
                 
               </div>
             </div>

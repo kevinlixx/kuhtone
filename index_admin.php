@@ -62,7 +62,7 @@
             <div class="container-all" >
               <h1 class="title-categorias" id="catego">Que cuenta deseas gestionar? </h1>
               <div class="container-caja" id="container">
-                <?php
+               <!--  <?php
                 echo'
                 <a href="./gestion_paciente.php?id_perfil='.$id_admin.'"';
                 ?>
@@ -80,8 +80,8 @@
                     <p>Aqui puedes gestionar los usuarios.</p>
                     <div class="animacion">
                     </div>
-                  </div>
-              </a>
+                  </div>-->
+              </a> 
               <?php
               echo'
                 <a href="./gestion_psicologos.php?id_perfil='.$id_admin.'">';
@@ -98,6 +98,7 @@
                     <p>Aquí puedes gestionar los profesionales.</p>
                     <div class="animacion"></div></div
                 ></a>
+                <?php
                 echo'
                 <a href="./gestion_admin.php?id_perfil='.$id_admin.'">';
                 ?>

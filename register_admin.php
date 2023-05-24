@@ -1,17 +1,18 @@
 <?php
     include("./conexion.php");
+    $id_admin= $_GET['id_perfil'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login y Register</title>
+    <title>Registro admin</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 
     <script src="https://kit.fontawesome.com/e1d55cc160.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./css/style_register.css">
+    <link rel="stylesheet" href="./css/style_registerAdmin.css">
     <link rel="stylesheet" href="./css/desktop_detallePsicologos.css" media="screen and (min-width: 800px)"/>
 </head>
 <body>
@@ -37,8 +38,12 @@
                 <nav id="nav" class="menu-section">
                     <img src="img/logo_header.svG" alt="">
                     <ul> 
-                        <li><a href="./index.php" >Inicio</a></li>
-                        <li><a href="#" id="selected">Iniciar Sesion</a></li>
+                    <?php
+                      echo'
+                      <li><a href="./index_admin.php?id_perfil='.$id_admin.'">Inicio</a></li>
+                        <li><a href="./perfil_admin.php?id_perfil='.$id_admin.'">Mi perfil</a></li>
+                        <li><a href="./index.php" id="selected">Cerrar Sesion</a></li>';
+                        ?>
                     </ul>
                 </nav>
             </div>
@@ -54,17 +59,7 @@
     </header>
         <main>
             <div class="contenedor__todo">
-                <div class="caja__trasera">
-                    <div class="caja__trasera-login">
-                        <h3>¿Ya tienes una cuenta?</h3>
-                        <p>Inicia sesión para entrar en la página</p>
-                        <button id="btn__iniciar-sesion">Iniciar Sesión</button>
-                    </div>
-                    <div class="caja__trasera-register">
-                        <h3>Bienvenido</h3>
-                        <p>Regístra al nuevo administrador</p>
-                    </div>
-                </div>
+
 
                 <!--Formulario de Login y registro-->
                 <div class="contenedor__login-register">
@@ -195,13 +190,13 @@
                                     $documento = $_POST['documento'];
                                     $estado_cuenta = 1;
 
-                                        $instruccion_SQL = "INSERT INTO  paciente(id_paciente, foto_perfil, nombres, apellidos, fecha_nacimiento, id_genero, id_tipoDocumento, nro_documento, telefono_movil, correo, contrasena, estado_cuenta)
+                                        $instruccion_SQL = "INSERT INTO  administrador(id_admin, foto_perfil, nombres, apellidos, fecha_nacimiento, id_genero, id_tipoDocumento, nro_documento, telefono_movil, correo, contrasena, estado_cuenta)
                                         VALUES ('$id','$img','$nombres','$apellidos.','$fecha_nacimiento','$genero','$tipo_document','$documento','$telefono_movil','$correo','$contrasena','$estado_cuenta')";
                                             $resultado = mysqli_query($conection,$instruccion_SQL) or trigger_error("Query Failed! SQL-Error: ".mysqli_error($conection), E_USER_ERROR);
                                             if($resultado) {
                                                 $id_perfil = mysqli_insert_id($conection);
                                                 echo "<script>alert('Se ha registrado exitosamente');
-                                                window.location.href='./perfil.php?id_perfil=".$id_perfil."';</script>";       
+                                                window.location.href='./gestion_admin.php?id_perfil=".$id_admin."';</script>";       
                                         } else {  
                                                   echo "<script>alert('error en realizar el registro');</script>";
                                         } 
