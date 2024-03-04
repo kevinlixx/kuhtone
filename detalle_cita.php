@@ -50,6 +50,7 @@ $consulta_agendamiento = mysqli_query($conection, $agendamiento ) or die ("Error
                     <ul> 
                     <?php
                       echo'
+                        <li><a href="./index_usr.php?id_perfil='.$id_paciente.'">Inicio</a></li>
                         <li><a href="./consultar_citas.php?id_perfil='.$id_paciente.'">Mis citas</a></li>
                         <li><a href="./perfil.php?id_perfil='.$id_paciente.'">Mi perfil</a></li>
                         <li><a href="./index.php" id="selected">Cerrar Sesion</a></li>';

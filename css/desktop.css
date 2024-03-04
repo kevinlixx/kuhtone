@@ -119,6 +119,7 @@ header .menu-section{
   .container .image_svg {
     margin-right: auto;
     width: 45rem;
+    max-width: none;
     height: 450px;
     animation: move-vector 2s linear infinite;
 }

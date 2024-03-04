@@ -161,7 +161,7 @@
                                         
                                     </div>
                                     <input class="button" type="submit" value="Modificar Datos" name="modificar">
-                                    <input class="button" type="submit" value="Eliminar Cuenta cuenta" name="inhabilitar">
+                                    <input class="button" type="submit" value="Eliminar Cuenta" name="inhabilitar">
                                     <a href="./perfil.php?id_perfil='.$id_paciente.'" class="button">volver</a>
                                 </div>
                             </div>
@@ -217,5 +217,6 @@
          <small>&copy; 2023 <b>kuhtone</b> - Todos los Derechos Reservados.</small>
     </div>
  </footer>
+ <script src="js/script.js"></script>
 </body>
 </html>

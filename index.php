@@ -21,7 +21,7 @@
                 src="./img/logo_header.svg" 
                 alt="lgo de kuhtone"
                 />  
-                <figcaption></figcaption> 
+                <figcaptio></figcaptio n> 
             </figure>
             <div class="menu menu-header">
                 

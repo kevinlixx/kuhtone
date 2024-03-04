@@ -32,7 +32,7 @@
     }
     header .section_header{
         width: 100%;
-        height: 49px;
+        height: 40px;
         position: relative;
         display: flex;
     }
@@ -41,11 +41,11 @@
         height: 48px;
         position: relative;
         display: flex;
-        margin-block: 3px;
+        margin-top: 1px;
     }
     .menu-section{
         display: none;
-    
+       
     }
     .menu{
         justify-content: end;
@@ -58,19 +58,27 @@
         padding: 16px;
         margin-block: 3px;
     }
-
-    .menu ul{
+    
+    .menu ul {
         display: flex;
+        flex-direction: column;
+        color: #d3e1e1;
+        text-align: center;
+        height: 10px;
+        width: auto;
+        text-align: center;
         position: relative;
         margin: 0;
         padding: 0;
     }
-
-    .menu ul li{
+    
+    
+    .menu ul li {
+        margin-top: 30px;
+        margin-left: 0;
         list-style: none;
-        margin-left: 36px;
     }
-
+    
     .menu ul li a{
         text-decoration: none;
         font-size: 1.4rem;
@@ -81,25 +89,7 @@
     }
     .menu ul li a:hover{
         color:black;
-        margin-left: 3rem;
-    }
-    #selected{
-        background:transparent;
-        border:2px solid #fdb249;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        padding: 10px;
-        border-radius: 50px;
-        text-align: center;
-        transition: 0.4s ;
-    } 
-    #selected:hover{
-        color: black;
-        margin-left: 3rem;
-    }
-
-    .logo img{
-        width: 160px;
-        
+        margin-left:3rem;
     }
     .menu nav{
         display: block;
@@ -107,32 +97,18 @@
         top: 0;
         right: -250px;
         background: white;
-        width: 250px;
-        height: 72vh;
+        height: 100vh;
         padding: 40px;
         z-index: 2;
         transition: all 300ms;
     }
-
-    .menu ul{
-        flex-direction: column;
-        color: #d3e1e1;
-        text-align: center;
-        text-align-last: left;
-        height: 10px;
-        width: auto;
-        text-align: center;
-    }
-
-    .menu ul li{
-        margin-top: 30px;
-        margin-left: 0;
-    }
-
+    
+    
+    
     .menu ul li a{
         color:var(--turquoise);
     }
-
+    
     .menu nav img{
         margin:10px;
         display: block;
@@ -146,6 +122,7 @@
         display: inline-block;
         margin-left: 10px;
     }
+    
     #back_menu{ /* el tamaño del menu que se mostrara */
         position: fixed;
         top: 0;
@@ -177,7 +154,8 @@
     .menu #btn_menu:hover{
         background:rgba(12, 12, 12, 0.1);
     }
-
+    
+    
     header .menu-header{
         justify-content: end;
         width: 100px;
@@ -189,6 +167,24 @@
         padding: 16px;
         margin-block: 3px;
     }
+    #selected{
+        background:transparent;
+        border:2px solid #fdb249;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        padding: 10px;
+        border-radius: 50px;
+        text-align: center;
+        transition: 0.4s ;
+    } 
+    #selected:hover{
+        color: black;
+        margin-left: 3rem;
+    }
+
+    .logo img{
+        width: 160px;
+        
+    }
     main {
         width: 100%;
         min-width: 320px;
@@ -196,16 +192,15 @@
     }
     .container-all {
         display: grid;
-        max-width: 100rem;
         margin-top: 4rem;
-        max-width: 20rem;
+        max-width: 320px;
         margin: auto;
         justify-content: center;
         align-items: center;
     }
     
     #container{
-        padding: 40px 40px;
+        /* padding: 40px 40px; */
         display: flex;
         justify-content: center;
         display: block;
@@ -218,7 +213,9 @@
         margin: auto;
     }
     #catego{
-        padding: 0px 100px;
+        /* padding: 0px 100px; */
+        padding-left: 10%;
+        padding-right: 10%;
         display: flex;
         border-radius: 50px;
         justify-content: center;
@@ -240,7 +237,6 @@
         display: block;
     }
     .caja {
-        width: 30rem;
         height: 280px;
         padding: 20px;
         margin: 20px;

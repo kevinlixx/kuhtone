@@ -53,10 +53,13 @@ $consulta_agendamiento = mysqli_query($conection, $agendamiento ) or die ("Error
                 <nav id="nav" class="menu-section">
                     <img src="img/logo_header.svG" alt="">
                     <ul> 
-                        <li><a href="./psicologos.html" >Inicio</a></li>
-                        <li><a href="#">Asignar cita</a></li>
-                        <li><a href="#" >Mis citas</a></li>
-                        <li><a href="#" id="selected">Iniciar Sesion</a></li>
+                    <?php
+                      echo'
+                      <li><a href="./index_usr.php?id_perfil='.$id_paciente.'">Inicio</a></li>
+                        <li><a href="./consultar_citas.php?id_perfil='.$id_paciente.'">Mis citas</a></li>
+                        <li><a href="./perfil.php?id_perfil='.$id_paciente.'">Mi perfil</a></li>
+                        <li><a href="./index.php" id="selected">Cerrar Sesion</a></li>';
+                        ?>
                     </ul>
                 </nav>
             </div>
@@ -187,7 +190,7 @@ $consulta_agendamiento = mysqli_query($conection, $agendamiento ) or die ("Error
           
             echo'
     </form>
-            <a href=\'./detalle_cita.php?id_dispo='.$consulta_disponi["id_disponibilidad"].'\' class="back--bottom">volver</a>
+            <a href=\'./detalle_cita.php?id_dispo='.$consulta_disponi["id_disponibilidad"].'&id_perfil='.$id_paciente.'\' class="back--bottom">volver</a>
             ';
         }
     }
