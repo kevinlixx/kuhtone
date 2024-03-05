@@ -212,6 +212,23 @@
         font-size: 40px;
         margin: auto;
     }
+    .title-categorias-admin{
+        font-size: 2.4rem;
+        margin: auto;
+    }
+    #catego-admin{
+        /* padding: 0px 100px; */
+        padding-left: 10%;
+        padding-right: 10%;
+        display: flex;
+        border-radius: 50px;
+        justify-content: center;
+        background: linear-gradient(to right, #2db4ae, #f8f8f8, #2db4ae );
+        box-shadow: 1px 1px 30px -12px #b3c9c8;
+        transition: all 300ms;
+        border: solid #f8f8f8;
+        text-align: center;
+    }
     #catego{
         /* padding: 0px 100px; */
         padding-left: 10%;

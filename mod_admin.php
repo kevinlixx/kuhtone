@@ -70,7 +70,7 @@
                                 <div class="perfil-usuario-portada">
                                     <div class="perfil-usuario-avatar">
                                         <img src="'.$consulta_perfil["foto_perfil"].'" alt="img-avatar">
-                                        <a href= "./mod_imgAdmin.php?id='.$id_adminm.'&id_perfil='.$id_admin.'\'">
+                                        <a href= "./mod_imgAdmin.php?id='.$id_adminm.'&id_perfil='.$id_admin.'">
                                         <button type="button" class="boton-avatar">
                                             <i class="far fa-image"></i>
                                         </button>
@@ -216,5 +216,6 @@
          <small>&copy; 2023 <b>kuhtone</b> - Todos los Derechos Reservados.</small>
     </div>
  </footer>
+ <script src="js/script.js"></script>
 </body>
 </html>

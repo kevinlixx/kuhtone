@@ -243,5 +243,6 @@
          <small>&copy; 2023 <b>kuhtone</b> - Todos los Derechos Reservados.</small>
     </div>
  </footer>
+ <script src="js/script.js"></script>   
 </body>
 </html>

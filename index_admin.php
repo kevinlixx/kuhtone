@@ -60,7 +60,7 @@
     <main>
         <main>
             <div class="container-all" >
-              <h1 class="title-categorias" id="catego">Que cuenta deseas gestionar? </h1>
+              <h1 class="title-categorias-admin " id="catego-admin">Que cuenta deseas gestionar? </h1>
               <div class="container-caja" id="container">
                <!--  <?php
                 echo'

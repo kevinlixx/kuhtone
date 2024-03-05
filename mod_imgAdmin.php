@@ -82,7 +82,7 @@
                                 <input type="submit" class="button" name="actualiza_img" value="actualizar foto">
                                 
                                 </div>
-                                <a href="\'./mod_admin.php?id='.$id_adminm.'&id_perfil='.$id_admin.'\'" class="button">volver</a>
+                                <a href="./mod_admin.php?id='.$id_adminm.'&id_perfil='.$id_admin.'" class="button">volver</a>
                             </div>
                         </section>
                         ';
@@ -124,5 +124,6 @@
          <small>&copy; 2023 <b>kuhtone</b> - Todos los Derechos Reservados.</small>
     </div>
  </footer>
+ <script src="js/script.js"></script>
 </body>
 </html>

@@ -88,6 +88,11 @@ main {
     font-size: 40px;
     margin: auto;
   }
+  .title-categorias-admin{
+    font-size: 3.3rem;
+    margin: auto;
+  }
+
   #catego{
     padding: 0px 100px;
     display: flex;
