@@ -1,3 +1,4 @@
+<!-- lol -->
 <?php
     include("./conexion.php");
     $id_paciente= $_GET['id_perfil'];
