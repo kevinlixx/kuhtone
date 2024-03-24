@@ -202,6 +202,11 @@ main {
     height: 140px;
     border-radius: 80px;
 }
+.figure--card img{
+    width: 135px;
+    height: 140px;
+}
+    
 .psicologo-details--container{
     display: flex;
     width: 100%;

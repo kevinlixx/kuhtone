@@ -88,7 +88,7 @@
                         <input class="button" type="submit" value="Entrar" name="ingresar">
                         
                         <?php 
-                            if(isset($_POST["ingresar"])){
+                            if (isset($_POST["ingresar"])){
                             $correo=$_POST['correo'];
                             $contrasena=$_POST['contrasena'];
                             $sentencia=$conection->prepare("SELECT * FROM profesional WHERE correo_profesional=? AND contrasena_profesional=? AND estado_cuenta = 1");
@@ -106,7 +106,7 @@
                                     echo "<script>alert('Usuario o contraseña incorrecto intente nuevamente')</script>";
                                     echo "<script>location.href='login-register_psico.php'</script>";
                                 }
-                        }
+                            }
                             ?>
                     </form>
 
