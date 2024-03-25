@@ -1,5 +1,5 @@
 <?php
-include("./conexion.php");
+include("../config/conexion.php");
 $id_paciente= $_GET['id_perfil'];
 
 ?>
@@ -16,16 +16,16 @@ $id_paciente= $_GET['id_perfil'];
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@300;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/style_consultCita.css">
-    <link rel="stylesheet" href="./css/tablet_consultCita.css" media="screen and (min-width: 600px)"/>
-    <link rel="stylesheet" href="./css/desktop_consultCita.css" media="screen and (min-width: 800px)"/>
+    <link rel="stylesheet" href="../css/style_consultCita.css">
+    <link rel="stylesheet" href="../css/tablet_consultCita.css" media="screen and (min-width: 600px)"/>
+    <link rel="stylesheet" href="../css/desktop_consultCita.css" media="screen and (min-width: 800px)"/>
 </head>
 <body>
 <header>
         <section class="section_header">
             <figure class="figure_header"> 
                 <img 
-                src="./img/logo_header.svg" 
+                src="../img/logo_header.svg" 
                 alt="logo de kuhtone"
                 />  
                 <figcaption></figcaption> 
@@ -34,7 +34,7 @@ $id_paciente= $_GET['id_perfil'];
                 
                     <figure id="btn_menu">
                         <img 
-                        src="./img/menu.svg" 
+                        src="../img/menu.svg" 
                         alt="menu"
                         />  
                         <figcaption></figcaption> 
@@ -45,10 +45,10 @@ $id_paciente= $_GET['id_perfil'];
                     <ul> 
                     <?php
                       echo'
-                      <li><a href="./index_usr.php?id_perfil='.$id_paciente.'">Inicio</a></li>
-                        <li><a href="./consultar_citas.php?id_perfil='.$id_paciente.'">Mis citas</a></li>
-                        <li><a href="./perfil.php?id_perfil='.$id_paciente.'">Mi perfil</a></li>
-                        <li><a href="./index.php" id="selected">Cerrar Sesion</a></li>';
+                      <li><a href="../index_usr.php?id_perfil='.$id_paciente.'">Inicio</a></li>
+                        <li><a href="../queries/consultar_citas.php?id_perfil='.$id_paciente.'">Mis citas</a></li>
+                        <li><a href="../perfil.php?id_perfil='.$id_paciente.'">Mi perfil</a></li>
+                        <li><a href="../index.php" id="selected">Cerrar Sesion</a></li>';
                         ?>
                     </ul>
                 </nav>
@@ -56,7 +56,7 @@ $id_paciente= $_GET['id_perfil'];
             <!-- <a href="" class="menu-header">
             <figure >
                 <img 
-                src="./img/menu.svg" 
+                src="../img/menu.svg" 
                 alt="menu"
                 />  
                 <figcaption></figcaption> 
@@ -66,7 +66,7 @@ $id_paciente= $_GET['id_perfil'];
     <main>
             <figure class ="figure-consult">
                 <img 
-                src="./img/pag1.jpg" 
+                src="../img/pag1.jpg" 
                 alt="img de cita"/>  
                 <figcaption></figcaption> 
             </figure> 
@@ -74,7 +74,7 @@ $id_paciente= $_GET['id_perfil'];
         <form class="form--consult" method="POST" action="#">
              <div class ="div--content">
             <figure class= form--logo>
-            <img src="./img/experience_logo.svg" alt="logo de un agenda">
+            <img src="../img/experience_logo.svg" alt="logo de un agenda">
             </figure>
              <i class="fa-regular fa-user-tie-hair" style="color: #303030;"></i> 
             <input class="input--consult" type="text" name="consult--calendar" placeholder="Digite el id de la cita">
@@ -108,7 +108,7 @@ $id_paciente= $_GET['id_perfil'];
                                         <p>'.$consulta_dispo["hora_inicio"].'</p>
                                     </section>
                                 </div>
-                                <a class="mas--select" href="./detalle_cita.php?id_dispo='.$consulta_agenda['id_disponibilidad'].'&id_perfil='.$id_paciente.'">Ver más</a>
+                                <a class="mas--select" href="../detalle_cita.php?id_dispo='.$consulta_agenda['id_disponibilidad'].'&id_perfil='.$id_paciente.'">Ver más</a>
 
                             </div>';
                     }
@@ -116,7 +116,7 @@ $id_paciente= $_GET['id_perfil'];
             }
             else{
                 echo '<script>alert("No tiene ninguan cita registrada");
-                window.location.href="./psicologos.php?id_perfil='.$id_paciente.'";</script>';
+                window.location.href="../psicologos.php?id_perfil='.$id_paciente.'";</script>';
             }
             ?>
         
@@ -129,6 +129,6 @@ $id_paciente= $_GET['id_perfil'];
         <small>&copy; 2023 <b>kuhtone</b> - Todos los Derechos Reservados.</small>
    </div>
 </footer>
-<script src="js/script.js"></script>
+<script src="../js/script.js"></script>
 </body>
 </html>

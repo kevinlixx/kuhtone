@@ -1,7 +1,7 @@
 <?php
                 
 session_start();
-include("./conexion.php");
+include("./config/conexion.php");
 $id_dispo= $_GET['id_dispo'];
 $id_paciente= $_GET['id_perfil'];
 
@@ -51,7 +51,7 @@ $consulta_agendamiento = mysqli_query($conection, $agendamiento ) or die ("Error
                     <?php
                       echo'
                         <li><a href="./index_usr.php?id_perfil='.$id_paciente.'">Inicio</a></li>
-                        <li><a href="./consultar_citas.php?id_perfil='.$id_paciente.'">Mis citas</a></li>
+                        <li><a href="./queries/consultar_citas.php?id_perfil='.$id_paciente.'">Mis citas</a></li>
                         <li><a href="./perfil.php?id_perfil='.$id_paciente.'">Mi perfil</a></li>
                         <li><a href="./index.php" id="selected">Cerrar Sesion</a></li>';
                         ?>
@@ -202,7 +202,7 @@ $consulta_agendamiento = mysqli_query($conection, $agendamiento ) or die ("Error
                                     </div>
             <?php                  
                                  echo'   
-                                    <a href="./consultar_citas.php?id_perfil='.$id_paciente.'" class="back--bottom">volver</a>';
+                                    <a href="./queries/consultar_citas.php?id_perfil='.$id_paciente.'" class="back--bottom">volver</a>';
             
                          if(isset($_POST ['eliminar'])){
                             $id_agenda =$consulta_agenda ['id_agendamiento'];

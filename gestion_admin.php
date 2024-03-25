@@ -1,5 +1,5 @@
 <?php
-    include("./conexion.php");
+    include("./config/conexion.php");
     $id_admin= $_GET['id_perfil'];
 ?>
 <!DOCTYPE html>
@@ -84,7 +84,7 @@
               </a>
               <?php
               echo '
-                <a href="./consult_admin.php?id_perfil='.$id_admin.'">';
+                <a href="./queries/consult_admin.php?id_perfil='.$id_admin.'">';
                 ?>
                   <div class="caja caja2">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-switch-3" width="52" height="52" viewBox="0 0 24 24" stroke-width="1.5" stroke="#009988" fill="none" stroke-linecap="round" stroke-linejoin="round">

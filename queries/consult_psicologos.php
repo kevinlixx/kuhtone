@@ -1,5 +1,5 @@
 <?php
-include("./conexion.php");
+include("../config/conexion.php");
 $id_admin= $_GET['id_perfil'];
 ?>
 
@@ -15,16 +15,16 @@ $id_admin= $_GET['id_perfil'];
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@300;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/style_psicologos.css">
-    <link rel="stylesheet" href="./css/tablet_psicologos.css" media="screen and (min-width: 600px)"/>
-    <link rel="stylesheet" href="./css/desktop_psicologos.css" media="screen and (min-width: 800px)"/>
+    <link rel="stylesheet" href="../css/style_psicologos.css">
+    <link rel="stylesheet" href="../css/tablet_psicologos.css" media="screen and (min-width: 600px)"/>
+    <link rel="stylesheet" href="../css/desktop_psicologos.css" media="screen and (min-width: 800px)"/>
 </head>
 <body>
 <header>
         <section class="section_header">
             <figure class="figure_header"> 
                 <img 
-                src="./img/logo_header.svg" 
+                src="../img/logo_header.svg" 
                 alt="lgo de kuhtone"
                 />  
                 <figcaption></figcaption> 
@@ -33,7 +33,7 @@ $id_admin= $_GET['id_perfil'];
                 
                     <figure id="btn_menu">
                         <img 
-                        src="./img/menu.svg" 
+                        src="../img/menu.svg" 
                         alt="menu"
                         />  
                         <figcaption></figcaption> 
@@ -44,9 +44,9 @@ $id_admin= $_GET['id_perfil'];
                     <ul> 
                     <?php
                       echo'
-                      <li><a href="./index_admin.php?id_perfil='.$id_admin.'">Inicio</a></li>
-                        <li><a href="./perfil_admin.php?id_perfil='.$id_admin.'">Mi perfil</a></li>
-                        <li><a href="./index.php" id="selected">Cerrar Sesion</a></li>';
+                      <li><a href="../index_admin.php?id_perfil='.$id_admin.'">Inicio</a></li>
+                        <li><a href="../perfil_admin.php?id_perfil='.$id_admin.'">Mi perfil</a></li>
+                        <li><a href="../index.php" id="selected">Cerrar Sesion</a></li>';
                         ?>
                     </ul>
                 </nav>
@@ -54,7 +54,7 @@ $id_admin= $_GET['id_perfil'];
             <!-- <a href="" class="menu-header">
             <figure >
                 <img 
-                src="./img/menu.svg" 
+                src="../img/menu.svg" 
                 alt="menu"
                 />  
                 <figcaption></figcaption> 
@@ -74,21 +74,21 @@ $id_admin= $_GET['id_perfil'];
                             <section class="psicologos--card">
                                 <figure class="figure--card"> 
                                     <img 
-                                    src="'.$consulta_total["foto_perfil"].'" 
+                                    src=".'.$consulta_total["foto_perfil"].'" 
                                     alt="psicologo"
                                     />  
                                     <figcaption></figcaption> 
                                 </figure>
                                 <div class="psicologo--description">
                                 <h4>Descripción</h4>
-                                <p class="">'.$consulta_total["descripcion"].'<a href=\'./mod_perfilPsico.php?id='.$consulta_total["id_profesional"].'&id_perfil='.$id_admin.'\'class="mas_info--description">Modificar</a></p>
+                                <p class="">'.$consulta_total["descripcion"].'<a href=\'../mod_perfilPsico.php?id='.$consulta_total["id_profesional"].'&id_perfil='.$id_admin.'\'class="mas_info--description">Modificar</a></p>
                             </section>
                             ';
                         
                         }
                     }
                     echo'
-                            <a href="./gestion_psicologos.php?id_perfil='.$id_admin.'" class="back--bottom">volver</a>';
+                            <a href="../gestion_psicologos.php?id_perfil='.$id_admin.'" class="back--bottom">volver</a>';
                             ?>  
                         </div>
                         </div>
@@ -99,6 +99,6 @@ $id_admin= $_GET['id_perfil'];
         <small>&copy; 2023 <b>kuhtone</b> - Todos los Derechos Reservados.</small>
    </div>
 </footer>
-<script src="js/script.js"></script>
+<script src="../js/script.js"></script>
 </body>
 </html>

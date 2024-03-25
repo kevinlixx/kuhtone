@@ -1,5 +1,5 @@
 <?php
-    include("./conexion.php");
+    include("./config/conexion.php");
     $id_admin= $_GET['id_perfil'];
 ?>
 <!DOCTYPE html>

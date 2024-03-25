@@ -1,5 +1,5 @@
 <?php
-    include("./conexion.php");
+    include("./config/conexion.php");
     $id_profesional= $_GET['id_perfil'];
  
 ?>
@@ -42,7 +42,7 @@
                     <?php
                       echo'
                       <li><a href="./index_psicologos.php?id_perfil='.$id_profesional.'">Inicio</a></li>
-                        <li><a href="./consultar_dispo.php?id_perfil='.$id_profesional.'">Mi disponibilidad</a></li>
+                        <li><a href="./queries/consultar_dispo.php?id_perfil='.$id_profesional.'">Mi disponibilidad</a></li>
                         <li><a href="./perfil_psicologo.php?id_perfil='.$id_profesional.'">Mi perfil</a></li>
                         <li><a href="./index.php" id="selected">Cerrar Sesion</a></li>';
                         ?>

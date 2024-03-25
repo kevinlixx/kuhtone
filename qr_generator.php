@@ -1,7 +1,7 @@
 <?php
 session_start();
 $id_agenda = $_SESSION['id_agendamiento'];
-include("./conexion.php");
+include("./config/conexion.php");
 include "phpqrcode/qrlib.php";
 require_once "phpqrcode/qrlib.php";
 

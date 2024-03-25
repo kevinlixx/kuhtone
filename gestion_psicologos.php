@@ -1,5 +1,5 @@
 <?php
-    include("./conexion.php");
+    include("./config/conexion.php");
     $id_admin= $_GET['id_perfil'];
 ?>
 <!DOCTYPE html>
@@ -63,7 +63,7 @@
               <div class="container-caja" id="container">
                 <?php
                 echo'
-                <a href="./register_psico.php?id_perfil='.$id_admin.'"';
+                <a href="./queries/register_psico.php?id_perfil='.$id_admin.'"';
                 ?>
                   ><div class="caja caja1">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-database-cog" width="52" height="52" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff9300" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -88,7 +88,7 @@
               </a>
               <?php
               echo '
-                <a href="./consult_psicologos.php?id_perfil='.$id_admin.'">';
+                <a href="./queries/consult_psicologos.php?id_perfil='.$id_admin.'">';
                 ?>
                   <div class="caja caja2">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-search" width="52" height="52" viewBox="0 0 24 24" stroke-width="1.5" stroke="#009988" fill="none" stroke-linecap="round" stroke-linejoin="round">

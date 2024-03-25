@@ -88,7 +88,7 @@ const renderCalendar = (dates) => {
 
 
 const fetchAvailableHours = (selectedDate) => {
-  fetch(`conexion_horas.php?fecha=${selectedDate}`)
+  fetch(`config/conexion_horas.php?fecha=${selectedDate}`)
     .then(response => response.json())
     .then(data => {
       showAvailableHours(data);
@@ -162,7 +162,7 @@ document.querySelector(".next").addEventListener("click", () => {
 });
 
 const fetchDatesAndRenderCalendar = () => {
-  fetch('conexion_fecha.php')
+  fetch('config/conexion_fecha.php')
     .then(response => response.json())
     .then(data => {
       renderCalendar(data);
