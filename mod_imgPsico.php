@@ -107,7 +107,7 @@
                         $resultado = mysqli_query($conection,$actualizar_SQL) or trigger_error("Query Failed! SQL-Error: ".mysql_error($conection), E_USER_ERROR);
                         if($resultado){ 
                           echo '<script>alert("se ha actualizado correctamente");   
-                          window.location.href="./consult_psicologos.php?id_perfil='.$id_admin.'";  </script>';
+                          window.location.href="./queries/consult_psicologos.php?id_perfil='.$id_admin.'";  </script>';
                         }
                         else {
                           echo '<script>alert("no se puedo actualizar correctamente");window.history.go(-1);</script>';

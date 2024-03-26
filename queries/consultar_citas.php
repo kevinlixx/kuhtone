@@ -41,7 +41,7 @@ $id_paciente= $_GET['id_perfil'];
                     </figure>                
                 <div id="back_menu"></div>
                 <nav id="nav" class="menu-section">
-                    <img src="img/logo_header.svG" alt="">
+                    <img src="../img/logo_header.svG" alt="">
                     <ul> 
                     <?php
                       echo'

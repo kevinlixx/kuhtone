@@ -184,7 +184,7 @@
                                     </div>
                                     <input class="button" type="submit" value="Modificar Datos" name="modificar">
                                     <input class="button" type="submit" value="Eliminar cuenta" name="inhabilitar">
-                                    <a href="./consult_psicologos.php?id_perfil='.$id_admin.'" class="button">volver</a>
+                                    <a href="./queries/consult_psicologos.php?id_perfil='.$id_admin.'" class="button">volver</a>
                                 </div>
                             </div>
                         </section>
@@ -213,7 +213,7 @@
                             $resultado = mysqli_query($conection,$actualizar_SQL) or trigger_error("Query Failed! SQL-Error: ".mysqli_error($conection), E_USER_ERROR);
                             if($resultado){
                               
-                              echo '<script>alert("se ha actualizado correctamente");window.location.href="./consult_psicologos.php?id_perfil='.$id_admin.'";  </script>';
+                              echo '<script>alert("se ha actualizado correctamente");window.location.href="./queries/consult_psicologos.php?id_perfil='.$id_admin.'";  </script>';
                             }
                             else {
                               echo '<script>alert("no se puedo actualizar correctamente");window.history.go(-1);  </script>';
@@ -227,7 +227,7 @@
                             $resultado = mysqli_query($conection,$inhabilitar_SQL) or trigger_error("Query Failed! SQL-Error: ".mysqli_error($conection), E_USER_ERROR);
                             if($resultado){
                               
-                                echo '<script>alert("se ha eliminado correctamente");window.location.href="./consult_psicologos.php?id_perfil='.$id_admin.'";  </script>';
+                                echo '<script>alert("se ha eliminado correctamente");window.location.href="./queries/consult_psicologos.php?id_perfil='.$id_admin.'";  </script>';
                               }
                               else {
                                 echo '<script>alert("no se pudo eliminar");window.history.go(-1);  </script>';
