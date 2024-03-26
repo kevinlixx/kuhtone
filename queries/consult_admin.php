@@ -73,14 +73,14 @@ $id_admin= $_GET['id_perfil'];
                             <section class="psicologos--card">
                                 <figure class="figure--card"> 
                                     <img 
-                                    src=".'.$consulta_total["foto_perfil"].'" 
+                                    src="'.$consulta_total["foto_perfil"].'" 
                                     alt="psicologo"
                                     /> 
                                     <figcaption></figcaption> 
                                 </figure>
                                 <div class="psicologo--description">
                                 <h4>nombre del administrador</h4>
-                                <p class="">'.$consulta_total["nombres"].' '.$consulta_total["apellidos"].'<a href=\'../mod_admin.php?id='.$consulta_total["id_admin"].'&id_perfil='.$id_admin.'\'class="mas_info--description">modificar</a></p>
+                                <p class="">'.$consulta_total["nombres"].' '.$consulta_total["apellidos"].'<a href=\'../updates_admin/mod_admin.php?id='.$consulta_total["id_admin"].'&id_perfil='.$id_admin.'\'class="mas_info--description">modificar</a></p>
                             </section>
                             ';
                         

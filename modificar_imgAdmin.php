@@ -82,7 +82,7 @@
                                 <input type="submit" class="button" name="actualiza_img" value="actualizar foto">
                                 
                                 </div>
-                                <a href="./modificar_admin.php?id_perfil='.$id_admin.'" class="button">volver</a>
+                                <a href="./updates_admin/modificar_admin.php?id_perfil='.$id_admin.'" class="button">volver</a>
                             </div>
                         </section>
                         ';

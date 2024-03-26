@@ -40,7 +40,7 @@ $id_admin= $_GET['id_perfil'];
                     </figure>                
                 <div id="back_menu"></div>
                 <nav id="nav" class="menu-section">
-                    <img src="../img/logo_header.svG" alt="">
+                    <img src="img/logo_header.svG" alt="">
                     <ul> 
                     <?php
                       echo'
@@ -74,21 +74,21 @@ $id_admin= $_GET['id_perfil'];
                             <section class="psicologos--card">
                                 <figure class="figure--card"> 
                                     <img 
-                                    src=".'.$consulta_total["foto_perfil"].'" 
+                                    src="'.$consulta_total["foto_perfil"].'" 
                                     alt="psicologo"
                                     />  
                                     <figcaption></figcaption> 
                                 </figure>
                                 <div class="psicologo--description">
                                 <h4>Descripción</h4>
-                                <p class="">'.$consulta_total["descripcion"].'<a href=\'../mod_perfilPsico.php?id='.$consulta_total["id_profesional"].'&id_perfil='.$id_admin.'\'class="mas_info--description">Modificar</a></p>
+                                <p class="">'.$consulta_total["descripcion"].'<a href=\'../updates_admin/mod_perfilPsico.php?id='.$consulta_total["id_profesional"].'&id_perfil='.$id_admin.'\'class="mas_info--description">Modificar</a></p>
                             </section>
                             ';
                         
                         }
                     }
                     echo'
-                            <a href="./gestion_psicologos.php?id_perfil='.$id_admin.'" class="back--bottom">volver</a>';
+                            <a href="../gestion_psicologos.php?id_perfil='.$id_admin.'" class="back--bottom">volver</a>';
                             ?>  
                         </div>
                         </div>

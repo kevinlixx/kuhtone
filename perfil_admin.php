@@ -135,7 +135,7 @@
                                         </div>
                                         
                                     </div>
-                                    <a href="./modificar_admin.php?id_perfil='.$id_admin.'" class="button">Modificar Datos</a>
+                                    <a href="./updates_admin/modificar_admin.php?id_perfil='.$id_admin.'" class="button">Modificar Datos</a>
                                 </div>
                             </div>
                         </div>
