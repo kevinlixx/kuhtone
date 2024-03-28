@@ -1,6 +1,6 @@
 //Ejecutando funciones
 document.getElementById("btn__iniciar-sesion").addEventListener("click", iniciarSesion);
-document.getElementById("btn__registrarse").addEventListener("click", register);
+document.getElementById("enlace-registro").addEventListener("click", register);
 window.addEventListener("resize", anchoPage);
 
 //Declarando variables

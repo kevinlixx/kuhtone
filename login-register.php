@@ -60,31 +60,48 @@
                         <p>Inicia sesión para entrar en la página</p>
                         <button id="btn__iniciar-sesion">Iniciar Sesión</button>
                     </div>
-                    <div class="caja__trasera-register">
-                        <h3>¿Aún no tienes una cuenta?</h3>
-                        <p>Regístrate para que puedas iniciar sesión</p>
-                        <button id="btn__registrarse">Regístrarse</button>
-                    </div>
+                        <div class="caja__trasera-register">
+                            <h3>¿Aún no tienes una cuenta?</h3>
+                            <p>Regístrate para que puedas iniciar sesión</p>
+                            <button id="btn__registrarse">Regístrarse</button>
+                        </div>
                 </div>
 
                 <!--Formulario de Login y registro-->
                 <div class="contenedor__login-register">
                     <!--Login-->
                     <form action="" class="formulario__login" method="POST">
-                        <figure class="figure_login"> 
-                            <img 
-                            src="./img/logo_big.svg" 
-                            alt="lgo de kuhtone"
-                            />  
-                            <figcaption></figcaption> 
-                        </figure>
-                        <h2>Iniciar Sesión</h2>
-                        <input type="text" placeholder="Correo Electronico" name="correo">
-                        <input class="password" type="password" placeholder="Contraseña" name="contrasena">
-                        <a class="option--type" href="./login-register_psico.php">iniciar como psicologo</a>
-                        <a class="option--type" href="./login-register_admi.php">iniciar como administrador</a>
-                        <input class="button" type="submit" value="Entrar" name="ingresar">
-                        
+                        <div class="right-side">
+                            <figure class="figure_login"> 
+                                <img 
+                                src="./img/login_vector.svg" 
+                                alt="lgo de kuhtone"
+                                />  
+                                <figcaption></figcaption> 
+                            </figure>
+                            <p id="mensaje-registro">¿No tienes cuenta? <a id="enlace-registro">Regístrate aquí</a></p>
+                        </div>
+                        <div class="left-side">
+                            <h2>Iniciar Sesión</h2>
+                            <div class="input-container">
+                                <input class="text" type="password" placeholder="Correo Electronico" name="correo">
+                                <img src="img/email_icon.svg" alt="Icono de correo electrónico" class="input-icon">
+                            </div>
+                            <div class="input-container">
+                                <input class="password" type="password" placeholder="Contraseña" name="contrasena">
+                                <img src="img/block_icon.svg" alt="Icono de password" class="input-icon">
+                            </div>
+                            <input class="button" type="submit" value="ENTRAR" name="ingresar">
+                            <button class="option--type" type="button" onclick="window.location.href='./login-register_psico.php'">
+                                <img src="./img/psico_icon.svg" alt="Icono de psicólogo" style="vertical-align: middle;">
+                                Iniciar como psicologo
+                            </button>
+                            <button class="option--type" type="button" onclick="window.location.href='./login-register_admi.php'">
+                                <img src="./img/admin_icon.svg" alt="Icono de administrador" style="vertical-align: middle;">
+                                Iniciar como administrador
+                            </button>
+                        </div>
+
                         <?php 
                             if(isset($_POST["ingresar"])){
                             $correo=$_POST['correo'];
@@ -112,7 +129,7 @@
                     <form  class="formulario__register" method="POST">
                             <figure class="figure_login"> 
                                 <img 
-                                src="./img/logo_big.svg" 
+                                src="./img/login_vector.svg" 
                                 alt="lgo de kuhtone"
                                 />  
                                 <figcaption></figcaption> 
