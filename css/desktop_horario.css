@@ -83,6 +83,9 @@ display: block;
     width: 300px;
     height: 200px;
 }
+.psicologo--description h2{
+    font-size: 2rem;
+  }
 .psicologo--description p{
     font-size: 1.8rem;
 }

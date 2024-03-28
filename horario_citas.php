@@ -98,6 +98,7 @@ $consulta = mysqli_query($conection, $profesional ) or die ("Error al traer los 
                   <figcaption></figcaption> 
               </figure>
               <div class="psicologo--description">
+              <h2>'.$consulta_total["nombres"].' '.$consulta_total["apellidos"].'</h2>
               <p>'.$consulta_total["descripcion"].'</p>
               <a href="./psicologos.php?id_perfil='.$id_paciente.'" class="mas_info--description">cambiar de psicologo</a>
             </div>

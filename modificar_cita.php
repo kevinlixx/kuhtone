@@ -103,6 +103,7 @@ $consulta_agendamiento = mysqli_query($conection, $agendamiento ) or die ("Error
                                   <figcaption></figcaption> 
                               </figure>
                               <div class="psicologo--description">
+                              <h2>'.$consulta_profesional["nombres"].' '.$consulta_profesional["apellidos"].'</h2>
                               <p>'.$consulta_profesional["descripcion"].'</p>';
                               /* <a href="./psicologos.php" class="mas_info--description">cambiar de psicologo</a> */
                               echo'
