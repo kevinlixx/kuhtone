@@ -46,7 +46,7 @@ const renderCalendar = (dates) => {
 
   
 
-  document.querySelector(".date h1").innerHTML = months[date.getMonth()];
+/*   document.querySelector(".date h1").innerHTML = months[date.getMonth()]; */
 
   document.querySelector(".date p").innerHTML = date.toLocaleDateString('es-ES', { month: 'long', year: 'numeric'});
 
@@ -56,7 +56,7 @@ const renderCalendar = (dates) => {
     days += `<div class="prev-date">${prevLastDay - x + 1}</div>`;
   }
 
-  for (let i = 1; i <= lastDay; i++) {
+  for (let i = 1; i <= lastDay; i++) {// Agregar los días del mes actual
     let foundDate = false;
     for (let j = 0; j < dates.length; j++) {
       let d = new Date(dates[j]);
@@ -72,11 +72,24 @@ const renderCalendar = (dates) => {
   }
 
 
-  for (let j = 1; j <= nextDays; j++) {
+  for (let j = 1; j <= nextDays; j++) { // Agregar los días del mes siguiente
     days += `<div class="next-date">${j}</div>`;
   }
 
-  monthDays.innerHTML = days;
+
+  
+  monthDays.innerHTML = days; // Agregar los días al div con la clase "days"
+
+        // Agregar event listener a los elementos con la clase "today"
+const todayElements = document.querySelectorAll('.today');
+todayElements.forEach(todayElement => {
+  todayElement.addEventListener('click', () => {
+    const selectedFechaElement = document.getElementById('selected-fecha');// Obtener el valor de la fecha y asignarlo al valor del input
+    selectedFechaElement.value = todayElement.getAttribute('data-date');// Obtener el valor de la fecha y asignarlo al valor del input
+  });
+});
+
+
   const dayElements = monthDays.querySelectorAll('[data-date]');
   dayElements.forEach(day => {
     day.addEventListener('click', () => {
@@ -87,7 +100,7 @@ const renderCalendar = (dates) => {
 };
 
 
-const fetchAvailableHours = (selectedDate) => {
+const fetchAvailableHours = (selectedDate) => { // Función para obtener las horas disponibles de una fecha específica
   fetch(`config/conexion_horas.php?fecha=${selectedDate}`)
     .then(response => response.json())
     .then(data => {
@@ -96,7 +109,7 @@ const fetchAvailableHours = (selectedDate) => {
     .catch(error => console.error(error));
 };
 
-const showAvailableHours = (hours) => {
+const showAvailableHours = (hours) => { // Función para mostrar las horas disponibles en la página
   const availableHoursElement = document.querySelector('#available-hours');
 
   // Limpiar cualquier contenido anterior del div
@@ -107,14 +120,6 @@ const showAvailableHours = (hours) => {
     availableHoursElement.textContent = 'No hay horas disponibles para esta fecha.';
     return;
   }
-      // Agregar event listener a los elementos con la clase "today"
-const todayElements = document.querySelectorAll('.today');
-todayElements.forEach(todayElement => {
-  todayElement.addEventListener('click', () => {
-    const selectedFechaElement = document.getElementById('selected-fecha');
-    selectedFechaElement.value = todayElement.getAttribute('data-date');
-  });
-});
 
   // Iterar sobre las horas disponibles y agregar un div para cada hora
   hours.forEach((hour, index) => {
@@ -137,7 +142,7 @@ todayElements.forEach(todayElement => {
 
 
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => { 
   const availableHours = document.querySelectorAll('#available-hours div');
   availableHours.forEach(hourDiv => {
     hourDiv.addEventListener('click', () => {
@@ -172,7 +177,7 @@ const fetchDatesAndRenderCalendar = () => {
 
 const days = document.querySelectorAll('.days div');
 
-days.forEach(day => {
+days.forEach(day => { // Agregar event listener a los elementos con la clase "today"
   day.addEventListener('click', () => {
     const dateStr = day.dataset.date;
     const date = new Date(dateStr);
