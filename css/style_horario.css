@@ -235,7 +235,7 @@ main {
 .legend--hour{
   display: flex;
   align-items: center;
-  margin-left: 35px;
+  /* margin-left: 35px; */
 }
 .legend--hour p{
   font-size: 1.2rem;
@@ -267,8 +267,6 @@ main {
  
    /* la seccion de la cabeza del calendario*/
   .month {
-
-    background-color: #20D2C8;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -290,6 +288,7 @@ main {
   
   .month p {
     font-size: 1.6rem;
+    font-weight: bold;
   }
   
    /* la seccion dias de la semana */
@@ -301,6 +300,7 @@ main {
   }
   
   .weekdays div {
+    color: #20D2C8;
     font-size: 1.5rem;
     font-weight: bold;
     letter-spacing: 0.1rem;
@@ -316,6 +316,7 @@ main {
     display: flex;
     flex-wrap: wrap;
     padding: 0.2rem;
+
   }
   
   .days div {
@@ -328,10 +329,12 @@ main {
     justify-content: center;
     align-items: center;
     transition: background-color 0.2s;
+    background-color: #D9D9D9;
+    border-radius: 50%;
   }
   
   .days div:hover {
-    background-color: #c4c2c2;
+    background-color: #e1e1e1;
     border: 0.2rem solid #dbd8d8;
     cursor: pointer;
   }
@@ -340,7 +343,9 @@ main {
   .next-date {
     opacity: 0.5;
   }
-  
+  .days div.today{
+    background-color: #20D2C8;
+  }
    /* apartado donde escoge el dia y lo encierra en un circulo */
   .today {
     margin-top: 50px;
@@ -352,13 +357,14 @@ main {
   }
    /* la seccion de las horas */
   .select--hour{
+    margin-top: 10px;
     font-size: 1.7rem;
-    margin-left: 35px;
+    /* margin-left: 35px; */
     margin-bottom: 10px;
   }
   .selecthora{
     display: flex;
-    margin: 20px;
+    margin: 8px;
     font-size: 1.6rem;
     text-align: center;
   }

@@ -109,14 +109,15 @@ $consulta_agendamiento = mysqli_query($conection, $agendamiento ) or die ("Error
                             </div>
                           </section>
 
-                          <div class="legend--hour">
-                              <p>Dias disponibles</p>
-                              <div class="circle"></div>
-                              </div>
+                          
                       
                       <!-- esta parte es la del calendario -->
                       <div class="container">
                         <div class="calendar">
+                          <div class="legend--hour">
+                                <p>Dias disponibles</p>
+                                <div class="circle"></div>
+                          </div>
                           <div class="month">
                             <i class="fas fa-angle-left prev"></i>
                             <div class="date">
@@ -136,15 +137,15 @@ $consulta_agendamiento = mysqli_query($conection, $agendamiento ) or die ("Error
                           </div>
                           <input type="hidden" id="selected-fecha" name="selected-fecha" value="" required>
                           <div class="days" id="days-dispo"></div>
-                        </div>
-                      </div>
-                      <!-- esta parte es la de seleccionar la hora -->
+                          <!-- esta parte es la de seleccionar la hora -->
                             <h2 class="select--hour">Selecciona la hora</h2>
                             <div class="selecthora">
                               <input type="hidden" id="selectedHour" name="selectedHour" value="" required>
 
                               <div class="horariodispo" id="available-hours"/>
-                              </div>';
+                              </div>
+                        </div>
+                      </div>';
                               ?>
                             <?php
                             echo'
