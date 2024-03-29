@@ -12,7 +12,8 @@
 
     <script src="https://kit.fontawesome.com/e1d55cc160.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/style_login-register.css">
-    <link rel="stylesheet" href="./css/desktop_detallePsicologos.css" media="screen and (min-width: 800px)"/>
+    <link rel="stylesheet" href="./css/tablet_login-register.css" media="screen and (min-width: 600px)"/>
+    <link rel="stylesheet" href="./css/desktop_login-register.css" media="screen and (min-width: 800px)"/>
 </head>
 <body>
     <header>
@@ -54,24 +55,19 @@
     </header>
         <main>
             <div class="contenedor__todo">
-                <div class="caja__trasera">
+                <!-- <div class="caja__trasera">
                     <div class="caja__trasera-login">
-                        <h3>¿Ya tienes una cuenta?</h3>
-                        <p>Inicia sesión para entrar en la página</p>
-                        <button id="btn__iniciar-sesion">Iniciar Sesión</button>
+                        <h3>Bienvenido A</h3>
+                        <p id="mensaje-registro">¿Ya posees una cuenta? <a id="enlace-inicio">Inicia sesión para entrar a la página</a></p>
                     </div>
-                        <div class="caja__trasera-register">
-                            <h3>¿Aún no tienes una cuenta?</h3>
-                            <p>Regístrate para que puedas iniciar sesión</p>
-                            <button id="btn__registrarse">Regístrarse</button>
-                        </div>
-                </div>
+                </div> -->
 
                 <!--Formulario de Login y registro-->
                 <div class="contenedor__login-register">
                     <!--Login-->
                     <form action="" class="formulario__login" method="POST">
                         <div class="right-side">
+                            <h1>BIENVENID@ A</h1>
                             <figure class="figure_login"> 
                                 <img 
                                 src="./img/login_vector.svg" 
@@ -80,11 +76,11 @@
                                 <figcaption></figcaption> 
                             </figure>
                             <p id="mensaje-registro">¿No tienes cuenta? <a id="enlace-registro">Regístrate aquí</a></p>
-                        </div>
+                          </div>
                         <div class="left-side">
                             <h2>Iniciar Sesión</h2>
                             <div class="input-container">
-                                <input class="text" type="password" placeholder="Correo Electronico" name="correo">
+                                <input class="text" type="text" placeholder="Correo Electronico" name="correo">
                                 <img src="img/email_icon.svg" alt="Icono de correo electrónico" class="input-icon">
                             </div>
                             <div class="input-container">
@@ -126,7 +122,7 @@
                     </form>
 
                     <!--Register-->
-                    <form  class="formulario__register" method="POST">
+<!--                     <form  class="formulario__register" method="POST">
                             <figure class="figure_login"> 
                                 <img 
                                 src="./img/login_vector.svg" 
@@ -134,7 +130,7 @@
                                 />  
                                 <figcaption></figcaption> 
                             </figure>
-                        <h2>Regístrar</h2>
+                        <h2>Regístrate en el siguiente formulario</h2>
                         <div class="grid">
                             <div class="grupo__input">
                                 <i  class="fa-solid fa-user"></i>
@@ -151,10 +147,6 @@
                                 <i class="fa-solid fa-key"></i>
                         <input type="password" placeholder="Contraseña" name="contrasena">
                                     </div>
-                            <!-- <div class="grupo__input">
-                                <i class="fa-solid fa-venus-mars"></i>
-                                <input type="gender" placeholder="Genero" class="genero">
-                            </div> -->
                             <div class="grupo__input">
                             <div class="gender-box">
                                 <h3>Genero</h3>
@@ -197,7 +189,7 @@
                                 <i class="fa-solid fa-id-card"></i>
                                 <input class="document" type="number" placeholder="Numero Documento" name="documento">
                             </div>
-                            <input class="button" type="submit" value="Registrarse" name="registrar">
+                            <input class="button" type="submit" value="REGISTRARSE" name="registrar"> -->
                             <?php
                                 if(isset($_POST ['registrar'])){
                                     $id = " ";
@@ -240,5 +232,6 @@
  </footer>
         <script src="./js/script.js"></script>
         <script src="./js/script_login-register.js"></script>
+        <script src="./js/script_registerM.js"></script>
 </body>
 </html>

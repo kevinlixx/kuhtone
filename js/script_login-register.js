@@ -1,5 +1,5 @@
 //Ejecutando funciones
-document.getElementById("btn__iniciar-sesion").addEventListener("click", iniciarSesion);
+document.getElementById("enlace-inicio").addEventListener("click", iniciarSesion);
 document.getElementById("enlace-registro").addEventListener("click", register);
 window.addEventListener("resize", anchoPage);
 
@@ -9,14 +9,19 @@ var formulario_register = document.querySelector(".formulario__register");
 var contenedor_login_register = document.querySelector(".contenedor__login-register");
 var caja_trasera_login = document.querySelector(".caja__trasera-login");
 var caja_trasera_register = document.querySelector(".caja__trasera-register");
+var mensajeRegistro = document.querySelector('#mensaje-registro'); // Nueva variable
+var leftSide = document.querySelector('.left-side'); // Nueva variable
+var rightSide = document.querySelector('.right-side'); // Nueva variable
 
-    //FUNCIONES
-
+//FUNCIONES
 function anchoPage(){
 
-    if (window.innerWidth > 850){
+    if (window.innerWidth > 599){
         caja_trasera_register.style.display = "block";
         caja_trasera_login.style.display = "block";
+        if (mensajeRegistro.parentNode !== rightSide) {
+            rightSide.appendChild(mensajeRegistro); // Mueve el mensaje de registro debajo de la imagen
+        }
     }else{
         caja_trasera_register.style.display = "block";
         caja_trasera_register.style.opacity = "1";
@@ -24,10 +29,14 @@ function anchoPage(){
         formulario_login.style.display = "block";
         contenedor_login_register.style.left = "0px";
         formulario_register.style.display = "none";   
+        if (mensajeRegistro.parentNode !== leftSide) {
+            leftSide.insertBefore(mensajeRegistro, leftSide.firstChild); // Mueve el mensaje de registro debajo de los botones
+        }
     }
 }
 
 anchoPage();
+
 
 
     function iniciarSesion(){
