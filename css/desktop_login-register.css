@@ -71,12 +71,57 @@ header .menu-section{
 
 /* MAIN */
 
-main{
-    margin-top: 50px;
+/* main{
+    margin-top: 30px;
     height:650px;
+    width: 110%;
+} */
+main {
+    margin-top: 50px;
+    height: 1100px;
     padding: 20px;
 }
+/* Formulario registro y caja trasera */
+.contenedor__todo {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
 
+.caja__trasera {
+    position: absolute;
+    top: 100px;
+    z-index: 1;
+    width: 50%; /* Ajusta este valor según tus necesidades */
+    margin-left: -1.5%; /* Disminuye este valor para mover .caja__trasera a la izquierda */
+    opacity: 0; /* Inicialmente el elemento será completamente transparente */
+    transform: scale(0); /* Inicialmente el elemento será de tamaño 0 */
+    animation: aparecer 2s forwards; /* La animación se llama "aparecer", dura 2 segundos y el estado final de la animación persistirá después de que la animación haya terminado */
+}
+
+
+
+@keyframes aparecer {
+    to {
+        opacity: 1; /* Al final de la animación, el elemento será completamente opaco */
+        transform: scale(1); /* Al final de la animación, el elemento será de su tamaño original */
+    }
+}
+
+.formulario__register-wrapper {
+    margin-left: 47%; /* Aumenta este valor para mover .formulario__register-wrapper a la derecha */
+}
+
+.formulario__register-wrapper .formulario__register {
+    display: grid;
+    gap: 20px;
+    padding: 29px 30px;
+}
+
+  
+/* Formulario login no modificar */
 .contenedor__login-register{
     display: flex;
     flex-direction: column;
@@ -85,15 +130,6 @@ main{
     width: 100%;
     max-width: 800px;
     /* top:auto; */
-}
-
-.contenedor__login-register .formulario__login{
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: center;
-    width: 100%;
-    max-width: 800px;
-    max-height: 600px;
 }
 
 .contenedor__login-register .formulario__login .left-side,
@@ -114,85 +150,34 @@ main{
     width: 60%;
 }
 
-/* .grid{
+
+/*Formulario de registro*/
+
+.grid{
     display:grid;
+    align-items: end;
     grid-template-columns: repeat(2, 1fr);
     gap: 3px;
 }
+.grupo__input:nth-child(1), .grupo__input:nth-child(2) {
+    margin-top: 0;
+    margin-bottom: 0;
+}
 
-.grupo__input:nth-child(3),
-.grupo__input:nth-child(4),
-.grupo__input:nth-child(5),
-.grupo__input:nth-child(6),
-.grupo__input:nth-child(7){
+
+.grupo__input:nth-child(n+3):nth-child(-n+7){
     grid-column: 1/3;
-}	 */
-
-/* .contenedor__login-register{
-    max-width: 800px;
-} 
-
-.contenedor__login-register .formulario__login{
-    max-width: 800px;
-    max-height: 600px;
-} */
-
-
-
-.caja__trasera,
-.caja__trasera_admin {
-    max-width: 350px;
-    height: auto;
-    flex-direction: column;
-    margin: auto;
-    position: static;
 }
 
-/*Formularios*/
-
-/* .contenedor__login-register{
-    flex-direction: column;
-    top: 0;
-    left: 0;
-    margin: auto;
-}
-
-.contenedor__login-register .formulario__login {
-    max-width: 600px;
-}
-
-.contenedor__login-register .formulario__login .left-side,
-.contenedor__login-register .formulario__login .right-side {
-    width: 100%;
-}
-
-.contenedor__login-register form input {
-    padding: 15px;
-}
-
-.contenedor__login-register form .input-container input {
-    padding-left: 40px;
-}
-
-.contenedor__login-register form .input-icon {
-    width: 20px;
-    height: 20px;
-}
 
 form .formulario__register {
-    width: 60%;
+    width: 60%; /* Ajusta el ancho del formulario */
+    margin-top: 50px; /* Ajusta el margen superior para acercarlo al encabezado */
+    float: right; /* Mueve el formulario a la derecha */
 }
 
-.option--type {
-    min-width: 70%;
-    width: 50%;
+
+form :where(.gender-option, .gender) {
+    column-gap: 50px;
 }
 
-.figure_login img {
-    width: 60%;
-    height: 30%;
-}
-
-.formulario__register .figure_login img {
-    width: 40%;
-} */

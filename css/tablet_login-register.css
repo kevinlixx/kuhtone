@@ -1,10 +1,35 @@
 /* Estilos para tablet */
 
-main{
-    margin-top: 50px;
-    height:650px;
-    padding: 15px 20px;
-}
+/* main{
+    margin-top: 30px;
+    height:1000px;
+    padding: 42px;
+} */
+/* main{
+    margin-top: 100px;
+    height:1000px;
+    width: 100%;
+    padding: 42px;
+} */
+
+/* .contenedor__todo.animate {
+    animation: move-and-fade 2s forwards;
+  }
+
+  @keyframes move-and-fade {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(-50%);
+    }
+} */
+
 
 .contenedor__login-register .formulario__login{
     display: flex;
@@ -29,4 +54,10 @@ main{
 
 .option--type{
     width: 78%;
+}
+
+/* Formulario de registro */
+
+form :where(.gender-option, .gender) {
+    column-gap: 63px;
 }

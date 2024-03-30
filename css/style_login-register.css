@@ -212,13 +212,14 @@ main{
     width: 100%;
     padding: 15px 20px;
     margin: auto;
-    height:1000px;
+    height: auto;
     margin-top: 100px;
     padding-right: initial;
 
 }
 
-/* FORMULARIO Y LOGIN */
+
+/* Caja general del formulario login y register */
 .contenedor__todo{
     width: 100%;
     max-width: 800px;
@@ -226,127 +227,12 @@ main{
     position: relative;
 }
 
-/* CAJA DE MENSAJES DE TRANSICION  DETRAS DEL LOGIN Y EL FORMULARIO */
-.caja__trasera{
-    width: 100%;
-    padding: 10px 20px;
-    display: flex;
-    border-radius: 40px;
-    position: relative;
-    /* top: -200px; */
-    justify-content: center;
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    background-color: var(--gray--clean);
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1), 0px 6px 8px rgba(0, 0, 0, 0.1), 0px 8px 12px rgba(0, 0, 0, 0.1), 0px 12px 16px rgba(0, 0, 0, 0.1);
-}
-
-.caja__trasera div{
-    margin: 100px 40px;
-    color: white;
-    transition: all 500ms;
-}
-.caja__trasera_admin{
-    width: 100%;
-    padding: 10px 20px;
-    display: flex;
-    border-radius: 40px;
-    justify-content: center;
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    background-color: var(--aqua);
-
-}
-
-.caja__trasera_admin div{
-    margin: 60px 190px;
-    color: white;
-    transition: all 500ms;
-}
-.logo--white{
-    display: flex;
-    justify-content: center;
-     width: 300px;
-    height: 200px;
-}
-.logo--white img{
-    width: 250px;
-    height: 200px;
-   }
-
-/* .caja__trasera div p,
-.caja__trasera button{
-    margin-top: 30px;
-}
-
-.caja__trasera div h3{
-    font-weight: 400;
-    font-size: 26px;
-    color: var(--black);
-}
-
-.caja__trasera div p{
-    font-size: 16px;
-    font-weight: 300;
-    color: var(--black);
-}
-
-.caja__trasera button{
-    padding: 10px 40px;
-    border: 2px solid var(--font-color);
-    font-size: 14px;
-    background: transparent;
-    font-weight: 600;
-    cursor: pointer;
-    color: white;
-    outline: none;
-    transition: all 300ms;
-}
-
-.caja__trasera button:hover{
-    background: var(--turquoise);
-    color: var(--font-color);
-}
-.caja__trasera_admin div p,
-.caja__trasera_admin button{
-    margin-top: 30px;
-}
-
-.caja__trasera_admin div h3{
-    font-weight: 400;
-    font-size: 26px;
-    color: var(--font-color);
-}
-
-.caja__trasera_admin div p{
-    font-size: 16px;
-    font-weight: 300;
-    color: var(--font-color);
-}
-
-.caja__trasera_admin button{
-    padding: 10px 40px;
-    border: 2px solid var(--font-color);
-    font-size: 14px;
-    background: transparent;
-    font-weight: 600;
-    cursor: pointer;
-    color: white;
-    outline: none;
-    transition: all 300ms;
-}
-
-.caja__trasera_admin button:hover{
-    background: var(--turquoise);
-    color: var(--font-color);
-} */
-
-/*FORMULARIO DE LOGIN Y REGISTRO*/
+/*Estilos del formulario de login */
 
 
 .contenedor__login-register{
     display: flex;
-    /* flex-direction: column; */
+    flex-direction: column;
     align-items: center;
     width: 100%;
     max-width: 95%;
@@ -519,6 +405,11 @@ main{
     width: 100%;
     text-align: center;
 }
+#mensaje-login {
+    font-size: 18px;
+    width: 100%;
+    text-align: center;
+}
 
 #enlace-registro, #enlace-inicio {
     color: var(--paradiso); /* Ajusta el color a tu gusto */
@@ -532,7 +423,7 @@ main{
 }
 
 
-/* FORMULARIO DE REGISTRO */
+/* Estilos del formulario de registro */
 
 /* Imagen del login */
 .figure_login{
@@ -550,7 +441,52 @@ main{
     width: 30%;
 }
 
-/* Inicio del formulario */
+/* Caja trasera del login y animación para el register */
+
+.caja__trasera{
+    width: 93%;
+    padding: 10px 20px;
+    display: flex;
+    border-radius: 40px;
+    position: relative;
+    top: -58px;
+    justify-content: center;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-color: var(--gray--clean);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1), 0px 6px 8px rgba(0, 0, 0, 0.1), 0px 8px 12px rgba(0, 0, 0, 0.1), 0px 12px 16px rgba(0, 0, 0, 0.1);
+}
+
+.caja__trasera div{
+    margin: 48px 25px;
+    color: white;
+    transition: all 500ms;
+}
+
+@keyframes reveal {
+    0% {
+        clip-path: inset(0 100% 0 0);
+    }
+    100% {
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+.caja__trasera  h3{
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 10px;
+    color: var(--paradiso);
+    animation: 4s ease-out 0s 1 reveal; /* Duración | Timing function | Delay | Iteration count | Animation name */
+    overflow: hidden;
+}
+
+#mensaje-registro {
+    font-size: 18px;
+    width: 100% ;
+    color: var(--black);
+}
+/* Inicio del formulario de registro*/
 
 .contenedor__login-register .formulario__register{
         padding: 29px 30px;
@@ -558,6 +494,25 @@ main{
         /* position: absolute; */
         border-radius: 30px;
         box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1), 0px 6px 8px rgba(0, 0, 0, 0.1), 0px 8px 12px rgba(0, 0, 0, 0.1), 0px 12px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos de los iconos */
+.formulario__register .grupo__input .input-icon {
+    position: absolute;
+    left: 15px; 
+    width: 30px;
+    height: 65px;
+}
+
+.grupo__input h3{
+    font-size: 20px;
+    text-align: left;
+    margin-bottom: 10px;
+    color: var(--paradiso);
+    position: relative;
+    overflow: hidden;
+    margin-top: 10px;
+    line-height: 30px;
 }
 
 form .formulario__register{
@@ -569,51 +524,64 @@ form .formulario__register{
 form  .grupo__input {
     position: relative;
 }
+/* Estilos del placeholder */
 form .grupo__input input{
-    padding: 12px 20px 12px 42px;
+    padding: 12px 20px 12px 50px;
     margin-top: 12px;
-    outline: 12px;
+    outline: none;
 }
-form .grupo__input i{
-    position: absolute;
-    margin-left: 20px;
-    margin-top: 25px;
-}
-form .grupo__input input.document{
-    margin-bottom: 30px;
-
-}
-
+/* Inputs de fecha de nacimiento y documento */
 form .grupo__input.nacimiento{
     margin-top: 10px;
 }
 form .grupo__input.document{
     margin-top: 10px;
 }
-
+/* Estilos del select */
+.form--select{
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: 20px;
+    padding: 15px;
+    border: none;
+    background: var(--font-color);
+    font-size: 16px;
+    outline: none;
+    font-weight: bold;
+    border-radius: 10px; /* Ajusta este valor según tus necesidades */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5); /* Ajusta estos valores según tus necesidades */
+}
+/* Estilos de las opciones de genero */
 form :where(.gender-option, .gender) {
+    /* appearance: none; */
     display: flex;
     align-items: center;
     column-gap: 25px;
     flex-wrap: wrap;
     justify-content: center;
 }
+.gender {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gender input[type="radio"] {
+    width: 20px; /* Aumenta el tamaño del círculo */
+    height: 20px; /* Aumenta el tamaño del círculo */
+}
 
 form :where(.gender input, .gender label){
     cursor: pointer;
+    font-size: 20px;
+    font-weight: 500;
 }
 
-
-.form--select{
-    width: 100%;
-    margin-top: 20px;
-    padding: 10px;
-    border: none;
-    background: #F2F2F2;
-    font-size: 16px;
-    outline: none;
+.button-container{
+    display: flex;
+    justify-content: center;
 }
-
+/* ESTILO DEL BOTON TANTO DE ENTRAR COMO DE REGISTRAR */
 .contenedor__login-register form .button{
     width: auto;
     padding: 10px 40px;
@@ -624,13 +592,12 @@ form :where(.gender input, .gender label){
     cursor: pointer;
     color: var(--paradiso);
     outline: none;
-    display: flex;
+    display: block;
     margin: auto;
     margin: 20px auto;
     border-radius: 30px; /* Ajusta este valor según tus necesidades */
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5); /* Ajusta estos valores según tus necesidades */
 }
-
 
 /* para el footer */
 .pie-pagina {
@@ -639,9 +606,10 @@ form :where(.gender input, .gender label){
     background-color:var(--font-color);
     text-align: center;
     min-width: 320px;
+    clear: both;
 }
 .pie-pagina .footer_copy{
-    background-color: var(--section-color);
+    background-color: #d3e1e1;
     padding: 15px 10px;
     text-align: center;
     color:var(--turquoise);
