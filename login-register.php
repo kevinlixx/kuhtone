@@ -121,7 +121,7 @@ include("./config/conexion.php");
 
                 <!--Register-->
                 <div class="formulario__register-wrapper">
-                    <form class="formulario__register" method="POST">
+                    <form class="formulario__register oculto" method="POST">
                         <h2>Regístrate en el siguiente formulario</h2>
                         <div class="grid">
                             <div class="grupo__input">
@@ -175,11 +175,11 @@ include("./config/conexion.php");
                                 </select>
                             </div>
                             <div class="grupo__input">
-                                <input class="document" type="number" placeholder="Numero Documento" name="documento">
+                                <input class="document" type="number" placeholder="Número de Documento" name="documento">
                                 <img src="img/numDoc_icon.svg" alt="Icono de tarjeta de identificación" class="input-icon">
                             </div>
                             <div class="grupo__input">
-                                <input type="number" placeholder="Numero Telefonico" class="numtelefono" name="telefono_movil">
+                                <input type="number" placeholder="Número Telefónico" class="numtelefono" name="telefono_movil">
                                 <img src="img/phone_icon.svg" alt="Icono de teléfono" class="input-icon">
                             </div>
                             <div class="button-container">
@@ -227,8 +227,8 @@ include("./config/conexion.php");
     <script src="./js/script.js"></script>
     <script src="./js/script_login-register.js"></script>
     <script src="./js/script_evenForms.js"></script>
-    <!--  <script src="./js/script_registerM.js"></script> -->
-    <script src="./js/script_changeMain.js"></script>
+     <script src="./js/script_registerM.js"></script>
+    <!-- <script src="./js/script_changeMain.js"></script> -->
 </body>
 
 </html>

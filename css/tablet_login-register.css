@@ -56,6 +56,11 @@
     width: 78%;
 }
 
+#mensaje-login {
+    display: block !important;
+}
+
+
 /* Formulario de registro */
 
 form :where(.gender-option, .gender) {

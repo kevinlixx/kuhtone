@@ -77,7 +77,7 @@ header .menu-section{
     width: 110%;
 } */
 main {
-    margin-top: 50px;
+    /* margin-top: 100px; */
     height: 1100px;
     padding: 20px;
 }
@@ -181,3 +181,6 @@ form :where(.gender-option, .gender) {
     column-gap: 50px;
 }
 
+.oculto {
+    display: none !important;
+}
