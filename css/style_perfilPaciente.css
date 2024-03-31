@@ -1,12 +1,12 @@
 /* lo que debe tener si o si el aplciativo */
-:root{
-    --turquoise: #568281;
-    --font-color: #FFFFFF;
-    --section-color: #D3E1E1;
-    --beige: #d6c19d;
-    --black: #000000 ;
-    --orange: #         ;
-}
+--:root{
+    --paradiso: #3E8E98;
+    --sandy: #F4A26C;
+    --aqua: #A8D6DC;
+    --font--color: #FFFFFF;
+    --dark--parad: #32727A;
+    --gris: #D9D9D9;
+  }
 *{
     box-sizing: border-box;
     margin: 0;
@@ -189,123 +189,10 @@ main {
     min-width: 320px;
     height: auto;
 }
-.psicologo-info--card{
-    min-width: 320px;
-}
-.psicologo--card{
-    display: flex;
-    margin: 20px;
-    align-items: center;
-    justify-content: center;
-}
-.figure--card{
-    width: 135px;
-    height: 140px;
-    border-radius: 80px;
-}
-.psicologo-details--container{
-    display: flex;
-    width: 100%;
-    justify-content: center;
-}
-.psicologo-description--container h3{
-    font-size: 1.6rem;
-}
-.psicologo-description--container{
-    justify-content: left;
-    width: 147px;
-    text-align: center;
-    margin: 20px;
-}
-.psicologo-description--container p{
-    font-size: 1.2rem;
-    text-align: justify;
-}
-.psicologo-perfil--container{
-    justify-content: right;
-    width: 140px;
-    text-align: center;
-    margin: 20px;
-}
-.psicologo-perfil--container h3{
-    font-size: 1.6rem;
-    margin: 5px;
-}
-.psicologo-perfil--container h4{
-    font-weight: bold;
-    font-size: 1.4rem;
-    text-align: left;
-    margin-left: 30px;
-}
-.psicologo-perfil--container p{
-    font-weight: 100;
-    font-size: 1.2rem;
-    text-align: left;
-    margin-left: 30px;
-    margin-bottom: 5px;
-}
+/* Estilos para la pagina*/
 
-.perfil--logos{
-    display: flex;
-    position: absolute;
-}
 
-.psicologo-experience--container{
-    min-width: 290px;
-    text-align: center;
-    margin: 20px;
-}
-.psicologo-experience--container h3{
-    font-size: 1.6rem;
-}
-.psicologo-experience--container p{
-    font-size: 1.2rem;
-    text-align: center;
-}
-
-.asignar--bottom{
-    display: flex;
-    background-color: var(--section-color);
-    text-decoration: none;
-    color: var(--black);
-    font-weight: bold;
-    font-size: 1.4rem;
-    text-align: center;
-    margin: 10px;   
-    width: 75.96px;
-    height: 33.26px;
-    border-radius: 15px;
-    padding: 5px;
-    justify-content: center;
-    margin: auto;
-    transition: 300ms;
-}
-.asignar--bottom:hover{
-    background-color: var(--turquoise);
-}
-
-.back--bottom{
-    display: flex;
-    background-color: var(--section-color);
-    text-decoration: none;
-    color: var(--black);
-    font-weight: bold;
-    font-size: 1.4rem;
-    text-align: center;
-    margin: 10px;   
-    width: 75.96px;
-    height: 33.26px;
-    border-radius: 15px;
-    padding: 5px;
-    justify-content: center;
-    position: relative;
-    left: 70%;
-    transition: 300ms;
-}
-.back--bottom:hover{
-    background-color: var(--turquoise);
-}
-/* para el footer */
+/* Estilos para el footer */
 .pie-pagina {
     position: relative;
     width: 100%;

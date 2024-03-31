@@ -136,7 +136,7 @@
                                         </div>
                                         
                                     </div>
-                                    <a href="./modificar_perfil.php?id_perfil='.$id_paciente.'" class="button">Modificar Datos</a>
+                                    <a href="./modificar_perfil.php?id_perfil='.$id_paciente.'" class="button">MODICAR DATOS</a>
                                 </div>
                             </div>
                         </div>
