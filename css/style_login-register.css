@@ -444,7 +444,7 @@ main{
 /* Caja trasera del login y animación para el register */
 
 .caja__trasera{
-    width: 70%;
+    width: 75%;
     padding: 10px 20px;
     display: flex;
     border-radius: 40px;
