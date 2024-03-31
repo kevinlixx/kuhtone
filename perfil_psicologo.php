@@ -63,7 +63,7 @@
             $consulta_profesional= mysqli_query($conection, $profesional ) or die ("Error al traer los datos");
                 if($consulta_perfil= mysqli_fetch_array($consulta_profesional)){
                     echo'
-                    <section class="seccion-perfil-psicologo">
+                    <section class="seccion-perfil-usuario">
                         <div class="perfil-usuario-header">
                             <div class="perfil-usuario-portada">
                                 <div class="perfil-usuario-avatar">
@@ -96,30 +96,17 @@
                             </div>
                             <div class="footer-users-container">
                             <div class="info--container">
-
                                 <div class="perfil-usuario-footer">
-                                <div class="footer-users psico">
-                                <!-- Aquí es donde pones tu código SVG -->
-                                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                    <rect width="27.12" height="27.12" fill="url(#pattern0)"/>
-                                    <defs>
-                                        <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
-                                            <use xlink:href="#image0_379_119" transform="scale(0.0208333)"/>
-                                        </pattern>
-                                        <image id="image0_379_119" width="48" height="48" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAACzklEQVR4nO1Yz2sTQRRea62CgiKCiAiC9BJvtqI2mRmsFfwH+h9o/wXBy16LybykEn1v7KEgipKDP9KjJ8GDIAgeBEEFsYoICiqKojWRlzTJJtlkd2O6SXE+GAibnbff9+bNNz8cx8LCwsLCogNUxqQk4C0J+E5oXJVA5Tia0LgqgN5KoJspwKQTFcp1R6XGfFyEZbCgS8wptIBhIi89IiKUjaezprupzJWJhFsYc2JCwi2MKaBJobHY4IElkTFTgZ2rNV9XXXQGDAF0u84H8EZgB56wtQ6ceWfAUECTnoSuBHbwuk2cZdMJzMHrTk4Qmuo/h+POgCFzOO7lFNyhaQLjL6HRCDD7nJihMmaPAJwXmn72LqAxeb5xsJl5s3O9iZ9OX9suNZ2Xmr74celJQKMG6SMHP7OwsLXfxCeM2SKB5gTQ+24cIglQYGYE0JP2EaHX/DHHdUf+mXm5vElpMyuAXvgQfsb/9Syg8sB1RypBNL3yWR0fpzJ0qlfuKcCk1PTQh/gbTtBsobDZl1MkAc12NieBPvgIuS/AHAlLPAlXDwvAQjtx/MQlqtylbWE4RRJQg8rnd1QmGeDXFscqMamTF82hTrFF5vKBiqu17mw1fmeTUNmlXb1w6unlaY37qxZLv/2sdzq3uLf27nG9uLtiiYA/WrL+h0WrLB7sB6foL3MdpzEhgO75WO9nCXSB29rvctsmMY2JMN9YVwF1IVlzTGp80M0C10boUUobFSW2jENADWy9UtNTn4w/Zzdj24waU8YpoCLCdUeVxnMC8GW1mbORTlSDFtBvSCtgwJB2BDbSCIiNf6TEoTrUy5w5GulQz9d5niFbjoVlF0iNdzyL4XUn1B69eatc5CzEfbElq5lf9u52ZZZOhArA13iBe5qYm9CUC50BXvaHRoTGEpOvnc4ige8i+TqPJ0/s1+saV/jbocvGwsLCwuK/xF8msfpg14FxXAAAAABJRU5ErkJggg=="/>
-                                    </defs>
-                                </svg>
-                                <h4>Direccion de correo</h4>
-                                <p>'.$consulta_perfil["correo_profesional"].'</p>
-                            </div>
                                         <div class="footer-users psico">
-
+                                            <i class="icono fas fa-map-signs"></i>   
+                                            <h4>Direccion de correo</h4>
+                                            <p>'.$consulta_perfil["correo_profesional"].'</p>
+                                        </div>
                                         <div class="footer-users psico">
                                             <i class="fa-solid fa-phone"></i>
                                             <h4>Telefono</h4>
                                             <p>'.$consulta_perfil["telefono_movil"].'</p>
                                         </div>
-                                      
                                         <div class="footer-users psico">
                                             <i class="fa-solid fa-calendar"></i>
                                             <h4>Fecha de Nacimiento</h4>
@@ -156,7 +143,7 @@
                                             <p>'.$consulta_perfil["nom_universidad"].'</p>
                                         </div>
                                         </div>
-                                    <div class="perfil-usuario-footer">
+                                        <div class="perfil-usuario-footer">
                                         <div class="footer-users psico">
                                             <i class="fa-solid fa-building"></i>
                                             <h4>Experencia</h4>
@@ -175,7 +162,7 @@
                                         </div>
                                         </div>
                                     </div>
-                                    <a href="./modificar_perfilPsico.php?id_perfil='.$id_profesional.'" class="button">MODIFICAR DATOS</a>
+                                    <a href="./modificar_perfilPsico.php?id_perfil='.$id_profesional.'" class="button">Modificar Datos</a>
                                 </div>
                             </div>
                         </div>

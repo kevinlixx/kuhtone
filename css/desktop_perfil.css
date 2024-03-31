@@ -1,16 +1,11 @@
 :root{
     --turquoise: #568281;
     --font-color: #FFFFFF;
+    --section-color: #D3E1E1;
+    --beige: #d6c19d;
     --black: #000000 ;
-    /* News */
-    --paradiso: #3E8E98;
-    --sandy: #F4A26C;
-    --aqua: #A8D6DC;
-    --dark--parad: #32727A;
-    --fountain: #63B5BF;
-    --gris: #D9D9D9;
-    --gray--clean: #f9fafe;
-    --section--color: #E0E8FA;
+    --orange: #fdb249 ;
+    --hour_turquoise: #20D2C8; 
 }
 *{
     box-sizing: border-box;
@@ -67,102 +62,4 @@ header .menu-section{
     margin: 0;
     padding: 0;
     display: block;
-}
-
-/* Estilo del perfil*/
-
-.seccion-perfil-psicologo {
-    width: 80%; /* Define el ancho del contenedor */
-    margin: 0 auto; /* Centra el contenedor en la página */
-    padding: 20px; /* Proporciona algo de relleno alrededor del contenido dentro del contenedor */
-}
-/* Estilo para el contenedor principal */
-.main {
-    width: 80%; /* Define el ancho del contenedor principal */
-    margin: 0 auto; /* Centra el contenedor principal en la página */
-    padding: 20px; /* Proporciona algo de relleno alrededor del contenido dentro del contenedor principal */
-}
-
-/* Estilo para la sección del perfil del usuario */
-.seccion-perfil-usuario {
-    display: flex; /* Utiliza flexbox para el diseño */
-    flex-direction: column; /* Alinea los elementos en una columna */
-    gap: 20px; /* Proporciona un espacio entre los elementos */
-}
-
-/* Estilo para el encabezado del perfil del usuario */
-.perfil-usuario-header {
-    display: flex; /* Utiliza flexbox para el diseño */
-    justify-content: space-between; /* Distribuye el espacio de manera uniforme entre los elementos */
-}
-
-.perfil-usuario-header {
-    display: flex; /* Utiliza flexbox para el diseño */
-    align-items: center; /* Centra los elementos verticalmente */
-}
-
-.perfil-usuario-portada {
-    display: flex; /* Utiliza flexbox para el diseño */
-    align-items: center; /* Centra los elementos verticalmente */
-}
-
-.perfil-usuario-avatar img {
-    border-radius: 10px; /* Aplica un borde redondeado a la imagen */
-    width: 100px; /* Ajusta el ancho de la imagen */
-    height: 100px; /* Ajusta la altura de la imagen */
-    margin-right: 20px; /* Proporciona un espacio a la derecha de la imagen */
-}
-
-.perfil-usuario-body {
-    display: flex; /* Utiliza flexbox para el diseño */
-    flex-direction: column; /* Alinea los elementos en una columna */
-    margin-left: 20px; /* Proporciona un espacio a la izquierda de la información del usuario */
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Estilo para el cuerpo del perfil del usuario */
-.perfil-usuario-body {
-    display: flex; /* Utiliza flexbox para el diseño */
-    flex-direction: column; /* Alinea los elementos en una columna */
-    gap: 20px; /* Proporciona un espacio entre los elementos */
-}
-
-/* Estilo para el pie de página del perfil del usuario */
-.perfil-usuario-footer {
-    display: flex; /* Utiliza flexbox para el diseño */
-    flex-wrap: wrap; /* Permite que los elementos se envuelvan en varias líneas si no hay suficiente espacio */
-    gap: 20px; /* Proporciona un espacio entre los elementos */
-}
-
-/* Estilo para los botones */
-.button {
-    padding: 10px 20px; /* Proporciona algo de relleno alrededor del texto del botón */
-    background-color: #007BFF; /* Define el color de fondo del botón */
-    color: #FFFFFF; /* Define el color del texto del botón */
-    border: none; /* Elimina el borde del botón */
-    border-radius: 5px; /* Redondea las esquinas del botón */
-    text-decoration: none; /* Elimina la decoración del texto del botón */
-    align-self: flex-end; /* Alinea el botón al final del contenedor flex */
-}
-
-.button:hover {
-    background-color: #0056b3; /* Cambia el color de fondo del botón cuando se pasa el ratón por encima */
 }
