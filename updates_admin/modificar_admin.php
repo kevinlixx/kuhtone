@@ -91,27 +91,27 @@
                                 <div class="footer-users-container">
                                 <div class="perfil-usuario-footer">
                                         <div class="footer-users">
-                                            <i class="icono fas fa-map-signs"></i> 
+                                            <img src="./img/Correo-Perfil.svg" alt="Icono de correo">
                                             <p>Direccion de correo</p>
                                             <input type="email" value= "'.$consulta_perfil["correo"].'" name="correo">
                                         </div>
                                         <div class="footer-users">
-                                            <i class="icono fas fa-map-signs"></i> 
+                                        <img src="./img/Contraseña-Perfil.svg" alt="Icono de Contraseña">
                                             <p>Contraseña</p>
                                             <input type="password" value= "'.$consulta_perfil["contrasena"].'" name="contrasena">
                                         </div>
                                         <div class="footer-users">
-                                            <i class="fa-solid fa-phone"></i>
+                                        <img src="./img/Telefono_Perfil.svg" alt="Icono de teléfono">
                                             <p>Telefono</p>
                                             <input type="number" value= "'.$consulta_perfil["telefono_movil"].'" name="telefono_movil">
                                         </div>
                                         <div class="footer-users">
-                                            <i class="fa-solid fa-calendar"></i>
+                                        <img src="./img/agenda-perfil.svg" alt="Icono de agenda">
                                             <p>Fecha de Nacimiento</p>
                                             <input type="date" value= "'.$consulta_perfil["fecha_nacimiento"].'" name="fecha_nacimiento">
                                         </div>
                                         <div class="footer-users">
-                                            <i class="fa-solid fa-venus-mars"></i>
+                                        <img src="./img/Genero-Perfil.svg" alt="Icono de género">
                                             <p>Genero</p>';
                             $consulta_genero = mysqli_query($conection, "SELECT * FROM genero Where id_genero ='".$consulta_perfil['id_genero']."'") or die ("Error al traer los datos");
                             while($consult_genero= mysqli_fetch_array($consulta_genero))
@@ -132,7 +132,7 @@
                                     </select>
                                         </div>
                                         <div class="footer-users">
-                                            <i class="fa-solid fa-id-card"></i>
+                                        <img src="./img/Documento-Perfil.svg" alt="Icono de documento">
                                             <p>Tipo Documento</p>';
                             $consulta_tipo = mysqli_query($conection, "SELECT * FROM tipo_documento Where id_tipoDocumento='".$consulta_perfil['id_tipoDocumento']."'") or die ("Error al traer los datos");
                             while($consult_tipo= mysqli_fetch_array($consulta_tipo))
@@ -153,7 +153,7 @@
                                     </select>
                                         </div>
                                         <div class="footer-users">
-                                            <i class="fa-solid fa-id-card"></i>
+                                        <img src="./updates_admin/img/Documento-Perfil.svg" alt="Icono de documento">
                                             <p>Numero Documento</p>
                                             <input name="nro_documento" type="number" value ="'.$consulta_perfil['nro_documento'].'">
                                         </div>
@@ -161,7 +161,7 @@
                                     </div>
                                     <input class="button" type="submit" value="Modificar Datos" name="modificar">
                                     <input class="button" type="submit" value="Eliminar Cuenta cuenta" name="inhabilitar">
-                                    <a href="../perfil_admin.php?id_perfil='.$id_admin.'" class="button">volver</a>
+                                    <a href="../perfil_admin.php?id_perfil='.$id_admin.'" class="button">Volver</a>
                                 </div>
                             </div>
                         </section>

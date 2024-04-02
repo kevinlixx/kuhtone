@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="./css/Style_perfil.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <script src="https://kit.fontawesome.com/e1d55cc160.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./css/desktop_perfil.css" media="screen and (min-width: 800px)"/>
+    
     <title>Document</title>
 </head>
 <body>
@@ -82,11 +82,11 @@
                         <div class="perfil-usuario-body">
                             <div class="perfil-usuario-bio">
                                 <div class="container--info">
-                                    <h4>Id usuario</h4>
+                                    <h4>ID Usuario</h4>
                                     <p>#'.$consulta_perfil["id_profesional"].'</p>
                                 </div>
                                 <div class="container--info">
-                                    <h4>nombres</h4>
+                                    <h4>Nombres</h4>
                                     <p>'.$consulta_perfil["nombres"].'</p>
                                 </div>
                                 <div class="container--info">
@@ -146,7 +146,7 @@
                                         <div class="perfil-usuario-footer">
                                         <div class="footer-users psico">
                                         <img src="./img/experiencia-Perfil.svg" alt="Icono de psicólogo">
-                                            <h4>Experencia</h4>
+                                            <h4>Experiencia</h4>
                                             <p>'.$consulta_perfil["experiencia"].'</p>
                                         </div>
                                         
