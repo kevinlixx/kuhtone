@@ -262,6 +262,7 @@ main{
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1), 0px 6px 8px rgba(0, 0, 0, 0.1), 0px 8px 12px rgba(0, 0, 0, 0.1), 0px 12px 16px rgba(0, 0, 0, 0.1);
 }
 
+/* Animación de despliegue del h1 */
 @keyframes reveal {
     0% {
         clip-path: inset(0 100% 0 0);
@@ -280,6 +281,7 @@ main{
     overflow: hidden;
 }
 
+/* Animación de cambip de color para el h2*/
 @keyframes color-change {
     0% {
         color: #3E8E98;
@@ -291,6 +293,7 @@ main{
         color: #32727A;
     }
 }
+/* Animación de cambip de color para el linea inferior del h2*/
 
 @keyframes underline-color-change {
     0%, 100% {
@@ -300,7 +303,7 @@ main{
         background: #20D2C8;
     }
 }
-
+/* Animación de desplazamineto de la linea interior del h2 */
 @keyframes underline-slide {
     0%, 100% {
         transform: translateX(-30%); /* Cambia esta línea */
@@ -310,6 +313,7 @@ main{
     }
 }
 
+/* Codigo del h2 y llamado de la primer animación */
 .contenedor__login-register form h2{
     font-size: 30px;
     text-align: center;
@@ -320,6 +324,7 @@ main{
     overflow: hidden;
 }
 
+/* Codigo del h2 con pseudo-clase y llamado de la animación para el underline */
 .contenedor__login-register form h2::after {
     content: '';
     position: absolute;
