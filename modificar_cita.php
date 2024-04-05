@@ -87,6 +87,7 @@ $consulta_agendamiento = mysqli_query($conection, $agendamiento ) or die ("Error
               $dispo ="SELECT * FROM disponibilidad WHERE id_disponibilidad = '".$consulta_agenda['id_disponibilidad']."'";
               $consulta_dispo = mysqli_query($conection, $dispo) or die ("Error al traer los datos");
               if($consulta_disponi= mysqli_fetch_array($consulta_dispo)){
+                $_SESSION['id_profesional'] = $consulta_disponi['id_profesional'];
                 $profesional ="SELECT * FROM profesional WHERE id_profesional = '".$consulta_disponi['id_profesional']."'";
                 $consulta_profe = mysqli_query($conection, $profesional) or die ("Error al traer los datos");
                 if($consulta_profesional= mysqli_fetch_array($consulta_profe)){
