@@ -195,14 +195,14 @@ $consulta_agendamiento = mysqli_query($conection, $agendamiento ) or die ("Error
                                     <div class="bottom--container">
                                         <?php
                                         echo'
-                                        <a href="./modificar_cita.php?id_agenda='.$consulta_agenda["id_agendamiento"].'&id_perfil='.$id_paciente.'" class="change--bottom">modificar cita</a>
+                                        <a href="./modificar_cita.php?id_agenda='.$consulta_agenda["id_agendamiento"].'&id_perfil='.$id_paciente.'" class="change--bottom">Modificar cita</a>
                                         <input type="submit" value="Cancelar cita" class="cancel--bottom" name="eliminar" required>
                                         ';
                                         ?>
                                     </div>
             <?php                  
                                  echo'   
-                                    <a href="./queries/consultar_citas.php?id_perfil='.$id_paciente.'" class="back--bottom">volver</a>';
+                                    <a href="./queries/consultar_citas.php?id_perfil='.$id_paciente.'" class="back--bottom">Volver</a>';
             
                          if(isset($_POST ['eliminar'])){
                             $id_agenda =$consulta_agenda ['id_agendamiento'];

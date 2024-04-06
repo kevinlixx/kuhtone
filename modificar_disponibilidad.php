@@ -86,7 +86,7 @@
                         </div>
                         
                     </div>
-                    <a href="./index_psicologos.php?id_perfil='.$id_profesional.'" class="back--bottom">volver</a>
+                    <a href="./index_psicologos.php?id_perfil='.$id_profesional.'" class="back--bottom">Volver</a>
                 </div>
             </section>';
             if (isset($_POST['modificar'])) {

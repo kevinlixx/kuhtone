@@ -103,11 +103,20 @@ header .menu-section{
     font-size: 2.0rem;
 }
 .psicologo-perfil--container h4{
-    font-size: 1.4rem;
+    font-size: 2rem;
 }
 .psicologo-perfil--container p{
-    font-size: 1.4rem;
+    font-size: 1.9rem;
     text-align: justify;  
+}
+.calendar--container h3{
+   font-size: 2rem;
+}
+.calendar--container h4{
+    font-size: 2rem;
+}
+.calendar--container p{
+    font-size: 1.9rem;
 }
 
 .psicologo-experience--container{
@@ -126,4 +135,22 @@ header .menu-section{
 }
 .back--bottom{
     left: 80%;
+}
+.change--bottom{
+    font-size: 1.8rem;
+    width: 153px;
+    height: 38px;
+    text-align: center;
+}
+.cancel--bottom{
+    font-size: 1.8rem;
+    width: 153px;
+    height: 38px;
+    text-align: center;
+}
+.back--bottom{
+    font-size: 1.8rem;
+    width: 85px;
+    height: 38px;
+    text-align: center;
 }

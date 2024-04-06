@@ -7,11 +7,16 @@ html {
 :root{
     --turquoise: #568281;
     --font-color: #FFFFFF;
-    --section-color: #D3E1E1;
-    --beige: #d6c19d;
     --black: #000000 ;
-    --orange: #fdb249     ;
-    --hour_turquoise: #20D2C8; 
+    /* News */
+    --paradiso: #3E8E98;
+    --sandy: #F4A26C;
+    --aqua: #A8D6DC;
+    --dark--parad: #32727A;
+    --fountain: #63B5BF;
+    --gris: #D9D9D9;
+    --gray--clean: #f9fafe;
+    --section--color: #E0E8FA;         ;
 }
 
 * {
@@ -249,7 +254,7 @@ main{
     border-left: none;
     border-right: none;
     text-align: center;
-    background-color: var(--section-color);
+    background-color: var(--gris);
     border-radius: 10px;
 }
 .perfil-usuario-bio  p{
@@ -272,8 +277,8 @@ main{
     border-left: none;
     border-right: none;
     text-align: center;
-    background-color: var(--turquoise);
-    color: var(--font-color);
+    background-color: var(--aqua);
+    color: var(--dark--parad);
     border-radius: 10px;
     transition: 300ms;
 }
@@ -292,9 +297,9 @@ main{
     flex-direction: column;
 }
 .back--bottom{
-    background-color: var(--section-color);
+    background-color: var(--aqua);
     text-decoration: none;
-    color: var(--black);
+    color: var(--dark--parad);
     text-align: center;
     margin: 10px;   
     width: 76px;
