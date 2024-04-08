@@ -51,7 +51,7 @@ include("./config/conexion.php");
     </header>
     <main>
         <div class="contenedor__todo" id="contenedorTodo">
-            <div class="caja__trasera">
+            <div class="caja__trasera oculto">
                 <div class="caja__trasera-login">
                     <h3>Bienvenido A</h3>
                     <figure class="figure_login">
@@ -225,10 +225,8 @@ include("./config/conexion.php");
         </div>
     </footer>
     <script src="./js/script.js"></script>
-    <script src="./js/script_login-register.js"></script>
     <script src="./js/script_evenForms.js"></script>
-     <script src="./js/script_registerM.js"></script>
-    <!-- <script src="./js/script_changeMain.js"></script> -->
+     <!-- <script src="./js/script_registerM.js"></script> -->
 </body>
 
 </html>

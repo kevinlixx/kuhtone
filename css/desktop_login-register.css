@@ -81,46 +81,7 @@ main {
     height: 1100px;
     padding: 20px;
 }
-/* Formulario registro y caja trasera */
-.contenedor__todo {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-}
 
-.caja__trasera {
-    position: absolute;
-    top: 100px;
-    z-index: 1;
-    width: 50%; /* Ajusta este valor según tus necesidades */
-    margin-left: -1.5%; /* Disminuye este valor para mover .caja__trasera a la izquierda */
-    opacity: 0; /* Inicialmente el elemento será completamente transparente */
-    transform: scale(0); /* Inicialmente el elemento será de tamaño 0 */
-    animation: aparecer 2s forwards; /* La animación se llama "aparecer", dura 2 segundos y el estado final de la animación persistirá después de que la animación haya terminado */
-}
-
-
-
-@keyframes aparecer {
-    to {
-        opacity: 1; /* Al final de la animación, el elemento será completamente opaco */
-        transform: scale(1); /* Al final de la animación, el elemento será de su tamaño original */
-    }
-}
-
-.formulario__register-wrapper {
-    margin-left: 47%; /* Aumenta este valor para mover .formulario__register-wrapper a la derecha */
-}
-
-.formulario__register-wrapper .formulario__register {
-    display: grid;
-    gap: 20px;
-    padding: 29px 30px;
-}
-
-  
 /* Formulario login no modificar */
 .contenedor__login-register{
     display: flex;
@@ -150,8 +111,47 @@ main {
     width: 60%;
 }
 
+/* Formulario registro y caja trasera */
+.contenedor__todo {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
 
-/*Formulario de registro*/
+.caja__trasera {
+    position: absolute;
+    top: 100px;
+    z-index: 1;
+    width: 50%; /* Ajusta este valor según tus necesidades */
+    margin-left: -1.5%; /* Disminuye este valor para mover .caja__trasera a la izquierda */
+    opacity: 0; /* Inicialmente el elemento será completamente transparente */
+    transform: scale(0); /* Inicialmente el elemento será de tamaño 0 */
+    animation: aparecer 2s forwards; /* La animación se llama "aparecer", dura 2 segundos y el estado final de la animación persistirá después de que la animación haya terminado */
+}
+
+@keyframes aparecer {
+    to {
+        opacity: 1; /* Al final de la animación, el elemento será completamente opaco */
+        transform: scale(1); /* Al final de la animación, el elemento será de su tamaño original */
+    }
+}
+
+.formulario__register-wrapper {
+    margin-left: 47%; /* Aumenta este valor para mover .formulario__register-wrapper a la derecha */
+}
+
+.formulario__register-wrapper .formulario__register {
+    display: grid;
+    gap: 20px;
+    padding: 29px 30px;
+}
+
+
+
+
+/*Grid del formulario de registro */
 
 .grid{
     display:grid;
