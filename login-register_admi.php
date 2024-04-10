@@ -62,7 +62,7 @@
                     <!--Login-->
                     <form action="" class="formulario__login" method="POST">
                         <div class="right-side">
-                            <h1>Bienvenid@ Administrador</h1>
+                            <h1>Bienvenid@ Admin</h1>
                             <figure class="figure_login"> 
                                 <img 
                                 src="./img/login_vector.svg" 
