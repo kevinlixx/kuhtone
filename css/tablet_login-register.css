@@ -1,0 +1,68 @@
+/* Estilos para tablet */
+
+/* main{
+    margin-top: 30px;
+    height:1000px;
+    padding: 42px;
+} */
+/* main{
+    margin-top: 100px;
+    height:1000px;
+    width: 100%;
+    padding: 42px;
+} */
+
+/* .contenedor__todo.animate {
+    animation: move-and-fade 2s forwards;
+  }
+
+  @keyframes move-and-fade {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(-50%);
+    }
+} */
+
+
+.contenedor__login-register .formulario__login{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+}
+
+.contenedor__login-register .formulario__login .left-side,
+.contenedor__login-register .formulario__login .right-side {
+    width: 50%;
+}
+
+.contenedor__login-register .formulario__login figure{
+    width: 100%;
+    max-width: 100%;
+}
+
+.figure_login img{
+    width: 80%;
+    height: 40%;
+}
+
+.option--type{
+    width: 78%;
+}
+
+#mensaje-login {
+    display: block !important;
+}
+
+
+/* Formulario de registro */
+
+form :where(.gender-option, .gender) {
+    column-gap: 63px;
+}

@@ -1,13 +1,19 @@
 :root{
     --turquoise: #568281;
     --font-color: #FFFFFF;
-    --section-color: #D3E1E1;
-    --beige: #d6c19d;
     --black: #000000 ;
-    --orange: #fdb249         ;
-    --name: #8EC2C1;
-
+    /* News */
+    --paradiso: #3E8E98;
+    --sandy: #F4A26C;
+    --aqua: #A8D6DC;
+    --dark--parad: #32727A;
+    --fountain: #63B5BF;
+    --gris: #D9D9D9;
+    --gray--clean: #f9fafe;
+    --section--color: #d3e1e1;
 }
+
+
 
 html {
     font-size: 62.5%;
@@ -31,6 +37,8 @@ body{
     background-attachment: fixed; */
     background: var(--font-color);
 }
+
+/* HEADER DE LA PAGINA NO SE DEBE MODIFICAR*/
 header{
     position: relative;
     display: flex;
@@ -55,6 +63,7 @@ header .figure_header{
     display: flex;
     margin-top: 1px;
 }
+
 .menu-section{
     display: none;
    
@@ -197,15 +206,20 @@ header .menu-header{
     
 }
 
+/* MAIN */
 
 main{
     width: 100%;
-    padding: 20px;
+    padding: 15px 20px;
     margin: auto;
-    height:650px;
-    margin-top: 200px;
+    height: auto;
+    margin-top: 100px;
+    padding-right: initial;
+
 }
 
+
+/* Caja general del formulario login y register */
 .contenedor__todo{
     width: 100%;
     max-width: 800px;
@@ -213,171 +227,310 @@ main{
     position: relative;
 }
 
-.caja__trasera{
-    width: 100%;
-    padding: 10px 20px;
-    display: flex;
-    border-radius: 40px;
-    justify-content: center;
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    background-color: var(--name);
+/*Estilos del formulario de login */
 
-}
-
-.caja__trasera div{
-    margin: 100px 40px;
-    color: white;
-    transition: all 500ms;
-}
-.caja__trasera_admin{
-    width: 100%;
-    padding: 10px 20px;
-    display: flex;
-    border-radius: 40px;
-    justify-content: center;
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    background-color: var(--name);
-
-}
-
-.caja__trasera_admin div{
-    margin: 60px 190px;
-    color: white;
-    transition: all 500ms;
-}
-.logo--white{
-    display: flex;
-    justify-content: center;
-     width: 300px;
-    height: 200px;
-}
-.logo--white img{
-    width: 250px;
-    height: 200px;
-   }
-
-.caja__trasera div p,
-.caja__trasera button{
-    margin-top: 30px;
-}
-
-.caja__trasera div h3{
-    font-weight: 400;
-    font-size: 26px;
-    color: var(--black);
-}
-
-.caja__trasera div p{
-    font-size: 16px;
-    font-weight: 300;
-    color: var(--black);
-}
-
-.caja__trasera button{
-    padding: 10px 40px;
-    border: 2px solid var(--font-color);
-    font-size: 14px;
-    background: transparent;
-    font-weight: 600;
-    cursor: pointer;
-    color: white;
-    outline: none;
-    transition: all 300ms;
-}
-
-.caja__trasera button:hover{
-    background: var(--turquoise);
-    color: var(--font-color);
-}
-.caja__trasera_admin div p,
-.caja__trasera_admin button{
-    margin-top: 30px;
-}
-
-.caja__trasera_admin div h3{
-    font-weight: 400;
-    font-size: 26px;
-    color: var(--font-color);
-}
-
-.caja__trasera_admin div p{
-    font-size: 16px;
-    font-weight: 300;
-    color: var(--font-color);
-}
-
-.caja__trasera_admin button{
-    padding: 10px 40px;
-    border: 2px solid var(--font-color);
-    font-size: 14px;
-    background: transparent;
-    font-weight: 600;
-    cursor: pointer;
-    color: white;
-    outline: none;
-    transition: all 300ms;
-}
-
-.caja__trasera_admin button:hover{
-    background: var(--turquoise);
-    color: var(--font-color);
-}
-/*Formularios*/
 
 .contenedor__login-register{
     display: flex;
+    flex-direction: column;
     align-items: center;
     width: 100%;
-    max-width: 380px;
+    max-width: 95%;
+    /* max-width: 380px; */
     position: relative;
-    top: -185px;
-    left: 10px;
-
-    /*La transicion va despues del codigo JS*/
+    flex-wrap: wrap;
+    box-sizing: border-box;
+   /*  top: -270px;     */
+    /* left: 10px; */
     transition: left 500ms cubic-bezier(0.175, 0.885, 0.320, 1.275);
 }
 
-.contenedor__login-register form{
-    width: 100%;
-    padding: 10px 20px;
+.contenedor__login-register .formulario__login{
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Ajusta este valor según tus necesidades */
+    /* max-width: 95%; */ /* Aumenta este valor para un ancho mayor */
+    height: auto; /* Ajusta este valor según tus necesidades */
+    /* max-height: 600px; */ /* Aumenta este valor para un alto mayor */
+    padding: 29px 30px;
     background: white;
-    position: absolute;
+    /* position: absolute; */
     border-radius: 30px;
-    box-shadow: 3px 6px 29px 4px rgba(0,0,0,0.75);
-
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1), 0px 6px 8px rgba(0, 0, 0, 0.1), 0px 8px 12px rgba(0, 0, 0, 0.1), 0px 12px 16px rgba(0, 0, 0, 0.1);
 }
 
+/* Animación de despliegue del h1 */
+@keyframes reveal {
+    0% {
+        clip-path: inset(0 100% 0 0);
+    }
+    100% {
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+.contenedor__login-register form h1 {
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 10px;
+    color: var(--paradiso);
+    animation: 2s ease-out 0s 1 reveal; /* Duración | Timing function | Delay | Iteration count | Animation name */
+    overflow: hidden;
+}
+
+/* Animación de cambip de color para el h2*/
+@keyframes color-change {
+    0% {
+        color: #3E8E98;
+    }
+    50% {
+        color: #20D2C8;
+    }
+    100% {
+        color: #32727A;
+    }
+}
+/* Animación de cambip de color para el linea inferior del h2*/
+
+@keyframes underline-color-change {
+    0%, 100% {
+        background: #3E8E98;
+    }
+    50% {
+        background: #20D2C8;
+    }
+}
+/* Animación de desplazamineto de la linea interior del h2 */
+@keyframes underline-slide {
+    0%, 100% {
+        transform: translateX(-30%); /* Cambia esta línea */
+    }
+    50% {
+        transform: translateX(30%); /* Cambia esta línea */
+    }
+}
+
+/* Codigo del h2 y llamado de la primer animación */
 .contenedor__login-register form h2{
     font-size: 30px;
     text-align: center;
     margin-bottom: 10px;
-    color: var(--turquoise);
+    animation: color-change 1.5s infinite;
+    color: var(--paradiso);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Codigo del h2 con pseudo-clase y llamado de la animación para el underline */
+.contenedor__login-register form h2::after {
+    content: '';
+    position: absolute;
+    left: 22%; /* Centra el elemento */
+    bottom: 0;
+    height: 3px;
+    width: 58%;
+    background: #32727A;
+    animation: underline-color-change 2s infinite, underline-slide 2s infinite;
+    transform: translateX(-50%); /* Centra el elemento */
+}
+
+.contenedor__login-register .formulario__login .left-side,
+.contenedor__login-register .formulario__login .right-side {
+    width: 100%; /* Asegura que cada lado tenga un ancho definido */
+    max-width: 100%; /* Asegura que cada lado tenga un ancho máximo definido */
 }
 
 .contenedor__login-register form input{
+    box-sizing: border-box;
     width: 100%;
-    margin-top: 20px;
-    padding: 10px;
+    margin-top: 13px;
+    padding: 23px;
     border: none;
-    background: #F2F2F2;
+    background: var(--font-color);
     font-size: 16px;
     outline: none;
+    font-weight: bold;
+    border-radius: 10px; /* Ajusta este valor según tus necesidades */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5); /* Ajusta estos valores según tus necesidades */
 }
-.form--select{
-    width: 100%;
-    margin-top: 20px;
-    padding: 10px;
-    border: none;
-    background: #F2F2F2;
-    font-size: 16px;
-    outline: none;
+.contenedor__login-register form input.text{
+    margin-bottom: 14px;
 }
 
 .contenedor__login-register form input.password{
-    margin-bottom: 30px;
+    margin-bottom: 14px;
+}
 
+/* Estilos para que los iconos se muestren al lado izquierdo de los placeholders*/
+.contenedor__login-register form .input-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.contenedor__login-register form .input-container input {
+    padding-left: 60px; /* Ajusta este valor según tus necesidades */
+}
+
+.contenedor__login-register form .input-icon {
+    position: absolute;
+    left: 15px; /* Ajusta este valor según tus necesidades */
+  /*   top: 50%;
+    transform: translateY(-50%); */
+    width: 30px; /* Ajusta este valor según tus necesidades */
+    height: 30px; /* Ajusta este valor según tus necesidades */
+}
+
+
+/* CONFIGURACIÓN DE LOS BOTONES DE PSICO Y ADMIN */
+.option--type{
+    text-decoration: revert;
+    display: block;
+    margin-top: 10px;
+    font-size: 15px;
+    margin: 10px auto;
+    color: var(--turquoise);
+    width: 100%; /* Ajusta este valor según tus necesidades */
+    border-radius: 10px; /* Ajusta este valor según tus necesidades */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5); /* Ajusta estos valores según tus necesidades */
+    background-color: var(--section--color);
+    border: none;
+    font-weight: bold;
+    flex-wrap: wrap;
+}
+
+/* TRANSICIÓN DE FORMULARIO MEDIANTE EL p*/
+
+#mensaje-registro {
+    font-size: 18px;
+    width: 100%;
+    text-align: center;
+}
+#mensaje-login {
+    font-size: 18px;
+    width: 100%;
+    text-align: center;
+    padding: 15px;
+}
+
+#enlace-registro, #enlace-inicio {
+    color: var(--paradiso); /* Ajusta el color a tu gusto */
+    text-decoration: none; /* Elimina el subrayado del enlace */
+}
+
+
+#enlace-registro:hover, #enlace-inicio:hover {
+    color: var(--dark--parad); /* Ajusta el color a tu gusto */
+    text-decoration: underline; /* Añade un subrayado al enlace cuando se pasa el cursor sobre él */
+}
+
+
+/* Estilos del formulario de registro */
+
+/* Imagen del login */
+.figure_login{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin: 15px;
+}
+
+.figure_login img{
+    width: 100%;
+    height: 40%;
+}
+.formulario__register .figure_login img {
+    width: 30%;
+}
+
+/* Caja trasera del login y animación para el register */
+
+.caja__trasera{
+    width: 75%; 
+    max-width: 450px; /* Ajusta el ancho máximo de la caja trasera al momento de ponerlo en modo tablet */ 
+    padding: 0px 20px;
+    display: flex;
+    border-radius: 40px;
+    position: relative;
+    top: -58px;
+    justify-content: center;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-color: var(--gray--clean);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1), 0px 6px 8px rgba(0, 0, 0, 0.1), 0px 8px 12px rgba(0, 0, 0, 0.1), 0px 12px 16px rgba(0, 0, 0, 0.1);
+    margin: auto;
+    transform: scale(0);
+    animation: aparecer 2s forwards;
+}
+
+@keyframes aparecer {
+    to {
+        opacity: 1; /* Al final de la animación, el elemento será completamente opaco */
+        transform: scale(1); /* Al final de la animación, el elemento será de su tamaño original */
+    }
+}
+
+.caja__trasera div{
+    margin: 48px 25px;
+    color: white;
+    transition: all 500ms;
+}
+
+@keyframes reveal {
+    0% {
+        clip-path: inset(0 100% 0 0);
+    }
+    100% {
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+.caja__trasera  h3{
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 10px;
+    color: var(--paradiso);
+    animation: 4s ease-out 0s 1 reveal; /* Duración | Timing function | Delay | Iteration count | Animation name */
+    overflow: hidden;
+}
+
+#mensaje-registro {
+    font-size: 18px;
+    width: 100% ;
+    color: var(--black);
+}
+/* Inicio del formulario de registro*/
+
+.contenedor__login-register .formulario__register{
+        padding: 29px 30px;
+        background: white;
+        position: relative;
+        border-radius: 30px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1), 0px 6px 8px rgba(0, 0, 0, 0.1), 0px 8px 12px rgba(0, 0, 0, 0.1), 0px 12px 16px rgba(0, 0, 0, 0.1);
+        top: -75px;
+}
+
+/* Estilos de los iconos */
+.formulario__register .grupo__input .input-icon {
+    position: absolute;
+    left: 15px; 
+    width: 30px;
+    height: 65px;
+}
+
+.grupo__input h3{
+    font-size: 20px;
+    text-align: left;
+    margin-bottom: 10px;
+    color: var(--paradiso);
+    position: relative;
+    overflow: hidden;
+    margin-top: 10px;
+    line-height: 30px;
 }
 
 form .formulario__register{
@@ -386,82 +539,88 @@ form .formulario__register{
     margin-top: 200px;
 }
 
-.figure_login{
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    margin: 15px;
-}
-.option--type{
-    text-decoration: revert;
-    display: block;
-    font-size: 1.2rem;
-    margin: 5px;
-    color: var(--turquoise);
-}
-
-.figure_login img{
-    width: 35%;
-    height: 40%;
-}
-.formulario__register .figure_login img {
-    width: 30%;
-}
 form  .grupo__input {
     position: relative;
 }
+/* Estilos del placeholder */
 form .grupo__input input{
-    padding: 12px 20px 12px 42px;
+    padding: 12px 20px 12px 50px;
     margin-top: 12px;
-    outline: 12px;
+    outline: none;
 }
-form .grupo__input i{
-    position: absolute;
-    margin-left: 20px;
-    margin-top: 25px;
-}
-form .grupo__input input.document{
-    margin-bottom: 30px;
-
-}
-
+/* Inputs de fecha de nacimiento y documento */
 form .grupo__input.nacimiento{
     margin-top: 10px;
 }
 form .grupo__input.document{
     margin-top: 10px;
 }
-/* form .gender-option{
-    display: flex;
-    column-gap: 25px;
-} */
-
+/* Estilos del select */
+.form--select{
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: 20px;
+    padding: 15px;
+    border: none;
+    background: var(--font-color);
+    font-size: 16px;
+    outline: none;
+    font-weight: bold;
+    border-radius: 10px; /* Ajusta este valor según tus necesidades */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5); /* Ajusta estos valores según tus necesidades */
+}
+/* Estilos de las opciones de genero */
 form :where(.gender-option, .gender) {
+    /* appearance: none; */
     display: flex;
     align-items: center;
     column-gap: 25px;
     flex-wrap: wrap;
     justify-content: center;
 }
+.gender {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gender input[type="radio"] {
+    width: 20px; /* Aumenta el tamaño del círculo */
+    height: 20px; /* Aumenta el tamaño del círculo */
+}
 
 form :where(.gender input, .gender label){
     cursor: pointer;
+    font-size: 20px;
+    font-weight: 500;
 }
 
-
+.button-container{
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+}
+/* ESTILO DEL BOTON TANTO DE ENTRAR COMO DE REGISTRAR */
 .contenedor__login-register form .button{
     width: auto;
     padding: 10px 40px;
     border: none;
-    font-size: 14px;
-    background: var(--turquoise);
+    font-size: 15px;
+    background: var(--aqua);
     font-weight: 600;
     cursor: pointer;
-    color: var(--section-color);
+    color: var(--paradiso);
     outline: none;
-    display: flex;
-    margin: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 30px; /* Ajusta este valor según tus necesidades */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5); /* Ajusta estos valores según tus necesidades */
 }
+
+.oculto {
+    display: none !important;
+}
+
 /* para el footer */
 .pie-pagina {
     position: relative;
@@ -469,83 +628,14 @@ form :where(.gender input, .gender label){
     background-color:var(--font-color);
     text-align: center;
     min-width: 320px;
+    clear: both;
 }
 .pie-pagina .footer_copy{
-    background-color: var(--section-color);
+    background-color: #d3e1e1;
     padding: 15px 10px;
     text-align: center;
     color:var(--turquoise);
 }
 .pie-pagina .footer_copy small{
     font-size: 15px;
-}
-@media(min-width:480px){
-.grid{
-    display:grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 3px;
-}
-
-
-    .grupo__input:nth-child(3),
-    .grupo__input:nth-child(4),
-    .grupo__input:nth-child(5),
-    .grupo__input:nth-child(6),
-    .grupo__input:nth-child(7){
-        grid-column: 1/3;
-    }
-}
-
-
-.formulario__login{
-    opacity: 1;
-    display: block;
-}
-.formulario__register{
-    display: none;
-}
-
-
-
-@media screen and (max-width: 850px){
-
-    main{
-        margin-top: 50px;
-        height: 1200px;
-    }
-
-    .caja__trasera{
-        max-width: 350px;
-        height: 300px;
-        flex-direction: column;
-        margin: auto;
-    }
-
-    .caja__trasera div{
-        margin: 0px;
-        position: absolute;
-    }
-    .caja__trasera_admin{
-        max-width: 350px;
-        height: 300px;
-        flex-direction: column;
-        margin: auto;
-    }
-
-    .caja__trasera_admin div{
-        margin: 0px;
-        position: absolute;
-    }
-
-    /*Formularios*/
-
-    .contenedor__login-register{
-        top: -10px;
-        left: -5px;
-        margin: auto;
-    }
-
-    .contenedor__login-register form{
-        position: relative;
-    }
 }
