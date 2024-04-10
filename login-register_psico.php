@@ -63,7 +63,7 @@
                             <h1>Bienvenido(a) Psicolog@</h1>
                             <figure class="figure_login"> 
                                 <img 
-                                src="./img/login_img_vector.svg" 
+                                src="./img/login_vector.svg" 
                                 alt="lgo de kuhtone"
                                 />  
                                 <figcaption></figcaption> 
