@@ -81,11 +81,11 @@
                         <div class="perfil-usuario-body">
                             <div class="perfil-usuario-bio">
                                 <div class="container--info">
-                                    <h4>Id usuario</h4>
+                                    <h4>ID Usuario</h4>
                                     <p>#'.$consulta_perfil["id_admin"].'</p>
                                 </div>
                                 <div class="container--info">
-                                    <h4>nombres</h4>
+                                    <h4>Nombres</h4>
                                     <p>'.$consulta_perfil["nombres"].'</p>
                                 </div>
                                 <div class="container--info">
@@ -96,22 +96,22 @@
                             <div class="footer-users-container">
                                 <div class="perfil-usuario-footer">
                                         <div class="footer-users">
-                                            <i class="icono fas fa-map-signs"></i>   
+                                        <img src="./img/Correo-Perfil.svg" alt="Icono de correo">   
                                             <h4>Direccion de correo</h4>
                                             <p>'.$consulta_perfil["correo"].'</p>
                                         </div>
                                         <div class="footer-users">
-                                            <i class="fa-solid fa-phone"></i>
+                                        <img src="./img/Telefono_Perfil.svg" alt="Icono de teléfono">
                                             <h4>Telefono</h4>
                                             <p>'.$consulta_perfil["telefono_movil"].'</p>
                                         </div>
                                         <div class="footer-users">
-                                            <i class="fa-solid fa-calendar"></i>
+                                        <img src="./img/agenda-perfil.svg" alt="Icono de agenda">
                                             <h4>Fecha de Nacimiento</h4>
                                             <p>'.$consulta_perfil["fecha_nacimiento"].'</p>
                                         </div>
                                         <div class="footer-users">
-                                            <i class="fa-solid fa-venus-mars"></i>
+                                        <img src="./img/Genero-Perfil.svg" alt="Icono de género">
                                             <h4>Genero</h4>';
                             $consul_genero = "SELECT * FROM genero WHERE id_genero ='".$consulta_perfil['id_genero']."'";
                             $consulta_genero = mysqli_query($conection, $consul_genero ) or die ("Error al traer los datos");
@@ -124,12 +124,12 @@
                                             <p>'.$genero["nom_genero"].'</p>
                                         </div>
                                         <div class="footer-users">
-                                            <i class="fa-solid fa-id-card"></i>
+                                        <img src="./img/Documento-Perfil.svg" alt="Icono de psicólogo">
                                             <h4>Tipo Documento</h4>
                                             <p>'.$tipo_documento["nom_tipoDocumento"].'</p>
                                         </div>
                                         <div class="footer-users">
-                                            <i class="fa-solid fa-id-card"></i>
+                                        <img src="./img/Documento-Perfil.svg" alt="Icono de psicólogo">
                                             <h4>Numero Documento</h4>
                                             <p>'.$consulta_perfil["nro_documento"].'</p>
                                         </div>

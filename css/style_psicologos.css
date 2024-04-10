@@ -2,10 +2,16 @@
 :root{
     --turquoise: #568281;
     --font-color: #FFFFFF;
-    --section-color: #D3E1E1;
-    --beige: #d6c19d;
     --black: #000000 ;
-    --orange: #         ;
+    /* News */
+    --paradiso: #3E8E98;
+    --sandy: #F4A26C;
+    --aqua: #A8D6DC;
+    --dark--parad: #32727A;
+    --fountain: #63B5BF;
+    --gris: #D9D9D9;
+    --gray--clean: #f9fafe;
+    --section--color: #E0E8FA;         ;
 }
 *{
     box-sizing: border-box;
@@ -236,9 +242,9 @@ main {
 
 .back--bottom{
     display: flex;
-    background-color: var(--section-color);
+    background-color: var(--aqua);
     text-decoration: none;
-    color: var(--black);
+    color: var(--dark--parad);
     font-weight: bold;
     font-size: 1.4rem;
     text-align: center;
@@ -253,7 +259,8 @@ main {
     transition: 300ms;
 }
 .back--bottom:hover{
-    background-color: var(--turquoise);
+    background: var(--aqua);
+    color: var(--sandy);
 }
 /* para el footer */
 .pie-pagina {

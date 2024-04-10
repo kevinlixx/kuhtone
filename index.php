@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@300;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/tablet.css" media="screen and (min-width: 600px)"/>
-    <link rel="stylesheet" href="./css/desktop.css" media="screen and (min-width: 800px)"/>
+    <link rel="stylesheet"  media="screen and (min-width: 800px)"/>
 </head>
 <body>
     <header>

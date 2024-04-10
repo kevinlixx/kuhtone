@@ -92,27 +92,27 @@
                                 <div class="footer-users-container">
                                 <div class="perfil-usuario-footer">
                                         <div class="footer-users">
-                                            <i class="icono fas fa-map-signs"></i> 
-                                            <p>Direccion de correo</p>
+                                        <img src="./img/Correo-Perfil.svg" alt="Icono de correo">   
+                                        <p>Direccion de correo</p>
                                             <input type="email" value= "'.$consulta_perfil["correo_profesional"].'" name="correo">
                                         </div>
                                         <div class="footer-users">
-                                            <i class="icono fas fa-map-signs"></i> 
+                                        <img src="./img/Contraseña-Perfil.svg" alt="Icono de Contraseña"> 
                                             <p>Contraseña</p>
                                             <input type="password" value= "'.$consulta_perfil["contrasena_profesional"].'" name="contrasena">
                                         </div>
                                         <div class="footer-users">
-                                            <i class="fa-solid fa-phone"></i>
+                                        <img src="./img/Telefono_Perfil.svg" alt="Icono de teléfono">
                                             <p>Telefono</p>
                                             <input type="number" value= "'.$consulta_perfil["telefono_movil"].'" name="telefono_movil">
                                         </div>
                                         <div class="footer-users">
-                                            <i class="fa-solid fa-calendar"></i>
+                                        <img src="./img/agenda-perfil.svg" alt="Icono de agenda">
                                             <p>Fecha de Nacimiento</p>
                                             <input type="date" value= "'.$consulta_perfil["fecha_nacimiento"].'" name="fecha_nacimiento">
                                         </div>
                                         <div class="footer-users">
-                                            <i class="fa-solid fa-venus-mars"></i>
+                                        <img src="./img/Genero-Perfil.svg" alt="Icono de género">
                                             <p>Genero</p>';
                             $consulta_genero = mysqli_query($conection, "SELECT * FROM genero Where id_genero ='".$consulta_perfil['id_genero']."'") or die ("Error al traer los datos");
                             while($consult_genero= mysqli_fetch_array($consulta_genero))
@@ -133,7 +133,7 @@
                                     </select>
                                         </div>
                                         <div class="footer-users">
-                                            <i class="fa-solid fa-id-card"></i>
+                                        <img src="./img/Documento-Perfil.svg" alt="Icono de documento">
                                             <p>Tipo Documento</p>';
                             $consulta_tipo = mysqli_query($conection, "SELECT * FROM tipo_documento Where id_tipoDocumento='".$consulta_perfil['id_tipoDocumento']."'") or die ("Error al traer los datos");
                             while($consult_tipo= mysqli_fetch_array($consulta_tipo))
@@ -154,30 +154,30 @@
                                     </select>
                                         </div>
                                         <div class="footer-users">
-                                            <i class="fa-solid fa-id-card"></i>
+                                            <img src="./img/Documento-Perfil.svg" alt="Icono de documento">
                                             <p>Numero Documento</p>
                                             <input name="nro_documento" type="number" value ="'.$consulta_perfil['nro_documento'].'">
                                         </div>
                                         <div class="footer-users psico">
-                                                <i class="fa-solid fa-building-columns"></i>
+                                            <img src="./img/Universidad-Perfil.svg" alt="Icono de universidad">
                                             <h4>Universidad egresada</h4>
                                             <input name="nom_universidad" type="text" value ="'.$consulta_perfil['nom_universidad'].'">
                                         </div>
                                         </div>
                                         <div class="perfil-usuario-footer">
                                         <div class="footer-users psico">
-                                            <i class="fa-solid fa-building"></i>
+                                            <img src="./img/experiencia-Perfil.svg" alt="Icono de experiencia">
                                             <h4>Experencia</h4>
                                             <input name="experiencia" type="text" value ="'.$consulta_perfil['experiencia'].'">
                                         </div>
                                         
                                         <div class="footer-users psico">
-                                        <i class="fa-solid fa-graduation-cap"></i>
+                                        <img src="./img/Especializacion-Perfil.svg" alt="Icono de especialización">
                                             <h4>Especialización</h4>
                                             <input name="especializacion" type="text" value ="'.$consulta_perfil['especializacion'].'">
                                         </div>
                                         <div class="footer-users psico">
-                                            <i class="fa-solid fa-book"></i>
+                                            <img src="./img/description-Perfil.svg" alt="Icono de descripción">
                                             <h4>Descripción</h4>
                                             <input name="descripcion" type="text" value ="'.$consulta_perfil['descripcion'].'">
                                         </div>

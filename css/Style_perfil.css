@@ -7,17 +7,24 @@ html {
 :root{
     --turquoise: #568281;
     --font-color: #FFFFFF;
-    --section-color: #D3E1E1;
-    --beige: #d6c19d;
     --black: #000000 ;
-    --orange: #fdb249     ;
-    --hour_turquoise: #20D2C8; 
+    /* News */
+    --paradiso: #3E8E98;
+    --sandy: #F4A26C;
+    --aqua: #A8D6DC;
+    --dark--parad: #32727A;
+    --fountain: #63B5BF;
+    --gris: #D9D9D9;
+    --gray--clean: #f9fafe;
+    --section--color: #E0E8FA;
 }
 
 * {
     margin: 0;
     padding: 0;
-    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 17px;
+    text-align: center;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
@@ -270,6 +277,8 @@ main{
     margin-right: 1rem;
 }
 
+
+
 .seccion-perfil-usuario .perfil-usuario-avatar {
     display: flex;
     width: 180px;
@@ -354,23 +363,22 @@ main{
 }
 
 .footer-users-container .button{
-    top: 252px;
+    
     text-decoration: none;
-    box-shadow: 0px 4px 8px rgb(255 255 255 / 48%);
     border: none;
     padding: 7px 8px;
-    font-size: 14px;
-    background: var(--section-color);
+    font-size: 17px;
+    background: var(--aqua);
     font-weight: 600;
     cursor: pointer;
-    color: var(--black);
+    color: var(--dark--parad);
     outline: none;
     transition: all 300ms;
-    margin-right: 10px;
+    border-radius: 10px;
 }
 .footer-users-container .button:hover{
-    background: var(--turquoise);
-    color: var(--section-color);
+    background: var(--aqua);
+    color: var(--sandy);
 }
 
 .seccion-perfil-usuario .perfil-usuario-bio {
@@ -462,6 +470,12 @@ main{
 .seccion-perfil-usuario .boton-redes.instagram {
     background: linear-gradient(45deg, #FF2DFD, #40A7FF);
 }
+
+/*PARA CEPERAR LOS BOTENES DEL MODIFICAR*/
+.button {
+    margin: 0 10px; /* Esto añade un margen a la izquierda y a la derecha de cada botón */
+}
+
 /* para el footer */
 .pie-pagina {
     position: relative;

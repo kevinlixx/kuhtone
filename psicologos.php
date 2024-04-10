@@ -89,7 +89,7 @@ $id_paciente= $_GET['id_perfil'];
                         }
                     }
                     echo'
-                            <a href="./index_usr.php?id_perfil='.$id_paciente.'" class="back--bottom">volver</a>';
+                            <a href="./index_usr.php?id_perfil='.$id_paciente.'" class="back--bottom">Volver</a>';
                             ?>  
                         </div>
                         </div>
