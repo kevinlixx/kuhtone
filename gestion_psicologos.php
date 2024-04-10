@@ -63,7 +63,7 @@
               <div class="container-caja" id="container">
                 <?php
                 echo'
-                <a href="./queries/register_psico.php?id_perfil='.$id_admin.'"';
+                <a href="./register_psico.php?id_perfil='.$id_admin.'"';
                 ?>
                   ><div class="caja caja1">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-database-cog" width="52" height="52" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff9300" fill="none" stroke-linecap="round" stroke-linejoin="round">
