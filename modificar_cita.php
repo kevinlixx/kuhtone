@@ -87,6 +87,7 @@ $consulta_agendamiento = mysqli_query($conection, $agendamiento ) or die ("Error
               $dispo ="SELECT * FROM disponibilidad WHERE id_disponibilidad = '".$consulta_agenda['id_disponibilidad']."'";
               $consulta_dispo = mysqli_query($conection, $dispo) or die ("Error al traer los datos");
               if($consulta_disponi= mysqli_fetch_array($consulta_dispo)){
+                $_SESSION['id_profesional'] = $consulta_disponi['id_profesional'];
                 $profesional ="SELECT * FROM profesional WHERE id_profesional = '".$consulta_disponi['id_profesional']."'";
                 $consulta_profe = mysqli_query($conection, $profesional) or die ("Error al traer los datos");
                 if($consulta_profesional= mysqli_fetch_array($consulta_profe)){
@@ -103,20 +104,22 @@ $consulta_agendamiento = mysqli_query($conection, $agendamiento ) or die ("Error
                                   <figcaption></figcaption> 
                               </figure>
                               <div class="psicologo--description">
+                              <h2>'.$consulta_profesional["nombres"].' '.$consulta_profesional["apellidos"].'</h2>
                               <p>'.$consulta_profesional["descripcion"].'</p>';
                               /* <a href="./psicologos.php" class="mas_info--description">cambiar de psicologo</a> */
                               echo'
                             </div>
                           </section>
 
-                          <div class="legend--hour">
-                              <p>Dias disponibles</p>
-                              <div class="circle"></div>
-                              </div>
+                          
                       
                       <!-- esta parte es la del calendario -->
                       <div class="container">
                         <div class="calendar">
+                          <div class="legend--hour">
+                                <p>Dias disponibles</p>
+                                <div class="circle"></div>
+                          </div>
                           <div class="month">
                             <i class="fas fa-angle-left prev"></i>
                             <div class="date">
@@ -136,15 +139,15 @@ $consulta_agendamiento = mysqli_query($conection, $agendamiento ) or die ("Error
                           </div>
                           <input type="hidden" id="selected-fecha" name="selected-fecha" value="" required>
                           <div class="days" id="days-dispo"></div>
-                        </div>
-                      </div>
-                      <!-- esta parte es la de seleccionar la hora -->
+                          <!-- esta parte es la de seleccionar la hora -->
                             <h2 class="select--hour">Selecciona la hora</h2>
                             <div class="selecthora">
                               <input type="hidden" id="selectedHour" name="selectedHour" value="" required>
 
                               <div class="horariodispo" id="available-hours"/>
-                              </div>';
+                              </div>
+                        </div>
+                      </div>';
                               ?>
                             <?php
                             echo'

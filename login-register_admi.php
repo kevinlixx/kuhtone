@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="./css/style_login-register_admin.css">
     <link rel="stylesheet" href="./css/tablet_login-register_admin.css" media="screen and (min-width: 600px)"/>
     <link rel="stylesheet" href="./css/desktop_login-register_admin.css" media="screen and (min-width: 800px)"/>
+    <link rel="stylesheet" href="./css/tablet_login-register_admin.css" media="screen and (min-width: 600px)"/>
+    <link rel="stylesheet" href="./css/desktop_login-register_admin.css" media="screen and (min-width: 800px)"/>
 </head>
 <body>
     <header>
