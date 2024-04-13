@@ -7,13 +7,17 @@ html {
 :root{
     --turquoise: #568281;
     --font-color: #FFFFFF;
-    --section-color: #D3E1E1;
-    --beige: #d6c19d;
     --black: #000000 ;
-    --orange: #fdb249     ;
-    --hour_turquoise: #20D2C8; 
+    /* News */
+    --paradiso: #3E8E98;
+    --sandy: #F4A26C;
+    --aqua: #A8D6DC;
+    --dark--parad: #32727A;
+    --fountain: #63B5BF;
+    --gris: #D9D9D9;
+    --gray--clean: #f9fafe;
+    --section--color: #E0E8FA;         ;
 }
-
 * {
     margin: 0;
     padding: 0;
@@ -353,8 +357,8 @@ main{
     margin-right: 10px;
 }
 .footer-users-container .button:hover{
-    background: var(--turquoise);
-    color: var(--section-color);
+    background: var(--aqua);
+    color: var(--sandy);
 }
 .button{
     top: 252px;
@@ -363,18 +367,19 @@ main{
     border: none;
     padding: 10px 40px;
     font-size: 14px;
-    background: var(--section-color);
+    background: var(--aqua);
     font-weight: 600;
     cursor: pointer;
-    color: var(--black);
+    color: var(--dark--parad);
     outline: none;
     transition: all 300ms;
     margin-right: 10px;
     align-items: center;
+    border-radius: 10px;
 }
 .button:hover{
-    background: var(--turquoise);
-    color: var(--section-color);
+    background: var(--aqua);
+    color: var(--sandy);
 }
 
 .seccion-perfil-usuario .perfil-usuario-bio {

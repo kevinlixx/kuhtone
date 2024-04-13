@@ -80,10 +80,10 @@
                             <div class="perfil-usuario-body">
                                 <div class="perfil-usuario-bio">
                                 <input  type="file"  name="imagen_producto">
-                                <input type="submit" class="button" name="actualiza_img" value="actualizar foto">
+                                <input type="submit" class="button" name="actualiza_img" value="Actualizar foto">
                                 
                                 </div>
-                                <a href="./modificar_perfilPsico.php?id_perfil='.$id_profesional.'" class="button">volver</a>
+                                <a href="./modificar_perfilPsico.php?id_perfil='.$id_profesional.'" class="button">Volver</a>
                             </div>
                         </section>
                         ';

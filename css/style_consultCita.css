@@ -273,7 +273,8 @@ main {
     justify-content: end;
 }
 .container--history a:hover{
-    background-color: var(--turquoise);
+    background: var(--aqua);
+    color: var(--sandy);
 }
 
 .back--bottom{
