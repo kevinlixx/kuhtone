@@ -210,7 +210,8 @@ Copiar esto
 =====================================*/
 main{
     width: 100%;
-    height: auto;
+    min-height: 90vh;
+    align-content: center;
 }
 .seccion-perfil-usuario .perfil-usuario-body,
 .seccion-perfil-usuario {

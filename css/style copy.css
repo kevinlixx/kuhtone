@@ -288,7 +288,8 @@ header .menu-header{
 main {
     width: 100%;
     min-width: 320px;
-    height: auto/* 500px */;
+    min-height: 70vh/* 500px */;
+
 }
 /*segunda seccion*/
 .container_cov {

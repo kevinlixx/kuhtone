@@ -11,7 +11,8 @@
     --fountain: #63B5BF;
     --gris: #D9D9D9;
     --gray--clean: #f9fafe;
-    --section--color: #E0E8FA;         ;
+    --section--color: #E0E8FA;    
+    --section-color: #D3E1E1;     
 }
 *{
     box-sizing: border-box;
@@ -193,7 +194,8 @@ header .menu-header{
 main {
     width: 100%;
     min-width: 320px;
-    height: auto;
+    min-height: 90vh;
+    align-content: center;
 }
 .title--main{
     text-align: center;

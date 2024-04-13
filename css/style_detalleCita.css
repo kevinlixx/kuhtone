@@ -187,7 +187,8 @@ header .menu-header{
 main {
     width: 100%;
     min-width: 320px;
-    height: auto;
+    min-height: 90vh;
+    align-content: center;
 }
 .psicologo-info--card{
     margin-left: 20px;

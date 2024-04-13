@@ -60,6 +60,9 @@
     display: block !important;
 }
 
+.contenedor__login-register form h1 {
+    font-size: 40px;
+}
 
 /* Formulario de registro */
 

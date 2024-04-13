@@ -17,6 +17,17 @@ html{
     font-family: 'DM Sans', sans-serif;
     min-width: 320px;
 }
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 header .menu-section{
     display: flex;
 }
