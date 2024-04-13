@@ -88,7 +88,6 @@ main {
  
   .container-all {
     max-width: 100rem;
-    margin-top: 4rem;
   }
   #container{
     padding: 40px 40px;
@@ -105,15 +104,8 @@ main {
   }
 
   #catego{
-    padding: 0px 100px;
-    display: flex;
-    border-radius: 50px;
-    justify-content: center;
-    background: linear-gradient(to right, #2db4ae, #f8f8f8, #2db4ae );
-    box-shadow: 1px 1px 30px -12px #b3c9c8;
-    transition: all 300ms;
-    border: solid #f8f8f8;
-    
+
+    font-size: 5rem;
   }
   
   .container-caja {

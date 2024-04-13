@@ -63,12 +63,7 @@ $id_profesional= $_GET['id_perfil'];
         </a>
     </header>
     <main>
-            <figure class ="figure-consult">
-                <img 
-                src="../img/pag1.jpg" 
-                alt="img de cita"/>  
-                <figcaption></figcaption> 
-            </figure> 
+             
         <!-- <h1 class="title--main">Consultar Agendamiento</h1>
         <form class="form--consult" method="POST" action="#">
              <div class ="div--content">
@@ -80,6 +75,12 @@ $id_profesional= $_GET['id_perfil'];
             </div> --> 
         </form>
         <h2 class= "subtitle"> Tus horarios disponibles </h2>
+        <figure class ="figure-consult">
+                <img 
+                src="../img/pag1.jpg" 
+                alt="img de cita"/>  
+                <figcaption></figcaption> 
+            </figure>
         <div class= "cites--container">
         
         <?php

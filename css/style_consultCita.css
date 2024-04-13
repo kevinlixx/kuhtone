@@ -188,6 +188,7 @@ header .menu-header{
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     padding: 10px;
     background-size: auto;
+    border-radius: 50px;
     display:inline-flex;
     transition: 0.4s ; 
     justify-content: center;  
@@ -198,8 +199,7 @@ header .menu-header{
 main {
     width: 100%;
     min-width: 320px;
-    min-height: 90vh;
-    align-content: center;
+    height: auto;
 }
 .title--main{
     text-align: center;
@@ -239,8 +239,64 @@ main {
 .subtitle {
     display: flex;
     justify-content: center;
-    font-size: 2.0rem;
+
 }
+
+            /* Animación de cambip de color para el h2*/
+            @keyframes color-change {
+                0% {
+                    color: #3E8E98;
+                }
+                50% {
+                    color: #20D2C8;
+                }
+                100% {
+                    color: #32727A;
+                }
+            }
+            /* Animación de cambip de color para el linea inferior del h2*/
+    
+            @keyframes underline-color-change {
+                0%, 100% {
+                    background: #3E8E98;
+                }
+                50% {
+                    background: #20D2C8;
+                }
+            }
+            /* Animación de desplazamineto de la linea interior del h2 */
+            @keyframes underline-slide {
+                0%, 100% {
+                    transform: translateX(-30%); /* Cambia esta línea */
+                }
+                50% {
+                    transform: translateX(30%); /* Cambia esta línea */
+                }
+            }
+    
+            /* Codigo del h2 y llamado de la primer animación */
+            .subtitle{
+                font-size: 30px;
+                text-align: center;
+                margin-bottom: 10px;
+                animation: color-change 1.5s infinite;
+                color: var(--paradiso);
+                position: relative;
+                overflow: hidden;
+            }
+    
+            /* Codigo del h2 con pseudo-clase y llamado de la animación para el underline */
+            .subtitle::after {
+                content: '';
+                position: absolute;
+                left: 22%; /* Centra el elemento */
+                bottom: 0;
+                height: 3px;
+                width: 58%;
+                background: #32727A;
+                animation: underline-color-change 2s infinite, underline-slide 2s infinite;
+                transform: translateX(-50%); /* Centra el elemento */
+            }
 .cites--container{
     display: grid;
     margin: 10px;

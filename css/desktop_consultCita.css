@@ -88,7 +88,7 @@ header .menu-section{
 .subtitle{
     display: flex;
     justify-content: center;
-    font-size: 2.4rem;
+    
 }
 .cites--container{
     display: grid;
@@ -104,4 +104,8 @@ header .menu-section{
 }
 .back--bottom{
     left: 85%;
+}
+.figure-consult img{
+    min-width: 15%;
+    height: auto;
 }
