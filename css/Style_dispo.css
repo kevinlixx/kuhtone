@@ -283,8 +283,8 @@ main{
     transition: 300ms;
 }
 .perfil-usuario-bio .input-submit:hover{
-    color: var(--black);
-    background-color: var(--hour_turquoise);
+    background: var(--aqua);
+    color: var(--sandy);
 }
 
 .seccion-perfil-usuario .perfil-usuario-body {
@@ -302,15 +302,16 @@ main{
     color: var(--dark--parad);
     text-align: center;
     margin: 10px;   
-    width: 76px;
+    width: 83px;
     border-radius: 15px;
     padding: 5px;
     justify-content: center;
     transition: 300ms;
+    font-size: 14px;
 }
 .back--bottom:hover{
-    background-color: var(--turquoise);
-    color: var(--font-color);
+    background: var(--aqua);
+    color: var(--sandy);
 }
 /* para el footer */
 .pie-pagina {
