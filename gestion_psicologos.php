@@ -57,7 +57,6 @@
         </a>
     </header>
     <main>
-        <main>
             <div class="container-all" >
               <h1 class="title-categorias" id="catego">Opciones </h1>
               <div class="container-caja" id="container">
@@ -118,7 +117,6 @@
                 
               </div>
             </div>
-          </main>
     </main>
    <footer class="pie-pagina">
    <div class="footer_copy">
