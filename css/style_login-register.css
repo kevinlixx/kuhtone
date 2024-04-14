@@ -10,7 +10,7 @@
     --fountain: #63B5BF;
     --gris: #D9D9D9;
     --gray--clean: #f9fafe;
-    --section--color: #d3e1e1;
+    --section-color: #D3E1E1;
 }
 
 
@@ -631,7 +631,7 @@ form :where(.gender input, .gender label){
     clear: both;
 }
 .pie-pagina .footer_copy{
-    background-color: #d3e1e1;
+    background-color: var(--section-color);
     padding: 15px 10px;
     text-align: center;
     color:var(--turquoise);

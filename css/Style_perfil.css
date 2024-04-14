@@ -376,6 +376,7 @@ main{
     outline: none;
     transition: all 300ms;
     border-radius: 10px;
+    margin: 14px;
 }
 .footer-users-container .button:hover{
     background: var(--aqua);

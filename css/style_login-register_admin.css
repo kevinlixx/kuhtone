@@ -10,7 +10,7 @@
     --fountain: #63B5BF;
     --gris: #D9D9D9;
     --gray--clean: #f9fafe;
-    --section--color: #d3e1e1;
+    --section-color: #D3E1E1;
 }
 
 
@@ -215,7 +215,7 @@ main{
     min-height: 90vh;
     margin-top: 100px;
     padding-right: initial;
-    align-content: center;
+    height: 970px;
 
 }
 
