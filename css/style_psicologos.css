@@ -235,7 +235,7 @@ main {
     
             /* Codigo del h2 y llamado de la primer animación */
             .title--main{
-                font-size: 30px;
+                font-size: 2.8rem;
                 text-align: center;
                 margin-bottom: 10px;
                 animation: color-change 1.5s infinite;
@@ -257,23 +257,35 @@ main {
                 transform: translateX(-50%); /* Centra el elemento */
             }
 
+.design--container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
 .psicologos--contenedor{
-    min-width: 320px;
+   
+    box-shadow: 0 0 4px var(--turquoise);    
+    border-radius: 50px;
+    width: 90%;
 }
 .psicologos--card{
     display: flex;
     width: 90%;
     margin: 20px;
     align-items: center;
+    box-shadow: 0 1px 0 var(--turquoise);
 }
 .figure--card{
     width: 94px;
     height: 104px;
     border-radius: 80px;
+    align-content: center;
 }
 .figure--card img{
-    width: 94px;
-    height: 104px;
+    width: 60px;
+    height: 60px;
     border-radius: 80px;
 }
 .info--description {
@@ -281,8 +293,15 @@ main {
 }
 .psicologo--description h4 {
     margin-left: 6px;
-    font-size: 1.8rem;
+    font-size: 1.4rem;
+    text-align: center;
 }
+.psicologo--description .descripcion-corta {
+    display: block;
+  }
+  .psicologo--description .descripcion-completa {
+    display: none;
+  }
 .psicologo--description p{
     margin: 10px;
     text-align: justify;

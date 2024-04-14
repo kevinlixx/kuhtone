@@ -65,15 +65,19 @@ $id_paciente= $_GET['id_perfil'];
     <main>
 
         <h1 class="title--main">Escoge tu psicologo</h1>
+        <div class= "design--container">
+            <div class="psicologos--contenedor">
         <?php
          $consulta = mysqli_query($conection, "SELECT * FROM profesional WHERE estado_cuenta = 1" ) or die ("Error al traer los datos");
             if(mysqli_num_rows($consulta) > 0)
             {
                 while($consulta_total= mysqli_fetch_array($consulta))
-                {
+                {           
+                        $descripcion_completa = $consulta_total["descripcion"];
+                        $descripcion_corta = substr($descripcion_completa, 0, 150); 
                         echo'
-                        <div class "desing--container">
-                            <div class="psicologos--contenedor">
+                        
+                            
                                     <section class="psicologos--card">
                                         <figure class="figure--card"> 
                                             <img 
@@ -83,9 +87,22 @@ $id_paciente= $_GET['id_perfil'];
                                             <figcaption></figcaption> 
                                         </figure>
                                         <div class="psicologo--description">
-                                        <h4>Descripción</h4>
-                                        <p class="">'.$consulta_total["descripcion"].'<a href=\'./detalle_psicologo.php?id='.$consulta_total["id_profesional"].'&id_perfil='.$id_paciente.'\'class="mas_info--description">ver más</a></p>
-                                    </section>
+                                        <h4>Psi.'.$consulta_total["nombres"].' '.$consulta_total["apellidos"]. '</h4>
+
+                                        <p class="descripcion-completa">'.$descripcion_completa.'</p>
+                                        <p class="descripcion-corta">'.$descripcion_corta.'...</p>
+                                        </div>
+                                        <a href=\'./detalle_psicologo.php?id='.$consulta_total["id_profesional"].'&id_perfil='.$id_paciente.'\'class="mas_info--description">
+                                            <figure class="icon-ingreso"> 
+                                                <img 
+                                                src="./img/icon-ingreso.svg"
+                                                alt="icono de ingreso"
+                                                />  
+                                                <figcaption></figcaption> 
+                                            </figure>
+                                        </a>
+                                    
+                                        </section>
                                     ';
                             
                                     }
@@ -93,7 +110,8 @@ $id_paciente= $_GET['id_perfil'];
                                 echo'
                                         <a href="./index_usr.php?id_perfil='.$id_paciente.'" class="back--bottom">Volver</a>';
                                         ?>  
-                                    </div>
+                                    
+                                    
                             </div>
                         </div>
                        

@@ -1,4 +1,14 @@
-
+.figure--card img{
+    width: 94px;
+    height: 94px;
+}
 .back--bottom{
     left: 80%;
 }
+
+.psicologo--description .descripcion-corta {
+    display: none;
+  }
+.psicologo--description .descripcion-completa {
+    display: block;
+  }
