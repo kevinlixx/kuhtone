@@ -92,3 +92,17 @@ header .menu-section{
     width: 104.96px;
     height: 48.26px; 
 }
+
+@keyframes underline-slide {
+    0%, 100% {
+        transform: translateX(10%); /* Cambia esta línea */
+    }
+    50% {
+        transform: translateX(40%); /* Cambia esta línea */
+    }
+}
+
+.title--main::after {
+    left: 13%;
+    width: 50%;
+}
