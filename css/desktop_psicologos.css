@@ -76,8 +76,8 @@ header .menu-section{
     height: 150px;
 }
 .figure--card img{
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
 }
 .psicologo--description h4{
     font-size: 2.5rem;
@@ -91,4 +91,18 @@ header .menu-section{
     font-size: 2.7rem;
     width: 104.96px;
     height: 48.26px; 
+}
+.psicologos--contenedor{
+    width: 85%;
+}
+.icon-ingreso img {
+    width: 63px;
+    height: 63px;
+}
+
+@media screen and (min-width: 1300px) {
+    .psicologos--contenedor{
+        width: 50%;
+    }
+    
 }
