@@ -111,3 +111,16 @@ header .menu-section{
         left: 78%;
     }
 }
+@keyframes underline-slide {
+    0%, 100% {
+        transform: translateX(10%); /* Cambia esta línea */
+    }
+    50% {
+        transform: translateX(40%); /* Cambia esta línea */
+    }
+}
+
+.title--main::after {
+    left: 13%;
+    width: 50%;
+}
