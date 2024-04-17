@@ -62,7 +62,9 @@ $id_admin= $_GET['id_perfil'];
         </a>
     </header>
     <main>
-        <h1 class="title--main">Escoge tu psicologo</h1>
+        <h1 class="title--main">Modificar psicologo</h1>
+        <div class= "design--container">
+            <div class="psicologos--contenedor">
         <?php
          $consulta = mysqli_query($conection, "SELECT * FROM profesional") or die ("Error al traer los datos");
             if(mysqli_num_rows($consulta) > 0)
@@ -70,7 +72,7 @@ $id_admin= $_GET['id_perfil'];
                 while($consulta_total= mysqli_fetch_array($consulta))
                 {
                         echo'
-                        <div class="psicologos--contenedor">
+                        
                             <section class="psicologos--card">
                                 <figure class="figure--card"> 
                                     <img 
@@ -91,7 +93,8 @@ $id_admin= $_GET['id_perfil'];
                             <a href="../gestion_psicologos.php?id_perfil='.$id_admin.'" class="back--bottom">volver</a>';
                             ?>  
                         </div>
-                        </div>
+                    </div>
+                </div>
                        
     </main>
    <footer class="pie-pagina">

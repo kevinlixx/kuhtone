@@ -194,7 +194,7 @@ header .menu-header{
 main {
     width: 100%;
     min-width: 320px;
-    min-height: 90vh;
+
 }
 .title--main{
     text-align: center;
@@ -262,6 +262,7 @@ main {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    margin-bottom: 30px;
 }
 
 .psicologos--contenedor{
@@ -331,9 +332,19 @@ main {
     padding: 5px;
     justify-content: center;
     position: relative;
-    left: 70%;
+    left: 65%;
     transition: 300ms;
 }
+@media (min-width: 384px){
+    .back--bottom{
+        left: 70%;
+    }
+    }
+    @media (min-width: 450px){
+        .back--bottom{
+            left: 75%;
+        }
+        }
 .back--bottom:hover{
     background: var(--aqua);
     color: var(--sandy);
