@@ -79,9 +79,9 @@ display: block;
     width: 312px;
     height: 198px
 }
-.figure--card img{
-    width: 300px;
-    height: 200px;
+.figure--card img {
+    width: 160px;
+    height: 160px;
 }
 .psicologo--description h2{
     font-size: 2rem;
