@@ -11,7 +11,7 @@ $id_paciente= $_GET['id_perfil'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>kuhtone</title>
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
-
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" /> /*para el mapa  */
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@300;500&display=swap" rel="stylesheet">
@@ -65,6 +65,9 @@ $id_paciente= $_GET['id_perfil'];
     <main>
 
         <h1 class="title--main">Escoge tu psicologo</h1>
+        <div class="map--container" id="map--container" style="width: 100%; height: 500px;">
+        </div>
+
         <div class= "design--container">
             <div class="psicologos--contenedor">
         <?php
@@ -122,5 +125,7 @@ $id_paciente= $_GET['id_perfil'];
    </div>
 </footer>
 <script src="js/script.js"></script>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="js/script_map.js"></script>
 </body>
 </html>
