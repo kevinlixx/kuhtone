@@ -257,6 +257,18 @@ main {
                 transform: translateX(-50%); /* Centra el elemento */
             }
 
+.container-all{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.map--container{
+    width: 90%; 
+    height: 300px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
 .design--container{
     display: flex;
     flex-wrap: wrap;
@@ -265,11 +277,19 @@ main {
     margin-bottom: 30px;
 }
 
-.psicologos--contenedor{
-   
+.psicologos--contenedor, .select-sede{  
     box-shadow: 0 0 4px var(--turquoise);    
-    border-radius: 50px;
+    border-radius: 20px;
     width: 90%;
+}
+.select-sede {
+    padding: 50px;
+}
+.select-sede h1{
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 20px;
+
 }
 .psicologos--card{
     display: flex;

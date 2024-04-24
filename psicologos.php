@@ -65,10 +65,15 @@ $id_paciente= $_GET['id_perfil'];
     <main>
 
         <h1 class="title--main">Escoge tu psicologo</h1>
-        <div class="map--container" id="map--container" style="width: 100%; height: 500px;">
+
+        <div class="container-all">
+        <div class="map--container" id="map--container">
         </div>
 
         <div class= "design--container">
+            <div class="select-sede">
+                 <h1> Por favor selecciona una sede </h1>
+            </div>
             <div class="psicologos--contenedor">
         <?php
          $consulta = mysqli_query($conection, "SELECT * FROM profesional WHERE estado_cuenta = 1" ) or die ("Error al traer los datos");
@@ -117,6 +122,7 @@ $id_paciente= $_GET['id_perfil'];
                                     
                             </div>
                         </div>
+                    </div>
                        
     </main>
    <footer class="pie-pagina">

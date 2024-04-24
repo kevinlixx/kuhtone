@@ -6,22 +6,34 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
-// Ejemplo de cómo agregar marcadores para las sedes
-const sedes = [
-    { lat: 51.505, lng: -0.09, name: 'Sede 1' },
-    // Agrega más sedes aquí
-];
-sedes.forEach(sede => {
-    L.marker([sede.lat, sede.lng]).addTo(map)
-        .bindPopup(sede.name);
+// Obtiene las sedes de la base de datos
+getSedesFromDatabase().then(sedes => {
+    // Itera sobre las sedes y crea un marcador para cada una
+    sedes.forEach(sede => {
+        L.marker([sede.latitud, sede.longitud]).addTo(map)
+            .bindPopup(sede.nombre);
+    });
+}).catch(error => {
+    console.error('Error al obtener las sedes de la base de datos:', error);
+});
+
+// Define un icono personalizado
+const userIcon = L.icon({
+    iconUrl: '../img/person-solid.svg', // Reemplaza esto con la ruta a tu icono
+    iconSize: [38, 95], // Reemplaza esto con el tamaño de tu icono
 });
 
 if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(position => {
         const currentLocation = [position.coords.latitude, position.coords.longitude];
-        L.marker(currentLocation).addTo(map)
+        L.marker(currentLocation,{icon: userIcon}).addTo(map)
             .bindPopup('Ubicación actual');
         map.setView(currentLocation, 13);
     });
+}
+
+function getSedesFromDatabase() {
+    return fetch('../config/crud_sedes.php')
+        .then(response => response.json());
 }
 
