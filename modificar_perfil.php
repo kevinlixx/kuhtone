@@ -196,18 +196,26 @@
                             mysqli_close($conection);
                            
                          }
-                         if(isset($_POST ['inhabilitar'])){
+                        if(isset($_POST ['inhabilitar'])){
                             $inhabilitar_SQL = "UPDATE paciente SET estado_cuenta='2'  Where id_paciente='$id_paciente'";
                             $resultado = mysqli_query($conection,$inhabilitar_SQL) or trigger_error("Query Failed! SQL-Error: ".mysqli_error($conection), E_USER_ERROR);
                             if($resultado){
-                              
+                                // Obtén los datos del usuario
+                                $datos_usuario_SQL = "SELECT * FROM paciente WHERE id_paciente='$id_paciente'";
+                                $resultado_datos = mysqli_query($conection, $datos_usuario_SQL) or trigger_error("Query Failed! SQL-Error: ".mysqli_error($conection), E_USER_ERROR);
+                                $datos_usuario = mysqli_fetch_assoc($resultado_datos);
+
+                                // Inserta los datos del usuario en la tabla cuentas_temporales
+                                $datos_usuario_JSON = json_encode($datos_usuario);
+                                $insertar_temporal_SQL = "INSERT INTO cuentas_temporales (id_original, tipo_usuario, fecha_eliminacion, datos_usuario) VALUES ('$id_paciente', 'paciente', NOW(), '$datos_usuario_JSON')";
+                                mysqli_query($conection, $insertar_temporal_SQL) or trigger_error("Query Failed! SQL-Error: ".mysqli_error($conection), E_USER_ERROR);
+
                                 echo '<script>alert("se ha eliminado correctamente");window.location.href="./login-register.php";  </script>';
-                              }
-                              else {
+                            }
+                            else {
                                 echo '<script>alert("no se pudo eliminar");window.history.go(-1);  </script>';
-            
-                              }
-                         }
+                            }
+                        }
                 }
                 ?>
                 </form>
