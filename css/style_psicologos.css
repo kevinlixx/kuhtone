@@ -297,6 +297,34 @@ main {
     font-size: 1.4rem;
     text-align: center;
 }
+/* Estilos de los p de cuentas temporales */
+/* .psicologo--description p{
+    margin: 10px;
+    text-align: justify;
+    font-size: 1.2rem;
+    letter-spacing: -1px;
+    font-weight: 600;
+} */
+.item--aco {
+    color: var(--fountain);
+}
+/* Fin de estilos de cuentas temporales */
+.mas--select {
+    display: flex;
+    width: 60px;
+    background-color: var(--aqua);
+    color: var(--dark--parad);
+    text-decoration: none;
+    text-align: center;
+    margin: 10px 0px;
+    border-radius: 15px;
+    padding: 10px;
+    transition: 300ms;
+    justify-content: end;
+}
+.field-name {
+    color: var(--aqua)
+}
 .psicologo--description .descripcion-corta {
     display: block;
   }
@@ -306,7 +334,8 @@ main {
 .psicologo--description p{
     margin: 10px;
     text-align: justify;
-    font-size: 1.2rem;
+    font-size: 1.1rem; /* Cambia esta línea */
+    letter-spacing: -0.5px; /* Cambia esta línea */
 }
 
 .mas_info--description{
@@ -314,8 +343,26 @@ main {
     text-decoration: underline;
     color: #008bef;
     margin-left: 6px;
-
 }
+/* Estilos del boton de cuenta temporal */
+.rest_account {
+    display: flex;
+    padding: 9px 2px;
+    background-color: var(--aqua);
+    color: var(--dark--parad);
+    border-radius: 10px;
+    text-decoration: none;
+    text-align: center;
+    transition: 300ms;
+    font-size: 11px;
+    font-weight: 600;
+    justify-content: end;
+}
+.rest_account:hover{
+    background: var(--aqua);
+    color: var(--sandy);
+}
+/* Fin de estilos del boton de cuenta temporal */
 
 .back--bottom{
     display: flex;

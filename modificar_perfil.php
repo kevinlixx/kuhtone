@@ -1,10 +1,14 @@
 <?php
-    include("./config/conexion.php");
-    $id_paciente= $_GET['id_perfil'];
+include("./config/conexion.php");
+include("./includes/crud_perfil.php");
+$id_paciente = $_GET['id_perfil'];
+$crudPerfil = new crudPerfil($conection);
+$consulta_perfil = $crudPerfil->obtenerPerfil('paciente', $id_paciente, 'id_paciente');
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,37 +16,32 @@
     <link rel="stylesheet" href="./css/Style_perfil.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <script src="https://kit.fontawesome.com/e1d55cc160.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./css/desktop_perfil.css" media="screen and (min-width: 800px)"/>
+    <link rel="stylesheet" href="./css/desktop_perfil.css" media="screen and (min-width: 800px)" />
     <title>Document</title>
 </head>
+
 <body>
     <header>
         <section class="section_header">
-            <figure class="figure_header"> 
-                <img 
-                src="./img/logo_header.svg" 
-                alt="lgo de kuhtone"
-                />  
-                <figcaption></figcaption> 
+            <figure class="figure_header">
+                <img src="./img/logo_header.svg" alt="lgo de kuhtone" />
+                <figcaption></figcaption>
             </figure>
             <div class="menu menu-header">
-                
-                    <figure id="btn_menu">
-                        <img 
-                        src="./img/menu.svg" 
-                        alt="menu"
-                        />  
-                        <figcaption></figcaption> 
-                    </figure>                
+
+                <figure id="btn_menu">
+                    <img src="./img/menu.svg" alt="menu" />
+                    <figcaption></figcaption>
+                </figure>
                 <div id="back_menu"></div>
                 <nav id="nav" class="menu-section">
                     <img src="img/logo_header.svG" alt="">
-                    <ul> 
-                    <?php
-                      echo'
-                      <li><a href="./index_usr.php?id_perfil='.$id_paciente.'">Inicio</a></li>
-                        <li><a href="./queries/consultar_citas.php?id_perfil='.$id_paciente.'">Mis citas</a></li>
-                        <li><a href="./perfil.php?id_perfil='.$id_paciente.'">Mi perfil</a></li>
+                    <ul>
+                        <?php
+                        echo '
+                      <li><a href="./index_usr.php?id_perfil=' . $id_paciente . '">Inicio</a></li>
+                        <li><a href="./queries/consultar_citas.php?id_perfil=' . $id_paciente . '">Mis citas</a></li>
+                        <li><a href="./perfil.php?id_perfil=' . $id_paciente . '">Mi perfil</a></li>
                         <li><a href="./index.php" id="selected">Cerrar Sesion</a></li>';
                         ?>
                     </ul>
@@ -56,7 +55,7 @@
                 />  
                 <figcaption></figcaption> 
             </figure> -->
-        </a>
+            </a>
     </header>
     <main>
     <?php
@@ -219,12 +218,13 @@
                 }
                 ?>
                 </form>
-</main>
-<footer class="pie-pagina">
-    <div class="footer_copy">
-         <small>&copy; 2023 <b>kuhtone</b> - Todos los Derechos Reservados.</small>
-    </div>
- </footer>
- <script src="js/script.js"></script>
+    </main>
+    <footer class="pie-pagina">
+        <div class="footer_copy">
+            <small>&copy; 2023 <b>kuhtone</b> - Todos los Derechos Reservados.</small>
+        </div>
+    </footer>
+    <script src="js/script.js"></script>
 </body>
+
 </html>
