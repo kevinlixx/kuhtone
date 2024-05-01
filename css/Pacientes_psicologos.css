@@ -2,11 +2,16 @@
     :root{
         --turquoise: #568281;
         --font-color: #FFFFFF;
-        --section-color: #D3E1E1;
-        --beige: #d6c19d;
         --black: #000000 ;
-        --orange: #fdb249 ;
-        --hour_turquoise: #20D2C8; 
+        /* News */
+        --paradiso: #3E8E98;
+        --sandy: #F4A26C;
+        --aqua: #A8D6DC;
+        --dark--parad: #32727A;
+        --fountain: #63B5BF;
+        --gris: #D9D9D9;
+        --gray--clean: #f9fafe;
+        --section--color: #E0E8FA;
     }
     *{
         box-sizing: border-box;
@@ -206,147 +211,44 @@
         display: block;
         position: relative ;
       }
-     
-
-      .title-categorias{
-        font-size: 40px;
-        margin: auto;
+ 
+      /*Desde aqui empieza el css del formulario de mis citas */
+      @keyframes color-change {
+        0% {
+            color: #3E8E98;
+        }
+        50% {
+            color: #20D2C8;
+        }
+        100% {
+            color: #32727A;
+        }
     }
-    .title-categorias-admin{
-        font-size: 2.4rem;
-        margin: auto;
+    /* Animación de cambip de color para el linea inferior del h2*/
+    
+    @keyframes underline-color-change {
+        0%, 100% {
+            background: #3E8E98;
+        }
+        50% {
+            background: #20D2C8;
+        }
     }
-    #catego-admin{
-        /* padding: 0px 100px; */
-        padding-left: 10%;
-        padding-right: 10%;
-        display: flex;
-        border-radius: 50px;
-        justify-content: center;
-        background: linear-gradient(to right, #2db4ae, #f8f8f8, #2db4ae );
-        box-shadow: 1px 1px 30px -12px #b3c9c8;
-        transition: all 300ms;
-        border: solid #f8f8f8;
+    #titulo-citas {
+        font-size: 30px;
         text-align: center;
-    }
-    #catego{
-        /* padding: 0px 100px; */
-        padding-left: 10%;
-        padding-right: 10%;
-        display: flex;
-        border-radius: 50px;
-        justify-content: center;
-        background: linear-gradient(to right, #2db4ae, #f8f8f8, #2db4ae );
-        box-shadow: 1px 1px 30px -12px #b3c9c8;
-        transition: all 300ms;
-        border: solid #f8f8f8;
-    }
-
-    .container-caja {
-        display: flex;
-        flex-wrap: wrap;
-        margin-top: 5rem;
-        justify-content: center;
-    }
-    .container-caja a {
-        text-decoration: none;
-        color: black;
-        display: block;
-    }
-    .caja {
-        height: 280px;
-        padding: 20px;
-        margin: 20px;
-        background: rgb(244, 242, 242);
-        /* box-shadow: 1.5px 1.5px 1.5px 1.5px black; */
-        text-align: center;
+        margin-bottom: 10px;
+        animation: color-change 1.5s infinite;
+        color: var(--paradiso);
         position: relative;
         overflow: hidden;
-        cursor: pointer;
-        display: block;
-        position: relative;
-        transition: 300ms;
-    
-    }
-    .caja:hover {
-        transform: translate(5px, -5px);
-        box-shadow: -10px 10px 20px -10px rgb(0, 0, 0, 0.5);
-    } 
-
-    .caja .icon,
-    .caja h4,
-    .caja p {
-    position: relative; /* para que funcione la animación y se ponga por encima*/
-    z-index: 1; /* para que se ponga encima de todo */
-    transition: all 300ms;
-    }
-    .caja .icon {
-        font-size: 40px;
-        color: rgb(160, 121, 95);
-        transform: translatey(30px);
-      }
-      
-      .caja:hover .icon {
-        color: #ffffff;
-        font-size: 30px;
-        transform: translateY(0);
-      }
-
-
-    .caja h4,
-    .caja p {
-      margin-top: 10 px;
-    }
-    .caja h4 {
-    font-size: 30px;
-    transform: translatey(30px);
-    }
-   
-    .caja:hover h4 {
-    transform: translateY(0);
-    color: white;
-    }
-    
-    .caja p {
-    font-size: 14px;
-    transform: translatey(100px); /* moverlo 100px en el eje y */
-    opacity: 0;
-    }
-
-    .caja:hover p {
-    transform: translateY(0);
-    opacity: 1;
-    color: white;
-    }
-
-    .caja .animacion {
-        width: 100px;
-        height: 100px;
-        position: absolute;
-        top: 250px;
-        left: -170px;
-        border-radius: 100%;
-        transition: all 300ms;
-        background: linear-gradient(to bottom, #995c06, #fdb249);
-    }
-    .caja:hover .animacion {
-        /* para que cuando se pasa el mouse realice la animación */
-        width: 40rem;
-        height: 40rem;
-        top: -150px;
-        left: -70px;
-    }
-
-    .caja2 .animacion {
-        background: linear-gradient(to bottom, var(--turquoise), var(--hour_turquoise));
-    }
-
-    .caja3 .animacion {
-        background: linear-gradient(to bottom,#7edfdf, #94b7b9);
     }
 
     
-    
+
+
+
+
     .pie-pagina {
         position: relative;
         width: 100%;
