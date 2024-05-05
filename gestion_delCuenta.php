@@ -20,9 +20,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@300;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/style_psicologos.css">
-    <link rel="stylesheet" href="./css/tablet_psicologos.css" media="screen and (min-width: 500px)"/>
-    <link rel="stylesheet" href="./css/desktop_psicologos.css" media="screen and (min-width: 800px)"/>
+    <link rel="stylesheet" href="./css/style_cuentasTemp.css">
+    <link rel="stylesheet" href="./css/tablet_cuentasTemp.css" media="screen and (min-width: 500px)"/>
+    <link rel="stylesheet" href="./css/desktop_cuentasTemp.css" media="screen and (min-width: 800px)"/>
 </head>
 <body>
 <header>
@@ -76,30 +76,32 @@
         foreach ($cuentas as $cuenta) {
           echo '
           <section class="psicologos--card">
-            <figure class="figure--card"> 
-              <img 
-              src="'.$cuenta['ruta_imagen'].'" 
-              alt="usuario"
-              />  
-              <figcaption></figcaption> 
-            </figure>
-            <div class="psicologo--description">
-              <h4>'.$cuenta['tipo_usuario'].'</h4> 
-              <p><span class="item--aco">Nombres:</span> '.$cuenta['nombres'].' '.$cuenta['apellidos'].'</p>
-              <p><span class="item--aco">Correo:</span> '.$cuenta['correo'].'</p>
-              <p><span class="item--aco">Teléfono:</span> '.$cuenta['telefono_movil'].'</p>';
-              if (array_key_exists('especializacion', $cuenta)) {
-                echo '<p><span class="item--aco">Especialización:</span> '.$cuenta['especializacion'].'</p>';
-              }
-          echo '</div>
-            <a class="mas_info--description rest_account">Restaurar Cuenta</a>
+            <h4>'.$cuenta['tipo_usuario'].'</h4> 
+            <div class="content--container">
+              <figure class="figure--card"> 
+                <img 
+                src="'.$cuenta['ruta_imagen'].'" 
+                alt="usuario"
+                />  
+                <figcaption></figcaption> 
+              </figure>
+              <div class="psicologo--description">
+                <p><span class="item--aco">Nombres:</span> '.$cuenta['nombres'].' '.$cuenta['apellidos'].'</p>
+                <p><span class="item--aco">Correo:</span> '.$cuenta['correo'].'</p>
+                <p><span class="item--aco">Teléfono:</span> '.$cuenta['telefono_movil'].'</p>';
+                if (array_key_exists('especializacion', $cuenta)) {
+                  echo '<p><span class="item--aco">Especialización:</span> '.$cuenta['especializacion'].'</p>';
+                }
+              echo '
+              </div>
+            </div>
+            <a class="rest_account">Restaurar Cuenta</a>
           </section>
           ';
         }
-        echo'
-          <a href="../gestion_admin.php?id_perfil='.$id_admin.'" class="back--bottom">Volver</a>';
-        ?>  
-        </div>
+        echo '<a href="../gestion_admin.php?id_perfil='.$id_admin.'" class="back--bottom">Volver</a>';
+        ?>
+      </div>
       </div>
     </main>
    <footer class="pie-pagina">
