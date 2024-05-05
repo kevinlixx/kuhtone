@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@300;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/miscitas.css">
+    <link rel="stylesheet" href="./css/Style_Mis_citas.css">
     <link rel="stylesheet" href="./css/tablet_usr.css" media="screen and (min-width: 600px)"/>
     <link rel="stylesheet" href="./css/desktop_usr.css" media="screen and (min-width: 800px)"/>
 </head>
@@ -61,6 +61,13 @@
 
     <h1 id="titulo-citas">Mis citas</h1> <!-- Título con id -->
     <h2 id="sub-titulo">Seleccione la fecha de la cita:</h2> <!-- Subtítulo -->
+    
+    <!-- Formulario de búsqueda por fecha -->
+    <form action="./queries/consultar_dispo.php" method="get">
+        <input type="date" id="fecha" name="fecha">
+        <input type="hidden" name="id_perfil" value="<?php echo $id_profesional; ?>">
+        <input type="submit" value="Buscar citas" class="change--bottom">
+    </form>
 
     <footer class="pie-pagina">
     <div class="footer_copy">

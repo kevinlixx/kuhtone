@@ -244,11 +244,49 @@
         overflow: hidden;
     }
 #sub-titulo {
-    font-size: 20px; /* Ajusta este valor según tus necesidades */
+    font-size: 20px; 
+    margin-left: 25px; 
 }
     
+/* Estilo para el formulario de búsqueda por fecha */
+form {
+    margin: 20px 0;
+    margin-left: 50px; /* Ajusta este valor según tus necesidades */
+}
+
+/* Estilo para el campo de entrada de fecha */
+form input[type="date"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 300px;
+    margin-right: 20px; /* Ajusta este valor para cambiar el ancho del campo de entrada de fecha */
+}
+
+/* Estilo para el botón de búsqueda */
 
 
+.change--bottom{
+    background-color: var(--aqua);
+    color: var(--dark--parad);
+    font-weight: bold;
+    font-size: 1.4rem;
+    text-align: center;
+    margin: 10px;   
+    width: 120px;
+    height: 33px;
+    border-radius: 15px;
+    padding: 5px;
+    justify-content: center;
+    transition: 300ms;
+    border: none; 
+}
+
+.change--bottom:hover{
+    background-color: var(--dark--parad);
+    color: var(--sandy);
+}
 
 
     .pie-pagina {
