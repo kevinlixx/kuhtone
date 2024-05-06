@@ -1,0 +1,394 @@
+/* lo que debe tener si o si el aplciativo */
+:root{
+    --turquoise: #568281;
+    --font-color: #FFFFFF;
+    --black: #000000 ;
+    /* News */
+    --paradiso: #3E8E98;
+    --sandy: #F4A26C;
+    --aqua: #A8D6DC;
+    --dark--parad: #32727A;
+    --fountain: #63B5BF;
+    --gris: #D9D9D9;
+    --gray--clean: #f9fafe;
+    --section--color: #E0E8FA;    
+    --section-color: #D3E1E1;     
+}
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html{
+    font-size: 62.5%;
+    font-family: 'DM Sans', sans-serif;
+    min-width: 320px;
+}
+
+header{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    min-width: 320px; /* dimension más chica de los celulareas */
+    height: 50px;
+    text-align:center;
+    border-bottom: 2px inset;
+}
+header .section_header{
+    width: 100%;
+    height: 40px;
+    position: relative;
+    display: flex;
+}
+header .figure_header{
+    width: 100px;
+    height: 48px;
+    position: relative;
+    display: flex;
+    margin-top: 1px;
+}
+.menu-section{
+    display: none;
+   
+}
+.menu{
+    justify-content: end;
+    width: 100px;
+    height: 40px;
+    position: relative;
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    padding: 16px;
+    margin-block: 3px;
+}
+
+.menu ul {
+    display: flex;
+    flex-direction: column;
+    color: #d3e1e1;
+    text-align: center;
+    height: 10px;
+    width: auto;
+    text-align: center;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+
+.menu ul li {
+    margin-top: 30px;
+    margin-left: 0;
+    list-style: none;
+}
+
+.menu ul li a{
+    text-decoration: none;
+    font-size: 1.4rem;
+    margin: 5px;
+    color: #528281;
+    transition: color 0.4s ease;
+    transition: 0.4s;
+}
+.menu ul li a:hover{
+    color:black;
+    margin-left:3rem;
+}
+.menu nav{
+    display: block;
+    position: fixed;
+    top: 0;
+    right: -250px;
+    background: white;
+    height: 100vh;
+    padding: 40px;
+    z-index: 1;
+    transition: all 300ms;
+}
+
+
+
+.menu ul li a{
+    color:var(--turquoise);
+}
+
+.menu nav img{
+    margin:10px;
+    display: block;
+    text-align: center;
+    width: 120px;
+    height: auto;
+    background-color: transparent;
+    background-position:0cqb;
+    border-radius: 10px;
+    /* box-shadow: 0 2px 4px var(--turquoise); */
+    display: inline-block;
+    margin-left: 10px;
+}
+
+#back_menu{ /* el tamaño del menu que se mostrara */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    z-index: 1;
+}
+
+.menu #btn_menu{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    color: #528281;
+    background: rgba(226, 219, 219, 0.1);
+    font-size: 30px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 300ms;
+}
+#btn_menu:checked ~ main {
+    background-color: #333;
+  }
+
+.menu #btn_menu:hover{
+    background:rgba(12, 12, 12, 0.1);
+}
+
+
+header .menu-header{
+    justify-content: end;
+    width: 100px;
+    height: 40px;
+    position: relative;
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    padding: 16px;
+    margin-block: 3px;
+}
+
+#selected{
+    background:transparent;
+    border:2px solid #fdb249;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 12px;
+    border-radius: 50px;
+    transition: 0.4s ;
+} 
+#selected:hover{
+    color: black;
+}
+
+.logo img{
+    width: 160px;
+    
+}
+
+/* Inicio del main */
+main {
+    width: 100%;
+    min-width: 320px;
+
+}
+.title--main{
+    text-align: center;
+    margin: 20px;
+}
+
+            /* Animación de cambip de color para el h2*/
+            @keyframes color-change {
+                0% {
+                    color: #3E8E98;
+                }
+                50% {
+                    color: #20D2C8;
+                }
+                100% {
+                    color: #32727A;
+                }
+            }
+            /* Animación de cambip de color para el linea inferior del h2*/
+    
+            @keyframes underline-color-change {
+                0%, 100% {
+                    background: #3E8E98;
+                }
+                50% {
+                    background: #20D2C8;
+                }
+            }
+            /* Animación de desplazamineto de la linea interior del h2 */
+            @keyframes underline-slide {
+                0%, 100% {
+                    transform: translateX(-30%); /* Cambia esta línea */
+                }
+                50% {
+                    transform: translateX(30%); /* Cambia esta línea */
+                }
+            }
+    
+            /* Codigo del h2 y llamado de la primer animación */
+            .title--main{
+                font-size: 2.8rem;
+                text-align: center;
+                margin-bottom: 10px;
+                animation: color-change 1.5s infinite;
+                color: var(--paradiso);
+                position: relative;
+                overflow: hidden;
+            }
+    
+            /* Codigo del h2 con pseudo-clase y llamado de la animación para el underline */
+            .title--main::after {
+                content: '';
+                position: absolute;
+                left: 22%; /* Centra el elemento */
+                bottom: 0;
+                height: 3px;
+                width: 58%;
+                background: #32727A;
+                animation: underline-color-change 2s infinite, underline-slide 2s infinite;
+                transform: translateX(-50%); /* Centra el elemento */
+            }
+
+.design--container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.psicologos--contenedor{
+    box-shadow: 0 0 4px var(--turquoise);
+    background: var(--gray--clean);   
+    border-radius: 50px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.psicologos--card{
+    display: flex;
+    flex-direction: column;
+    width: 92%;
+    margin: 20px;
+    align-items: center;
+    padding: 5px 10px;
+    background: var(--font-color);   
+    border-radius: 40px;
+    box-shadow: 0 2px 0 var(--turquoise), 0 -2px 0 var(--turquoise);
+}
+.psicologos--card h4{
+    margin-left: 6px;
+    font-size: 1.4rem;
+    text-align: center;
+    padding: 5px 10px;
+}
+
+.content--container {
+    display: flex;
+    width: 100%;
+  }  
+
+.figure--card{
+    /* width: 50%; */
+    height: 130px;
+    border-radius: 80px;
+    align-content: center;
+}
+
+.figure--card img{
+    width: 80px;
+    height: 80px;
+    border-radius: 80px;
+}
+
+/* Estilos del interior de la carta */
+
+/* Estilos de los p de cuentas temporales */
+.psicologo--description p{
+    margin: 5px 10px;
+    text-align: justify;
+    font-size: 1.1rem;
+    font-weight: 600;
+    word-spacing: -1.1px;
+}
+
+.item--aco {
+    color: var(--fountain);
+}
+
+/* Estilos del boton de cuenta temporal */
+.rest_account {
+    display: flex;
+    padding: 5px 1px;
+    background-color: var(--aqua);
+    color: var(--dark--parad);
+    border-radius: 10px;
+    text-decoration: none;
+    text-align: center;
+    transition: 300ms;
+    font-size: 13px;
+    font-weight: 600;
+    justify-content: center;
+    margin: 10px auto;
+    width: 60%;
+}
+
+.rest_account:hover{
+    background: var(--aqua);
+    color: var(--sandy);
+}
+/* Fin de estilos de la card de cuentas temporal */
+
+.back--bottom{
+    display: flex;
+    background-color: var(--aqua);
+    text-decoration: none;
+    color: var(--dark--parad);
+    font-weight: bold;
+    font-size: 2rem;
+    text-align: center;
+    margin: 15px;   
+    width: 79.96px;
+    height: 36.26px;
+    border-radius: 15px;
+    padding: 5px;
+    justify-content: center;
+    align-self: flex-end;
+    transition: 300ms;
+}
+
+
+.back--bottom:hover{
+    background: var(--aqua);
+    color: var(--sandy);
+}
+
+/* para el footer */
+.pie-pagina {
+    position: relative;
+    width: 100%;
+    background-color:var(--font-color);
+    text-align: center;
+    min-width: 320px;
+}
+.pie-pagina .footer_copy{
+    background-color: var(--section-color);
+    padding: 15px 10px;
+    text-align: center;
+    color:var(--turquoise);
+}
+.pie-pagina .footer_copy small{
+    font-size: 15px;
+}
