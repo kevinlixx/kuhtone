@@ -28,7 +28,7 @@ class CuentaTemporal {
                     'ruta_imagen' => $ruta_imagen
                 ];
                 if ($consulta_total["tipo_usuario"] == "profesional" && array_key_exists("especializacion", $datos_usuario)) {
-                    $cuenta['especializacion'] = $datos_usuario["especializacion"];
+                    $cuenta['especializacion'] = html_entity_decode($datos_usuario["especializacion"], ENT_QUOTES, 'UTF-8');
                 }
                 $cuentas[] = $cuenta;
             }
