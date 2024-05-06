@@ -1,11 +1,17 @@
 :root{
     --turquoise: #568281;
     --font-color: #FFFFFF;
-    --section-color: #D3E1E1;
-    --beige: #d6c19d;
     --black: #000000 ;
-    --orange: #fdb249 ;
-    --hour_turquoise: #20D2C8; 
+    /* News */
+    --paradiso: #3E8E98;
+    --sandy: #F4A26C;
+    --aqua: #A8D6DC;
+    --dark--parad: #32727A;
+    --fountain: #63B5BF;
+    --gris: #D9D9D9;
+    --gray--clean: #f9fafe;
+    --section--color: #E0E8FA;
+    --section-color: #D3E1E1;
 }
 *{
     box-sizing: border-box;
@@ -74,6 +80,7 @@ header .menu-section{
 .figure--card img{
     width: 175px;
     height: 175px;
+    border-radius: 86px;
 }
 .psicologo-info--card{
     align-self: center;
@@ -89,8 +96,9 @@ display: block;
     
 }
 .psicologo-description--container h3{
-    font-size: 2.0rem;
+    font-size: 2.4rem;
     margin: 10px;
+    color: var(--paradiso);
 }
 .psicologo-description--container p{
     margin: 20px;
@@ -103,7 +111,8 @@ display: block;
     width: 200px;
 }
 .psicologo-perfil--container h3{
-    font-size: 2.0rem;
+    font-size: 2.4rem;
+    color: var(--paradiso);
 }
 .psicologo-perfil--container h4{
     font-size: 1.4rem;
@@ -122,6 +131,7 @@ display: block;
 }
 .psicologo-experience--container h3{
     font-size: 2.4rem;
+    color: var(--paradiso);
 }
 .psicologo-experience--container p{
     font-size: 1.4rem;
@@ -129,4 +139,16 @@ display: block;
 }
 .back--bottom{
     left: 80%;
+}
+.info-group {
+    display: flex;
+    align-items: flex-start;
+}
+
+.small-image{
+    width: 32px;
+    height: 26px;/* Ajusta la altura de la imagen */
+    display: Flex; /* Hace que la imagen se alinee con el texto */
+    vertical-align: middle; /* Alinea verticalmente la imagen con el texto */
+    margin-right: 1px; /* Agrega un poco de espacio a la derecha de la imagen */
 }
