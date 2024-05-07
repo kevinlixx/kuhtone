@@ -160,7 +160,7 @@ $consulta_perfil = $crudPerfil->obtenerPerfil('paciente', $id_paciente, 'id_paci
                                         
                                     </div>
                                     <input class="button" type="submit" value="Modificar Datos" name="modificar">
-                                    <input class="button" type="submit" value="Eliminar Cuenta" name="inhabilitar">
+                                    <input class="button" type="submit" value="Eliminar cuenta" name="inhabilitar" id="eliminar">
                                     <a href="./perfil.php?id_perfil='.$id_paciente.'" class="button">Volver</a>
                                 </div>
                             </div>
@@ -225,6 +225,7 @@ $consulta_perfil = $crudPerfil->obtenerPerfil('paciente', $id_paciente, 'id_paci
         </div>
     </footer>
     <script src="js/script.js"></script>
+    <script src="js/script_sureDelete.js"></script>
 </body>
 
 </html>

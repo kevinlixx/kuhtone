@@ -59,66 +59,60 @@
         </a>
     </header>
     <main>
-    <?php
-            $admin ="SELECT * FROM administrador WHERE id_admin =$id_admin";
-            $consulta_admin = mysqli_query($conection, $admin ) or die ("Error al traer los datos");
-                if($consulta_perfil= mysqli_fetch_array($consulta_admin)){
-                    echo'
-                    <form method="POST" action="./modificar_imgPerfil.php?id_perfil='.$id_admin.'" enctype="multipart/form-data">
-                        <section class="seccion-perfil-usuario">
-                            <div class="perfil-usuario-header">
-                                <div class="perfil-usuario-portada">
-                                    <div class="perfil-usuario-avatar">
-                                        <img src="'.$consulta_perfil["foto_perfil"].'" alt="img-avatar">
+        <?php
+                $admin ="SELECT * FROM administrador WHERE id_admin =$id_admin";
+                $consulta_admin = mysqli_query($conection, $admin ) or die ("Error al traer los datos");
+                    if($consulta_perfil= mysqli_fetch_array($consulta_admin)){
+                        echo'
+                        <form method="POST" enctype="multipart/form-data">
+                            <section class="seccion-perfil-usuario">
+                                <div class="perfil-usuario-header">
+                                    <div class="perfil-usuario-portada">
+                                        <div class="perfil-usuario-avatar">
+                                            <img src="'.$consulta_perfil["foto_perfil"].'" alt="img-avatar">
+                                        </div>
                                     </div>
-                                    <!-- <button type="button" class="boton-portada">
-                                        <i class="far fa-image"></i> Cambiar fondo
-                                    </button> -->
                                 </div>
-                            </div>
-                            <div class="perfil-usuario-body">
-                                <div class="perfil-usuario-bio">
-                                <input  type="file"  name="imagen_producto">
-                                <input type="submit" class="button" name="actualiza_img" value="Actualizar foto">
-                                
+                                <div class="perfil-usuario-body">
+                                    <div class="perfil-usuario-bio">
+                                    <input  type="file"  name="imagen_producto">
+                                    <input type="submit" class="button" name="actualiza_img" value="Actualizar foto">
+                                    
+                                    </div>
+                                    <a href="./modificar_admin.php?id_perfil='.$id_admin.'" class="button">Volver</a>
                                 </div>
-                                <a href="./updates_admin/modificar_admin.php?id_perfil='.$id_admin.'" class="button">Volver</a>
-                            </div>
-                        </section>
-                        ';
-                        if(isset($_POST ['actualiza_img'])){
-                            if($_FILES['imagen_producto']['size']>2024000){
-                              echo "solo se permiten imagenes menores a 2MB";
-                              exit;
+                            </section>
+                            ';
+                            if(isset($_POST ['actualiza_img'])){
+                                if($_FILES['imagen_producto']['size']>2024000){
+                                    echo "solo se permiten imagenes menores a 2MB";
+                                    exit;
+                                }
+                                $dir="./img/"; 
+                                $nombre_archivo = $_FILES['imagen_producto']['name'];
+                                    
+                                if(!move_uploaded_file($_FILES['imagen_producto']['tmp_name'],$dir.$nombre_archivo)) 
+                                {
+                                    echo "error en subir la imagen";
+                                }
+
+                                $imagen_producto=$dir.$nombre_archivo;
+
+                                $actualizar_SQL = "UPDATE administrador SET foto_perfil='$imagen_producto' Where id_admin='$id_admin'";
+                                $resultado = mysqli_query($conection,$actualizar_SQL) or trigger_error("Query Failed! SQL-Error: ".mysqli_error($conection), E_USER_ERROR);
+                                if($resultado){ 
+                                    echo '<script>alert("se ha actualizado correctamente");
+                                    window.location.href="./perfil_admin.php?id_perfil='.$id_admin.'";  </script>';
+                                }
+                                else {
+                                    echo '<script>alert("no se puedo actualizar correctamente");window.history.go(-1);</script>';
+                                }
+                                mysqli_close($conection);
                             }
-                            $dir="./img/"; /* agrega la imagen añadida a la carpeta dodne queremos guardar la imagen*/ 
-                            $nombre_archivo = $_FILES['imagen_producto']['name'];
-                              
-                            if(!move_uploaded_file($_FILES['imagen_producto']['tmp_name'],$dir.$nombre_archivo)) 
-                            {
-                              echo "error en subir la imagen";
-                            }
-      
-                        $imagen_producto=$dir.$nombre_archivo;
-                        
-                
-                    $actualizar_SQL = "UPDATE administrador SET foto_perfil='$imagen_producto' Where id_admin='$id_admin'";
-                        $resultado = mysqli_query($conection,$actualizar_SQL) or trigger_error("Query Failed! SQL-Error: ".mysql_error($conection), E_USER_ERROR);
-                        if($resultado){ 
-                          echo '<script>alert("se ha actualizado correctamente");
-                          window.location.href="./perfil.php?id_perfil='.$id_admin.'";  </script>';
-                        }
-                        else {
-                          echo '<script>alert("no se puedo actualizar correctamente");window.history.go(-1);</script>';
-      
-                        }
-                        mysqli_close($conection);
-                       
-                     }
-                }
-                ?>
-                </form>
-</main>
+                    }
+                    ?>
+                    </form>
+    </main>
 <footer class="pie-pagina">
     <div class="footer_copy">
          <small>&copy; 2023 <b>kuhtone</b> - Todos los Derechos Reservados.</small>

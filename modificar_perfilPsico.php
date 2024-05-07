@@ -184,7 +184,7 @@
                                         
                                     </div>
                                     <input class="button" type="submit" value="Modificar Datos" name="modificar">
-                                    <input class="button" type="submit" value="Eliminar cuenta" name="inhabilitar">
+                                    <input class="button" type="submit" value="Eliminar cuenta" name="inhabilitar" id="eliminar">
                                     <a href="./perfil_psicologo.php?id_perfil='.$id_profesional.'" class="button">volver</a>
                                 </div>
                             </div>
@@ -255,5 +255,6 @@
     </div>
  </footer>
  <script src="js/script.js"></script>
+ <script src="js/script_sureDelete.js"></script>
 </body>
 </html>

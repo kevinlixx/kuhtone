@@ -334,6 +334,7 @@ main {
     padding: 5px 1px;
     background-color: var(--aqua);
     color: var(--dark--parad);
+    border: none; /* Agregado para eliminar la línea negra alrededor del botón */
     border-radius: 10px;
     text-decoration: none;
     text-align: center;
@@ -348,6 +349,11 @@ main {
 .rest_account:hover{
     background: var(--aqua);
     color: var(--sandy);
+}
+
+/* Agregado para permitir que el botón alcance el 60% del ancho del contenedor */
+#form-restaurar-cuenta {
+    width: 100%;
 }
 /* Fin de estilos de la card de cuentas temporal */
 

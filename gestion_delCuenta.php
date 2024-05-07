@@ -1,11 +1,26 @@
 <?php
-    include("./config/conexion.php");
-    include("./includes/cuentaTemporalModel.php");
-    $id_admin= $_GET['id_perfil'];
-    function obtenerCuentas($conection) {
+include("./config/conexion.php");
+include("./includes/cuentaTemporalModel.php");
+
+$id_admin = $_GET['id_perfil'];
+$cuentaTemporal = new CuentaTemporal($conection);
+
+if (isset($_POST['restaurar_cuenta'])) {
+    $tipo_usuario = $_POST['tipo_usuario'];
+    $correo = $_POST['correo'];
+    $cuentaTemporal->restaurarCuenta($tipo_usuario, $correo);
+}
+if (isset($_POST['restaurar_cuenta'])) {
+  $tipo_usuario = $_POST['tipo_usuario'];
+  $correo = $_POST['correo'];
+  $cuentaTemporal->restaurarCuenta($tipo_usuario, $correo);
+  $cuentaTemporal->eliminarCuentaTemporal($tipo_usuario, $correo);
+}
+
+function obtenerCuentas($conection) {
     $cuentaTemporal = new CuentaTemporal($conection);
     return $cuentaTemporal->obtenerCuentasTemporales();
-  }
+}
 ?>
 
 <!DOCTYPE html>
@@ -47,12 +62,11 @@
                     <img src="img/logo_header.svG" alt="">
                     <ul> 
                     <?php
-                      echo'
-                      <li><a href="./index_usr.php?id_perfil='.$id_admin.'">Inicio</a></li>
-                        <li><a href="./queries/consultar_citas.php?id_perfil='.$id_admin.'">Mis citas</a></li>
-                        <li><a href="./perfil.php?id_perfil='.$id_admin.'">Mi perfil</a></li>
-                        <li><a href="./index.php" id="selected">Cerrar Sesion</a></li>';
-                        ?>
+                     echo'
+                     <li><a href="../index_admin.php?id_perfil='.$id_admin.'">Inicio</a></li>
+                       <li><a href="../perfil_admin.php?id_perfil='.$id_admin.'">Mi perfil</a></li>
+                       <li><a href="../index.php" id="selected">Cerrar Sesion</a></li>';
+                       ?>
                     </ul>
                 </nav>
             </div>
@@ -95,11 +109,15 @@
               echo '
               </div>
             </div>
-            <a class="rest_account">Restaurar Cuenta</a>
-          </section>
-          ';
+            <form id="form-restaurar-cuenta" method="POST">
+                <input type="hidden" name="tipo_usuario" value="' . $cuenta['tipo_usuario'] . '">
+                <input type="hidden" name="correo" value="' . $cuenta['correo'] . '">
+                <button type="submit" name="restaurar_cuenta" class="rest_account">Restaurar Cuenta</button>
+            </form>
+        </section>
+        ';
         }
-        echo '<a href="../gestion_admin.php?id_perfil='.$id_admin.'" class="back--bottom">Volver</a>';
+        echo '<a href="../index_admin.php?id_perfil='.$id_admin.'" class="back--bottom">Volver</a>';
         ?>
       </div>
       </div>
@@ -110,5 +128,6 @@
    </div>
 </footer>
 <script src="js/script.js"></script>
+<script src="js/script_restaurarCuenta.js"></script>
 </body>
 </html>
