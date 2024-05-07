@@ -85,15 +85,9 @@
               echo'
                 <a href="./gestion_psicologos.php?id_perfil='.$id_admin.'">';
                 ?>
-                  <div class="caja caja2">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-switch-3" width="52" height="52" viewBox="0 0 24 24" stroke-width="1.5" stroke="#009988" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                        <path d="M3 17h2.397a5 5 0 0 0 4.096 -2.133l.177 -.253m3.66 -5.227l.177 -.254a5 5 0 0 1 4.096 -2.133h3.397" />
-                        <path d="M18 4l3 3l-3 3" />
-                        <path d="M3 7h2.397a5 5 0 0 1 4.096 2.133l4.014 5.734a5 5 0 0 0 4.096 2.133h3.397" />
-                        <path d="M18 20l3 -3l-3 -3" />
-                      </svg>
-                    <h4>Profesional</h4>
+                  <div class="caja caja3">
+                  <object type="image/svg+xml" data="img/profesional_manage.svg" class="icon icon-tabler icon-tabler-switch-3" width="52" height="52"></object>
+                   <h4>Profesional</h4>
                     <p>Aquí puedes gestionar los profesionales.</p>
                     <div class="animacion"></div></div>
                   </a>
@@ -102,13 +96,8 @@
                 <a href="./gestion_admin.php?id_perfil='.$id_admin.'">';
                 ?>
                   <div class="caja caja2">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-switch-3" width="52" height="52" viewBox="0 0 24 24" stroke-width="1.5" stroke="#009988" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                        <path d="M3 17h2.397a5 5 0 0 0 4.096 -2.133l.177 -.253m3.66 -5.227l.177 -.254a5 5 0 0 1 4.096 -2.133h3.397" />
-                        <path d="M18 4l3 3l-3 3" />
-                        <path d="M3 7h2.397a5 5 0 0 1 4.096 2.133l4.014 5.734a5 5 0 0 0 4.096 2.133h3.397" />
-                        <path d="M18 20l3 -3l-3 -3" />
-                      </svg>
+                    <!-- Cambiar los svgs -->
+                    <object type="image/svg+xml" data="img/admin_manage.svg" class="icon icon-tabler icon-tabler-switch-3" width="52" height="52"></object>
                     <h4>Administrador</h4>
                     <p>Aquí puedes gestionar los Administradores.</p>
                     <div class="animacion"></div></div>
@@ -117,15 +106,9 @@
                 echo'
                 <a href="./gestion_delCuenta.php?id_perfil='.$id_admin.'">';
                 ?>
-                  <div class="caja caja2">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-switch-3" width="52" height="52" viewBox="0 0 24 24" stroke-width="1.5" stroke="#009988" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                        <path d="M3 17h2.397a5 5 0 0 0 4.096 -2.133l.177 -.253m3.66 -5.227l.177 -.254a5 5 0 0 1 4.096 -2.133h3.397" />
-                        <path d="M18 4l3 3l-3 3" />
-                        <path d="M3 7h2.397a5 5 0 0 1 4.096 2.133l4.014 5.734a5 5 0 0 0 4.096 2.133h3.397" />
-                        <path d="M18 20l3 -3l-3 -3" />
-                      </svg>
-                    <h4>Cuentas eliminadas</h4>
+                  <div class="caja caja1">
+                  <object type="image/svg+xml" data="img/del_accounts.svg" class="icon icon-tabler icon-tabler-switch-3" width="52" height="52"></object>
+                   <h4>Cuentas eliminadas</h4>
                     <p>Aquí puedes gestionar las cuentas temporales.</p>
                     <div class="animacion"></div></div>
                   </a>

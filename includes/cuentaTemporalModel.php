@@ -74,6 +74,7 @@ class CuentaTemporal {
         }
 
         $consulta = "DELETE FROM cuentas_temporales WHERE tipo_usuario = '$tipo_usuario' AND JSON_EXTRACT(datos_usuario, '$.$campo_correo') = '$correo'";
+        $consulta = str_replace('$.$campo_correo', '$.'.$campo_correo, $consulta);
         $resultado = mysqli_query($this->conection, $consulta);
 
         if ($resultado) {
@@ -81,6 +82,6 @@ class CuentaTemporal {
         } else {
             return mysqli_error($this->conection);
         }
-    }
+    } 
 }
 ?>

@@ -5,22 +5,19 @@ include("./includes/cuentaTemporalModel.php");
 $id_admin = $_GET['id_perfil'];
 $cuentaTemporal = new CuentaTemporal($conection);
 
-if (isset($_POST['restaurar_cuenta'])) {
-    $tipo_usuario = $_POST['tipo_usuario'];
-    $correo = $_POST['correo'];
-    $cuentaTemporal->restaurarCuenta($tipo_usuario, $correo);
-}
-if (isset($_POST['restaurar_cuenta'])) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $tipo_usuario = $_POST['tipo_usuario'];
   $correo = $_POST['correo'];
   $cuentaTemporal->restaurarCuenta($tipo_usuario, $correo);
-  $cuentaTemporal->eliminarCuentaTemporal($tipo_usuario, $correo);
+  $resultado = $cuentaTemporal->eliminarCuentaTemporal($tipo_usuario, $correo);
 }
 
 function obtenerCuentas($conection) {
     $cuentaTemporal = new CuentaTemporal($conection);
     return $cuentaTemporal->obtenerCuentasTemporales();
 }
+
+$cuentas = obtenerCuentas($conection);
 ?>
 
 <!DOCTYPE html>
@@ -82,7 +79,7 @@ function obtenerCuentas($conection) {
         </a>
     </header>
     <main>
-      <h1 class="title--main">Cuentas Temporales</h1>
+      <h1 class="title--main">Cuentas Eliminadas</h1>
       <div class= "design--container">
         <div class="psicologos--contenedor">
         <?php
