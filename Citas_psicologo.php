@@ -1,6 +1,7 @@
 <?php
     include("./config/conexion.php");
     $id_profesional= $_GET['id_perfil'];
+    $fecha_busqueda = isset($_GET['fecha']) ? $_GET['fecha'] : null;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -58,17 +59,39 @@
             </figure> -->
         </a>
     </header>
+    <main>
 
     <h1 id="titulo-citas">Mis citas</h1> <!-- Título con id -->
     <h2 id="sub-titulo">Seleccione la fecha de la cita:</h2> <!-- Subtítulo -->
     
-    <!-- Formulario de búsqueda por fecha -->
-    <form action="./queries/consultar_dispo.php" method="get">
+    <form action="./Citas_psicologo.php" method="get">
         <input type="date" id="fecha" name="fecha">
         <input type="hidden" name="id_perfil" value="<?php echo $id_profesional; ?>">
         <input type="submit" value="Buscar citas" class="change--bottom">
     </form>
+    <div>
+        <?php
+        include("./config/conexion.php");
 
+        if ($fecha_busqueda) {
+            $consulta = mysqli_query($conection, "SELECT paciente.* FROM paciente 
+                                                  JOIN agendamiento ON paciente.id_paciente = agendamiento.id_paciente 
+                                                  JOIN disponibilidad ON agendamiento.id_disponibilidad = disponibilidad.id_disponibilidad 
+                                                  WHERE disponibilidad.id_profesional = $id_profesional AND disponibilidad.fecha_disponibilidad = '$fecha_busqueda'") 
+                                                  or die ("Error al traer los datos");
+
+            if(mysqli_num_rows($consulta) > 0) {
+                while($consulta_total= mysqli_fetch_array($consulta)) {
+                    echo $consulta_total["nombres"];
+                    echo $consulta_total["apellidos"];
+                }
+            } else {
+                echo "No se encontraron pacientes asignados a este profesional en la fecha especificada.";
+            }
+        }
+        ?>
+    </div>
+    </main>
     <footer class="pie-pagina">
     <div class="footer_copy">
         <small>&copy; 2023 <b>kuhtone</b> - Todos los Derechos Reservados.</small>
