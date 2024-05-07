@@ -10,8 +10,18 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 getSedesFromDatabase().then(sedes => {
     // Itera sobre las sedes y crea un marcador para cada una
     sedes.forEach(sede => {
-        L.marker([sede.latitud, sede.longitud]).addTo(map)
+       var marker= L.marker([sede.latitud, sede.longitud]).addTo(map)
             .bindPopup(sede.nombre);
+    // Obtén el div que quieres mostrar
+    var divSede= document.getElementById('select-sede');
+    var divpsico= document.getElementById('psicologos--contenedor');
+    // Agrega un evento de clic al marcador
+    marker.on('click', function() {
+        // Muestra el div
+        divSede.style.display = 'none';
+        divpsico.style.display = 'block';
+    });
+
     });
 }).catch(error => {
     console.error('Error al obtener las sedes de la base de datos:', error);

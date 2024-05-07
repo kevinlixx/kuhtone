@@ -71,10 +71,10 @@ $id_paciente= $_GET['id_perfil'];
         </div>
 
         <div class= "design--container">
-            <div class="select-sede">
+            <div class="select-sede" id="select-sede">
                  <h1> Por favor selecciona una sede </h1>
             </div>
-            <div class="psicologos--contenedor">
+            <div class="psicologos--contenedor" id="psicologos--contenedor">
         <?php
          $consulta = mysqli_query($conection, "SELECT * FROM profesional WHERE estado_cuenta = 1" ) or die ("Error al traer los datos");
             if(mysqli_num_rows($consulta) > 0)

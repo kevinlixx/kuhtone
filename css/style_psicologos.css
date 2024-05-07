@@ -277,6 +277,9 @@ main {
     margin-bottom: 30px;
 }
 
+.psicologos--contenedor{
+    display: none;
+}
 .psicologos--contenedor, .select-sede{  
     box-shadow: 0 0 4px var(--turquoise);    
     border-radius: 20px;
