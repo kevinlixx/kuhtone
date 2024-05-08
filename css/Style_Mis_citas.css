@@ -9,7 +9,7 @@
         --aqua: #A8D6DC;
         --dark--parad: #32727A;
         --fountain: #63B5BF;
-        --gris: #D9D9D9;
+        --gris:#817F7F;
         --gray--clean: #f9fafe;
         --section--color: #E0E8FA;
     }
@@ -265,8 +265,6 @@ form input[type="date"] {
 }
 
 /* Estilo para el botón de búsqueda */
-
-
 .change--bottom{
     background-color: var(--aqua);
     color: var(--dark--parad);
@@ -282,11 +280,83 @@ form input[type="date"] {
     transition: 300ms;
     border: none; 
 }
-
 .change--bottom:hover{
     background-color: var(--dark--parad);
     color: var(--sandy);
 }
+
+.change--bottom--volver {
+    background-color: var(--aqua);
+    color: var(--dark--parad);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.4rem;
+    text-align: center;
+    margin: 10px;   
+    width: 89px;
+    height: 33px;
+    border-radius: 15px;
+    padding: 5px;
+    justify-content: center;
+    transition: 300ms;
+    border: none; 
+    float: right;
+    position: relative;    
+}
+.change--bottom--volver:hover{
+    background-color: var(--dark--parad);
+    color: var(--sandy);
+}
+/*estilo para la informacion del paciente*/
+
+.paciente--description h4 {
+    color: var(--gris);
+    font-size: 2rem; /* Cambia 2rem al tamaño que prefieras para el título */
+}
+
+.paciente--description p {
+    font-size: 1.5rem;
+    margin-right: 0px;
+}
+.psicologos--contenedor{
+    position: relative;
+    margin: auto;
+    background-color:var(--aqua);
+    box-shadow: 0 0 4px var(--dark--paradk);    
+    border-radius: 50px;
+    width: 71%;
+}
+.psicologos--card{
+    display: flex;
+    width: 90%;
+    align-items: center;
+    margin: 30px;
+}
+.figure--card{
+    width: 94px;
+    height: 104px;
+    border-radius: 80px;
+    align-content: center;
+    margin-right: 80px;
+}
+.figure--card img{
+    width: 111px;
+    height: 110px;
+    border-radius: 80px;
+    margin-left: 23px;
+}
+
+.icon-ingreso {
+    margin: 50px; /* Cambia 20px al espacio que prefieras */
+    right: 0;
+}
+.icon-ingreso img {
+    width: 168px;
+    height: 47px;
+}
+
+
+
 
 
     .pie-pagina {
@@ -301,6 +371,7 @@ form input[type="date"] {
         padding: 15px 10px;
         text-align: center;
         color:var(--turquoise);
+        margin-top: 50px;
     }
     .pie-pagina .footer_copy small{
         font-size: 15px;
