@@ -312,6 +312,7 @@ form input[type="date"] {
 .paciente--description h4 {
     color: var(--gris);
     font-size: 2rem; /* Cambia 2rem al tamaño que prefieras para el título */
+    text-align: center;
 }
 
 .paciente--description p {
@@ -324,7 +325,7 @@ form input[type="date"] {
     background-color:var(--aqua);
     box-shadow: 0 0 4px var(--dark--paradk);    
     border-radius: 50px;
-    width: 71%;
+    width: 70%;
 }
 .psicologos--card{
     display: flex;
@@ -346,12 +347,10 @@ form input[type="date"] {
     margin-left: 23px;
 }
 
-.icon-ingreso {
-    margin: 50px; /* Cambia 20px al espacio que prefieras */
+.icon-ingreso { 
     right: 0;
 }
 .icon-ingreso img {
-    width: 168px;
     height: 47px;
 }
 
