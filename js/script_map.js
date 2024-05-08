@@ -5,7 +5,8 @@ const map = L.map('map--container').setView([4.5709, -74.2973], 13); // Ajusta l
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
-
+    var divSede= document.getElementById('select-sede');
+    var divpsico= document.getElementById('psicologos--contenedor');
 // Obtiene las sedes de la base de datos
 getSedesFromDatabase().then(sedes => {
     // Itera sobre las sedes y crea un marcador para cada una
@@ -13,13 +14,35 @@ getSedesFromDatabase().then(sedes => {
        var marker= L.marker([sede.latitud, sede.longitud]).addTo(map)
             .bindPopup(sede.nombre);
     // Obtén el div que quieres mostrar
-    var divSede= document.getElementById('select-sede');
-    var divpsico= document.getElementById('psicologos--contenedor');
+    
     // Agrega un evento de clic al marcador
+
     marker.on('click', function() {
         // Muestra el div
         divSede.style.display = 'none';
         divpsico.style.display = 'block';
+    
+        // Enviar el ID de la sede a un archivo PHP
+        var sede_id = sede.id_sede; // Asegúrate de que 'id' es la propiedad correcta
+        $.ajax({
+            url: '../psicologos.php', // Reemplaza esto con la ruta a tu archivo PHP
+            type: 'POST',
+            data: { sede_id: sede_id,
+                id_perfil: id_paciente
+             },
+            success: function(response) {
+                 // Convierte la respuesta en un objeto jQuery
+        var $response = $(response);
+
+        // Selecciona el contenido de #psicologos--contenedor y agrégalo a tu página
+        var $psicologosContenedor = $response.find('#psicologos--contenedor');
+        $('#psicologos--contenedor').html($psicologosContenedor.html());
+            },
+            error: function(error) {
+                // Aquí puedes manejar los errores
+                console.error('Error:', error);
+            }
+        });
     });
 
     });
@@ -36,9 +59,14 @@ const userIcon = L.icon({
 if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(position => {
         const currentLocation = [position.coords.latitude, position.coords.longitude];
-        L.marker(currentLocation,{icon: userIcon}).addTo(map)
+        var marketUser= L.marker(currentLocation,{icon: userIcon}).addTo(map)
             .bindPopup('Ubicación actual');
         map.setView(currentLocation, 13);
+
+        marketUser.on('click', function() {
+            divSede.style.display = 'block';
+        divpsico.style.display = 'none';
+        });
     });
 }
 
