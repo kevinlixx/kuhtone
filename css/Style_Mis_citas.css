@@ -213,7 +213,7 @@
       }
  
       /*Desde aqui empieza el css del formulario de mis citas */
-      @keyframes color-change {
+    @keyframes color-change {
         0% {
             color: #3E8E98;
         }
@@ -224,8 +224,8 @@
             color: #32727A;
         }
     }
-    /* Animación de cambip de color para el linea inferior del h2*/
     
+    /* Animación de cambio de color para la línea inferior del h2 */
     @keyframes underline-color-change {
         0%, 100% {
             background: #3E8E98;
@@ -234,7 +234,8 @@
             background: #20D2C8;
         }
     }
-    #titulo-citas {
+    
+    .title--main {
         font-size: 30px;
         text-align: center;
         margin-bottom: 10px;
@@ -243,10 +244,11 @@
         position: relative;
         overflow: hidden;
     }
-#sub-titulo {
-    font-size: 20px; 
-    margin-left: 25px; 
-}
+    
+    .sub-titulo {
+        font-size: 20px; 
+        margin-left: 25px; 
+    }
     
 /* Estilo para el formulario de búsqueda por fecha */
 form {
@@ -284,8 +286,73 @@ form input[type="date"] {
     background-color: var(--dark--parad);
     color: var(--sandy);
 }
+/*estilo para la informacion del paciente*/
 
-.change--bottom--volver {
+.psicologo--description h4 {
+    color: var(--gris);
+    font-size: 2rem; /* Cambia 2rem al tamaño que prefieras para el título */
+    text-align: center;
+}
+
+.psicologo--description p {
+    font-size: 1.5rem;
+    margin-right: 0px;
+}
+
+.psicologos--contenedor{
+    position: relative;
+    margin: auto;
+    box-shadow: 0 0 4px var(--turquoise);   
+    border-radius: 50px;
+    width: 70%;
+}
+
+.psicologos--card{
+    display: flex;
+    width: 90%;
+    margin: 20px;
+    align-items: center;
+    box-shadow: 0 1px 0 var(--turquoise);
+}
+
+.paciente--contendor{
+    box-shadow: 0 0 4px var(--turquoise);
+}
+
+.figure--card{
+    width: 94px;
+    height: 104px;
+    border-radius: 80px;
+    align-content: center;
+    margin-right: 80px;
+}
+
+.figure--card img{
+    width: 95px;
+    height: 88px;
+    border-radius: 80px;
+    margin-left: 29px;
+}
+
+.icon-ingreso { 
+    right: 0;
+}
+
+.icon-ingreso img {
+    height: 47px;
+}
+
+.design--container {
+   
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+
+
+.back--bottom {
     background-color: var(--aqua);
     color: var(--dark--parad);
     text-decoration: none;
@@ -303,57 +370,24 @@ form input[type="date"] {
     float: right;
     position: relative;    
 }
-.change--bottom--volver:hover{
+
+.back--bottom:hover{
     background-color: var(--dark--parad);
     color: var(--sandy);
 }
-/*estilo para la informacion del paciente*/
 
-.paciente--description h4 {
-    color: var(--gris);
-    font-size: 2rem; /* Cambia 2rem al tamaño que prefieras para el título */
-    text-align: center;
+.mas_info--description-container {
+    margin-left: auto; /* Esto empujará el contenedor hacia el borde derecho del contenedor padre */
 }
 
-.paciente--description p {
-    font-size: 1.5rem;
-    margin-right: 0px;
-}
-.psicologos--contenedor{
-    position: relative;
-    margin: auto;
-    background-color:var(--aqua);
-    box-shadow: 0 0 4px var(--dark--paradk);    
-    border-radius: 50px;
-    width: 70%;
-}
-.psicologos--card{
-    display: flex;
-    width: 90%;
-    align-items: center;
-    margin: 30px;
-}
-.figure--card{
-    width: 94px;
-    height: 104px;
-    border-radius: 80px;
-    align-content: center;
-    margin-right: 80px;
-}
-.figure--card img{
-    width: 111px;
-    height: 110px;
-    border-radius: 80px;
-    margin-left: 23px;
+.mas_info--description-container .mas_info--description {
+    float: right; /* Alinea el enlace con el borde derecho del contenedor */
 }
 
-.icon-ingreso { 
-    right: 0;
-}
 .icon-ingreso img {
     height: 47px;
+    width: 47px; /* Establece un ancho fijo para la imagen */
 }
-
 
 
 

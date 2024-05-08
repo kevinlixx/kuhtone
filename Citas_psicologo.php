@@ -60,75 +60,67 @@
         </a>
     </header>
     <main>
+        <div class="design--container">
+        <h1 class="title--main">Mis citas</h1>
+                <h2 class="sub-titulo">Seleccione la fecha de la cita:</h2>
+                <form action="./Citas_psicologo.php" method="get">
+                    <input type="date" id="fecha" name="fecha">
+                    <input type="hidden" name="id_perfil" value="<?php echo $id_profesional; ?>">
+                    <input type="submit" value="Buscar citas" class="change--bottom">
+                </form>
+                <div class="psicologos--contenedor">
+                <?php
+                include("./config/conexion.php");
 
-    <h1 id="titulo-citas">Mis citas</h1> <!-- Título con id -->
-    <div class="contenedor" id="contenedor">
-    <div class="busqueda--contendor" id="busqueda--contendor">
-    <h2 id="sub-titulo">Seleccione la fecha de la cita:</h2> <!-- Subtítulo -->
-    <form action="./Citas_psicologo.php" method="get">
-        <input type="date" id="fecha" name="fecha">
-        <input type="hidden" name="id_perfil" value="<?php echo $id_profesional; ?>">
-        <input type="submit" value="Buscar citas" class="change--bottom">
-    </form>
-    </div>
+                if ($fecha_busqueda) {
+                    $consulta = mysqli_query($conection, "SELECT paciente.* FROM paciente 
+                                                          JOIN agendamiento ON paciente.id_paciente = agendamiento.id_paciente 
+                                                          JOIN disponibilidad ON agendamiento.id_disponibilidad = disponibilidad.id_disponibilidad 
+                                                          WHERE disponibilidad.id_profesional = $id_profesional AND disponibilidad.fecha_disponibilidad = '$fecha_busqueda'") 
+                                                          or die ("Error al traer los datos");
 
-    <div class="paciente--contenedor" id="psicologos--contenedor">
-        <?php
-        include("./config/conexion.php");
-        
-        if ($fecha_busqueda) {
-            $consulta = mysqli_query($conection, "SELECT paciente.* FROM paciente 
-                                                  JOIN agendamiento ON paciente.id_paciente = agendamiento.id_paciente 
-                                                  JOIN disponibilidad ON agendamiento.id_disponibilidad = disponibilidad.id_disponibilidad 
-                                                  WHERE disponibilidad.id_profesional = $id_profesional AND disponibilidad.fecha_disponibilidad = '$fecha_busqueda'") 
-                                                  or die ("Error al traer los datos");
-        
-            if(mysqli_num_rows($consulta) > 0) {
-                while($consulta_total= mysqli_fetch_array($consulta)) {
-                   
-                    echo '
-                    <div class="psicologos--contenedor">
-                        <section class="psicologos--card">
-                            <figure class="figure--card"> 
-                                <img 
-                                src="'.$consulta_total["foto_perfil"].'" 
-                                alt="psicologo"
-                                />  
-                                <figcaption></figcaption> 
-                            </figure>
-                            <div class="paciente--description">
-                                <h4>Paciente</h4>
-                                <p>Nombre: '.$consulta_total["nombres"].'<p>
-                                <p>Apellidos: '.$consulta_total["apellidos"].'</p>
-                                <p>Correo: '.$consulta_total["correo"].'</p>
-                                <p>Teléfono móvil: '.$consulta_total["telefono_movil"].'</p>
-                            </div>
-                            <a href="info_paciente.php">
-                                <figure class="icon-ingreso"> 
+                    if(mysqli_num_rows($consulta) > 0) {
+                        while($consulta_total= mysqli_fetch_array($consulta)) {
+
+                            echo '
+                            <section class="psicologos--card">
+                                <figure class="figure--card"> 
                                     <img 
-                                    src="./img/AccesoPaciente.svg"
-                                    alt="icono de ingreso"
-                                    /> 
+                                    src="'.$consulta_total["foto_perfil"].'" 
+                                    alt="psicologo"
+                                    />  
+                                    <figcaption></figcaption> 
                                 </figure>
-                            </a>
-                        </section>
-                    </div>
-                    ';
+                                <div class="psicologo--description">
+                                    <h4>Paciente</h4>
+                                    <p>Nombre: '.$consulta_total["nombres"].'</p>
+                                    <p>Apellidos: '.$consulta_total["apellidos"].'</p>
+                                    <p>Correo: '.$consulta_total["correo"].'</p>
+                                    <p>Teléfono móvil: '.$consulta_total["telefono_movil"].'</p>
+                                </div>
+                                <div class="mas_info--description-container">
+                                <a href="info_paciente.php" class="mas_info--description">
+                                    <figure class="icon-ingreso"> 
+                                        <img src="./img/icon-ingreso.svg" alt="icono de ingreso"/>  
+                                    </figure>
+                                </a>
+                            </section>
+                            ';
+                        }
+                    } else {
+                        echo "<p style='color: #000000; font-weight: bold; text-align: center; font-size: 20px;'>No se encontraron pacientes asignados en la fecha especificada.</p>";
+                    }
                 }
-            } else {
-                echo "<p style='color: #000000; font-weight: bold; text-align: center; font-size: 20px;'>No se encontraron pacientes asignados en la fecha especificada.</p>";
-            }
-        }
-       
-        ?>
-        <a href="./index_psicologos.php?id_perfil='.$id_paciente.'" class="change--bottom--volver">Volver</a>;
-    </div>
-    </div>
+                ?>
+                <a href="./index_psicologos.php?id_perfil='.$id_paciente.'" class="back--bottom">Volver</a>
+            </div>
+        </div>
     </main>
     <footer class="pie-pagina">
-    <div class="footer_copy">
-        <small>&copy; 2023 <b>kuhtone</b> - Todos los Derechos Reservados.</small>
-    </div>
+        <div class="footer_copy">
+            <small>&copy; 2023 <b>kuhtone</b> - Todos los Derechos Reservados.</small>
+        </div>
     </footer>
+    
     <script src="js/script.js"></script>
 </body>
