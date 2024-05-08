@@ -6,8 +6,14 @@ class CuentaTemporal {
         $this->conection = $conection;
     }
 
-    public function obtenerCuentasTemporales() {
-        $consulta = mysqli_query($this->conection, "SELECT * FROM cuentas_temporales") or die ("Error al traer los datos");
+    public function obtenerCuentasTemporales($tipo_usuario = '') {
+        $sql = "SELECT * FROM cuentas_temporales";
+
+        if (!empty($tipo_usuario)) {
+            $sql .= " WHERE tipo_usuario = '$tipo_usuario'";
+        }
+        $consulta = mysqli_query($this->conection, $sql) or die ("Error al traer los datos");
+        // $consulta = mysqli_query($this->conection, "SELECT * FROM cuentas_temporales") or die ("Error al traer los datos");
         $cuentas = [];
         if(mysqli_num_rows($consulta) > 0) {
             while($consulta_total= mysqli_fetch_array($consulta)) {

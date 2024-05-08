@@ -2,7 +2,7 @@
 include("./config/conexion.php");
 include("./includes/cuentaTemporalModel.php");
 
-$id_admin = $_GET['id_perfil'];
+$id_admin = isset($_GET['id_perfil']) ? $_GET['id_perfil'] : '';
 $cuentaTemporal = new CuentaTemporal($conection);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -11,15 +11,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $cuentaTemporal->restaurarCuenta($tipo_usuario, $correo);
   $resultado = $cuentaTemporal->eliminarCuentaTemporal($tipo_usuario, $correo);
 }
+ 
+$tipo_usuario = isset($_GET['tipo_usuario']) ? $_GET['tipo_usuario'] : '';
 
-function obtenerCuentas($conection) {
-    $cuentaTemporal = new CuentaTemporal($conection);
+function obtenerCuentas($conection, $tipo_usuario = '') {
+  $cuentaTemporal = new CuentaTemporal($conection);
+  if ($tipo_usuario == '') {
     return $cuentaTemporal->obtenerCuentasTemporales();
+  } else {
+    return $cuentaTemporal->obtenerCuentasTemporales($tipo_usuario);
+  }
 }
-
-$cuentas = obtenerCuentas($conection);
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -81,42 +84,50 @@ $cuentas = obtenerCuentas($conection);
     <main>
       <h1 class="title--main">Cuentas Eliminadas</h1>
       <div class= "design--container">
-        <div class="psicologos--contenedor">
-        <?php
-        $cuentas = obtenerCuentas($conection);
-        foreach ($cuentas as $cuenta) {
-          echo '
-          <section class="psicologos--card">
-            <h4>'.$cuenta['tipo_usuario'].'</h4> 
-            <div class="content--container">
-              <figure class="figure--card"> 
-                <img 
-                src="'.$cuenta['ruta_imagen'].'" 
-                alt="usuario"
-                />  
-                <figcaption></figcaption> 
-              </figure>
-              <div class="psicologo--description">
-                <p><span class="item--aco">Nombres:</span> '.$cuenta['nombres'].' '.$cuenta['apellidos'].'</p>
-                <p><span class="item--aco">Correo:</span> '.$cuenta['correo'].'</p>
-                <p><span class="item--aco">Teléfono:</span> '.$cuenta['telefono_movil'].'</p>';
-                if (array_key_exists('especializacion', $cuenta)) {
-                  echo '<p><span class="item--aco">Especialización:</span> '.$cuenta['especializacion'].'</p>';
-                }
-              echo '
+      <div id="cuentas-contenedor" class="psicologos--contenedor">
+          <h3>Filtrar usuario</h3>
+          <select id="tipo_usuario">
+            <option value="">Todos</option>
+            <option value="administrador">Administradores</option>
+            <option value="paciente">Pacientes</option>
+            <option value="profesional">Profesionales</option>
+          </select>
+          <?php
+          $cuentas = obtenerCuentas($conection, $tipo_usuario);
+          foreach ($cuentas as $cuenta) {
+            echo '
+            <section class="psicologos--card">
+              <h4>'.$cuenta['tipo_usuario'].'</h4> 
+              <div class="content--container">
+                <figure class="figure--card"> 
+                  <img 
+                  src="'.$cuenta['ruta_imagen'].'" 
+                  alt="usuario"
+                  />  
+                  <figcaption></figcaption> 
+                </figure>
+                <div class="psicologo--description">
+                  <p><span class="item--aco">Nombres:</span> '.$cuenta['nombres'].'</p>
+                  <p><span class="item--aco">Apellidos:</span> '.$cuenta['apellidos'].'</p>
+                  <p><span class="item--aco">Correo:</span> '.$cuenta['correo'].'</p>
+                  <p><span class="item--aco">Teléfono:</span> '.$cuenta['telefono_movil'].'</p>';
+                  if (array_key_exists('especializacion', $cuenta)) {
+                    echo '<p><span class="item--aco">Especialización:</span> '.$cuenta['especializacion'].'</p>';
+                  }
+                echo '
+                </div>
               </div>
-            </div>
-            <form id="form-restaurar-cuenta" method="POST">
-                <input type="hidden" name="tipo_usuario" value="' . $cuenta['tipo_usuario'] . '">
-                <input type="hidden" name="correo" value="' . $cuenta['correo'] . '">
-                <button type="submit" name="restaurar_cuenta" class="rest_account">Restaurar Cuenta</button>
-            </form>
-        </section>
-        ';
-        }
-        echo '<a href="../index_admin.php?id_perfil='.$id_admin.'" class="back--bottom">Volver</a>';
-        ?>
-      </div>
+              <form id="form-restaurar-cuenta" method="POST">
+                  <input type="hidden" name="tipo_usuario" value="' . $cuenta['tipo_usuario'] . '">
+                  <input type="hidden" name="correo" value="' . $cuenta['correo'] . '">
+                  <button type="submit" name="restaurar_cuenta" class="rest_account">Restaurar Cuenta</button>
+              </form>
+            </section>
+            ';
+          }
+          echo '<a href="../index_admin.php?id_perfil='.$id_admin.'" class="back--bottom">Volver</a>';
+          ?>
+        </div>
       </div>
     </main>
    <footer class="pie-pagina">

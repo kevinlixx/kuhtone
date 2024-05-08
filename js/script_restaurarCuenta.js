@@ -25,9 +25,13 @@ document
     })
   );
 
-document.getElementById('form-restaurar-cuenta').addEventListener('submit', function(event) {
-    // Muestra el alert después de enviar el formulario
-    setTimeout(function() {
-        alert("Cuenta restaurada y eliminada de la lista temporal exitosamente");
-    }, 10);
+// document.getElementById('form-restaurar-cuenta').addEventListener('submit', function(event) {
+//     setTimeout(function() {
+//         alert("Cuenta restaurada y eliminada de la lista temporal exitosamente");
+//     }, 10);
+// });
+
+// Asegúrate de que el elemento con el id 'tipo_usuario' exista en la página
+document.getElementById('tipo_usuario').addEventListener('change', function() {
+  window.location.href = 'gestion_delcuenta.php?tipo_usuario=' + this.value;
 });
