@@ -1,3 +1,17 @@
+html, body {
+    height: 100%;
+    margin: 0;
+  }
+  
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  main{
+    min-height: 90vh;
+  }
 .cites--container {
     display: grid;
     justify-content: center;
@@ -9,4 +23,18 @@
 
 .back--bottom{
     left: 80%;
+}
+
+@keyframes underline-slide {
+  0%, 100% {
+      transform: translateX(-10%); /* Cambia esta línea */
+  }
+  50% {
+      transform: translateX(40%); /* Cambia esta línea */
+  }
+}
+
+.subtitle::after {
+  left: 25%;
+  width: 39%;
 }

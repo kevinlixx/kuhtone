@@ -60,7 +60,7 @@
                     <!--Login-->
                     <form action="" class="formulario__login" method="POST">
                         <div class="right-side">
-                            <h1>Bienvenido(a) Psicolog@</h1>
+                            <h1>Bienvenid@ Profesional</h1>
                             <figure class="figure_login"> 
                                 <img 
                                 src="./img/login_vector.svg" 

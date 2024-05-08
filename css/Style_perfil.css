@@ -210,7 +210,8 @@ Copiar esto
 =====================================*/
 main{
     width: 100%;
-    height: auto;
+    min-height: 90vh;
+    align-content: center;
 }
 .seccion-perfil-usuario .perfil-usuario-body,
 .seccion-perfil-usuario {
@@ -375,6 +376,7 @@ main{
     outline: none;
     transition: all 300ms;
     border-radius: 10px;
+    margin: 14px;
 }
 .footer-users-container .button:hover{
     background: var(--aqua);

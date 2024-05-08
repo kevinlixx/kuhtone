@@ -88,10 +88,7 @@ $consulta = mysqli_query($conection, $profesional ) or die ("Error al traer los 
                                 <div class="psicologo-description--container">
                                     <section>
                                         <figure class="description--logo"> 
-                                            <img 
-                                            src="./img/decription_logo.svg" 
-                                            alt="psicologo"
-                                            />  
+                                        <img class=" " src="./img/descripcion.svg" alt="Educacion">
                                             <figcaption></figcaption> 
                                         </figure>
                                     </section>
@@ -104,58 +101,34 @@ $consulta = mysqli_query($conection, $profesional ) or die ("Error al traer los 
                                 </div>
                                 <div class="psicologo-perfil--container">
                                     <h3>Perfil</h3>
-                                    <section>
-                                        <figure class="perfil--logos"> 
-                                            <img 
-                                            src="./img/editor-logo.svg" 
-                                            alt="psicologo"
-                                            />  
-                                            <figcaption></figcaption> 
-                                        </figure>
-                                    </section>
-                                    <h4>Nombres</h4>
-                                    <p>
-                                        '.$consulta_total["nombres"].' 
-                                    </p>
-                                    <section>
-                                        <figure class="perfil--logos"> 
-                                            <img 
-                                            src="./img/editor-logo.svg" 
-                                            alt="psicologo"
-                                            />  
-                                            <figcaption></figcaption> 
-                                        </figure>
-                                    </section>
-                                    <h4>Apellidos</h4>
-                                    <p>
-                                    '.$consulta_total["apellidos"].'  
-                                    </p>
-                                    <section>
-                                        <figure class="perfil--logos"> 
-                                            <img 
-                                            src="./img/email_logo.svg" 
-                                            alt="psicologo"
-                                            />  
-                                            <figcaption></figcaption> 
-                                        </figure>
-                                    </section>
-                                    <h4>E-mail</h4>
-                                    <p>
-                                        '.$consulta_total["correo_profesional"].'
-                                    </p>
-                                    <section>
-                                        <figure class="perfil--logos"> 
-                                            <img 
-                                            src="./img/student_logo.svg" 
-                                            alt="psicologo"
-                                            />  
-                                            <figcaption></figcaption> 
-                                        </figure>
-                                    </section>
-                                    <h4>Educación</h4>
-                                    <p>
-                                        '.$consulta_total["nom_universidad"].'  
-                                    </p>
+                                    <div class="info-group">
+                                        <img class="small-image" src="./img/NameUsuario.svg" alt="Icono de Nombre">
+                                        <div>
+                                            <h4>Nombres</h4>
+                                            <p>'.$consulta_total["nombres"].'</p>
+                                        </div>
+                                    </div>
+                                    <div class="info-group">
+                                        <img class="small-image" src="./img/NameUsuario.svg" alt="Icono de Apellido">
+                                        <div>
+                                            <h4>Apellidos</h4>
+                                            <p>'.$consulta_total["apellidos"].'</p>
+                                        </div>
+                                    </div>
+                                    <div class="info-group">
+                                        <img class="small-image" src="./img/Correo-Perfil.svg" alt="Icono de correo">
+                                        <div>
+                                            <h4>E-mail</h4>
+                                            <p>'.$consulta_total["correo_profesional"].'</p>
+                                        </div>
+                                    </div>
+                                    <div class="info-group">
+                                        <img class="small-image" src="./img/Especializacion-Perfil.svg" alt="Educacion">
+                                        <div>
+                                            <h4>Educación</h4>
+                                            <p>'.$consulta_total["nom_universidad"].'</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -163,10 +136,7 @@ $consulta = mysqli_query($conection, $profesional ) or die ("Error al traer los 
                     <div class="psicologo-experience--container">
                         <section class="section-experience--container">
                             <figure class="experience--logo"> 
-                                <img 
-                                src="./img/experience_logo.svg" 
-                                alt="psicologo"
-                                />  
+                            <img class=" " src="./img/experiencia.svg" alt="Educacion"> 
                                 <figcaption></figcaption> 
                             </figure>
                         
@@ -180,8 +150,8 @@ $consulta = mysqli_query($conection, $profesional ) or die ("Error al traer los 
                 $_SESSION['id_profesional'] = $consulta_total["id_profesional"];
             }
             echo'
-                    <a href="./horario_citas.php?id_perfil='.$id_paciente.'" class="asignar--bottom">asignar</a>
-                    <a href="./psicologos.php?id_perfil='.$id_paciente.'" class="back--bottom">volver</a>';
+                    <a href="./horario_citas.php?id_perfil='.$id_paciente.'" class="asignar--bottom">Asignar</a>
+                    <a href="./psicologos.php?id_perfil='.$id_paciente.'" class="back--bottom">Volver</a>';
                     ?>
     
     </main>

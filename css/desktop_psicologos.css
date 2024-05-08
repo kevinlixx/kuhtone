@@ -69,15 +69,15 @@ header .menu-section{
 }
 
 .title--main{
-    font-size: 2.8rem;
+    font-size: 3.5rem;
 }
 .figure--card{
     width: 150px;
     height: 150px;
 }
 .figure--card img{
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
 }
 .psicologo--description h4{
     font-size: 2.5rem;
@@ -87,8 +87,40 @@ header .menu-section{
 }
 /*Boton volver*/
 .back--bottom{
-    left: 85%;
+    left: 83%;
     font-size: 2.7rem;
     width: 104.96px;
     height: 48.26px; 
+}
+.psicologos--contenedor{
+    width: 85%;
+}
+.icon-ingreso img {
+    width: 63px;
+    height: 63px;
+}
+
+@media screen and (min-width: 1300px) {
+    .psicologos--contenedor{
+        width: 50%;
+    }
+    
+}
+@media screen and (min-width: 800px) and (max-width: 900px) {
+    .back--bottom{
+        left: 78%;
+    }
+}
+@keyframes underline-slide {
+    0%, 100% {
+        transform: translateX(10%); /* Cambia esta línea */
+    }
+    50% {
+        transform: translateX(40%); /* Cambia esta línea */
+    }
+}
+
+.title--main::after {
+    left: 13%;
+    width: 50%;
 }

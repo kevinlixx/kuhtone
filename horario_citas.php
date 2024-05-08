@@ -180,7 +180,7 @@ $consulta = mysqli_query($conection, $profesional ) or die ("Error al traer los 
           
             echo'
     </form>
-            <a href=\'./detalle_psicologo.php?id='.$consulta_total["id_profesional"].'&id_perfil='.$id_paciente.'\' class="back--bottom">volver</a>
+            <a href=\'./detalle_psicologo.php?id='.$consulta_total["id_profesional"].'&id_perfil='.$id_paciente.'\' class="back--bottom">Volver</a>
             ';
             
     }

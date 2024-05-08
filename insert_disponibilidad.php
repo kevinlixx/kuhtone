@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <script src="https://kit.fontawesome.com/e1d55cc160.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/desktop_perfil.css" media="screen and (min-width: 800px)"/>
+    <link rel="stylesheet" href="./css/tablet_insertDispo.css" media="screen and (min-width: 600px)"/>
     <title>Document</title>
 </head>
 <body>
@@ -59,7 +60,10 @@
     </header>
     <main>
         <?php
+            
                     echo'
+                    <h1 class=title--main>Inserta tu disponibilidad</h1>
+
                     <section class="seccion-perfil-usuario">
                         </div>
                         <div class="perfil-usuario-body">
@@ -67,9 +71,9 @@
                             <figure class="dispo_logo">
                                 <img src="./img/logo_dispo.svg" alt="">
                             </figure>
-                            <form action="" method="POST">
+                            <form class="form--registroDispo" action="" method="POST">
                             <div class="input--dispo">
-                                <h3>Insertar Disponibilidad</h3>
+                                
                                 <p>Fecha</p>
                                 <input  class="input-info" type="date" name="fecha_disponibilidad">
                                 <p>Hora de inicio</p>

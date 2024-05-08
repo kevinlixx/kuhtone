@@ -42,7 +42,7 @@ window.onload = function() {
 
         // Ajusta el height de 'main' basado en la visibilidad de 'formulario__login' y el tamaño de la ventana
         if (isFormularioLoginVisible && !isFormularioRegisterVisible && isWindowSizeSmall) {
-            mainElement.style.height = '1000px';
+            mainElement.style.height = '970px';
         } else if (isFormularioLoginVisible && !isFormularioRegisterVisible && isWindowSizeLarge) {
             mainElement.style.height = '650px';                             
         } else {

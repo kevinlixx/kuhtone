@@ -1,4 +1,34 @@
-
+.figure--card img{
+    width: 94px;
+    height: 94px;
+}
 .back--bottom{
     left: 80%;
+}
+
+.psicologo--description .descripcion-corta {
+    display: none;
+  }
+.psicologo--description .descripcion-completa {
+    display: block;
+  }
+
+.icon-ingreso img{
+  width: 40px;
+  height: 40px;
+}
+
+
+@keyframes underline-slide {
+    0%, 100% {
+        transform: translateX(10%); /* Cambia esta línea */
+    }
+    50% {
+        transform: translateX(40%); /* Cambia esta línea */
+    }
+}
+
+.title--main::after {
+    left: 3%;
+    width: 63%;
 }

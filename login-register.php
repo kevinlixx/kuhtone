@@ -53,7 +53,7 @@ include("./config/conexion.php");
         <div class="contenedor__todo" id="contenedorTodo">
             <div class="caja__trasera oculto">
                 <div class="caja__trasera-login">
-                    <h3>Bienvenido A</h3>
+                    <h3>Bienvenid@ a</h3>
                     <figure class="figure_login">
                         <img src="./img/login_vector.svg" alt="logo de kuhtone" />
                         <figcaption></figcaption>
@@ -67,7 +67,7 @@ include("./config/conexion.php");
                 <!--Login-->
                 <form action="" class="formulario__login" method="POST">
                     <div class="right-side">
-                        <h1>BIENVENID@ A</h1>
+                        <h1>Bienvenid@ a</h1>
                         <figure class="figure_login">
                             <img src="./img/login_vector.svg" alt="lgo de kuhtone" />
                             <figcaption></figcaption>

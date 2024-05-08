@@ -186,7 +186,8 @@ header .menu-header{
 main {
     width: 100%;
     min-width: 320px;
-    height: auto;
+    min-height: 90vh;
+    align-content: center;
 }
 .psicologo-info--card{
     min-width: 320px;
@@ -269,9 +270,9 @@ main {
 
 .asignar--bottom{
     display: flex;
-    background-color: var(--section-color);
+    background-color: var(--aqua);
     text-decoration: none;
-    color: var(--black);
+    color: var(--dark--parad);
     font-weight: bold;
     font-size: 1.4rem;
     text-align: center;
@@ -286,13 +287,14 @@ main {
 }
 .asignar--bottom:hover{
     background-color: var(--turquoise);
+    color: var(--sandy);
 }
 
 .back--bottom{
     display: flex;
-    background-color: var(--section-color);
+    background-color: var(--aqua);
     text-decoration: none;
-    color: var(--black);
+    color: var(--dark--parad);
     font-weight: bold;
     font-size: 1.4rem;
     text-align: center;
@@ -308,7 +310,9 @@ main {
 }
 .back--bottom:hover{
     background-color: var(--turquoise);
+    color: var(--sandy);
 }
+
 /* para el footer */
 .pie-pagina {
     position: relative;

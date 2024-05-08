@@ -1,3 +1,6 @@
+:root{
+    --paradiso: #3E8E98;
+  }
 .figure--card{
     width: 200px;
     height: 150px;
@@ -9,6 +12,7 @@
 
 .title--main{
     font-size: 3rem;
+    color:var(--paradiso);
 }
 .psicologo--description p{
     font-size:1.4rem;

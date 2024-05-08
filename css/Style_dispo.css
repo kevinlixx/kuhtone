@@ -206,9 +206,66 @@ estilos de la utilidad
 Copiar esto
 =====================================*/
 main{
-    width: 100%;
+    miwidth: 100%;
     height: auto;
 }
+
+
+            /* Animación de cambip de color para el h2*/
+            @keyframes color-change {
+                0% {
+                    color: #3E8E98;
+                }
+                50% {
+                    color: #20D2C8;
+                }
+                100% {
+                    color: #32727A;
+                }
+            }
+            /* Animación de cambip de color para el linea inferior del h2*/
+    
+            @keyframes underline-color-change {
+                0%, 100% {
+                    background: #3E8E98;
+                }
+                50% {
+                    background: #20D2C8;
+                }
+            }
+            /* Animación de desplazamineto de la linea interior del h2 */
+            @keyframes underline-slide {
+                0%, 100% {
+                    transform: translateX(-30%); /* Cambia esta línea */
+                }
+                50% {
+                    transform: translateX(30%); /* Cambia esta línea */
+                }
+            }
+    
+            /* Codigo del h2 y llamado de la primer animación */
+            .title--main{
+                font-size: 30px;
+                text-align: center;
+                margin-bottom: 10px;
+                animation: color-change 1.5s infinite;
+                color: var(--paradiso);
+                position: relative;
+                overflow: hidden;
+            }
+    
+            /* Codigo del h2 con pseudo-clase y llamado de la animación para el underline */
+            .title--main::after {
+                content: '';
+                position: absolute;
+                left: 22%; /* Centra el elemento */
+                bottom: 0;
+                height: 3px;
+                width: 58%;
+                background: #32727A;
+                animation: underline-color-change 2s infinite, underline-slide 2s infinite;
+                transform: translateX(-50%); /* Centra el elemento */
+            }
 .seccion-perfil-usuario .perfil-usuario-body,
 .seccion-perfil-usuario {
     display: flex;
@@ -236,6 +293,10 @@ main{
     height: 9rem;
 }
 
+.perfil-usuario-bio p{
+    color:#32727A;
+    font-weight: bold;
+}
 .dispo_logo{
     width: 183px;
     height: 162px;

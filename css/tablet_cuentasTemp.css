@@ -1,0 +1,33 @@
+.figure--card img{
+    width: 120px;
+    height: 120px;
+}
+.back--bottom{
+    left: 50%;
+}
+
+.psicologo--description {
+    margin-top: 10px;
+}
+.psicologo--description p {
+    font-size: 1.3rem;
+   }
+.icon-ingreso img{
+  width: 40px;
+  height: 40px;
+}
+
+
+@keyframes underline-slide {
+    0%, 100% {
+        transform: translateX(10%); /* Cambia esta línea */
+    }
+    50% {
+        transform: translateX(40%); /* Cambia esta línea */
+    }
+}
+
+.title--main::after {
+    left: 3%;
+    width: 63%;
+}

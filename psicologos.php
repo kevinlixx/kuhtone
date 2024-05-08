@@ -16,7 +16,7 @@ $id_paciente= $_GET['id_perfil'];
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@300;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style_psicologos.css">
-    <link rel="stylesheet" href="./css/tablet_psicologos.css" media="screen and (min-width: 600px)"/>
+    <link rel="stylesheet" href="./css/tablet_psicologos.css" media="screen and (min-width: 500px)"/>
     <link rel="stylesheet" href="./css/desktop_psicologos.css" media="screen and (min-width: 800px)"/>
 </head>
 <body>
@@ -30,7 +30,6 @@ $id_paciente= $_GET['id_perfil'];
                 <figcaption></figcaption> 
             </figure>
             <div class="menu menu-header">
-                
                     <figure id="btn_menu">
                         <img 
                         src="./img/menu.svg" 
@@ -52,6 +51,7 @@ $id_paciente= $_GET['id_perfil'];
                     </ul>
                 </nav>
             </div>
+        </section>
             <!-- <a href="" class="menu-header">
             <figure >
                 <img 
@@ -63,35 +63,56 @@ $id_paciente= $_GET['id_perfil'];
         </a>
     </header>
     <main>
+
         <h1 class="title--main">Escoge tu psicologo</h1>
+        <div class= "design--container">
+            <div class="psicologos--contenedor">
         <?php
          $consulta = mysqli_query($conection, "SELECT * FROM profesional WHERE estado_cuenta = 1" ) or die ("Error al traer los datos");
             if(mysqli_num_rows($consulta) > 0)
             {
                 while($consulta_total= mysqli_fetch_array($consulta))
-                {
+                {           
+                        $descripcion_completa = $consulta_total["descripcion"];
+                        $descripcion_corta = substr($descripcion_completa, 0, 150); 
                         echo'
-                        <div class="psicologos--contenedor">
-                            <section class="psicologos--card">
-                                <figure class="figure--card"> 
-                                    <img 
-                                    src="'.$consulta_total["foto_perfil"].'" 
-                                    alt="psicologo"
-                                    />  
-                                    <figcaption></figcaption> 
-                                </figure>
-                                <div class="psicologo--description">
-                                <h4>Descripción</h4>
-                                <p class="">'.$consulta_total["descripcion"].'<a href=\'./detalle_psicologo.php?id='.$consulta_total["id_profesional"].'&id_perfil='.$id_paciente.'\'class="mas_info--description">ver más</a></p>
-                            </section>
-                            ';
                         
-                        }
-                    }
-                    echo'
-                            <a href="./index_usr.php?id_perfil='.$id_paciente.'" class="back--bottom">Volver</a>';
-                            ?>  
-                        </div>
+                            
+                                    <section class="psicologos--card">
+                                        <figure class="figure--card"> 
+                                            <img 
+                                            src="'.$consulta_total["foto_perfil"].'" 
+                                            alt="psicologo"
+                                            />  
+                                            <figcaption></figcaption> 
+                                        </figure>
+                                        <div class="psicologo--description">
+                                        <h4>Psi.'.$consulta_total["nombres"].' '.$consulta_total["apellidos"]. '</h4>
+
+                                        <p class="descripcion-completa">'.$descripcion_completa.'</p>
+                                        <p class="descripcion-corta">'.$descripcion_corta.'...</p>
+                                        </div>
+                                        <a href=\'./detalle_psicologo.php?id='.$consulta_total["id_profesional"].'&id_perfil='.$id_paciente.'\'class="mas_info--description">
+                                            <figure class="icon-ingreso"> 
+                                                <img 
+                                                src="./img/icon-ingreso.svg"
+                                                alt="icono de ingreso"
+                                                />  
+                                                <figcaption></figcaption> 
+                                            </figure>
+                                        </a>
+                                    
+                                        </section>
+                                    ';
+                            
+                                    }
+                                }
+                                echo'
+                                        <a href="./index_usr.php?id_perfil='.$id_paciente.'" class="back--bottom">Volver</a>';
+                                        ?>  
+                                    
+                                    
+                            </div>
                         </div>
                        
     </main>

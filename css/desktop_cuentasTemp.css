@@ -5,6 +5,7 @@
     --beige: #d6c19d;
     --black: #000000 ;
     --orange: #fdb249 ;
+    --gray--clean: #f9fafe;
     --hour_turquoise: #20D2C8; 
 }
 *{
@@ -69,57 +70,68 @@ header .menu-section{
 }
 
 .title--main{
-    font-size: 2.8rem;
+    font-size: 3.5rem;
 }
 .figure--card{
     width: 150px;
     height: 150px;
 }
 .figure--card img{
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
 }
-.psicologo--description h4{
-    font-size: 2.5rem;
+.psicologos--card h4{
+    font-size: 2rem;
+}
+.psicologo--description{
+    margin-top: 10px;
 }
 .psicologo--description p{
-    font-size: 2.0rem;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+     word-spacing: -1.1px;
 }
-.subtitle{
-    display: flex;
-    justify-content: center;
-    
-}
-.cites--container{
-    display: grid;
-    justify-content: center;
-     grid-template-columns: auto auto auto;
-}
-.info--container{
-    margin-right: 8px;
-    width: 80%;
-}
-.container--history{
-    margin: 8px;
-}
+/*Boton volver*/
 .back--bottom{
-    left: 85%;
+    font-size: 2rem;
+    width: 79.96px;
+    height: 36.26px;
+    position: absolute; /* Cambiado de relative a absolute */
+    left: 86%;
 }
-.figure-consult img{
-    min-width: 15%;
-    height: auto;
+
+.psicologos--contenedor{
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: center;
+    background: var(--gray--clean);
+    width: 90%;
+    /* position: relative;  */
+    margin-bottom: 60px;
+    padding-bottom: 60px; /*para que el back--bottom no se superponga con las cards*/
+}
+.icon-ingreso img {
+    width: 63px;
+    height: 63px;
+}
+
+@media screen and (min-width: 1300px) {
+    .psicologos--contenedor{
+        width: 70%;
+    }
+    
 }
 
 @keyframes underline-slide {
     0%, 100% {
-        transform: translateX(-10%); /* Cambia esta línea */
+        transform: translateX(10%); /* Cambia esta línea */
     }
     50% {
         transform: translateX(40%); /* Cambia esta línea */
     }
 }
 
-.subtitle::after {
-    left: 31%;
-    width: 30%;
+.title--main::after {
+    left: 13%;
+    width: 50%;
 }

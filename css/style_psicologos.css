@@ -11,7 +11,8 @@
     --fountain: #63B5BF;
     --gris: #D9D9D9;
     --gray--clean: #f9fafe;
-    --section--color: #E0E8FA;         ;
+    --section--color: #E0E8FA;    
+    --section-color: #D3E1E1;     
 }
 *{
     box-sizing: border-box;
@@ -193,30 +194,99 @@ header .menu-header{
 main {
     width: 100%;
     min-width: 320px;
-    height: auto;
+
 }
 .title--main{
     text-align: center;
     margin: 20px;
 }
 
+            /* Animación de cambip de color para el h2*/
+            @keyframes color-change {
+                0% {
+                    color: #3E8E98;
+                }
+                50% {
+                    color: #20D2C8;
+                }
+                100% {
+                    color: #32727A;
+                }
+            }
+            /* Animación de cambip de color para el linea inferior del h2*/
+    
+            @keyframes underline-color-change {
+                0%, 100% {
+                    background: #3E8E98;
+                }
+                50% {
+                    background: #20D2C8;
+                }
+            }
+            /* Animación de desplazamineto de la linea interior del h2 */
+            @keyframes underline-slide {
+                0%, 100% {
+                    transform: translateX(-30%); /* Cambia esta línea */
+                }
+                50% {
+                    transform: translateX(30%); /* Cambia esta línea */
+                }
+            }
+    
+            /* Codigo del h2 y llamado de la primer animación */
+            .title--main{
+                font-size: 2.8rem;
+                text-align: center;
+                margin-bottom: 10px;
+                animation: color-change 1.5s infinite;
+                color: var(--paradiso);
+                position: relative;
+                overflow: hidden;
+            }
+    
+            /* Codigo del h2 con pseudo-clase y llamado de la animación para el underline */
+            .title--main::after {
+                content: '';
+                position: absolute;
+                left: 22%; /* Centra el elemento */
+                bottom: 0;
+                height: 3px;
+                width: 58%;
+                background: #32727A;
+                animation: underline-color-change 2s infinite, underline-slide 2s infinite;
+                transform: translateX(-50%); /* Centra el elemento */
+            }
+
+.design--container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
 .psicologos--contenedor{
-    min-width: 320px;
+   
+    box-shadow: 0 0 4px var(--turquoise);    
+    border-radius: 50px;
+    width: 90%;
 }
 .psicologos--card{
     display: flex;
     width: 90%;
     margin: 20px;
     align-items: center;
+    box-shadow: 0 1px 0 var(--turquoise);
 }
 .figure--card{
     width: 94px;
     height: 104px;
     border-radius: 80px;
+    align-content: center;
 }
 .figure--card img{
-    width: 94px;
-    height: 104px;
+    width: 60px;
+    height: 60px;
     border-radius: 80px;
 }
 .info--description {
@@ -224,8 +294,15 @@ main {
 }
 .psicologo--description h4 {
     margin-left: 6px;
-    font-size: 1.8rem;
+    font-size: 1.4rem;
+    text-align: center;
 }
+.psicologo--description .descripcion-corta {
+    display: block;
+  }
+  .psicologo--description .descripcion-completa {
+    display: none;
+  }
 .psicologo--description p{
     margin: 10px;
     text-align: justify;
@@ -255,9 +332,19 @@ main {
     padding: 5px;
     justify-content: center;
     position: relative;
-    left: 70%;
+    left: 65%;
     transition: 300ms;
 }
+@media (min-width: 384px){
+    .back--bottom{
+        left: 70%;
+    }
+    }
+    @media (min-width: 450px){
+        .back--bottom{
+            left: 75%;
+        }
+        }
 .back--bottom:hover{
     background: var(--aqua);
     color: var(--sandy);

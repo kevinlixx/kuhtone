@@ -63,3 +63,16 @@ header .menu-section{
     padding: 0;
     display: block;
 }
+.title--main{
+    font-size: 3.5rem;
+}
+.seccion-perfil-usuario .perfil-usuario-bio{
+    flex-direction: column;
+    width: 70%;
+}
+.form--registroDispo{
+    width: 73%;
+}
+.perfil-usuario-bio .input-info{
+    width: auto ;
+}

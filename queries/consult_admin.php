@@ -14,7 +14,7 @@ $id_admin= $_GET['id_perfil'];
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@300;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/style_consult.css">
+    <link rel="stylesheet" href="../css/style_psicologos.css">
     <link rel="stylesheet" href="../css/tablet_psicologos.css" media="screen and (min-width: 600px)"/>
     <link rel="stylesheet" href="../css/desktop_psicologos.css" media="screen and (min-width: 800px)"/>
 </head>
@@ -61,7 +61,9 @@ $id_admin= $_GET['id_perfil'];
         </a>
     </header>
     <main>
-        <h1 class="title--main">Administradores</h1>
+        <h1 class="title--main">Modificar administradores</h1>
+        <div class= "design--container">
+            <div class="psicologos--contenedor">
         <?php
          $consulta = mysqli_query($conection, "SELECT * FROM administrador") or die ("Error al traer los datos");
             if(mysqli_num_rows($consulta) > 0)
@@ -69,7 +71,6 @@ $id_admin= $_GET['id_perfil'];
                 while($consulta_total= mysqli_fetch_array($consulta))
                 {
                         echo'
-                        <div class="psicologos--contenedor">
                             <section class="psicologos--card">
                                 <figure class="figure--card"> 
                                     <img 
@@ -90,8 +91,8 @@ $id_admin= $_GET['id_perfil'];
                             <a href="../gestion_admin.php?id_perfil='.$id_admin.'" class="back--bottom">volver</a>';
                             ?>  
                         </div>
-                        </div>
-                       
+                    </div>
+                </div>
     </main>
    <footer class="pie-pagina">
    <div class="footer_copy">

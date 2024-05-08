@@ -58,7 +58,6 @@
         </a>
     </header>
     <main>
-        <main>
             <div class="container-all" >
               <h1 class="title-categorias-admin " id="catego-admin">Que cuenta deseas gestionar? </h1>
               <div class="container-caja" id="container">
@@ -96,8 +95,8 @@
                       </svg>
                     <h4>Profesional</h4>
                     <p>Aquí puedes gestionar los profesionales.</p>
-                    <div class="animacion"></div></div
-                ></a>
+                    <div class="animacion"></div></div>
+                  </a>
                 <?php
                 echo'
                 <a href="./gestion_admin.php?id_perfil='.$id_admin.'">';
@@ -112,12 +111,27 @@
                       </svg>
                     <h4>Administrador</h4>
                     <p>Aquí puedes gestionar los Administradores.</p>
-                    <div class="animacion"></div></div
-                ></a>
-                
+                    <div class="animacion"></div></div>
+                  </a>
+                <?php
+                echo'
+                <a href="./gestion_delCuenta.php?id_perfil='.$id_admin.'">';
+                ?>
+                  <div class="caja caja2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-switch-3" width="52" height="52" viewBox="0 0 24 24" stroke-width="1.5" stroke="#009988" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 17h2.397a5 5 0 0 0 4.096 -2.133l.177 -.253m3.66 -5.227l.177 -.254a5 5 0 0 1 4.096 -2.133h3.397" />
+                        <path d="M18 4l3 3l-3 3" />
+                        <path d="M3 7h2.397a5 5 0 0 1 4.096 2.133l4.014 5.734a5 5 0 0 0 4.096 2.133h3.397" />
+                        <path d="M18 20l3 -3l-3 -3" />
+                      </svg>
+                    <h4>Cuentas eliminadas</h4>
+                    <p>Aquí puedes gestionar las cuentas temporales.</p>
+                    <div class="animacion"></div></div>
+                  </a>
+            
               </div>
             </div>
-          </main>
     </main>
    <footer class="pie-pagina">
    <div class="footer_copy">
