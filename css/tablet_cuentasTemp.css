@@ -5,6 +5,9 @@
 .back--bottom{
     left: 50%;
 }
+.filtro-usuario h2 {
+    font-size: 20px;
+}
 
 .psicologo--description {
     margin-top: 10px;

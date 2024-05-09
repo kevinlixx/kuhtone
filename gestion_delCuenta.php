@@ -85,13 +85,15 @@ function obtenerCuentas($conection, $tipo_usuario = '') {
       <h1 class="title--main">Cuentas Eliminadas</h1>
       <div class= "design--container">
       <div id="cuentas-contenedor" class="psicologos--contenedor">
-          <h3>Filtrar usuario</h3>
-          <select id="tipo_usuario">
-            <option value="">Todos</option>
-            <option value="administrador">Administradores</option>
-            <option value="paciente">Pacientes</option>
-            <option value="profesional">Profesionales</option>
-          </select>
+          <div class="filtro-usuario">
+            <h2>Filtrar usuario</h2>
+            <select id="tipo_usuario">
+              <option value="">Elige el usuario</option>
+              <option value="administrador">Administradores</option>
+              <option value="paciente">Pacientes</option>
+              <option value="profesional">Profesionales</option>
+            </select>
+          </div>
           <?php
           $cuentas = obtenerCuentas($conection, $tipo_usuario);
           foreach ($cuentas as $cuenta) {
