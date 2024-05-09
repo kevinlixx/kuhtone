@@ -78,6 +78,10 @@ var_dump($_GET)
         <div class= "design--container">
             <div class="select-sede" id="select-sede">
                  <h1> Por favor selecciona una sede </h1>
+                 <figure>
+                    <img src="./img/imgSede.jpeg" alt="icono de sede">
+                    <figcaption></figcaption>
+                 </figure>
             </div>
             <div class="psicologos--contenedor" id="psicologos--contenedor">
         
