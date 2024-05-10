@@ -20,22 +20,27 @@ if (navigator.geolocation) {
         var marketUser= L.marker(currentLocation,{icon: userIcon}).addTo(map)
             .bindPopup('Ubicación actual');
         map.setView(currentLocation, 13);
-
+        var latitud = position.coords.latitude;
+        var longitud = position.coords.longitude;
         // Enviar los valores de latitud y longitud a detalle_cita.php
-        fetch('../detalle_cita.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                latitud: currentLocation[0],
-                longitud: currentLocation[1],
-            }),
-        })
-        .then(response => response.json())
-        .then(data => console.log(data))
-        .catch((error) => {
-            console.error('Error:', error);
+        $.ajax({
+            url: '../detalle_cita.php', // Reemplaza esto con la ruta a tu archivo PHP
+            type: 'POST',
+            data: { latitud: latitud,
+                longitud: longitud
+             },
+            success: function(response) {
+                 // Convierte la respuesta en un objeto jQuery
+                var $response = $(response);
+                console.log(response);
+                // Selecciona el contenido de #psicologos--contenedor y agrégalo a tu página
+                //var $psicologosContenedor = $response.find('#psicologos--contenedor');
+                //$('#psicologos--contenedor').html($psicologosContenedor.html());
+                    },
+            error: function(error) {
+                // Aquí puedes manejar los errores
+                console.error('Error:', error);
+            }
         });
     });
 }

@@ -167,20 +167,26 @@ $consulta_agendamiento = mysqli_query($conection, $agendamiento ) or die ("Error
                                                 </p>
                                                 </section>';
                                                 // Comprueba si los datos de latitud y longitud están establecidos
-                                            if (isset($_POST['latitud']) && isset($_POST['longitud'])) {
-                                                // Almacena los datos de latitud y longitud en variables
-                                                $latitud = $_POST['latitud'];
-                                                $longitud = $_POST['longitud'];
+
+   
+                                                $_SERVER['REQUEST_METHOD']='POST';
+                                                $data = json_decode(file_get_contents('php://input'), true);
+                                                if (isset($data['latitud']) && isset($data['longitud'])) {
+                                                    $latitud = $data['latitud'];
+                                                    $longitud = $data['longitud'];
+                                                } else {
+                                                    echo json_encode(["error" => "latitud y longitud no están definidos"]);
+                                                    exit();
+                                                }
+                                                
+
+                                            var_dump($latitud);
+                                            var_dump($longitud);
 
                                                 // Aquí puedes usar las variables $latitud y $longitud
                                                 // ...
-                                            echo'
-                                                <div class="ruta--sede">
-                                                    <a href="https://www.google.com/maps/search/?api=1&query='.$latitud.', '.$longitud.'&query_place_id='.$sede[0]['place_id'].' target="_blank">Abrir en Google Maps</a>
-                                                </div>
-                                                    
-                                                </div>';
-                                        }
+                                           
+                                        
                                         echo'
                                         </div>
                                     </div>
