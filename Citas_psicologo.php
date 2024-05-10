@@ -99,7 +99,7 @@
                                     <p>Teléfono móvil: '.$consulta_total["telefono_movil"].'</p>
                                 </div>
                                 <div class="mas_info--description-container">
-                                <a href="info_paciente.php" class="mas_info--description">
+                                <a href="info_paciente.php?id_paciente='.$consulta_total["id_paciente"].'" class="mas_info--description">
                                     <figure class="icon-ingreso"> 
                                         <img src="./img/icon-ingreso.svg" alt="icono de ingreso"/>  
                                     </figure>
