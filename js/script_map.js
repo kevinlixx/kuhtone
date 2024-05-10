@@ -71,7 +71,7 @@ if (navigator.geolocation) {
 }
 
 function getSedesFromDatabase() {
-    return fetch('../config/crud_sedes.php')
+    return fetch('../includes/crud_sedes.php')
         .then(response => response.json());
 }
 

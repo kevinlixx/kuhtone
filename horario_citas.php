@@ -103,12 +103,24 @@ $consulta = mysqli_query($conection, $profesional ) or die ("Error al traer los 
               <a href="./psicologos.php?id_perfil='.$id_paciente.'" class="mas_info--description">cambiar de psicologo</a>
             </div>
           </section>
-
+          <section class="tipo--cita">
+          <h2>Selecciona el tipo de cita</h2>
+          <div class="tipo--cita--container">
+            <div class="tipo--cita--card">
+              <input type="radio" id="cita1" name="tipo-cita" value="presencial" required>
+              <label for="cita1">Cita presencial</label>
+            </div>
+            <div class="tipo--cita--card card-derecha">
+              <input type="radio" id="cita2" name="tipo-cita" value="virtual" required>
+              <label for="cita2">Cita virtual</label>
+            </div>
+          </div>
+        </section>
           
       
       <!-- esta parte es la del calendario -->
       <div class="container">
-      
+        
         <div class="calendar">
           <div class="legend--hour">
           <p>Dias disponibles</p>
@@ -155,19 +167,23 @@ $consulta = mysqli_query($conection, $profesional ) or die ("Error al traer los 
               $id_agendamiento = "";
               $fecha_agendada = $_POST['selected-fecha'];
               $hora_agendada = $_POST['selectedHour'];
+              $tipo_cita = $_POST['tipo-cita'];
+              $id_sede=$consulta_total["sede_id"];
               $disponibilidad = "SELECT * FROM disponibilidad WHERE (fecha_disponibilidad = '$fecha_agendada') AND (hora_inicio = '$hora_agendada')";
               $consulta_disponibilidad = mysqli_query($conection, $disponibilidad) or die ("Error al traer los datos");
               if($consulta_disponibilidadTotal = mysqli_fetch_array($consulta_disponibilidad)) {
                   $id_disponibilidad = $consulta_disponibilidadTotal["id_disponibilidad"];
                   $hora_final= $consulta_disponibilidadTotal["hora_final"];
                   
+                  
+                  
                   $link_teams = "https://teams.microsoft.com/l/meetup-join/19:Gu0DchhxSqIfnsnc0S4kTNH_6GgzxgB-I0X_X9RcnQ01@thread.tacv2/1684020271948?context=%7B%22Tid%22:%22b1ba85eb-a253-4467-9ee8-d4f8ed4df300%22,%22Oid%22:%221f586e41-8496-48b3-bc69-eda655c7bd93%22%7D";
 
-                  $instruccion_SQL = "INSERT INTO agendamiento (id_agendamiento, id_paciente, id_disponibilidad, link_teams) VALUES ('$id_agendamiento', $id_paciente, '$id_disponibilidad', '$link_teams')";
+                  $instruccion_SQL = "INSERT INTO agendamiento (id_agendamiento, id_paciente, id_disponibilidad, link_teams,tipo_cita,id_sede) VALUES ('$id_agendamiento', $id_paciente, '$id_disponibilidad', '$link_teams', '$tipo_cita','$id_sede')";
                   $resultado = mysqli_query($conection, $instruccion_SQL) or trigger_error("Query Failed! SQL-Error: ".mysqli_error($conection), E_USER_ERROR);
                   $off_dispo = 2;
                   $instruccion_update = "CALL modificarEstado_dispo ($id_disponibilidad,$off_dispo)";
-                  $status =  mysqli_query($conection, $instruccion_update) or trigger_error("Query Failed! SQL-Error: ".mysqli_error($conection), E_USER_ERROR);
+                  $status =  mysqli_query($conection, $instruccion_update) or trigger_error("Query Failed! SQL-Error: ".mysqli_error($conection), E_USER_ERROR);  
                   if($resultado) {
                     echo "<script>alert('Se ha registrado exitosamente el agendamiento');
                     window.location.href = './detalle_cita.php?id_dispo=".$id_disponibilidad."&id_perfil=".$id_paciente."';</script>";          

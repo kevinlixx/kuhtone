@@ -1,8 +1,13 @@
 <?php
 include("./config/conexion.php");
-$id_paciente= $_GET['id_perfil'];
-var_dump($_GET)
+if (isset($_POST['id_perfil'])) {
+    $id_paciente = $_POST['id_perfil'];
+} else {
+    $id_paciente = $_GET['id_perfil'];
+} 
+
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -66,9 +71,7 @@ var_dump($_GET)
         </a>
     </header>
     <main>
-    <script>
-    var id_paciente = <?php echo json_encode($id_paciente); ?>;
-    </script>
+
         <h1 class="title--main">Escoge tu psicologo</h1>
 
         <div class="container-all">
@@ -87,9 +90,8 @@ var_dump($_GET)
         
                 
         <?php
-
+        
             try {
-                $_SERVER['REQUEST_METHOD'];
 
                 if (isset($_POST['sede_id'])) {
                     
@@ -131,7 +133,7 @@ var_dump($_GET)
                                             
                                                 </section>
                                             ';
-                                    
+                                        var_dump($id_paciente);
                                             }
                                         }
                                     }} catch (Exception $e) {
@@ -155,6 +157,9 @@ var_dump($_GET)
 <script src="js/script.js"></script>
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script src="js/script_map.js"></script>
+<script>
+    var id_paciente = <?php echo json_encode($id_paciente); ?>;
+    </script>
 
 </body>
 </html>

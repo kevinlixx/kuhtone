@@ -261,6 +261,26 @@ main {
   justify-content: center;
   align-items: center;
   }
+  .tipo--cita{
+    text-align: center;
+  }
+  .tipo--cita h2{
+    padding: 10px;
+  }
+  .tipo--cita--card label{
+    font-size: 1.2rem;
+    
+  }
+
+
+  .card-derecha{
+    margin-left: 20px;
+  }
+  .tipo--cita--container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
    /* Calendario tamaño*/
   .calendar {
     width: 278px ;
