@@ -2,8 +2,14 @@
                 
 session_start();
 include("./config/conexion.php");
-$id_dispo= $_GET['id_dispo'];
-$id_paciente= $_GET['id_perfil'];
+
+if (isset($_POST['id_perfil'])) {
+    $id_paciente = $_POST['id_perfil'];
+    $id_dispo= $_POST['id_dispo'];
+} else {
+    $id_paciente = $_GET['id_perfil'];
+    $id_dispo= $_GET['id_dispo'];
+} 
 
 $agendamiento ="SELECT * FROM agendamiento WHERE id_disponibilidad = $id_dispo";
 $consulta_agendamiento = mysqli_query($conection, $agendamiento ) or die ("Error al traer los datos");
@@ -22,6 +28,7 @@ $consulta_agendamiento = mysqli_query($conection, $agendamiento ) or die ("Error
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@300;500&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="./css/style_detalleCita.css"/>
     <link rel="stylesheet" href="./css/tablet_detalleCita.css" media="screen and (min-width: 600px)"/>
     <link rel="stylesheet" href="./css/desktop_detalleCita.css" media="screen and (min-width: 800px)"/>
@@ -166,27 +173,7 @@ $consulta_agendamiento = mysqli_query($conection, $agendamiento ) or die ("Error
                                                     '.$consulta_profe["nom_universidad"].'  
                                                 </p>
                                                 </section>';
-                                                // Comprueba si los datos de latitud y longitud están establecidos
-
-   
-                                                $_SERVER['REQUEST_METHOD']='POST';
-                                                $data = json_decode(file_get_contents('php://input'), true);
-                                                if (isset($data['latitud']) && isset($data['longitud'])) {
-                                                    $latitud = $data['latitud'];
-                                                    $longitud = $data['longitud'];
-                                                } else {
-                                                    echo json_encode(["error" => "latitud y longitud no están definidos"]);
-                                                    exit();
-                                                }
-                                                
-
-                                            var_dump($latitud);
-                                            var_dump($longitud);
-
-                                                // Aquí puedes usar las variables $latitud y $longitud
-                                                // ...
-                                           
-                                        
+                                                        
                                         echo'
                                         </div>
                                     </div>
@@ -231,6 +218,28 @@ $consulta_agendamiento = mysqli_query($conection, $agendamiento ) or die ("Error
             ?>  
                                  
                                 </div> 
+
+                                <section class="ruta--sede" id="ruta--sede">
+                                <?php
+                                 // Comprueba si los datos de latitud y longitud están establecidos
+                                 
+                                 if (isset($_POST['latitud']) && isset($_POST['longitud'])) {
+                                    # code...
+                                    $latitud = $_POST['latitud'];
+                                    $longitud = $_POST['longitud'];
+                                    echo '
+                                    
+                                        <h4>Ruta hacia la sede</h4>
+                                        <a href="https://www.google.com/maps/dir/?api=1&origin='.$latitud.','.$longitud.'&destination='.$sede[0]['latitud'].','.$sede[0]['longitud'].'" target="_blank">Ver ruta</a>
+                                        
+                                        ';
+                                    
+                                    
+                                 }
+                                
+                                ?>
+                                </section>
+                               
                                 <div class="map" id="map">
 
                                     </div> 
@@ -293,5 +302,10 @@ $consulta_agendamiento = mysqli_query($conection, $agendamiento ) or die ("Error
 
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="./js/script_consultMap.js"></script>
+    <script>
+    var id_paciente = <?php echo json_encode($id_paciente); ?>;
+    var id_dispo = <?php echo json_encode($id_dispo); ?>;
+    </script>
+
 </body>
 </html>

@@ -27,20 +27,21 @@ if (navigator.geolocation) {
             url: '../detalle_cita.php', // Reemplaza esto con la ruta a tu archivo PHP
             type: 'POST',
             data: { latitud: latitud,
-                longitud: longitud
+                longitud: longitud,
+                id_perfil: id_paciente,
+                id_dispo: id_dispo
              },
             success: function(response) {
                  // Convierte la respuesta en un objeto jQuery
-                var $response = $(response);
-                console.log(response);
-                // Selecciona el contenido de #psicologos--contenedor y agrégalo a tu página
-                //var $psicologosContenedor = $response.find('#psicologos--contenedor');
-                //$('#psicologos--contenedor').html($psicologosContenedor.html());
-                    },
+                    var $response = $(response);
+                    var $rutaSede = $response.find('#ruta--sede');
+                    $('#ruta--sede').html($rutaSede.html());
+                        },
             error: function(error) {
                 // Aquí puedes manejar los errores
                 console.error('Error:', error);
             }
+
         });
     });
 }

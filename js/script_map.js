@@ -32,12 +32,12 @@ getSedesFromDatabase().then(sedes => {
              },
             success: function(response) {
                  // Convierte la respuesta en un objeto jQuery
-        var $response = $(response);
+                    var $response = $(response);
 
-        // Selecciona el contenido de #psicologos--contenedor y agrégalo a tu página
-        var $psicologosContenedor = $response.find('#psicologos--contenedor');
-        $('#psicologos--contenedor').html($psicologosContenedor.html());
-            },
+                    // Selecciona el contenido de #psicologos--contenedor y agrégalo a tu página
+                    var $psicologosContenedor = $response.find('#psicologos--contenedor');
+                    $('#psicologos--contenedor').html($psicologosContenedor.html());
+                        },
             error: function(error) {
                 // Aquí puedes manejar los errores
                 console.error('Error:', error);
