@@ -5,7 +5,17 @@ const map = L.map('map').setView([4.5709, -74.2973], 13); // Ajusta lat, lng y z
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
-// Obtiene las sedes de la base de datos
+// Itera sobre el arreglo 'sede'
+for (var i = 0; i < sede.length; i++) {
+    // Extrae las propiedades de la sede
+    var latitud = sede[i].latitud;
+    var longitud = sede[i].longitud;
+    var nombre = sede[i].nombre;
+
+    // Crea un nuevo marcador para la sede
+    var sedeMarker = L.marker([latitud, longitud]).addTo(map)
+        .bindPopup(nombre);
+}
 
 
 // Define un icono personalizado

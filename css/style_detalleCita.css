@@ -192,7 +192,7 @@ main {
     align-content: center;
 }
 .psicologo-info--card{
-    margin-left: 20px;
+    padding: 10px;
     min-width: 220px;
 }
 .psicologo--card{
@@ -291,7 +291,43 @@ main {
     width: 26px;
     height: 24px;
 }
-
+.container--map{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.map{
+    width: 250px;
+    height: 250px;
+}
+.icon--map {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+.icon--map img{
+    width: 30px;
+    height: 30px;
+}
+.icon--map a{
+    font-size: 1.4rem;
+    margin-left: 5px;
+    
+}
+.icon--map a:-webkit-any-link {
+    color: --var(turquoise);
+}
+.ruta--sede{
+    text-align: center;
+}
+.container--map h3{
+    font-size: 1.6rem;
+    margin-left: 5px;
+    padding: 5px;
+}
 .bottom--container{
     display: flex;
     justify-content: center;

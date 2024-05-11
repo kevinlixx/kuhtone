@@ -81,16 +81,21 @@ $consulta_agendamiento = mysqli_query($conection, $agendamiento ) or die ("Error
     <?php
          if($consulta_agenda= mysqli_fetch_array($consulta_agendamiento))
             {
-                $consult_sede = "SELECT * FROM sedes WHERE id_sede = $consulta_agenda[id_sede]";
+                $consult_sede = "SELECT * FROM sedes WHERE id_sede = {$consulta_agenda['id_sede']}";
                 $consulta_sede = mysqli_query($conection, $consult_sede) or die ("Error al traer los datos");
 
                 if (!$consulta_sede) {
                     echo json_encode(["error" => mysqli_error($conection)]);
                     exit();
                 }
-                
                 $sede = mysqli_fetch_all($consulta_sede, MYSQLI_ASSOC);
+        ?>
+                <script>
+                    var sede = <?php echo json_encode($sede); ?>;
+                </script>
+        <?php
                 
+
                 // Convertimos el array en JSON y lo devolvemos
 
 
@@ -219,30 +224,39 @@ $consulta_agendamiento = mysqli_query($conection, $agendamiento ) or die ("Error
                                  
                                 </div> 
 
-                                <section class="ruta--sede" id="ruta--sede">
-                                <?php
-                                 // Comprueba si los datos de latitud y longitud están establecidos
-                                 
-                                 if (isset($_POST['latitud']) && isset($_POST['longitud'])) {
-                                    # code...
-                                    $latitud = $_POST['latitud'];
-                                    $longitud = $_POST['longitud'];
-                                    echo '
-                                    
-                                        <h4>Ruta hacia la sede</h4>
-                                        <a href="https://www.google.com/maps/dir/?api=1&origin='.$latitud.','.$longitud.'&destination='.$sede[0]['latitud'].','.$sede[0]['longitud'].'" target="_blank">Ver ruta</a>
-                                        
-                                        ';
-                                    
-                                    
-                                 }
-                                
-                                ?>
-                                </section>
                                
-                                <div class="map" id="map">
-
+                               
+                                <div class="container--map"> 
+                                    <h3>Ruta hacia la sede</h3>
+                                    <div class="map" id="map">
+                                        
                                     </div> 
+                                    <section class="ruta--sede" id="ruta--sede">
+                                            <?php
+                                            // Comprueba si los datos de latitud y longitud están establecidos
+                                            
+                                            if (isset($_POST['latitud']) && isset($_POST['longitud'])) {
+                                                # code...
+                                                $latitud = $_POST['latitud'];
+                                                $longitud = $_POST['longitud'];
+                                                echo '
+                                                
+                                                    
+                                                    <figure class="icon--map"> 
+                                                        <img 
+                                                        src="./img/icon_map.png" 
+                                                        alt="psicologo"
+                                                        />  
+                                                        <figcaption></figcaption>
+                                                    <a href="https://www.google.com/maps/dir/?api=1&origin='.$latitud.','.$longitud.'&destination='.$sede[0]['latitud'].','.$sede[0]['longitud'].'" target="_blank">Ver ruta</a>
+                                                    </figure>
+                                                    ';
+                                                }
+                                                
+                                                ?>
+                                            </section>
+                                    
+                                </div>
                                     <div class="bottom--container">
                                         <?php
                                         echo'
@@ -280,6 +294,18 @@ $consulta_agendamiento = mysqli_query($conection, $agendamiento ) or die ("Error
                         echo'
                         <script>
                             document.querySelector(".qr--generator").style.display = "none";
+                            document.querySelector(".container--map").style.display = "flex";
+                            
+                        </script>
+
+                        ';
+                    }
+                    if ($consulta_agenda['tipo_cita'] == "virtual") {
+                        # code...
+                        echo'
+                        <script>
+                            document.querySelector(".qr--generator").style.display = "block";
+                            document.querySelector(".container--map").style.display = "none";
                             
                             
                         </script>
@@ -305,6 +331,7 @@ $consulta_agendamiento = mysqli_query($conection, $agendamiento ) or die ("Error
     <script>
     var id_paciente = <?php echo json_encode($id_paciente); ?>;
     var id_dispo = <?php echo json_encode($id_dispo); ?>;
+    
     </script>
 
 </body>
