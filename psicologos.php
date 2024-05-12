@@ -133,7 +133,6 @@ if (isset($_POST['id_perfil'])) {
                                             
                                                 </section>
                                             ';
-                                        var_dump($id_paciente);
                                             }
                                         }
                                     }} catch (Exception $e) {
