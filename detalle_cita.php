@@ -126,60 +126,36 @@ $consulta_agendamiento = mysqli_query($conection, $agendamiento ) or die ("Error
                                                 <h3>Psicologo</h3>
 
                                                 <section>
-                                                    <figure class="perfil--logos"> 
-                                                        <img 
-                                                        src="./img/editor-logo.svg" 
-                                                        alt="psicologo"
-                                                        />  
-                                                        <figcaption></figcaption> 
-                                                    </figure>
-                                                
-                                                <h4>Nombres</h4>
-                                                <p>
-                                                    '.$consulta_profe["nombres"].' 
-                                                </p>
-                                                
-                                                    <figure class="perfil--logos"> 
-                                                        <img 
-                                                        src="./img/editor-logo.svg" 
-                                                        alt="psicologo"
-                                                        />  
-                                                        <figcaption></figcaption> 
-                                                    </figure>
-                                                
-                                                <h4>Apellidos</h4>
-                                                <p>
-                                                '.$consulta_profe["apellidos"].'  
-                                                </p>
-                                                
-                                                    <figure class="perfil--logos"> 
-                                                        <img 
-                                                        src="./img/email_logo.svg" 
-                                                        alt="psicologo"
-                                                        />  
-                                                        <figcaption></figcaption> 
-                                                    </figure>
-                                               
-                                                <h4>E-mail</h4>
-                                                <p>
-                                                    '.$consulta_profe["correo_profesional"].'
-                                                </p>
-                                                
-                                                    <figure class="perfil--logos"> 
-                                                        <img 
-                                                        src="./img/student_logo.svg" 
-                                                        alt="psicologo"
-                                                        />  
-                                                        <figcaption></figcaption> 
-                                                    </figure>
-                                                
-                                                <h4>Educación</h4>
-                                                <p>
-                                                    '.$consulta_profe["nom_universidad"].'  
-                                                </p>
-                                                </section>';
-                                                        
-                                        echo'
+                                                    <div class="info-group">
+                                                        <img class="small-image" src="./img/NameUsuario.svg" alt="Icono de Nombre">
+                                                        <div>
+                                                            <h4>Nombres</h4>
+                                                            <p>'.$consulta_profe["nombres"].'</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="info-group">
+                                                        <img class="small-image" src="./img/NameUsuario.svg" alt="Icono de Apellido">
+                                                        <div>
+                                                            <h4>Apellidos</h4>
+                                                            <p>'.$consulta_profe["apellidos"].'</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="info-group">
+                                                        <img class="small-image" src="./img/Correo-Perfil.svg" alt="Icono de correo">
+                                                        <div>
+                                                            <h4>E-mail</h4>
+                                                            <p>'.$consulta_profe["correo_profesional"].'</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="info-group">
+                                                        <img class="small-image" src="./img/Especializacion-Perfil.svg" alt="Educacion">
+                                                        <div>
+                                                            <h4>Educación</h4>
+                                                            <p>'.$consulta_profe["nom_universidad"].'</p>
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -187,11 +163,7 @@ $consulta_agendamiento = mysqli_query($conection, $agendamiento ) or die ("Error
                                     <div class="section-calendar--container">
                                         <section class="calendar--logo"
                                         <figure class="calendar--logo"> 
-                                            <img 
-                                            src="./img/calendar.svg" 
-                                            alt="calendario"
-                                            />  
-                                            <figcaption></figcaption> 
+                                        <img class="small-image" src="./img/calendar_icon.svg" alt="Icono de correo"> 
                                         </figure>
                                     <h3>Agendamiento</h3>
                                     </section>
