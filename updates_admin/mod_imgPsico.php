@@ -70,7 +70,7 @@
                             <div class="perfil-usuario-header">
                                 <div class="perfil-usuario-portada">
                                     <div class="perfil-usuario-avatar">
-                                        <img src="'.$consulta_perfil["foto_perfil"].'" alt="img-avatar">
+                                        <img src=".'.$consulta_perfil["foto_perfil"].'" alt="img-avatar">
                                     </div>
                                     <!-- <button type="button" class="boton-portada">
                                         <i class="far fa-image"></i> Cambiar fondo

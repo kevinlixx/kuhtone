@@ -278,7 +278,9 @@ main {
     align-items: center;
     margin-bottom: 30px;
 }
-
+.psicologos--contenedor.consulta{
+    display: block;
+}
 .psicologos--contenedor{
     display: none;
 }

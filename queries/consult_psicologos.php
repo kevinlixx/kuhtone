@@ -64,9 +64,10 @@ $id_admin= $_GET['id_perfil'];
     <main>
         <h1 class="title--main">Modificar psicologo</h1>
         <div class= "design--container">
-            <div class="psicologos--contenedor">
+            <div class="psicologos--contenedor consulta">
         <?php
-         $consulta = mysqli_query($conection, "SELECT * FROM profesional") or die ("Error al traer los datos");
+    
+         $consulta = mysqli_query($conection, "SELECT * FROM profesional WHERE estado_cuenta = 1") or die ("Error al traer los datos");
             if(mysqli_num_rows($consulta) > 0)
             {
                 while($consulta_total= mysqli_fetch_array($consulta))
@@ -76,9 +77,8 @@ $id_admin= $_GET['id_perfil'];
                             <section class="psicologos--card">
                                 <figure class="figure--card"> 
                                     <img 
-                                    src="'.$consulta_total["foto_perfil"].'" 
-                                    alt="psicologo"
-                                    />  
+                                    src=".'.$consulta_total["foto_perfil"].'" 
+                                    alt="psicologo">  
                                     <figcaption></figcaption> 
                                 </figure>
                                 <div class="psicologo--description">
