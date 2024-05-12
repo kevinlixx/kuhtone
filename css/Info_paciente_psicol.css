@@ -224,12 +224,12 @@
     /*Estilo para los iconos*/
     .small-image {
         width: 47px;
-        height: 40px; 
+        height: 39px; 
     }
     .info-group {
         display: flex;
         align-items: flex-start;
-        margin-bottom: 20px;
+        margin-bottom: 16px;
     }
     
     .info-group div {
@@ -238,25 +238,26 @@
 
     /*Estilo para la imagen del paciente*/
     .paciente-img {
-        width: 255px;
+        width: 176px;
         height: auto;
         border-radius: 50%;
-        margin-bottom: 20px;
+        margin-bottom: 7px;
     }
     /*Estilo para el titulo paciente*/
     .psicologo-perfil--container h3 {
         color: var(--fountain); 
-        font-size: 32px; 
-        margin-bottom: 20px;
+        font-size: 26px;
+        margin-bottom: 10px;
     }
 
     /*Estilo para los titulos */
     .info-group h4 {
-        font-size: 24px; 
-        margin-bottom: 10px;
+        font-size: 23px;
+        margin-bottom: 6px;
+        text-align: left;
     }
     
-    .paciente-nombre, .paciente-apellidos, .paciente-correo, .paciente-telefono {
+    .paciente-nombre, .paciente-apellidos, .paciente-correo, .paciente-telefono, .descripcion-diagnostico {
         font-size: 23px;
         color: var(--black);
         text-align: center;
@@ -272,8 +273,8 @@
         font-size: 1.9rem;
         text-align: center;
         margin: 10px;   
-        width: 131px;
-        height: 47px;
+        width: 123px;
+        height: 37px;
         border-radius: 15px;
         padding: 5px;
         justify-content: center;

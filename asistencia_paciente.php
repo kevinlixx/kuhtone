@@ -15,7 +15,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>kuhtone</title>
+    <title>kuhtone - Asistencia del Paciente</title>
     <script src="https://kit.fontawesome.com/79e6024c63.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -60,10 +60,75 @@
 
     <!-- Contenido principal -->
     <main>
-       
-        
-        
-        <div><a href="./citas_psicologo.php?id_perfil='.$id_paciente.'" class="back--bottom">Volver</a></div>
+        <?php
+            // Verificar si se ha proporcionado un ID de paciente
+            if ($id_paciente !== null) {
+                // Realizar la consulta a la base de datos para obtener la información del paciente
+                $consulta = "
+                    SELECT 
+                        nombres, 
+                        apellidos
+                    FROM 
+                        paciente 
+                    WHERE 
+                        id_paciente = '$id_paciente'
+                ";
+                $resultado = $conection->query($consulta);
+
+                // Verificar si se encontró algún resultado
+                if ($resultado->num_rows > 0) {
+                    // Obtener la información del paciente
+                    $paciente = $resultado->fetch_assoc();
+
+                    // Mostrar la información del paciente
+                    echo '
+                    <div class="Contendor-info-paciente">
+                        <div class="psicologo-details--container">
+                            <div class="psicologo-perfil--container">
+                                <h3>Paciente</h3>
+                                <section>
+                                    <div class="info-group">
+                                        <img class="small-image" src="./img/NameUsuario.svg" alt="Icono de Nombre">
+                                        <div>
+                                            <h4>Nombres:</h4>
+                                            <p class="paciente-nombre">'.$paciente["nombres"].'</p>
+                                        </div>
+                                    </div>
+                                    <div class="info-group">
+                                        <img class="small-image" src="./img/NameUsuario.svg" alt="Icono de Apellido">
+                                        <div>
+                                            <h4>Apellidos:</h4>
+                                            <p class="paciente-apellidos">'.$paciente["apellidos"].'</p>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>';
+                    
+                    // Agregar el formulario de asistencia después de mostrar la información del paciente
+                    echo '
+                    <div class="container">
+                        <h2>Asistencia del Paciente</h2>
+                        <p><strong>Nombre del Paciente:</strong> '.$paciente["nombres"].' '.$paciente["apellidos"].'</p>
+                        <form action="procesar_asistencia.php" method="post">
+                            <label>
+                                <input type="checkbox" name="asistio" value="1">
+                                Asistió a la cita
+                            </label>
+                            <br>
+                            <label for="reporte">Reporte del Encuentro:</label>
+                            <textarea id="reporte" name="reporte" rows="4" cols="50"></textarea>
+                            <br>
+                            <input type="submit" value="Guardar Asistencia">
+                        </form>
+                    </div>';
+                } else {
+                    // Si no se encontró ningún paciente con ese ID
+                    echo "No se encontró ningún paciente con ese ID.";
+                }
+            }
+        ?>
     </main>
 
     <!-- Pie de página -->

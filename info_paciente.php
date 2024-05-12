@@ -6,6 +6,23 @@
     $id_profesional = isset($_GET['id_perfil']) ? $_GET['id_perfil'] : null;
     $fecha_busqueda = isset($_GET['fecha']) ? $_GET['fecha'] : null;
     $id_paciente = isset($_GET['id_paciente']) ? $_GET['id_paciente'] : null;
+
+        // Consulta SQL para obtener la descripción del diagnóstico
+        $sql = "SELECT descripcion FROM diagnostico WHERE id_paciente = ?"; // Asegúrate de reemplazar ? con el id del paciente
+
+        $stmt = $conection->prepare($sql);
+        $stmt->bind_param("i", $id_paciente);
+        $stmt->execute();
+        $stmt->store_result();
+    
+        if ($stmt->num_rows > 0) {
+            $stmt->bind_result($descripcion_diagnostico);
+            $stmt->fetch();
+        } else {
+            $descripcion_diagnostico = '';
+        }
+    
+        $stmt->close();
 ?>
 
 <!DOCTYPE html>
@@ -124,6 +141,15 @@
                                             <p class="paciente-telefono">'.$paciente["telefono_movil"].'</p>
                                         </div>
                                     </div>
+                                    <div class="info-group">
+                                    <img class="small-image" src="./img/Diagnostico.svg" alt="Diagnóstico">
+                                    <div>
+                                       <h4>Diagnóstico:</h4>
+                                       <p class="descripcion-diagnostico">'.$descripcion_diagnostico.'</p>
+                                   </div>
+                               </div>
+                                    
+                                
                                 </section>
                             </div>
                         </div>
