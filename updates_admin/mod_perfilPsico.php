@@ -10,7 +10,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/Style_perfil.css">
+    <link rel="stylesheet" href="../css/style_perfil.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <script src="https://kit.fontawesome.com/e1d55cc160.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/desktop_perfil.css" media="screen and (min-width: 800px)"/>
@@ -91,27 +91,27 @@
                                 <div class="footer-users-container">
                                 <div class="perfil-usuario-footer">
                                         <div class="footer-users">
-                                            <i class="icono fas fa-map-signs"></i> 
+                                            <img src="../../img/Correo-Perfil.svg" alt="Icono de correo">  
                                             <p>Direccion de correo</p>
                                             <input type="email" value= "'.$consulta_perfil["correo_profesional"].'" name="correo">
                                         </div>
                                         <div class="footer-users">
-                                            <i class="icono fas fa-map-signs"></i> 
+                                            <img src="../../img/passw-Perfil.svg" alt="Icono de Contraseña"> 
                                             <p>Contraseña</p>
                                             <input type="password" value= "'.$consulta_perfil["contrasena_profesional"].'" name="contrasena">
                                         </div>
                                         <div class="footer-users">
-                                            <i class="fa-solid fa-phone"></i>
+                                            <img src="../../img/Telefono_Perfil.svg" alt="Icono de teléfono">
                                             <p>Telefono</p>
                                             <input type="number" value= "'.$consulta_perfil["telefono_movil"].'" name="telefono_movil">
                                         </div>
                                         <div class="footer-users">
-                                            <i class="fa-solid fa-calendar"></i>
+                                            <img src="../..//img/agenda-perfil.svg" alt="Icono de agenda">
                                             <p>Fecha de Nacimiento</p>
                                             <input type="date" value= "'.$consulta_perfil["fecha_nacimiento"].'" name="fecha_nacimiento">
                                         </div>
                                         <div class="footer-users">
-                                            <i class="fa-solid fa-venus-mars"></i>
+                                            <img src="../../img/Genero-Perfil.svg" alt="Icono de género">
                                             <p>Genero</p>';
                             $consulta_genero = mysqli_query($conection, "SELECT * FROM genero Where id_genero ='".$consulta_perfil['id_genero']."'") or die ("Error al traer los datos");
                             while($consult_genero= mysqli_fetch_array($consulta_genero))
@@ -132,7 +132,7 @@
                                     </select>
                                         </div>
                                         <div class="footer-users">
-                                            <i class="fa-solid fa-id-card"></i>
+                                            <img src="../../img/Documento-Perfil.svg" alt="Icono de documento">
                                             <p>Tipo Documento</p>';
                             $consulta_tipo = mysqli_query($conection, "SELECT * FROM tipo_documento Where id_tipoDocumento='".$consulta_perfil['id_tipoDocumento']."'") or die ("Error al traer los datos");
                             while($consult_tipo= mysqli_fetch_array($consulta_tipo))
@@ -153,30 +153,30 @@
                                     </select>
                                         </div>
                                         <div class="footer-users">
-                                            <i class="fa-solid fa-id-card"></i>
+                                            <img src="../../img/Documento-Perfil.svg" alt="Icono de documento">
                                             <p>Numero Documento</p>
                                             <input name="nro_documento" type="number" value ="'.$consulta_perfil['nro_documento'].'">
                                         </div>
                                         <div class="footer-users psico">
-                                                <i class="fa-solid fa-building-columns"></i>
+                                            <img src="../../img/Universidad-Perfil.svg" alt="Icono de universidad">
                                             <h4>Universidad egresada</h4>
                                             <input name="nom_universidad" type="text" value ="'.$consulta_perfil['nom_universidad'].'">
                                         </div>
                                         </div>
                                         <div class="perfil-usuario-footer">
                                         <div class="footer-users psico">
-                                            <i class="fa-solid fa-building"></i>
+                                            <img src="../../img/experiencia-Perfil.svg" alt="Icono de experiencia">
                                             <h4>Experencia</h4>
                                             <input name="experiencia" type="text" value ="'.$consulta_perfil['experiencia'].'">
                                         </div>
                                         
                                         <div class="footer-users psico">
-                                        <i class="fa-solid fa-graduation-cap"></i>
+                                            <img src="../../img/Especializacion-Perfil.svg" alt="Icono de especialización">
                                             <h4>Especialización</h4>
                                             <input name="especializacion" type="text" value ="'.$consulta_perfil['especializacion'].'">
                                         </div>
                                         <div class="footer-users psico">
-                                            <i class="fa-solid fa-book"></i>
+                                            <img src="../../img/description-Perfil.svg" alt="Icono de descripción">
                                             <h4>Descripción</h4>
                                             <input name="descripcion" type="text" value ="'.$consulta_perfil['descripcion'].'">
                                         </div>
@@ -184,7 +184,7 @@
                                     </div>
                                     <input class="button" type="submit" value="Modificar Datos" name="modificar">
                                     <input class="button" type="submit" value="Eliminar cuenta" name="inhabilitar">
-                                    <a href="../queries/consult_psicologos.php?id_perfil='.$id_admin.'" class="button">volver</a>
+                                    <a href="../queries/consult_psicologos.php?id_perfil='.$id_admin.'" class="button">Volver</a>
                                 </div>
                             </div>
                         </section>
@@ -226,14 +226,22 @@
                             $inhabilitar_SQL = "UPDATE profesional SET estado_cuenta='2'  Where id_profesional='$id_profesional'";
                             $resultado = mysqli_query($conection,$inhabilitar_SQL) or trigger_error("Query Failed! SQL-Error: ".mysqli_error($conection), E_USER_ERROR);
                             if($resultado){
-                              
-                                echo '<script>alert("se ha eliminado correctamente");window.location.href="../queries/consult_psicologos.php?id_perfil='.$id_admin.'";  </script>';
-                              }
-                              else {
+                                // Obtén los datos del usuario
+                                $datos_usuario_SQL = "SELECT * FROM profesional WHERE id_profesional='$id_profesional'";
+                                $resultado_datos = mysqli_query($conection, $datos_usuario_SQL) or trigger_error("Query Failed! SQL-Error: ".mysqli_error($conection), E_USER_ERROR);
+                                $datos_usuario = mysqli_fetch_assoc($resultado_datos);
+
+                                // Inserta los datos del usuario en la tabla cuentas_temporales
+                                $datos_usuario_JSON = json_encode($datos_usuario, JSON_UNESCAPED_UNICODE);
+                                $insertar_temporal_SQL = "INSERT INTO cuentas_temporales (id_original, tipo_usuario, fecha_eliminacion, datos_usuario) VALUES ('$id_profesional', 'profesional', NOW(), '$datos_usuario_JSON')";
+                                mysqli_query($conection, $insertar_temporal_SQL) or trigger_error("Query Failed! SQL-Error: ".mysqli_error($conection), E_USER_ERROR);
+
+                                echo '<script>alert("se ha eliminado correctamente");window.location.href="../queries/consult_psicologos.php?id_perfil='.$id_admin.'";   </script>';
+                            }
+                            else {
                                 echo '<script>alert("no se pudo eliminar");window.history.go(-1);  </script>';
-            
-                              }
-                         }
+                            }
+                        } 
                 }
                 ?>
                 </form>

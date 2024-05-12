@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/Style_perfil.css">
+    <link rel="stylesheet" href="../css/style_perfil.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <script src="https://kit.fontawesome.com/e1d55cc160.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/desktop_perfil.css" media="screen and (min-width: 800px)"/>
@@ -96,7 +96,7 @@
                                             <input type="email" value= "'.$consulta_perfil["correo"].'" name="correo">
                                         </div>
                                         <div class="footer-users">
-                                        <img src="../../img/Contraseña-Perfil.svg" alt="Icono de Contraseña">
+                                        <img src="../../img/passw-Perfil.svg" alt="Icono de Contraseña">
                                             <p>Contraseña</p>
                                             <input type="password" value= "'.$consulta_perfil["contrasena"].'" name="contrasena">
                                         </div>
@@ -209,14 +209,10 @@
                                      $datos_usuario_JSON = json_encode($datos_usuario, JSON_UNESCAPED_UNICODE);
                                      $insertar_temporal_SQL = "INSERT INTO cuentas_temporales (id_original, tipo_usuario, fecha_eliminacion, datos_usuario) VALUES ('$id_administrador', 'administrador', NOW(), '$datos_usuario_JSON')";
                                      mysqli_query($conection, $insertar_temporal_SQL) or trigger_error("Query Failed! SQL-Error: ".mysqli_error($conection), E_USER_ERROR);
-                         
                                      echo '<script>alert("se ha eliminado correctamente");window.location.href="../login-register.php";  </script>';
                                  } else {
                                      echo '<script>alert("no se pudo obtener los datos del administrador");window.history.go(-1);  </script>';
                                  }
-                             }
-                             else {
-                                 echo '<script>alert("no se pudo eliminar");window.history.go(-1);  </script>';
                              }
                          }
                 }

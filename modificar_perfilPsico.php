@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/Style_perfil.css">
+    <link rel="stylesheet" href="./css/style_perfil.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <script src="https://kit.fontawesome.com/e1d55cc160.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/desktop_perfil.css" media="screen and (min-width: 800px)"/>
@@ -97,7 +97,7 @@
                                             <input type="email" value= "'.$consulta_perfil["correo_profesional"].'" name="correo">
                                         </div>
                                         <div class="footer-users">
-                                        <img src="./img/Contraseña-Perfil.svg" alt="Icono de Contraseña"> 
+                                        <img src="./img/passw-Perfil.svg" alt="Icono de Contraseña"> 
                                             <p>Contraseña</p>
                                             <input type="password" value= "'.$consulta_perfil["contrasena_profesional"].'" name="contrasena">
                                         </div>
@@ -172,7 +172,7 @@
                                         </div>
                                         
                                         <div class="footer-users psico">
-                                        <img src="./img/Especializacion-Perfil.svg" alt="Icono de especialización">
+                                            <img src="./img/Especializacion-Perfil.svg" alt="Icono de especialización">
                                             <h4>Especialización</h4>
                                             <input name="especializacion" type="text" value ="'.$consulta_perfil['especializacion'].'">
                                         </div>
@@ -185,7 +185,7 @@
                                     </div>
                                     <input class="button" type="submit" value="Modificar Datos" name="modificar">
                                     <input class="button" type="submit" value="Eliminar cuenta" name="inhabilitar" id="eliminar">
-                                    <a href="./perfil_psicologo.php?id_perfil='.$id_profesional.'" class="button">volver</a>
+                                    <a href="./perfil_psicologo.php?id_perfil='.$id_profesional.'" class="button">Volver</a>
                                 </div>
                             </div>
                         </section>

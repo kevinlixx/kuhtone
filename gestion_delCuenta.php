@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     echo "Error al eliminar la cuenta";
   }
   // Redirigir a la misma página para forzar una actualización de los datos
-  header("Location: " . $_SERVER['PHP_SELF']);
+  header("Location: " . $_SERVER['PHP_SELF'] . "?id_perfil=" . $id_admin);
   exit;
 }
  
