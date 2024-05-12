@@ -160,7 +160,7 @@ $consulta_perfil = $crudPerfil->obtenerPerfil('paciente', $id_paciente, 'id_paci
                                         
                                     </div>
                                     <input class="button" type="submit" value="Modificar Datos" name="modificar">
-                                    <input class="button" type="submit" value="Eliminar Cuenta" name="inhabilitar">
+                                    <input class="button" type="submit" value="Eliminar cuenta" name="inhabilitar" id="eliminar">
                                     <a href="./perfil.php?id_perfil='.$id_paciente.'" class="button">Volver</a>
                                 </div>
                             </div>
@@ -205,7 +205,7 @@ $consulta_perfil = $crudPerfil->obtenerPerfil('paciente', $id_paciente, 'id_paci
                                 $datos_usuario = mysqli_fetch_assoc($resultado_datos);
 
                                 // Inserta los datos del usuario en la tabla cuentas_temporales
-                                $datos_usuario_JSON = json_encode($datos_usuario);
+                                $datos_usuario_JSON = json_encode($datos_usuario, JSON_UNESCAPED_UNICODE);
                                 $insertar_temporal_SQL = "INSERT INTO cuentas_temporales (id_original, tipo_usuario, fecha_eliminacion, datos_usuario) VALUES ('$id_paciente', 'paciente', NOW(), '$datos_usuario_JSON')";
                                 mysqli_query($conection, $insertar_temporal_SQL) or trigger_error("Query Failed! SQL-Error: ".mysqli_error($conection), E_USER_ERROR);
 
@@ -214,7 +214,7 @@ $consulta_perfil = $crudPerfil->obtenerPerfil('paciente', $id_paciente, 'id_paci
                             else {
                                 echo '<script>alert("no se pudo eliminar");window.history.go(-1);  </script>';
                             }
-                        }
+                        } 
                 }
                 ?>
                 </form>
@@ -225,6 +225,7 @@ $consulta_perfil = $crudPerfil->obtenerPerfil('paciente', $id_paciente, 'id_paci
         </div>
     </footer>
     <script src="js/script.js"></script>
+    <script src="js/script_sureDelete.js"></script>
 </body>
 
 </html>

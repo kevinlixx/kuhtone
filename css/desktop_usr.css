@@ -188,7 +188,7 @@ main {
   left: -170px;
   border-radius: 100%;
   transition: all 300ms;
-  background: linear-gradient(to bottom, #995c06, #fdb249);
+  background: linear-gradient(to bottom, #995c06, var(--sandy));
 }
 
 .caja:hover .animacion {
@@ -204,7 +204,7 @@ main {
 }
 
 .caja3 .animacion {
-    background: linear-gradient(to bottom,#7edfdf, #94b7b9);
+  background: linear-gradient(to bottom, var(--aqua), var(--paradiso));
 }
 /* .pie-pagina {
     position: relative;

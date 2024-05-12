@@ -72,9 +72,27 @@ header .menu-section{
 .title--main{
     font-size: 3.5rem;
 }
+
+.filtro-usuario {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    padding: 5px 20px;
+}
+  
+.psicologos--card {
+    position: relative;
+    margin-top: 70px;
+    width: 360px;
+}
 .figure--card{
-    width: 150px;
-    height: 150px;
+    /* width: 150px; */
+    height: 180px;
 }
 .figure--card img{
     width: 120px;
@@ -83,12 +101,17 @@ header .menu-section{
 .psicologos--card h4{
     font-size: 2rem;
 }
-.psicologo--description{
-    margin-top: 10px;
+.psicologo--description {
+    display: flex; 
+    flex-direction: column;
+    justify-content: center; 
+    margin-top: 0;
+}
+.psicologos--card p{
+    font-size: 1.4rem;
 }
 .psicologo--description p{
-    font-size: 1.1rem;
-    margin-bottom: 10px;
+    font-size: 1.4rem;
      word-spacing: -1.1px;
 }
 /*Boton volver*/
@@ -119,7 +142,9 @@ header .menu-section{
     .psicologos--contenedor{
         width: 70%;
     }
-    
+    .psicologos--card {
+        width: 400px;
+    }
 }
 
 @keyframes underline-slide {

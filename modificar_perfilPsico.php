@@ -184,7 +184,7 @@
                                         
                                     </div>
                                     <input class="button" type="submit" value="Modificar Datos" name="modificar">
-                                    <input class="button" type="submit" value="Eliminar cuenta" name="inhabilitar">
+                                    <input class="button" type="submit" value="Eliminar cuenta" name="inhabilitar" id="eliminar">
                                     <a href="./perfil_psicologo.php?id_perfil='.$id_profesional.'" class="button">volver</a>
                                 </div>
                             </div>
@@ -225,7 +225,7 @@
                             mysqli_close($conection);
                            
                          }
-                         if(isset($_POST ['inhabilitar'])){
+                        if(isset($_POST ['inhabilitar'])){
                             $inhabilitar_SQL = "UPDATE profesional SET estado_cuenta='2'  Where id_profesional='$id_profesional'";
                             $resultado = mysqli_query($conection,$inhabilitar_SQL) or trigger_error("Query Failed! SQL-Error: ".mysqli_error($conection), E_USER_ERROR);
                             if($resultado){
@@ -233,12 +233,12 @@
                                 $datos_usuario_SQL = "SELECT * FROM profesional WHERE id_profesional='$id_profesional'";
                                 $resultado_datos = mysqli_query($conection, $datos_usuario_SQL) or trigger_error("Query Failed! SQL-Error: ".mysqli_error($conection), E_USER_ERROR);
                                 $datos_usuario = mysqli_fetch_assoc($resultado_datos);
-                        
+
                                 // Inserta los datos del usuario en la tabla cuentas_temporales
-                                $datos_usuario_JSON = json_encode($datos_usuario);
+                                $datos_usuario_JSON = json_encode($datos_usuario, JSON_UNESCAPED_UNICODE);
                                 $insertar_temporal_SQL = "INSERT INTO cuentas_temporales (id_original, tipo_usuario, fecha_eliminacion, datos_usuario) VALUES ('$id_profesional', 'profesional', NOW(), '$datos_usuario_JSON')";
                                 mysqli_query($conection, $insertar_temporal_SQL) or trigger_error("Query Failed! SQL-Error: ".mysqli_error($conection), E_USER_ERROR);
-                        
+
                                 echo '<script>alert("se ha eliminado correctamente");window.location.href="./login-register.php";  </script>';
                             }
                             else {
@@ -255,5 +255,6 @@
     </div>
  </footer>
  <script src="js/script.js"></script>
+ <script src="js/script_sureDelete.js"></script>
 </body>
 </html>

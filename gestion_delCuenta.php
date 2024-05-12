@@ -1,13 +1,36 @@
 <?php
-    include("./config/conexion.php");
-    include("./includes/cuentaTemporalModel.php");
-    $id_admin= $_GET['id_perfil'];
-    function obtenerCuentas($conection) {
-    $cuentaTemporal = new CuentaTemporal($conection);
-    return $cuentaTemporal->obtenerCuentasTemporales();
-  }
-?>
+include("./config/conexion.php");
+include("./includes/cuentaTemporalModel.php");
 
+$id_admin = isset($_GET['id_perfil']) ? $_GET['id_perfil'] : '';
+$cuentaTemporal = new CuentaTemporal($conection);
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  $tipo_usuario = $_POST['tipo_usuario'];
+  $correo = $_POST['correo'];
+  $cuentaTemporal->restaurarCuenta($tipo_usuario, $correo);
+  $resultado = $cuentaTemporal->eliminarCuentaTemporal($tipo_usuario, $correo);
+  if ($resultado) {
+    echo "Cuenta eliminada exitosamente";
+  } else {
+    echo "Error al eliminar la cuenta";
+  }
+  // Redirigir a la misma página para forzar una actualización de los datos
+  header("Location: " . $_SERVER['PHP_SELF']);
+  exit;
+}
+ 
+$tipo_usuario = isset($_GET['tipo_usuario']) ? $_GET['tipo_usuario'] : '';
+
+function obtenerCuentas($conection, $tipo_usuario = '') {
+  $cuentaTemporal = new CuentaTemporal($conection);
+  if ($tipo_usuario == '') {
+    return $cuentaTemporal->obtenerCuentasTemporales();
+  } else {
+    return $cuentaTemporal->obtenerCuentasTemporales($tipo_usuario);
+  }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,12 +70,11 @@
                     <img src="img/logo_header.svG" alt="">
                     <ul> 
                     <?php
-                      echo'
-                      <li><a href="./index_usr.php?id_perfil='.$id_admin.'">Inicio</a></li>
-                        <li><a href="./queries/consultar_citas.php?id_perfil='.$id_admin.'">Mis citas</a></li>
-                        <li><a href="./perfil.php?id_perfil='.$id_admin.'">Mi perfil</a></li>
-                        <li><a href="./index.php" id="selected">Cerrar Sesion</a></li>';
-                        ?>
+                     echo'
+                     <li><a href="../index_admin.php?id_perfil='.$id_admin.'">Inicio</a></li>
+                       <li><a href="../perfil_admin.php?id_perfil='.$id_admin.'">Mi perfil</a></li>
+                       <li><a href="../index.php" id="selected">Cerrar Sesion</a></li>';
+                       ?>
                     </ul>
                 </nav>
             </div>
@@ -68,40 +90,55 @@
         </a>
     </header>
     <main>
-      <h1 class="title--main">Cuentas Temporales</h1>
+      <h1 class="title--main">Cuentas Eliminadas</h1>
       <div class= "design--container">
-        <div class="psicologos--contenedor">
-        <?php
-        $cuentas = obtenerCuentas($conection);
-        foreach ($cuentas as $cuenta) {
-          echo '
-          <section class="psicologos--card">
-            <h4>'.$cuenta['tipo_usuario'].'</h4> 
-            <div class="content--container">
-              <figure class="figure--card"> 
-                <img 
-                src="'.$cuenta['ruta_imagen'].'" 
-                alt="usuario"
-                />  
-                <figcaption></figcaption> 
-              </figure>
-              <div class="psicologo--description">
-                <p><span class="item--aco">Nombres:</span> '.$cuenta['nombres'].' '.$cuenta['apellidos'].'</p>
-                <p><span class="item--aco">Correo:</span> '.$cuenta['correo'].'</p>
-                <p><span class="item--aco">Teléfono:</span> '.$cuenta['telefono_movil'].'</p>';
-                if (array_key_exists('especializacion', $cuenta)) {
-                  echo '<p><span class="item--aco">Especialización:</span> '.$cuenta['especializacion'].'</p>';
-                }
-              echo '
+      <div id="cuentas-contenedor" class="psicologos--contenedor">
+          <div class="filtro-usuario">
+            <h2>Filtrar usuario</h2>
+            <select id="tipo_usuario">
+              <option value="">Elige el usuario</option>
+              <option value="administrador">Administradores</option>
+              <option value="paciente">Pacientes</option>
+              <option value="profesional">Profesionales</option>
+            </select>
+          </div>
+          <?php
+          $cuentas = obtenerCuentas($conection, $tipo_usuario);
+          foreach ($cuentas as $cuenta) {
+            echo '
+            <section class="psicologos--card">
+              <h4>'.$cuenta['tipo_usuario'].'</h4> 
+              <p class="fecha-eliminacion"><span class="item--aco">Fecha de eliminación:</span> '.$cuenta['fecha_eliminacion'].'</p>
+              <div class="content--container">
+                <figure class="figure--card"> 
+                  <img 
+                  src="'.$cuenta['ruta_imagen'].'" 
+                  alt="usuario"
+                  />  
+                  <figcaption></figcaption> 
+                </figure>
+                <div class="psicologo--description">
+                  <p><span class="item--aco">Nombres:</span> '.$cuenta['nombres'].'</p>
+                  <p><span class="item--aco">Apellidos:</span> '.$cuenta['apellidos'].'</p>
+                  <p><span class="item--aco">Correo:</span> '.$cuenta['correo'].'</p>
+                  <p><span class="item--aco">Teléfono:</span> '.$cuenta['telefono_movil'].'</p>';
+                  if (array_key_exists('especializacion', $cuenta)) {
+                    echo '<p><span class="item--aco">Especialización:</span> '.$cuenta['especializacion'].'</p>';
+                  }
+                echo '
+                </div>
               </div>
-            </div>
-            <a class="rest_account">Restaurar Cuenta</a>
-          </section>
-          ';
-        }
-        echo '<a href="../gestion_admin.php?id_perfil='.$id_admin.'" class="back--bottom">Volver</a>';
-        ?>
-      </div>
+              <form id="form-restaurar-cuenta" method="POST">
+                  <input type="hidden" name="tipo_usuario" value="' . $cuenta['tipo_usuario'] . '">
+                  <input type="hidden" name="correo" value="' . $cuenta['correo'] . '">
+                  <button type="submit" name="restaurar_cuenta" class="rest_account">Restaurar Cuenta</button>
+              </form>
+            </section>
+            ';
+          }
+          echo '<a href="../index_admin.php?id_perfil='.$id_admin.'" class="back--bottom">Volver</a>';
+          ?>
+        </div>
       </div>
     </main>
    <footer class="pie-pagina">
@@ -110,5 +147,6 @@
    </div>
 </footer>
 <script src="js/script.js"></script>
+<script src="js/script_restaurarCuenta.js"></script>
 </body>
 </html>

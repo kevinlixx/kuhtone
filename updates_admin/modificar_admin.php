@@ -68,7 +68,7 @@
                             <div class="perfil-usuario-header">
                                 <div class="perfil-usuario-portada">
                                     <div class="perfil-usuario-avatar">
-                                        <img src="'.$consulta_perfil["foto_perfil"].'" alt="img-avatar">
+                                        <img src=".'.$consulta_perfil["foto_perfil"].'" alt="img-avatar">
                                         <a href= "../modificar_imgAdmin.php?id_perfil='.$id_admin.'">
                                         <button type="button" class="boton-avatar">
                                             <i class="far fa-image"></i>
@@ -160,7 +160,7 @@
                                         
                                     </div>
                                     <input class="button" type="submit" value="Modificar Datos" name="modificar">
-                                    <input class="button" type="submit" value="Eliminar Cuenta cuenta" name="inhabilitar">
+                                    <input class="button" type="submit" value="Eliminar cuenta" name="inhabilitar" id="eliminar">
                                     <a href="../perfil_admin.php?id_perfil='.$id_admin.'" class="button">Volver</a>
                                 </div>
                             </div>
@@ -196,16 +196,28 @@
                            
                          }
                          if(isset($_POST ['inhabilitar'])){
-                            $inhabilitar_SQL = "UPDATE administrador SET estado_cuenta='2'  Where id_adminsitrador='$id_administrador'";
-                            $resultado = mysqli_query($conection,$inhabilitar_SQL) or trigger_error("Query Failed! SQL-Error: ".mysqli_error($conection), E_USER_ERROR);
-                            if($resultado){
-                              
-                                echo '<script>alert("se ha eliminado correctamente");window.location.href="../login-register.php";  </script>';
-                              }
-                              else {
-                                echo '<script>alert("no se pudo eliminar");window.history.go(-1);  </script>';
-            
-                              }
+                            $inhabilitar_SQL = "UPDATE administrador SET estado_cuenta='2'  Where id_admin='$id_admin'";
+                             $resultado = mysqli_query($conection,$inhabilitar_SQL) or trigger_error("Query Failed! SQL-Error: ".mysqli_error($conection), E_USER_ERROR);
+                             if($resultado){
+                                 // Obtén los datos del usuario
+                                 $datos_usuario_SQL = "SELECT * FROM administrador WHERE id_admin='$id_admin'";
+                                 $resultado_datos = mysqli_query($conection, $datos_usuario_SQL) or trigger_error("Query Failed! SQL-Error: ".mysqli_error($conection), E_USER_ERROR);
+                                 $datos_usuario = mysqli_fetch_assoc($resultado_datos);
+                         
+                                 if ($datos_usuario !== null) {
+                                     // Inserta los datos del usuario en la tabla cuentas_temporales
+                                     $datos_usuario_JSON = json_encode($datos_usuario, JSON_UNESCAPED_UNICODE);
+                                     $insertar_temporal_SQL = "INSERT INTO cuentas_temporales (id_original, tipo_usuario, fecha_eliminacion, datos_usuario) VALUES ('$id_administrador', 'administrador', NOW(), '$datos_usuario_JSON')";
+                                     mysqli_query($conection, $insertar_temporal_SQL) or trigger_error("Query Failed! SQL-Error: ".mysqli_error($conection), E_USER_ERROR);
+                         
+                                     echo '<script>alert("se ha eliminado correctamente");window.location.href="../login-register.php";  </script>';
+                                 } else {
+                                     echo '<script>alert("no se pudo obtener los datos del administrador");window.history.go(-1);  </script>';
+                                 }
+                             }
+                             else {
+                                 echo '<script>alert("no se pudo eliminar");window.history.go(-1);  </script>';
+                             }
                          }
                 }
                 ?>
@@ -216,6 +228,7 @@
          <small>&copy; 2023 <b>kuhtone</b> - Todos los Derechos Reservados.</small>
     </div>
  </footer>
- <script src="js/script.js"></script>
+ <script src="../js/script.js"></script>
+ <script src="../js/script_sureDelete.js"></script>
 </body>
 </html>
