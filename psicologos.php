@@ -1,7 +1,13 @@
 <?php
 include("./config/conexion.php");
-$id_paciente= $_GET['id_perfil'];
+if (isset($_POST['id_perfil'])) {
+    $id_paciente = $_POST['id_perfil'];
+} else {
+    $id_paciente = $_GET['id_perfil'];
+} 
+
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,8 +16,10 @@ $id_paciente= $_GET['id_perfil'];
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>kuhtone</title>
+    <!-- Incluye jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
-
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" /> 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@300;500&display=swap" rel="stylesheet">
@@ -65,55 +73,79 @@ $id_paciente= $_GET['id_perfil'];
     <main>
 
         <h1 class="title--main">Escoge tu psicologo</h1>
-        <div class= "design--container">
-            <div class="psicologos--contenedor">
-        <?php
-         $consulta = mysqli_query($conection, "SELECT * FROM profesional WHERE estado_cuenta = 1" ) or die ("Error al traer los datos");
-            if(mysqli_num_rows($consulta) > 0)
-            {
-                while($consulta_total= mysqli_fetch_array($consulta))
-                {           
-                        $descripcion_completa = $consulta_total["descripcion"];
-                        $descripcion_corta = substr($descripcion_completa, 0, 150); 
-                        echo'
-                        
-                            
-                                    <section class="psicologos--card">
-                                        <figure class="figure--card"> 
-                                            <img 
-                                            src="'.$consulta_total["foto_perfil"].'" 
-                                            alt="psicologo"
-                                            />  
-                                            <figcaption></figcaption> 
-                                        </figure>
-                                        <div class="psicologo--description">
-                                        <h4>Psi.'.$consulta_total["nombres"].' '.$consulta_total["apellidos"]. '</h4>
 
-                                        <p class="descripcion-completa">'.$descripcion_completa.'</p>
-                                        <p class="descripcion-corta">'.$descripcion_corta.'...</p>
-                                        </div>
-                                        <a href=\'./detalle_psicologo.php?id='.$consulta_total["id_profesional"].'&id_perfil='.$id_paciente.'\'class="mas_info--description">
-                                            <figure class="icon-ingreso"> 
-                                                <img 
-                                                src="./img/icon-ingreso.svg"
-                                                alt="icono de ingreso"
-                                                />  
-                                                <figcaption></figcaption> 
-                                            </figure>
-                                        </a>
+        <div class="container-all">
+        <div class="map--container" id="map--container">
+        </div>
+
+        <div class= "design--container">
+            <div class="select-sede" id="select-sede">
+                 <h1> Por favor selecciona una sede </h1>
+                 <figure>
+                    <img src="./img/imgSede.jpeg" alt="icono de sede">
+                    <figcaption></figcaption>
+                 </figure>
+            </div>
+            <div class="psicologos--contenedor" id="psicologos--contenedor">
+        
+                
+        <?php
+        
+            try {
+
+                if (isset($_POST['sede_id'])) {
+                    
+                    $sede_id = $_POST['sede_id'];
+
+                    $consulta = mysqli_query($conection, "SELECT * FROM profesional WHERE estado_cuenta = 1 AND sede_id= ".$sede_id ) or die ("Error al traer los datos");
+                    if(mysqli_num_rows($consulta) > 0)
+                    {
+                        while($consulta_total= mysqli_fetch_array($consulta))
+                        {           
+                            $descripcion_completa = $consulta_total["descripcion"];
+                            $descripcion_corta = substr($descripcion_completa, 0, 150); 
+                            echo'
+                                
                                     
-                                        </section>
-                                    ';
-                            
+                                            <section class="psicologos--card">
+                                                <figure class="figure--card"> 
+                                                    <img 
+                                                    src="'.$consulta_total["foto_perfil"].'" 
+                                                    alt="psicologo"
+                                                    />  
+                                                    <figcaption></figcaption> 
+                                                </figure>
+                                                <div class="psicologo--description">
+                                                <h4>Psi.'.$consulta_total["nombres"].' '.$consulta_total["apellidos"]. '</h4>
+
+                                                <p class="descripcion-completa">'.$descripcion_completa.'</p>
+                                                <p class="descripcion-corta">'.$descripcion_corta.'...</p>
+                                                </div>
+                                                <a href=\'./detalle_psicologo.php?id='.$consulta_total["id_profesional"].'&id_perfil='.$id_paciente.'\'class="mas_info--description">
+                                                    <figure class="icon-ingreso"> 
+                                                        <img 
+                                                        src="./img/icon-ingreso.svg"
+                                                        alt="icono de ingreso"
+                                                        />  
+                                                        <figcaption></figcaption> 
+                                                    </figure>
+                                                </a>
+                                            
+                                                </section>
+                                            ';
+                                            }
+                                        }
+                                    }} catch (Exception $e) {
+                                        echo 'Excepción capturada: ',  $e->getMessage(), "\n";
                                     }
-                                }
-                                echo'
-                                        <a href="./index_usr.php?id_perfil='.$id_paciente.'" class="back--bottom">Volver</a>';
+                                        echo'
+                                                <a href="./index_usr.php?id_perfil='.$id_paciente.'" class="back--bottom">Volver</a>';
                                         ?>  
                                     
                                     
                             </div>
                         </div>
+                    </div>
                        
     </main>
    <footer class="pie-pagina">
@@ -122,5 +154,11 @@ $id_paciente= $_GET['id_perfil'];
    </div>
 </footer>
 <script src="js/script.js"></script>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="js/script_map.js"></script>
+<script>
+    var id_paciente = <?php echo json_encode($id_paciente); ?>;
+    </script>
+
 </body>
 </html>

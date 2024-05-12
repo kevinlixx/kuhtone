@@ -110,7 +110,19 @@ $consulta_agendamiento = mysqli_query($conection, $agendamiento ) or die ("Error
                               echo'
                             </div>
                           </section>
-
+                          <section class="tipo--cita">
+                          <h2>Selecciona el tipo de cita</h2>
+                          <div class="tipo--cita--container">
+                            <div class="tipo--cita--card">
+                              <input type="radio" id="cita1" name="tipo-cita" value="presencial" required>
+                              <label for="cita1">Cita presencial</label>
+                            </div>
+                            <div class="tipo--cita--card card-derecha">
+                              <input type="radio" id="cita2" name="tipo-cita" value="virtual" required>
+                              <label for="cita2">Cita virtual</label>
+                            </div>
+                          </div>
+                        </section>
                           
                       
                       <!-- esta parte es la del calendario -->
@@ -137,12 +149,12 @@ $consulta_agendamiento = mysqli_query($conection, $agendamiento ) or die ("Error
                             <div>Vie</div>
                             <div>Sab</div>
                           </div>
-                          <input type="hidden" id="selected-fecha" name="selected-fecha" value="" required>
+                          <input type="hidden" id="selected-fecha" name="selected-fecha" value="'.$consulta_disponi['fecha_disponibilidad'].'" required>
                           <div class="days" id="days-dispo"></div>
                           <!-- esta parte es la de seleccionar la hora -->
                             <h2 class="select--hour">Selecciona la hora</h2>
                             <div class="selecthora">
-                              <input type="hidden" id="selectedHour" name="selectedHour" value="" required>
+                              <input type="hidden" id="selectedHour" name="selectedHour" value="'.$consulta_disponi['hora_inicio'].'" required>
 
                               <div class="horariodispo" id="available-hours"/>
                               </div>
@@ -158,6 +170,7 @@ $consulta_agendamiento = mysqli_query($conection, $agendamiento ) or die ("Error
             ';
             if(isset($_POST['cambio-agendamiento'])) {
               $id_agendamiento = "";
+              $tipo_cita = $_POST['tipo-cita'];
               $fecha_agendada = $_POST['selected-fecha'];
               $hora_agendada = $_POST['selectedHour'];
               $disponibilidad = "SELECT * FROM disponibilidad WHERE (fecha_disponibilidad = '$fecha_agendada') AND (hora_inicio = '$hora_agendada')";
@@ -168,7 +181,7 @@ $consulta_agendamiento = mysqli_query($conection, $agendamiento ) or die ("Error
                   
                   $link_teams = "https://teams.microsoft.com/l/meetup-join/19:Gu0DchhxSqIfnsnc0S4kTNH_6GgzxgB-I0X_X9RcnQ01@thread.tacv2/1684020271948?context=%7B%22Tid%22:%22b1ba85eb-a253-4467-9ee8-d4f8ed4df300%22,%22Oid%22:%221f586e41-8496-48b3-bc69-eda655c7bd93%22%7D";
                   
-                  $instruccion_SQL = "UPDATE agendamiento SET id_disponibilidad= $id_disponibilidad WHERE id_agendamiento = $id_agenda" ;
+                  $instruccion_SQL = "UPDATE agendamiento SET id_disponibilidad= $id_disponibilidad, tipo_cita= '$tipo_cita' WHERE id_agendamiento = $id_agenda" ;
                   $resultado = mysqli_query($conection, $instruccion_SQL) or trigger_error("Query Failed! SQL-Error: ".mysqli_error($conection), E_USER_ERROR);
                   
                   $off_dispo = 2;

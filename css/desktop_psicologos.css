@@ -71,6 +71,7 @@ header .menu-section{
 .title--main{
     font-size: 3.5rem;
 }
+
 .figure--card{
     width: 150px;
     height: 150px;
@@ -103,6 +104,10 @@ header .menu-section{
 @media screen and (min-width: 1300px) {
     .psicologos--contenedor{
         width: 50%;
+    }
+    .map--container {
+        width: 60%;
+        height: 300px;
     }
     
 }

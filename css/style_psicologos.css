@@ -105,7 +105,7 @@ header .figure_header{
     background: white;
     height: 100vh;
     padding: 40px;
-    z-index: 1;
+    z-index: 2;
     transition: all 300ms;
 }
 
@@ -201,6 +201,7 @@ main {
     margin: 20px;
 }
 
+
             /* Animación de cambip de color para el h2*/
             @keyframes color-change {
                 0% {
@@ -257,6 +258,19 @@ main {
                 transform: translateX(-50%); /* Centra el elemento */
             }
 
+.container-all{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.map--container{
+    width: 90%; 
+    height: 300px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    z-index: 1;
+}
 .design--container{
     display: flex;
     flex-wrap: wrap;
@@ -266,10 +280,30 @@ main {
 }
 
 .psicologos--contenedor{
-   
+    display: none;
+}
+.psicologos--contenedor, .select-sede{  
     box-shadow: 0 0 4px var(--turquoise);    
-    border-radius: 50px;
+    border-radius: 20px;
     width: 90%;
+}
+.leaflet-popup-content-wrapper, .leaflet-popup-tip{
+    font-size: 1.5rem;
+    text-align: center;
+}
+.select-sede {
+    padding: 50px;
+    min-height: 300px;
+    align-content: center;
+}
+.select-sede h1{
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--paradiso);
+}
+.select-sede img{
+    width: 180px;
 }
 .psicologos--card{
     display: flex;
