@@ -33,5 +33,5 @@ document
 
 // Asegúrate de que el elemento con el id 'tipo_usuario' exista en la página
 document.getElementById('tipo_usuario').addEventListener('change', function() {
-  window.location.href = 'gestion_delcuenta.php?tipo_usuario=' + this.value;
+  window.location.href = 'gestion_delCuenta.php?tipo_usuario=' + this.value;
 });
