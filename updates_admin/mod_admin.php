@@ -69,7 +69,7 @@
                             <div class="perfil-usuario-header">
                                 <div class="perfil-usuario-portada">
                                     <div class="perfil-usuario-avatar">
-                                        <img src="'.$consulta_perfil["foto_perfil"].'" alt="img-avatar">
+                                        <img src=".'.$consulta_perfil["foto_perfil"].'" alt="img-avatar">
                                         <a href= "../updates_admin/mod_imgAdmin.php?id='.$id_adminm.'&id_perfil='.$id_admin.'">
                                         <button type="button" class="boton-avatar">
                                             <i class="far fa-image"></i>

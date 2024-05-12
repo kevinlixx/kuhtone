@@ -73,7 +73,7 @@ $id_admin= $_GET['id_perfil'];
                             <section class="psicologos--card">
                                 <figure class="figure--card"> 
                                     <img 
-                                    src="'.$consulta_total["foto_perfil"].'" 
+                                    src=".'.$consulta_total["foto_perfil"].'" 
                                     alt="psicologo"
                                     /> 
                                     <figcaption></figcaption> 
