@@ -318,6 +318,13 @@ main {
     text-align: center;
     padding: 5px 10px;
 }
+.psicologos--card p{
+    margin: 5px 10px;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+    word-spacing: -1.1px;
+}
 
 .content--container {
     display: flex;

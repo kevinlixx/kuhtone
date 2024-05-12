@@ -107,8 +107,11 @@ header .menu-section{
     justify-content: center; 
     margin-top: 0;
 }
+.psicologos--card p{
+    font-size: 1.4rem;
+}
 .psicologo--description p{
-    font-size: 1.2rem;
+    font-size: 1.4rem;
      word-spacing: -1.1px;
 }
 /*Boton volver*/

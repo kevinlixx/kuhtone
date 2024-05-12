@@ -12,9 +12,14 @@
 .psicologo--description {
     margin-top: 10px;
 }
+.psicologos--card p{
+    font-size: 1.3rem;
+}
+
 .psicologo--description p {
     font-size: 1.3rem;
    }
+
 .icon-ingreso img{
   width: 40px;
   height: 40px;

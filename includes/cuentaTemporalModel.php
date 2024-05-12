@@ -30,6 +30,7 @@ class CuentaTemporal {
                 }
                 $cuenta = [
                     'tipo_usuario' => $consulta_total["tipo_usuario"],
+                    'fecha_eliminacion' => $consulta_total["fecha_eliminacion"],
                     'nombres' => $datos_usuario["nombres"],
                     'apellidos' => $datos_usuario["apellidos"],
                     'correo' => $correo,

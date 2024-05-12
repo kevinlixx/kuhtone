@@ -10,6 +10,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $correo = $_POST['correo'];
   $cuentaTemporal->restaurarCuenta($tipo_usuario, $correo);
   $resultado = $cuentaTemporal->eliminarCuentaTemporal($tipo_usuario, $correo);
+  if ($resultado) {
+    echo "Cuenta eliminada exitosamente";
+  } else {
+    echo "Error al eliminar la cuenta";
+  }
+  // Redirigir a la misma página para forzar una actualización de los datos
+  header("Location: " . $_SERVER['PHP_SELF']);
+  exit;
 }
  
 $tipo_usuario = isset($_GET['tipo_usuario']) ? $_GET['tipo_usuario'] : '';
@@ -100,6 +108,7 @@ function obtenerCuentas($conection, $tipo_usuario = '') {
             echo '
             <section class="psicologos--card">
               <h4>'.$cuenta['tipo_usuario'].'</h4> 
+              <p class="fecha-eliminacion"><span class="item--aco">Fecha de eliminación:</span> '.$cuenta['fecha_eliminacion'].'</p>
               <div class="content--container">
                 <figure class="figure--card"> 
                   <img 
