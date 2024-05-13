@@ -67,7 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@300;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/asistencia_paciente.css">
+    <link rel="stylesheet" href="./css/style_asistencia_paciente.css">
     <link rel="stylesheet" href="./css/tablet.css" media="screen and (min-width: 600px)" />
     <link rel="stylesheet" href="./css/desktop.css" media="screen and (min-width: 800px)" />
 </head>
@@ -118,7 +118,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="Contendor-info-paciente">
         <h3>Asistencia de cita.</h3>
         <div class="psicologo-details--container">
-            <h3>Paciente</h3>
+            <h2>Paciente</h2>
             <section>
                 <div class="info-group">
                     <img class="small-image" src="./img/NameUsuario.svg" alt="Icono de Nombre">
@@ -141,19 +141,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Añadir el formulario de asistencia del paciente
             echo '
     
-        <div class="formulario-asistencia">
-        <form method="post">
-    <div class="form-group">
-        <h3>Asistió a la cita</h3>
-        <label class="label-asistio">
-            <input type="radio" name="asistio" value="1">
-            Sí
-        </label>
-        <label class="label-asistio" >
-            <input type="radio" name="asistio" value="0">
-            No
-        </label>
-    </div>
+            <div class="formulario-asistencia">
+            <form method="post">
+                <div class="form-group">
+                    <h3>Asistió a la cita</h3>
+                    <div class="asistio-container">
+                        <label class="label-asistio">
+                            <input type="radio" name="asistio" value="1">
+                            Sí
+                        </label>
+                        <label class="label-asistio">
+                            <input type="radio" name="asistio" value="0">
+                            No
+                        </label>
+                    </div>
+                </div>
     <div class="form-group">
         <label class="label-reporte" for="reporte">Reporte del Encuentro</label>
         <textarea id="reporte" name="reporte" rows="4" cols="50" placeholder="Escribe el reporte de la cita"></textarea>
