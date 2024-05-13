@@ -162,7 +162,7 @@
             }
         ?> 
         <div class="button-container">
-            <button class="form-bottom" onclick="location.href='./asistencia_paciente.php'">Asistencia</button>
+            <button class="form-bottom" onclick="location.href='./asistencia_paciente.php?id_paciente=<?php echo $id_paciente; ?>'">Asistencia</button>
             <button class="form-bottom" onclick="location.href='./reportes_psicologo.php'">Reportes</button>
         </div>
         
