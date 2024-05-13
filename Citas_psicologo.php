@@ -98,8 +98,8 @@
                                     <p>Correo: '.$consulta_total["correo"].'</p>
                                     <p>Teléfono móvil: '.$consulta_total["telefono_movil"].'</p>
                                 </div>
-                                <div class="mas_info--description-container">
-                                <a href="info_paciente.php?id_paciente='.$consulta_total["id_paciente"].'" class="mas_info--description">
+                                <div class="mas_info--description-container">                              
+                                <a href="info_paciente.php?id_paciente='.$consulta_total["id_paciente"].'&id_perfil='.$id_profesional.'" class="mas_info--description">
                                     <figure class="icon-ingreso"> 
                                         <img src="./img/icon-ingreso.svg" alt="icono de ingreso"/>  
                                     </figure>
@@ -112,7 +112,7 @@
                     }
                 }
                 ?>
-                <a href="./index_psicologos.php?id_perfil='.$id_paciente.'" class="back--bottom">Volver</a>
+                <a href="./index_psicologos.php?id_perfil=<?php echo $id_profesional; ?>" class="back--bottom">Volver</a>
             </div>
         </div>
     </main>

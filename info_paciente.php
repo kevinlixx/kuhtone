@@ -165,8 +165,7 @@
             <button class="form-bottom" onclick="location.href='./asistencia_paciente.php?id_paciente=<?php echo $id_paciente; ?>'">Asistencia</button>
             <button class="form-bottom" onclick="location.href='./reportes_psicologo.php'">Reportes</button>
         </div>
-        
-        <div><a href="./citas_psicologo.php?id_perfil='.$id_paciente.'" class="back--bottom">Volver</a></div>
+        <div><a href="./Citas_psicologo.php?id_perfil=<?php echo $id_profesional; ?>" class="back--bottom">Volver</a></div>
     </main>
 
     <!-- Pie de página -->
