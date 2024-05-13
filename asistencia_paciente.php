@@ -1,62 +1,51 @@
 <?php
-// Incluir el archivo de conexión a la base de datos
+session_start(); // Iniciar la sesión
+
+// asistencia_paciente.php
 include("./config/conexion.php");
+include("./includes/asistencia_pacienteModel.php");
 
-// Obtener y sanitizar el ID del perfil del profesional, la fecha de búsqueda y el ID del paciente de la URL
-$id_profesional = isset($_GET['id_perfil']) ? intval($_GET['id_perfil']) : null;
-$fecha_busqueda = isset($_GET['fecha']) ? $_GET['fecha'] : null;
-$id_paciente = isset($_GET['id_paciente']) ? intval($_GET['id_paciente']) : null;
+$model = new AsistenciaPacienteModel($conection);
 
-// Inicializar variables
-$paciente_nombres = "";
-$paciente_apellidos = "";
+$id_paciente = $_GET['id_paciente']; // Asegúrate de validar y sanear este dato en la práctica
+$id_profesional = $_SESSION['id_profesional']; // Suponiendo que tienes un ID de profesional almacenado en la sesión
+$id_sesion = isset($_GET['id_sesion']) ? $_GET['id_sesion'] : null;
 
-// Verificar si se ha proporcionado un ID de paciente válido
-if ($id_paciente !== null) {
-    // Realizar la consulta a la base de datos para obtener la información del paciente
-    $consulta = "SELECT nombres, apellidos FROM paciente WHERE id_paciente = ?";
-    $stmt = $conection->prepare($consulta);
-    $stmt->bind_param("i", $id_paciente);
-    $stmt->execute();
-    $stmt->store_result();
+// Obtener la información del paciente
+list($paciente_nombres, $paciente_apellidos) = $model->getPacienteInfo($id_paciente);
 
-    // Verificar si se encontró algún resultado
-    if ($stmt->num_rows > 0) {
-        // Obtener la información del paciente
-        $stmt->bind_result($paciente_nombres, $paciente_apellidos);
-        $stmt->fetch();
-    } else {
-        // Si no se encontró ningún paciente con ese ID, asignar un mensaje de error
-        $error_message = "No se encontró ningún paciente con ese ID.";
-    }
-
-    $stmt->close();
-} else {
-    // Si no se proporcionó un ID de paciente válido, asignar un mensaje de error
-    $error_message = "ID de paciente no válido.";
-}
-
-// Procesar la asistencia del paciente si se ha enviado el formulario
+// Actualizar la asistencia
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Recoger los datos del formulario
     $asistio = isset($_POST['asistio']) ? intval($_POST['asistio']) : null;
     $reporte = isset($_POST['reporte']) ? $_POST['reporte'] : null;
-    $id_sesion = isset($_POST['id_sesion']) ? intval($_POST['id_sesion']) : null; // Asegúrate de pasar este valor desde tu formulario
+    $id_sesion = isset($_POST['id_sesion']) ? intval($_POST['id_sesion']) : null;
 
-    // Verificar que los datos requeridos no estén vacíos
     if ($asistio !== null && $reporte !== null && $id_sesion !== null) {
-        // Consulta SQL para actualizar la asistencia en la base de datos
-        $sql = "UPDATE sesion SET asistencia = ?, reporte_sesion = ? WHERE id_paciente = ? AND id_sesion = ?";
-        $stmt = $conection->prepare($sql);
-        $stmt->bind_param("issi", $asistio, $reporte, $id_paciente, $id_sesion);
+        // Verificar si ya existe una sesión con el paciente y el profesional
+        $sesion_existente = $model->obtenerSesion($id_paciente, $id_profesional);
 
-        // Ejecutar la consulta SQL
-        if ($stmt->execute()) {
-            echo "Asistencia y reporte guardados correctamente";
+        if ($sesion_existente) {
+            // Actualizar la asistencia y el reporte de la sesión existente
+            if ($model->updateAsistencia($asistio, $reporte, $id_paciente, $sesion_existente['id_sesion'])) {
+                echo "Asistencia y reporte guardados correctamente";
+            } else {
+                $error_message = $model->getErrorMessage();
+            }
         } else {
-            $error_message = "Error al guardar la asistencia y el reporte: " . $stmt->error;
+            // Crear una nueva sesión y luego actualizar la asistencia y el reporte
+            $fecha_sesion = date('Y-m-d'); // Establecer la fecha de la sesión como la fecha actual
+            $id_sesion = $model->insertarSesion($id_paciente, $id_profesional, $fecha_sesion);
+
+            if ($id_sesion !== false) {
+                if ($model->updateAsistencia($asistio, $reporte, $id_paciente, $id_sesion)) {
+                    echo "Asistencia y reporte guardados correctamente";
+                } else {
+                    $error_message = $model->getErrorMessage();
+                }
+            } else {
+                $error_message = $model->getErrorMessage();
+            }
         }
-        $stmt->close();
     } else {
         $error_message = "Por favor, completa todos los campos del formulario.";
     }
@@ -67,6 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- Metadatos y enlaces a archivos externos -->
     <meta charset="UTF-8">
@@ -78,35 +68,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@300;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/asistencia_paciente.css">
-    <link rel="stylesheet" href="./css/tablet.css" media="screen and (min-width: 600px)"/>
-    <link rel="stylesheet" href="./css/desktop.css" media="screen and (min-width: 800px)"/>
+    <link rel="stylesheet" href="./css/tablet.css" media="screen and (min-width: 600px)" />
+    <link rel="stylesheet" href="./css/desktop.css" media="screen and (min-width: 800px)" />
 </head>
+
 <body>
     <!-- Encabezado de la página -->
     <header>
         <section class="section_header">
             <!-- Logo -->
-            <figure class="figure_header"> 
-                <img src="./img/logo_header.svg" alt="lgo de kuhtone"/>  
-                <figcaption></figcaption> 
+            <figure class="figure_header">
+                <img src="./img/logo_header.svg" alt="lgo de kuhtone" />
+                <figcaption></figcaption>
             </figure>
 
             <!-- Menú de navegación -->
             <div class="menu menu-header">
                 <figure id="btn_menu">
-                    <img src="./img/menu.svg" alt="menu"/>  
-                    <figcaption></figcaption> 
+                    <img src="./img/menu.svg" alt="menu" />
+                    <figcaption></figcaption>
                 </figure>
                 <div id="back_menu"></div>
                 <nav id="nav" class="menu-section">
                     <img src="img/logo_header.svG" alt="">
-                    <ul> 
+                    <ul>
                         <!-- Enlaces dinámicos según el ID del perfil del profesional -->
                         <?php
-                            echo '
-                            <li><a href="./index_psicologos.php?id_perfil='.$id_profesional.'">Inicio</a></li>
-                            <li><a href="./queries/consultar_dispo.php?id_perfil='.$id_profesional.'">Mi disponibilidad</a></li>
-                            <li><a href="./perfil_psicologo.php?id_perfil='.$id_profesional.'">Mi perfil</a></li>
+                        echo '
+                            <li><a href="./index_psicologos.php?id_perfil=' . $id_profesional . '">Inicio</a></li>
+                            <li><a href="./queries/consultar_dispo.php?id_perfil=' . $id_profesional . '">Mi disponibilidad</a></li>
+                            <li><a href="./perfil_psicologo.php?id_perfil=' . $id_profesional . '">Mi perfil</a></li>
                             <li><a href="./index.php" id="selected">Cerrar Sesión</a></li>';
                         ?>
                     </ul>
@@ -117,13 +108,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <!-- Contenido principal -->
     <main>
-    <?php
-// Verificar si hay un mensaje de error
-if (isset($error_message)) {
-    echo '<div class="error-message">' . $error_message . '</div>';
-} else {
-    // Mostrar la información del paciente
-    echo '
+        <?php
+        // Verificar si hay un mensaje de error
+        if (isset($error_message)) {
+            echo '<div class="error-message">' . $error_message . '</div>';
+        } else {
+            // Mostrar la información del paciente
+            echo '
     <div class="Contendor-info-paciente">
         <h3>Asistencia de cita.</h3>
         <div class="psicologo-details--container">
@@ -133,22 +124,22 @@ if (isset($error_message)) {
                     <img class="small-image" src="./img/NameUsuario.svg" alt="Icono de Nombre">
                     <div>
                         <h4>Nombres:</h4>
-                        <p class="paciente-nombre">'.$paciente_nombres.'</p>
+                        <p class="paciente-nombre">' . $paciente_nombres . '</p>
                     </div>
                 </div>
                 <div class="info-group">
                     <img class="small-image" src="./img/NameUsuario.svg" alt="Icono de Apellido">
                     <div>
                         <h4>Apellidos:</h4>
-                        <p class="paciente-apellidos">'.$paciente_apellidos.'</p>
+                        <p class="paciente-apellidos">' . $paciente_apellidos . '</p>
                     </div>
                 </div>
             </section>
         </div>
     </div>';
 
-    // Añadir el formulario de asistencia del paciente
-    echo '
+            // Añadir el formulario de asistencia del paciente
+            echo '
     
         <div class="formulario-asistencia">
         <form method="post">
@@ -167,17 +158,17 @@ if (isset($error_message)) {
         <label class="label-reporte" for="reporte">Reporte del Encuentro</label>
         <textarea id="reporte" name="reporte" rows="4" cols="50" placeholder="Escribe el reporte de la cita"></textarea>
     </div>
-    <input type="hidden" name="id_sesion" > <!-- Asegúrate de reemplazar VALOR_CORRECTO con el valor correcto de id_sesion -->
+    <input type="hidden" name="id_sesion" value="<?php echo $id_sesion; ?>">
     <div class="button-container">
         <input type="submit" value="Guardar Asistencia" class="form-bottom">
     </div>
 </form>
         </div>
     ';
-}
-?>
+        }
+        ?>
 
-     <div><a href="./citas_psicologo.php?id_perfil='.$id_paciente.'" class="back--bottom">Volver</a></div>
+        <div><a href="./citas_psicologo.php?id_perfil='.$id_paciente.'" class="back--bottom">Volver</a></div>
     </main>
 
     <!-- Pie de página -->
@@ -190,4 +181,5 @@ if (isset($error_message)) {
     <!-- Archivo de script -->
     <script src="js/script.js"></script>
 </body>
+
 </html>

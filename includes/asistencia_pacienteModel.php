@@ -1,0 +1,72 @@
+<?php
+// asistencia_pacienteModel.php
+class AsistenciaPacienteModel {
+    private $conection;
+    private $error_message = "";
+
+    public function __construct($conection) {
+        $this->conection = $conection;
+    }
+
+    public function getPacienteInfo($id_paciente) {
+        $consulta = "SELECT nombres, apellidos FROM paciente WHERE id_paciente = ?";
+        $stmt = $this->conection->prepare($consulta);
+        $stmt->bind_param("i", $id_paciente);
+        $stmt->execute();
+        $stmt->store_result();
+
+        if ($stmt->num_rows > 0) {
+            $stmt->bind_result($paciente_nombres, $paciente_apellidos);
+            $stmt->fetch();
+            return array($paciente_nombres, $paciente_apellidos);
+        } else {
+            $this->error_message = "No se encontró ningún paciente con ese ID.";
+            return null;
+        }
+    }
+    public function insertarSesion($id_paciente, $id_profesional, $fecha_sesion) {
+        $sql = "INSERT INTO sesion (id_paciente, id_profesional, fecha_sesion) VALUES (?, ?, ?)";
+        $stmt = $this->conection->prepare($sql);
+        $stmt->bind_param("iis", $id_paciente, $id_profesional, $fecha_sesion);
+    
+        if ($stmt->execute()) {
+            return $this->conection->insert_id; // Devuelve el ID de la sesión recién insertada
+        } else {
+            $this->error_message = "Error al crear la sesión: " . $stmt->error;
+            return false;
+        }
+    }    
+    public function updateAsistencia($asistio, $reporte, $id_paciente, $id_sesion) {
+        $sql = "UPDATE sesion SET asistencia = ?, reporte_sesion = ? WHERE id_paciente = ? AND id_sesion = ?";
+        $stmt = $this->conection->prepare($sql);
+        $stmt->bind_param("issi", $asistio, $reporte, $id_paciente, $id_sesion);
+
+        if ($stmt->execute()) {
+            return true;
+        } else {
+            $this->error_message = "Error al guardar la asistencia y el reporte: " . $stmt->error;
+            return false;
+        }
+    }
+    // Nueva función obtenerSesion
+    public function obtenerSesion($id_paciente, $id_profesional) {
+        $consulta = "SELECT id_sesion FROM sesion WHERE id_paciente = ? AND id_profesional = ?";
+        $stmt = $this->conection->prepare($consulta);
+        $stmt->bind_param("ii", $id_paciente, $id_profesional);
+        $stmt->execute();
+        $stmt->store_result();
+
+        if ($stmt->num_rows > 0) {
+            $stmt->bind_result($id_sesion);
+            $stmt->fetch();
+            return array('id_sesion' => $id_sesion);
+        } else {
+            return false;
+        }
+    }
+    public function getErrorMessage() {
+        return $this->error_message;
+    }
+
+}
+?>
