@@ -167,8 +167,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     ';
         }
         ?>
-
-        <div><a href="./citas_psicologo.php?id_perfil='.$id_paciente.'" class="back--bottom">Volver</a></div>
+        <div><a href="./Citas_psicologo.php?id_perfil=<?php echo $id_profesional; ?>" class="back--bottom">Volver</a></div>
     </main>
 
     <!-- Pie de página -->
