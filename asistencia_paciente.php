@@ -1,5 +1,6 @@
 <?php
 session_start(); // Iniciar la sesión
+
 // asistencia_paciente.php
 include("./config/conexion.php");
 include("./includes/asistencia_pacienteModel.php");
@@ -7,7 +8,8 @@ include("./includes/asistencia_pacienteModel.php");
 $model = new AsistenciaPacienteModel($conection);
 
 $id_paciente = filter_input(INPUT_GET, 'id_paciente', FILTER_SANITIZE_NUMBER_INT); // Validar y sanear este dato en la práctica
-$id_profesional = $_SESSION['id_profesional'];
+$id_profesional = isset($_GET['id_profesional']) ? $_GET['id_profesional'] : null;
+echo "ID profesional: " . $id_profesional;
 $id_sesion = filter_input(INPUT_GET, 'id_sesion', FILTER_SANITIZE_NUMBER_INT);
 $diagnosticos = $model->obtenerDiagnosticos();
 
@@ -26,11 +28,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sesion_existente = $model->obtenerSesion($id_paciente, $id_profesional);
 
         if ($sesion_existente) {
-            // Actualizar la asistencia y el reporte de la sesión existente
-            if ($model->updateAsistencia($asistio, $reporte, $id_paciente, $sesion_existente['id_sesion'], $id_diagnostico)) {
-                echo "Asistencia y reporte guardados correctamente";
+            if ($asistio == 1) {
+                // Crear una nueva sesión y luego actualizar la asistencia y el reporte
+                $fecha_sesion = date('Y-m-d'); // Establecer la fecha de la sesión como la fecha actual
+                $id_sesion = $model->insertarSesion($id_paciente, $id_profesional, $fecha_sesion);
+
+                if ($id_sesion !== false) {
+                    if ($model->updateAsistencia($asistio, $reporte, $id_paciente, $id_sesion, $id_diagnostico)) {
+                        $_SESSION['reporte_guardado'] = true;
+                    } else {
+                        $error_message = $model->getErrorMessage();
+                    }
+                } else {
+                    $error_message = $model->getErrorMessage();
+                }
             } else {
-                $error_message = $model->getErrorMessage();
+                // Actualizar el diagnóstico, la asistencia y el reporte de la sesión existente
+                if ($model->actualizarDiagnosticoSesion($id_diagnostico, $sesion_existente['id_sesion'])) {
+                    if ($model->updateAsistencia($asistio, $reporte, $id_paciente, $sesion_existente['id_sesion'], $id_diagnostico)) {
+                        $_SESSION['reporte_guardado'] = true;
+                    } else {
+                        $error_message = $model->getErrorMessage();
+                    }
+                } else {
+                    $error_message = $model->getErrorMessage();
+                }
             }
         } else {
             // Crear una nueva sesión y luego actualizar la asistencia y el reporte
@@ -39,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             if ($id_sesion !== false) {
                 if ($model->updateAsistencia($asistio, $reporte, $id_paciente, $id_sesion, $id_diagnostico)) {
-                    echo "Asistencia y reporte guardados correctamente";
+                    $_SESSION['reporte_guardado'] = true;
                 } else {
                     $error_message = $model->getErrorMessage();
                 }
@@ -47,13 +69,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $error_message = $model->getErrorMessage();
             }
         }
+
+        // Redireccionar después de guardar la asistencia
+        header("Location: asistencia_paciente.php?id_paciente=$id_paciente&id_profesional=$id_profesional");
+        exit();
     } else {
         $error_message = "Por favor, completa todos los campos del formulario.";
     }
 }
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -174,7 +198,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
     <input type="hidden" name="id_sesion" value="<?php echo $id_sesion; ?>">
     <div class="button-container">
-        <input type="submit" value="Guardar Asistencia" class="form-bottom">
+        <button type="submit" name="guardar_asistencia" value="1" class="form-bottom">Guardar Asistencia</button>
     </div>
 </form>
         </div>
@@ -196,6 +220,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <!-- Archivo de script -->
     <script src="js/script.js"></script>
+    <?php
+        $reporte_guardado = isset($_SESSION['reporte_guardado']) ? $_SESSION['reporte_guardado'] : false;
+        if ($reporte_guardado):
+    ?>
+        <script>
+            alert('Reporte registrado');
+            setTimeout(function() {
+                window.location.href = "info_paciente.php?id_paciente=<?php echo $id_paciente; ?>&id_perfil=<?php echo $id_profesional; ?>";
+            }, 1000); // Redireccionar después de 2 segundos
+        </script>
+    <?php
+            unset($_SESSION['reporte_guardado']);
+        endif;
+    ?>
 </body>
 
 </html>

@@ -25,17 +25,26 @@ class AsistenciaPacienteModel {
         }
     }
     public function insertarSesion($id_paciente, $id_profesional, $fecha_sesion) {
+        // Agregar una línea para depurar el valor de $id_profesional
+        error_log("id_profesional: $id_profesional");
+    
         $sql = "INSERT INTO sesion (id_paciente, id_profesional, fecha_sesion) VALUES (?, ?, ?)";
         $stmt = $this->conection->prepare($sql);
         $stmt->bind_param("iis", $id_paciente, $id_profesional, $fecha_sesion);
     
+        // Agregar una validación para asegurarse de que $id_profesional tenga un valor
+        if ($id_profesional == null) {
+            $this->error_message = "El ID del profesional no puede ser nulo";
+            return false;
+        }
+    
         if ($stmt->execute()) {
-            return $this->conection->insert_id; // Devuelve el ID de la sesión recién insertada
+            return $this->conection->insert_id;
         } else {
             $this->error_message = "Error al crear la sesión: " . $stmt->error;
             return false;
         }
-    }    
+    }   
     public function updateAsistencia($asistio, $reporte, $id_paciente, $id_sesion, $id_diagnostico) {
         $sql = "UPDATE sesion SET asistencia = ?, reporte_sesion = ?, id_diagnostico = ? WHERE id_paciente = ? AND id_sesion = ?";
         $stmt = $this->conection->prepare($sql);
