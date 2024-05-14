@@ -9,7 +9,6 @@ $model = new AsistenciaPacienteModel($conection);
 
 $id_paciente = filter_input(INPUT_GET, 'id_paciente', FILTER_SANITIZE_NUMBER_INT); // Validar y sanear este dato en la práctica
 $id_profesional = isset($_GET['id_profesional']) ? $_GET['id_profesional'] : null;
-echo "ID profesional: " . $id_profesional;
 $id_sesion = filter_input(INPUT_GET, 'id_sesion', FILTER_SANITIZE_NUMBER_INT);
 $diagnosticos = $model->obtenerDiagnosticos();
 

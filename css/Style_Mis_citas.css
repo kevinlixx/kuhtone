@@ -190,9 +190,14 @@
         width: 160px;
         
     }
+    body{
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
     main {
+        flex: 1 0 auto;
         width: 100%;
-        /* height: 100vh; */
         min-width: 320px;
         margin-top: 5rem;
     }
@@ -212,8 +217,18 @@
         display: block;
         position: relative ;
       }
+      .figure-consult {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+    .figure-consult img{
+        width: 248px;
+        height: 220px;
+    }
  
       /*Desde aqui empieza el css del formulario de mis citas */
+    /* Animación de cambio de color para el h2 */
     @keyframes color-change {
         0% {
             color: #3E8E98;
@@ -225,8 +240,8 @@
             color: #32727A;
         }
     }
-    
-    /* Animación de cambio de color para la línea inferior del h2 */
+    /* Animación de cambip de color para el linea inferior del h2*/
+
     @keyframes underline-color-change {
         0%, 100% {
             background: #3E8E98;
@@ -235,7 +250,17 @@
             background: #20D2C8;
         }
     }
+    /* Animación de desplazamineto de la linea interior del h2 */
+    @keyframes underline-slide {
+        0%, 100% {
+            transform: translateX(-40%); /* Cambia esta línea */
+        }
+        50% {
+            transform: translateX(40%); /* Cambia esta línea */
+        }
+    }
     
+    /* Código del h2 y llamado de la primera animación */
     .title--main {
         font-size: 30px;
         text-align: center;
@@ -243,7 +268,21 @@
         animation: color-change 1.5s infinite;
         color: var(--paradiso);
         position: relative;
-        overflow: hidden;
+        /* overflow: hidden; */
+    }
+    
+    /* Código del h2 con pseudo-clase y llamado de la animación para el subrayado */
+    .title--main::after {
+        content: '';
+        position: absolute;
+        left: 5%;
+        bottom: 0;
+        height: 3px;
+        width: 100%;
+        background: #32727A;
+        animation: underline-color-change 2s infinite, underline-slide 2s infinite;
+        transform: translateX(-100%);
+        
     }
     
     .sub-titulo {

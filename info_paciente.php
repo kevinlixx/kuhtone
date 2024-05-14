@@ -33,7 +33,7 @@ $stmt->close();
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@300;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/Info_paciente_psicol.css">
+    <link rel="stylesheet" href="./css/style_info_pacPsico.css">
     <link rel="stylesheet" href="./css/tablet.css" media="screen and (min-width: 600px)" />
     <link rel="stylesheet" href="./css/desktop.css" media="screen and (min-width: 800px)" />
 </head>
@@ -156,7 +156,9 @@ $stmt->close();
             <button class="form-bottom" onclick="location.href='./asistencia_paciente.php?id_paciente=<?php echo $id_paciente; ?>&id_profesional=<?php echo $id_profesional; ?>'">Asistencia</button>
             <button class="form-bottom" onclick="location.href='./reportes_psicologo.php'">Reportes</button>
         </div>
-        <div><a href="./Citas_psicologo.php?id_perfil=<?php echo $id_profesional; ?>" class="back--bottom">Volver</a></div>
+        <div class="back-button-container">
+        <a href="./Citas_psicologo.php?id_perfil=<?php echo $id_profesional; ?>" class="back--bottom">Volver</a>
+        </div>
     </main>
 
     <!-- Pie de página -->

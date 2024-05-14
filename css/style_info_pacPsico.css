@@ -3,6 +3,8 @@
         --turquoise: #568281;
         --font-color: #FFFFFF;
         --black: #000000 ;
+        --section--color: #d3e1e1;
+        
         /* News */
         --paradiso: #3E8E98;
         --sandy: #F4A26C;
@@ -11,7 +13,6 @@
         --fountain: #63B5BF;
         --gris:#817F7F;
         --gray--clean: #f9fafe;
-        --section--color: #E0E8FA;
     }
     *{
         box-sizing: border-box;
@@ -292,23 +293,34 @@
     }
 
     /*Estilos para el boton volver*/
+    .back-button-container {
+        display: flex; /* Añade flexbox */
+        justify-content: center; /* Centra el botón horizontalmente */
+        margin-top: 20px; /* Ajusta este valor según tus necesidades */
+        margin-bottom: 20px; /* Ajusta este valor según tus necesidades */
+        
+    }
+
+    /*Estilos para el boton volver*/
     .back--bottom {
         background-color: var(--aqua);
         color: var(--dark--parad);
         text-decoration: none;
-        font-weight: bold;
-        font-size: 1.4rem;
+        font-weight: 600;
+        font-size: 2.1rem;
         text-align: center;
-        margin: 10px;   
-        width: 89px;
-        height: 33px;
+        margin: 4px;
+        /* margin-right: 20px; */
+        width: 100px;
+        height: 39px;
         border-radius: 15px;
         padding: 5px;
         justify-content: center;
         transition: 300ms;
         border: none; 
-        float: right;
-        position: relative;    
+        position: relative;
+        float: left;
+       
     }
     
     .back--bottom:hover{
@@ -324,7 +336,8 @@
         min-width: 320px;
     }
     .pie-pagina .footer_copy{
-        background-color: var(--section-color);
+
+        background-color: var(--section--color);
         padding: 15px 10px;
         text-align: center;
         color:var(--turquoise);
