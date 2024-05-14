@@ -14,9 +14,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@300;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/Style_Mis_citas.css">
+    <link rel="stylesheet" href="./css/style_mis_citas.css">
     <link rel="stylesheet" href="./css/tablet_usr.css" media="screen and (min-width: 600px)"/>
-    <link rel="stylesheet" href="./css/desktop_usr.css" media="screen and (min-width: 800px)"/>
+    <link rel="stylesheet" href="./css/desktop_mis_citas.css" media="screen and (min-width: 800px)"/>
 </head>
 <body>
     <header>
@@ -93,10 +93,10 @@
                                 </figure>
                                 <div class="psicologo--description">
                                     <h4>Paciente</h4>
-                                    <p>Nombre: '.$consulta_total["nombres"].'</p>
-                                    <p>Apellidos: '.$consulta_total["apellidos"].'</p>
-                                    <p>Correo: '.$consulta_total["correo"].'</p>
-                                    <p>Teléfono móvil: '.$consulta_total["telefono_movil"].'</p>
+                                    <p><span class="item--aco">Nombre:</span> '.$consulta_total["nombres"].'</p>
+                                    <p><span class="item--aco">Apellidos:</span> '.$consulta_total["apellidos"].'</p>
+                                    <p><span class="item--aco">Correo:</span> '.$consulta_total["correo"].'</p>
+                                    <p><span class="item--aco">Teléfono móvil:</span> '.$consulta_total["telefono_movil"].'</p>
                                 </div>
                                 <div class="mas_info--description-container">                              
                                 <a href="info_paciente.php?id_paciente='.$consulta_total["id_paciente"].'&id_perfil='.$id_profesional.'" class="mas_info--description">

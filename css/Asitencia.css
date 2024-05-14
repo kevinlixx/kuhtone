@@ -1,8 +1,8 @@
+
     /* lo que debe tener si o si el aplciativo */
     :root{
         --turquoise: #568281;
         --font-color: #FFFFFF;
-        --section--color: #d3e1e1;
         --black: #000000 ;
         /* News */
         --paradiso: #3E8E98;
@@ -10,8 +10,9 @@
         --aqua: #A8D6DC;
         --dark--parad: #32727A;
         --fountain: #63B5BF;
-        --gris:#817F7F;
+        --gris: #D9D9D9;
         --gray--clean: #f9fafe;
+        --section--color: #E0E8FA;
     }
     *{
         box-sizing: border-box;
@@ -152,6 +153,8 @@
         cursor: pointer;
         transition: all 300ms;
     }
+
+    
     #btn_menu:checked ~ main {
         background-color: #333;
       }
@@ -193,7 +196,7 @@
     main {
         width: 100%;
         min-width: 320px;
-        margin-top: 3rem;
+        margin-top: 5rem;
     }
     .container-all {
         display: grid;
@@ -212,21 +215,8 @@
         position: relative ;
       }
  
-      /*Estilos del formulario */
-      .Contendor-info-paciente {
-        display: flex;
-        flex-direction: column;
-        margin-left: 18%; 
-        width: 63%; 
-    }
-    
-    @media screen and (max-width: 600px) {
-        .Contendor-info-paciente {
-            margin-left: 5%;
-            width: 90%;
-        }
-    }
-    @keyframes color-change {
+      /*Desde aqui empieza el css del formulario de mis citas */
+      @keyframes color-change {
         0% {
             color: #3E8E98;
         }
@@ -237,6 +227,7 @@
             color: #32727A;
         }
     }
+    /* Animación de cambip de color para el linea inferior del h2*/
     
     @keyframes underline-color-change {
         0%, 100% {
@@ -246,214 +237,90 @@
             background: #20D2C8;
         }
     }
-    
-    @keyframes underline-slide {
-        0%, 100% {
-            transform: translateX(-30%);
-        }
-        50% {
-            transform: translateX(30%);
-        }
-    }
-    
-    .Contendor-info-paciente h3 {
-        font-size: 26px;
+    #titulo-citas {
+        font-size: 30px;
         text-align: center;
         margin-bottom: 10px;
         animation: color-change 1.5s infinite;
-        color: var(--fountain);
+        color: var(--paradiso);
         position: relative;
         overflow: hidden;
-        margin-bottom: 30px;
     }
- 
-    
-    .Contendor-info-paciente h3::after {
-        content: '';
-        position: absolute;
-        left: 22%;
-        bottom: 0;
-        height: 3px;
-        width: 58%;
-        background: #32727A;
-        animation: underline-color-change 2s infinite, underline-slide 2s infinite;
-        transform: translateX(-50%);
-    }
-
-    /*Estilo para los iconos*/
-    .small-image {
-        width: 47px;
-        height: 39px; 
-        align-items: flex-start;
-    }
-    .info-group {
-        display: flex;
-        margin-bottom: 15px;
-    }
-
-    .info-group img {
-        margin-right: 10px;
-    }
-
-    .info-group div {
-        margin-left: 10px;
-    }
-
-    /*Estilo para el titulo paciente*/
-    .Contendor-info-paciente h2{
-        color: var(--fountain); 
-        font-size: 26px;
-        margin-bottom: 10px;
-        text-align: center;
-    }
-    .psicologo-details--container h2 {
-        color: var(--paradiso); 
-        font-size: 25px;
-        margin-bottom: 7px;
-        text-align: left;
-    }
-
-    /*Estilo para los titulos */
-    .info-group h4 {
+    #titulo-asistencia {
         font-size: 20px;
-        margin-bottom: 6px;
-        text-align: left;
+        text-align: center;
+        margin-bottom: 10px;
+        color: var(--paradiso);
+        position: relative;
+        overflow: hidden;
+    }
+
+
+    #boton-si, #boton-no, #boton-guardar{
+    
+        text-decoration: none;
+        border: none;
+        padding: 7px 8px;
+        font-size: 17px;
+        background: var(--aqua);
         font-weight: 600;
-        color: var(--fountain);
+        cursor: pointer;
+        color: var(--dark--parad);
+        outline: none;
+        transition: all 300ms;
+        border-radius: 10px;
     }
-    
-    .paciente-nombre, .paciente-apellidos {
-        font-size: 19px;
-        color: var(--black);
-        text-align: center;
+    #boton-si, #boton-no, #boton-guardar{
+        background: var(--aqua);
+        color: var(--sandy);
     }
+
+
+
+
     
-    /*Estilo para el asisitio a la cita*/
-    .formulario-asistencia h3 {
-        text-align: center;
-        color: var(--paradiso); /* Cambia este valor al color que prefieras */
-        font-size: 26px; /* Cambia este valor al tamaño que prefieras */
-    }
-    
-    /*Estilo para reporte del encuentro*/
-    .form-group {
+    body {
         display: flex;
         flex-direction: column;
-        padding: 9px;
-        margin-top: 15px;
-    }
-    #id_diagnostico {
-        /* Aquí puedes agregar los estilos que desees */
-        width: 100%;
-        padding: 10px;
-        border-radius: 5px;
-        border: 1px solid #ccc;
-        font-size: 16px;
-    }
-    .asistio-container {
-        display: flex;
+        align-items: center;
         justify-content: center;
-    }
-    .form-group .label-asistio {
-        order: 1;
-        font-size: 19px;
-        padding: 10px;
-        text-align: center;
+        gap: 20px;
     }
     
-    /*Apartado donde se escribe el reporte*/
-    .form-group textarea {
-        order: 2;
-    }
-    
-    #reporte {
-        width: 100%; 
-        max-width: 600px; 
-        box-sizing: border-box; 
-        margin: 0 auto; 
-        height: 200px; 
-        padding: 18px;
-        border-radius: 20px;
-    }
-
-    .label-reporte{
-        font-size: 22px;
-        text-align: center;
-        margin-bottom: 15px;
-        font-weight: 600;
-        color: var(--dark--parad);
-    }
-    /*Estilos para el boton guardar asistencia*/
-    .form-bottom{
-        background-color: var(--aqua);
-        color: var(--dark--parad);
-        text-decoration: none;
-        font-weight: bold;
-        font-size: 1.9rem;
-        text-align: center;
-        width: 204px;
-        height: 45px;
-        border-radius: 15px;
-        padding: 5px;
-        justify-content: center;
-        transition: 300ms;
-        border: none; 
-        
-    }
-    .form-bottom:hover{
-        background-color: var(--dark--parad);
-        color: var(--sandy);
-    }
-    .button-container {
+    #contenedor-botones {
         display: flex;
         justify-content: center;
-        margin-top: 15px;
+        gap: 20px;
     }
-    /* Estilos para el contenedor del botón Volver */
-    .back-button-container {
-        display: flex; /* Añade flexbox */
-        justify-content: center; /* Centra el botón horizontalmente */
-        margin-top: 20px; /* Ajusta este valor según tus necesidades */
-        margin-bottom: 20px; /* Ajusta este valor según tus necesidades */
-    }
-
-    /*Estilos para el boton volver*/
-    .back--bottom {
-        background-color: var(--aqua);
-        color: var(--dark--parad);
-        text-decoration: none;
-        font-weight: 600;
-        font-size: 2.1rem;
-        text-align: center;
-        margin: 4px;
+    
+    #boton-si, #boton-no {
         width: 100px;
-        height: 39px;
-        border-radius: 15px;
-        padding: 5px;
-        justify-content: center;
-        transition: 300ms;
-        border: none; 
-        position: relative;
+        height: 50px;
+        font-size: 16px;
+        border-radius: 5px;
+        text-align: center;
     }
     
-    .back--bottom:hover{
-        background-color: var(--dark--parad);
-        color: var(--sandy);
+    #observacion {
+        width: 600px;
+        height: 300px;
+        border-radius: 10px;
+        padding: 15px;
     }
-    /*Estilos del pie de pagina*/
+
+
     .pie-pagina {
         position: relative;
         width: 100%;
-        background-color:var(--font-color);
+        background-color:var(--turquoise);
         text-align: center;
         min-width: 320px;
     }
     .pie-pagina .footer_copy{
-        background-color: var(--section-color);
+        background-color: var(--aqua);
         padding: 15px 10px;
         text-align: center;
         color:var(--turquoise);
-        margin-top: 50px;
     }
     .pie-pagina .footer_copy small{
         font-size: 15px;

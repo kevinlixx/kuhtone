@@ -1,32 +1,33 @@
 <?php
 session_start(); // Iniciar la sesión
-
 // asistencia_paciente.php
 include("./config/conexion.php");
 include("./includes/asistencia_pacienteModel.php");
 
 $model = new AsistenciaPacienteModel($conection);
 
-$id_paciente = $_GET['id_paciente']; // Asegúrate de validar y sanear este dato en la práctica
-$id_profesional = $_SESSION['id_profesional']; // Suponiendo que tienes un ID de profesional almacenado en la sesión
-$id_sesion = isset($_GET['id_sesion']) ? $_GET['id_sesion'] : null;
+$id_paciente = filter_input(INPUT_GET, 'id_paciente', FILTER_SANITIZE_NUMBER_INT); // Validar y sanear este dato en la práctica
+$id_profesional = $_SESSION['id_profesional'];
+$id_sesion = filter_input(INPUT_GET, 'id_sesion', FILTER_SANITIZE_NUMBER_INT);
+$diagnosticos = $model->obtenerDiagnosticos();
 
 // Obtener la información del paciente
 list($paciente_nombres, $paciente_apellidos) = $model->getPacienteInfo($id_paciente);
 
 // Actualizar la asistencia
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $asistio = isset($_POST['asistio']) ? intval($_POST['asistio']) : null;
-    $reporte = isset($_POST['reporte']) ? $_POST['reporte'] : null;
-    $id_sesion = isset($_POST['id_sesion']) ? intval($_POST['id_sesion']) : null;
+    $asistio = filter_input(INPUT_POST, 'asistio', FILTER_SANITIZE_NUMBER_INT);
+    $reporte = filter_input(INPUT_POST, 'reporte', FILTER_SANITIZE_STRING);
+    $id_sesion = filter_input(INPUT_POST, 'id_sesion', FILTER_SANITIZE_NUMBER_INT);
 
-    if ($asistio !== null && $reporte !== null && $id_sesion !== null) {
+    if ($asistio !== null && $reporte !== null && $id_sesion !== null && isset($_POST['id_diagnostico'])) {
+        $id_diagnostico = filter_input(INPUT_POST, 'id_diagnostico', FILTER_SANITIZE_NUMBER_INT);
         // Verificar si ya existe una sesión con el paciente y el profesional
         $sesion_existente = $model->obtenerSesion($id_paciente, $id_profesional);
 
         if ($sesion_existente) {
             // Actualizar la asistencia y el reporte de la sesión existente
-            if ($model->updateAsistencia($asistio, $reporte, $id_paciente, $sesion_existente['id_sesion'])) {
+            if ($model->updateAsistencia($asistio, $reporte, $id_paciente, $sesion_existente['id_sesion'], $id_diagnostico)) {
                 echo "Asistencia y reporte guardados correctamente";
             } else {
                 $error_message = $model->getErrorMessage();
@@ -37,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $id_sesion = $model->insertarSesion($id_paciente, $id_profesional, $fecha_sesion);
 
             if ($id_sesion !== false) {
-                if ($model->updateAsistencia($asistio, $reporte, $id_paciente, $id_sesion)) {
+                if ($model->updateAsistencia($asistio, $reporte, $id_paciente, $id_sesion, $id_diagnostico)) {
                     echo "Asistencia y reporte guardados correctamente";
                 } else {
                     $error_message = $model->getErrorMessage();
@@ -50,7 +51,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $error_message = "Por favor, completa todos los campos del formulario.";
     }
 }
-
 ?>
 
 
@@ -134,15 +134,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <p class="paciente-apellidos">' . $paciente_apellidos . '</p>
                     </div>
                 </div>
+                <!-- Nueva lista desplegable para los diagnósticos -->
+                <form method="post">
+                <div class="info-group">
+                    <img class="small-image" src="./img/diagnostico.svg" alt="Icono de Diagnostico">
+                    <div>
+                        <h4>Diagnóstico:</h4>
+                        <select id="id_diagnostico" name="id_diagnostico" required>
+                            <option value="">Seleccione un diagnóstico</option>';
+            foreach ($diagnosticos as $diagnostico) {
+                echo '<option value="' . $diagnostico['id_diagnostico'] . '">'
+                    . htmlspecialchars($diagnostico['descripcion']) . '</option>';
+            }
+            echo '</select>
+                    </div>
+                </div>
             </section>
         </div>
     </div>';
-
             // Añadir el formulario de asistencia del paciente
             echo '
-    
             <div class="formulario-asistencia">
-            <form method="post">
                 <div class="form-group">
                     <h3>Asistió a la cita</h3>
                     <div class="asistio-container">
@@ -169,7 +181,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     ';
         }
         ?>
-        <div><a href="./Citas_psicologo.php?id_perfil=<?php echo $id_profesional; ?>" class="back--bottom">Volver</a></div>
+ <!-- Contenedor para el botón Volver -->
+        <div class="back-button-container">
+            <a href="./Citas_psicologo.php?id_perfil=<?php echo $id_profesional; ?>" class="back--bottom">Volver</a>
+        </div>
     </main>
 
     <!-- Pie de página -->

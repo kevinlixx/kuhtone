@@ -3,6 +3,7 @@
         --turquoise: #568281;
         --font-color: #FFFFFF;
         --black: #000000 ;
+        --section--color: #d3e1e1;
         /* News */
         --paradiso: #3E8E98;
         --sandy: #F4A26C;
@@ -11,7 +12,6 @@
         --fountain: #63B5BF;
         --gris:#817F7F;
         --gray--clean: #f9fafe;
-        --section--color: #E0E8FA;
     }
     *{
         box-sizing: border-box;
@@ -192,6 +192,7 @@
     }
     main {
         width: 100%;
+        /* height: 100vh; */
         min-width: 320px;
         margin-top: 5rem;
     }
@@ -247,13 +248,14 @@
     
     .sub-titulo {
         font-size: 20px; 
-        margin-left: 25px; 
+        /* margin-left: 25px; Poner en desktop*/
+        text-align: center;
     }
     
 /* Estilo para el formulario de búsqueda por fecha */
 form {
-    margin: 20px 0;
-    margin-left: 50px; /* Ajusta este valor según tus necesidades */
+    margin: 20px;
+    /* margin-left: 50px; Poner en desktop */
 }
 
 /* Estilo para el campo de entrada de fecha */
@@ -262,7 +264,7 @@ form input[type="date"] {
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
-    width: 300px;
+    width: 90%;
     margin-right: 20px; /* Ajusta este valor para cambiar el ancho del campo de entrada de fecha */
 }
 
@@ -270,11 +272,11 @@ form input[type="date"] {
 .change--bottom{
     background-color: var(--aqua);
     color: var(--dark--parad);
-    font-weight: bold;
-    font-size: 1.4rem;
+    font-weight: 600;
+    font-size: 2.1rem;
     text-align: center;
-    margin: 10px;   
-    width: 120px;
+    margin: 20px;   
+    width: 150px;
     height: 33px;
     border-radius: 15px;
     padding: 5px;
@@ -288,15 +290,25 @@ form input[type="date"] {
 }
 /*estilo para la informacion del paciente*/
 
+.psicologo--description {
+    text-align: left;
+    margin-bottom: 10px;
+}
+
 .psicologo--description h4 {
-    color: var(--gris);
+    color: var(--dark--parad);
     font-size: 2rem; /* Cambia 2rem al tamaño que prefieras para el título */
     text-align: center;
+    margin-bottom: 10px;
 }
 
 .psicologo--description p {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     margin-right: 0px;
+}
+.item--aco {
+    color: var(--fountain);
+    font-weight: 600;
 }
 
 .psicologos--contenedor{
@@ -304,13 +316,13 @@ form input[type="date"] {
     margin: auto;
     box-shadow: 0 0 4px var(--turquoise);   
     border-radius: 50px;
-    width: 70%;
+    width: 90%;
 }
 
 .psicologos--card{
     display: flex;
-    width: 90%;
-    margin: 20px;
+    width: 95%;
+    margin: 8px;
     align-items: center;
     box-shadow: 0 1px 0 var(--turquoise);
 }
@@ -324,14 +336,14 @@ form input[type="date"] {
     height: 104px;
     border-radius: 80px;
     align-content: center;
-    margin-right: 80px;
+    /* margin-right: 80px; */
 }
 
 .figure--card img{
     width: 95px;
     height: 88px;
     border-radius: 80px;
-    margin-left: 29px;
+    /* margin-left: 8px; */
 }
 
 .icon-ingreso { 
@@ -348,6 +360,9 @@ form input[type="date"] {
     justify-content: center;
     align-items: center;
     margin-bottom: 30px;
+    text-align: center;
+    display:flex;
+    flex-direction:column;
 }
 
 
@@ -356,12 +371,12 @@ form input[type="date"] {
     background-color: var(--aqua);
     color: var(--dark--parad);
     text-decoration: none;
-    font-weight: bold;
-    font-size: 1.4rem;
+    font-weight: 600;
+    font-size: 2.1rem;
     text-align: center;
-    margin: 10px;   
+    margin: 15px;   
     width: 89px;
-    height: 33px;
+    height: 34px;
     border-radius: 15px;
     padding: 5px;
     justify-content: center;
@@ -400,7 +415,8 @@ form input[type="date"] {
         min-width: 320px;
     }
     .pie-pagina .footer_copy{
-        background-color: var(--section-color);
+        /* background-color: #d3e1e1; */
+        background-color: var(--section--color);
         padding: 15px 10px;
         text-align: center;
         color:var(--turquoise);
@@ -408,4 +424,23 @@ form input[type="date"] {
     }
     .pie-pagina .footer_copy small{
         font-size: 15px;
+    }
+
+    @media (min-width: 600px) {
+        .psicologos--contenedor {
+            width: 70%;
+        }
+        .figure--card img {
+           margin-left: 30px;
+        }
+        .mas_info--description-container {
+            margin-left: 50px;
+        }
+        .psicologo--description {
+            margin-left: 50px;
+        }
+        .psicologo--description p {
+            font-size: 1.7rem;
+            margin-right: 4px;
+        }
     }

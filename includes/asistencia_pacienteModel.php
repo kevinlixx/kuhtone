@@ -36,11 +36,11 @@ class AsistenciaPacienteModel {
             return false;
         }
     }    
-    public function updateAsistencia($asistio, $reporte, $id_paciente, $id_sesion) {
-        $sql = "UPDATE sesion SET asistencia = ?, reporte_sesion = ? WHERE id_paciente = ? AND id_sesion = ?";
+    public function updateAsistencia($asistio, $reporte, $id_paciente, $id_sesion, $id_diagnostico) {
+        $sql = "UPDATE sesion SET asistencia = ?, reporte_sesion = ?, id_diagnostico = ? WHERE id_paciente = ? AND id_sesion = ?";
         $stmt = $this->conection->prepare($sql);
-        $stmt->bind_param("issi", $asistio, $reporte, $id_paciente, $id_sesion);
-
+        $stmt->bind_param("issii", $asistio, $reporte, $id_diagnostico, $id_paciente, $id_sesion);
+    
         if ($stmt->execute()) {
             return true;
         } else {
@@ -64,6 +64,38 @@ class AsistenciaPacienteModel {
             return false;
         }
     }
+        // Nueva función actualizarDiagnosticoSesion
+        public function actualizarDiagnosticoSesion($id_diagnostico, $id_sesion) {
+            $sql = "UPDATE sesion SET id_diagnostico = ? WHERE id_sesion = ?";
+            $stmt = $this->conection->prepare($sql);
+            $stmt->bind_param("ii", $id_diagnostico, $id_sesion);
+    
+            if ($stmt->execute()) {
+                return true;
+            } else {
+                $this->error_message = "Error al actualizar el diagnóstico de la sesión: " . $stmt->error;
+                return false;
+            }
+        }
+    
+        // Nueva función obtenerDiagnosticos
+        public function obtenerDiagnosticos() {
+            $consulta = "SELECT id_diagnostico, descripcion FROM diagnostico";
+            $stmt = $this->conection->prepare($consulta);
+            $stmt->execute();
+            $stmt->store_result();
+    
+            $diagnosticos = [];
+    
+            if ($stmt->num_rows > 0) {
+                $stmt->bind_result($id_diagnostico, $descripcion);
+                while ($stmt->fetch()) {
+                    $diagnosticos[] = ['id_diagnostico' => $id_diagnostico, 'descripcion' => $descripcion];
+                }
+            }
+    
+            return $diagnosticos;
+        }
     public function getErrorMessage() {
         return $this->error_message;
     }

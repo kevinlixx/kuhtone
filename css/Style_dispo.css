@@ -201,13 +201,9 @@ width: 160px;
 
 }
 
-/*=====================================
-estilos de la utilidad
-Copiar esto
-=====================================*/
 main{
-    miwidth: 100%;
-    height: auto;
+    min-width: 100%;
+    height: 79vh;
 }
 
 
@@ -394,8 +390,6 @@ main{
 }
 /* adactacion a dispositivos */
 @media (max-width: 750px) {
-
-    
     .seccion-perfil-usuario .lista-datos {
         width: 100%;
     }
