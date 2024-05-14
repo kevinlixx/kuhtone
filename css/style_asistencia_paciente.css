@@ -226,11 +226,58 @@
             width: 90%;
         }
     }
-    .Contendor-info-paciente h3{
-        color: var(--fountain); 
+    @keyframes color-change {
+        0% {
+            color: #3E8E98;
+        }
+        50% {
+            color: #20D2C8;
+        }
+        100% {
+            color: #32727A;
+        }
+    }
+    
+    @keyframes underline-color-change {
+        0%, 100% {
+            background: #3E8E98;
+        }
+        50% {
+            background: #20D2C8;
+        }
+    }
+    
+    @keyframes underline-slide {
+        0%, 100% {
+            transform: translateX(-30%);
+        }
+        50% {
+            transform: translateX(30%);
+        }
+    }
+    
+    .Contendor-info-paciente h3 {
         font-size: 26px;
-        margin-bottom: 10px;
         text-align: center;
+        margin-bottom: 10px;
+        animation: color-change 1.5s infinite;
+        color: var(--fountain);
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 30px;
+    }
+ 
+    
+    .Contendor-info-paciente h3::after {
+        content: '';
+        position: absolute;
+        left: 22%;
+        bottom: 0;
+        height: 3px;
+        width: 58%;
+        background: #32727A;
+        animation: underline-color-change 2s infinite, underline-slide 2s infinite;
+        transform: translateX(-50%);
     }
 
     /*Estilo para los iconos*/
@@ -241,21 +288,26 @@
     }
     .info-group {
         display: flex;
-       
-        
+        margin-bottom: 15px;
     }
-    
+
     .info-group img {
         margin-right: 10px;
     }
-    
+
     .info-group div {
         margin-left: 10px;
     }
 
     /*Estilo para el titulo paciente*/
-    .psicologo-details--container h3 {
+    .Contendor-info-paciente h2{
         color: var(--fountain); 
+        font-size: 26px;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    .psicologo-details--container h2 {
+        color: var(--paradiso); 
         font-size: 25px;
         margin-bottom: 7px;
         text-align: left;
@@ -266,6 +318,8 @@
         font-size: 20px;
         margin-bottom: 6px;
         text-align: left;
+        font-weight: 600;
+        color: var(--fountain);
     }
     
     .paciente-nombre, .paciente-apellidos {
@@ -277,7 +331,7 @@
     /*Estilo para el asisitio a la cita*/
     .formulario-asistencia h3 {
         text-align: center;
-        color: var(--fountain); /* Cambia este valor al color que prefieras */
+        color: var(--paradiso); /* Cambia este valor al color que prefieras */
         font-size: 26px; /* Cambia este valor al tamaño que prefieras */
     }
     
@@ -286,11 +340,16 @@
         display: flex;
         flex-direction: column;
         padding: 9px;
+        margin-top: 15px;
     }
-    
+    .asistio-container {
+        display: flex;
+        justify-content: center;
+    }
     .form-group .label-asistio {
         order: 1;
         font-size: 19px;
+        padding: 10px;
         text-align: center;
     }
     
@@ -313,7 +372,8 @@
         font-size: 22px;
         text-align: center;
         margin-bottom: 15px;
-        font-weight: bold;
+        font-weight: 600;
+        color: var(--dark--parad);
     }
     /*Estilos para el boton guardar asistencia*/
     .form-bottom{
