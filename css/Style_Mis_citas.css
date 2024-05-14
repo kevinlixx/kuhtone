@@ -1,0 +1,485 @@
+    /* lo que debe tener si o si el aplciativo */
+    :root{
+        --turquoise: #568281;
+        --font-color: #FFFFFF;
+        --black: #000000 ;
+        --section--color: #d3e1e1;
+        /* News */
+        --paradiso: #3E8E98;
+        --sandy: #F4A26C;
+        --aqua: #A8D6DC;
+        --dark--parad: #32727A;
+        --fountain: #63B5BF;
+        --gris:#817F7F;
+        --gray--clean: #f9fafe;
+    }
+    *{
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    html{
+        font-size: 62.5%;
+        font-family: 'DM Sans', sans-serif;
+        min-width: 240px;
+    }
+
+    header{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        min-width: 320px; /* dimension más chica de los celulareas */
+        height: 50px;
+        text-align:center;
+        border-bottom: 2px inset;
+    }
+    header .section_header{
+        width: 100%;
+        height: 40px;
+        position: relative;
+        display: flex;
+    }
+    header .figure_header{
+        width: 100px;
+        height: 48px;
+        position: relative;
+        display: flex;
+        margin-top: 1px;
+    }
+    .menu-section{
+        display: none;
+       
+    }
+    .menu{
+        justify-content: end;
+        width: 100px;
+        height: 40px;
+        position: relative;
+        display: flex;
+        flex-grow: 1;
+        align-items: center;
+        padding: 16px;
+        margin-block: 3px;
+    }
+    
+    .menu ul {
+        display: flex;
+        flex-direction: column;
+        color: #d3e1e1;
+        text-align: center;
+        height: 10px;
+        width: auto;
+        text-align: center;
+        position: relative;
+        margin: 0;
+        padding: 0;
+    }
+    
+    
+    .menu ul li {
+        margin-top: 30px;
+        margin-left: 0;
+        list-style: none;
+    }
+    
+    .menu ul li a{
+        text-decoration: none;
+        font-size: 1.4rem;
+        margin: 5px;
+        color: #528281;
+        transition: color 0.4s ease;
+        transition: 0.4s;
+    }
+    .menu ul li a:hover{
+        color:black;
+        margin-left:3rem;
+    }
+    .menu nav{
+        display: block;
+        position: fixed;
+        top: 0;
+        right: -250px;
+        background: white;
+        height: 100vh;
+        padding: 40px;
+        z-index: 2;
+        transition: all 300ms;
+    }
+    
+    
+    
+    .menu ul li a{
+        color:var(--turquoise);
+    }
+    
+    .menu nav img{
+        margin:10px;
+        display: block;
+        text-align: center;
+        width: 120px;
+        height: auto;
+        background-color: transparent;
+        background-position:0cqb;
+        border-radius: 10px;
+        /* box-shadow: 0 2px 4px var(--turquoise); */
+        display: inline-block;
+        margin-left: 10px;
+    }
+    
+    #back_menu{ /* el tamaño del menu que se mostrara */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.5);
+        display: none;
+        z-index: 1;
+    }
+    
+    .menu #btn_menu{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        color: #528281;
+        background: rgba(226, 219, 219, 0.1);
+        font-size: 30px;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 300ms;
+    }
+    #btn_menu:checked ~ main {
+        background-color: #333;
+      }
+    
+    .menu #btn_menu:hover{
+        background:rgba(12, 12, 12, 0.1);
+    }
+    
+    
+    header .menu-header{
+        justify-content: end;
+        width: 100px;
+        height: 40px;
+        position: relative;
+        display: flex;
+        flex-grow: 1;
+        align-items: center;
+        padding: 16px;
+        margin-block: 3px;
+    }
+    #selected{
+        background:transparent;
+        border:2px solid #fdb249;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        padding: 10px;
+        border-radius: 50px;
+        text-align: center;
+        transition: 0.4s ;
+    } 
+    #selected:hover{
+        color: black;
+        margin-left: 3rem;
+    }
+
+    .logo img{
+        width: 160px;
+        
+    }
+    body{
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+    main {
+        flex: 1 0 auto;
+        width: 100%;
+        min-width: 320px;
+        margin-top: 5rem;
+    }
+    .container-all {
+        display: grid;
+        margin-top: 4rem;
+        max-width: 320px;
+        margin: auto;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    #container{
+        /* padding: 40px 40px; */
+        display: flex;
+        justify-content: center;
+        display: block;
+        position: relative ;
+      }
+      .figure-consult {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+    .figure-consult img{
+        width: 248px;
+        height: 220px;
+    }
+ 
+      /*Desde aqui empieza el css del formulario de mis citas */
+    /* Animación de cambio de color para el h2 */
+    @keyframes color-change {
+        0% {
+            color: #3E8E98;
+        }
+        50% {
+            color: #20D2C8;
+        }
+        100% {
+            color: #32727A;
+        }
+    }
+    /* Animación de cambip de color para el linea inferior del h2*/
+
+    @keyframes underline-color-change {
+        0%, 100% {
+            background: #3E8E98;
+        }
+        50% {
+            background: #20D2C8;
+        }
+    }
+    /* Animación de desplazamineto de la linea interior del h2 */
+    @keyframes underline-slide {
+        0%, 100% {
+            transform: translateX(-40%); /* Cambia esta línea */
+        }
+        50% {
+            transform: translateX(40%); /* Cambia esta línea */
+        }
+    }
+    
+    /* Código del h2 y llamado de la primera animación */
+    .title--main {
+        font-size: 30px;
+        text-align: center;
+        margin-bottom: 10px;
+        animation: color-change 1.5s infinite;
+        color: var(--paradiso);
+        position: relative;
+        /* overflow: hidden; */
+    }
+    
+    /* Código del h2 con pseudo-clase y llamado de la animación para el subrayado */
+    .title--main::after {
+        content: '';
+        position: absolute;
+        left: 5%;
+        bottom: 0;
+        height: 3px;
+        width: 100%;
+        background: #32727A;
+        animation: underline-color-change 2s infinite, underline-slide 2s infinite;
+        transform: translateX(-100%);
+        
+    }
+    
+    .sub-titulo {
+        font-size: 20px; 
+        /* margin-left: 25px; Poner en desktop*/
+        text-align: center;
+    }
+    
+/* Estilo para el formulario de búsqueda por fecha */
+form {
+    margin: 20px;
+    /* margin-left: 50px; Poner en desktop */
+}
+
+/* Estilo para el campo de entrada de fecha */
+form input[type="date"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 90%;
+    margin-right: 20px; /* Ajusta este valor para cambiar el ancho del campo de entrada de fecha */
+}
+
+/* Estilo para el botón de búsqueda */
+.change--bottom{
+    background-color: var(--aqua);
+    color: var(--dark--parad);
+    font-weight: 600;
+    font-size: 2.1rem;
+    text-align: center;
+    margin: 20px;   
+    width: 150px;
+    height: 33px;
+    border-radius: 15px;
+    padding: 5px;
+    justify-content: center;
+    transition: 300ms;
+    border: none; 
+}
+.change--bottom:hover{
+    background-color: var(--dark--parad);
+    color: var(--sandy);
+}
+/*estilo para la informacion del paciente*/
+
+.psicologo--description {
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.psicologo--description h4 {
+    color: var(--dark--parad);
+    font-size: 2rem; /* Cambia 2rem al tamaño que prefieras para el título */
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.psicologo--description p {
+    font-size: 1.3rem;
+    margin-right: 0px;
+}
+.item--aco {
+    color: var(--fountain);
+    font-weight: 600;
+}
+
+.psicologos--contenedor{
+    position: relative;
+    margin: auto;
+    box-shadow: 0 0 4px var(--turquoise);   
+    border-radius: 50px;
+    width: 90%;
+}
+
+.psicologos--card{
+    display: flex;
+    width: 95%;
+    margin: 8px;
+    align-items: center;
+    box-shadow: 0 1px 0 var(--turquoise);
+}
+
+.paciente--contendor{
+    box-shadow: 0 0 4px var(--turquoise);
+}
+
+.figure--card{
+    width: 94px;
+    height: 104px;
+    border-radius: 80px;
+    align-content: center;
+    /* margin-right: 80px; */
+}
+
+.figure--card img{
+    width: 95px;
+    height: 88px;
+    border-radius: 80px;
+    /* margin-left: 8px; */
+}
+
+.icon-ingreso { 
+    right: 0;
+}
+
+.icon-ingreso img {
+    height: 47px;
+}
+
+.design--container {
+   
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    text-align: center;
+    display:flex;
+    flex-direction:column;
+}
+
+
+
+.back--bottom {
+    background-color: var(--aqua);
+    color: var(--dark--parad);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 2.1rem;
+    text-align: center;
+    margin: 15px;   
+    width: 89px;
+    height: 34px;
+    border-radius: 15px;
+    padding: 5px;
+    justify-content: center;
+    transition: 300ms;
+    border: none; 
+    float: right;
+    position: relative;    
+}
+
+.back--bottom:hover{
+    background-color: var(--dark--parad);
+    color: var(--sandy);
+}
+
+.mas_info--description-container {
+    margin-left: auto; /* Esto empujará el contenedor hacia el borde derecho del contenedor padre */
+}
+
+.mas_info--description-container .mas_info--description {
+    float: right; /* Alinea el enlace con el borde derecho del contenedor */
+}
+
+.icon-ingreso img {
+    height: 47px;
+    width: 47px; /* Establece un ancho fijo para la imagen */
+}
+
+
+
+
+    .pie-pagina {
+        position: relative;
+        width: 100%;
+        background-color:var(--font-color);
+        text-align: center;
+        min-width: 320px;
+    }
+    .pie-pagina .footer_copy{
+        /* background-color: #d3e1e1; */
+        background-color: var(--section--color);
+        padding: 15px 10px;
+        text-align: center;
+        color:var(--turquoise);
+        margin-top: 50px;
+    }
+    .pie-pagina .footer_copy small{
+        font-size: 15px;
+    }
+
+    @media (min-width: 600px) {
+        .psicologos--contenedor {
+            width: 70%;
+        }
+        .figure--card img {
+           margin-left: 30px;
+        }
+        .mas_info--description-container {
+            margin-left: 50px;
+        }
+        .psicologo--description {
+            margin-left: 50px;
+        }
+        .psicologo--description p {
+            font-size: 1.7rem;
+            margin-right: 4px;
+        }
+    }

@@ -2,22 +2,18 @@
     :root{
         --turquoise: #568281;
         --font-color: #FFFFFF;
-        --section-color: #D3E1E1;
-        --beige: #d6c19d;
         --black: #000000 ;
-        --orange: #fdb249 ;
-        --hour_turquoise: #20D2C8; 
+        --section--color: #d3e1e1;
+        
         /* News */
         --paradiso: #3E8E98;
         --sandy: #F4A26C;
         --aqua: #A8D6DC;
         --dark--parad: #32727A;
         --fountain: #63B5BF;
-        --gris: #D9D9D9;
+        --gris:#817F7F;
         --gray--clean: #f9fafe;
-        --section-color: #D3E1E1;
     }
-    
     *{
         box-sizing: border-box;
         margin: 0;
@@ -195,17 +191,10 @@
         width: 160px;
         
     }
-    body{
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-    }
     main {
-        flex: 1 0 auto;
         width: 100%;
         min-width: 320px;
         margin-top: 5rem;
-        align-content: center;
     }
     .container-all {
         display: grid;
@@ -223,148 +212,122 @@
         display: block;
         position: relative ;
       }
-     
-
-      .title-categorias{
-        font-size: 40px;
-        margin: auto;
-    }
-    .title-categorias-admin{
-        font-size: 2.4rem;
-        margin: auto;
-    }
-    #catego-admin{
-        /* padding: 0px 100px; */
-        padding-left: 10%;
-        padding-right: 10%;
+ 
+      /*Estilos del formulario */
+    .Contendor-info-paciente {
         display: flex;
-        border-radius: 50px;
         justify-content: center;
-        background: linear-gradient(to right, #2db4ae, #f8f8f8, #2db4ae );
-        box-shadow: 1px 1px 30px -12px #b3c9c8;
-        transition: all 300ms;
-        border: solid #f8f8f8;
+        align-items: center;
+        flex-direction: column;
         text-align: center;
     }
-    #catego{
-        /* padding: 0px 100px; */
-        padding-left: 10%;
-        padding-right: 10%;
+
+    /*Estilo para los iconos*/
+    .small-image {
+        width: 47px;
+        height: 39px; 
+    }
+    .info-group {
         display: flex;
-        border-radius: 50px;
-        justify-content: center;
-        background: linear-gradient(to right, #2db4ae, #f8f8f8, #2db4ae );
-        box-shadow: 1px 1px 30px -12px #b3c9c8;
-        transition: all 300ms;
-        border: solid #f8f8f8;
+        align-items: flex-start;
+        margin-bottom: 16px;
     }
     
-
-    .container-caja {
-        display: flex;
-        flex-wrap: wrap;
-        margin-top: 5rem;
-        justify-content: center;
+    .info-group div {
+        margin-left: 10px;
     }
-    .container-caja a {
+
+    /*Estilo para la imagen del paciente*/
+    .paciente-img {
+        width: 176px;
+        height: auto;
+        border-radius: 50%;
+        margin-bottom: 7px;
+    }
+    /*Estilo para el titulo paciente*/
+    .psicologo-perfil--container h3 {
+        color: var(--fountain); 
+        font-size: 26px;
+        margin-bottom: 10px;
+    }
+
+    /*Estilo para los titulos */
+    .info-group h4 {
+        font-size: 23px;
+        margin-bottom: 6px;
+        text-align: left;
+    }
+    
+    .paciente-nombre, .paciente-apellidos, .paciente-correo, .paciente-telefono, .descripcion-diagnostico {
+        font-size: 23px;
+        color: var(--black);
+        text-align: center;
+    }
+
+    
+    /*Estilos para los botones Asistencia y Reportes*/
+    .form-bottom{
+        background-color: var(--aqua);
+        color: var(--dark--parad);
         text-decoration: none;
-        color: black;
-        display: block;
-    }
-    .caja {
-        height: 280px;
-        padding: 20px;
-        margin: 20px;
-        background: rgb(244, 242, 242);
-        /* box-shadow: 1.5px 1.5px 1.5px 1.5px black; */
+        font-weight: bold;
+        font-size: 1.9rem;
         text-align: center;
-        position: relative;
-        overflow: hidden;
-        cursor: pointer;
-        display: block;
-        position: relative;
+        margin: 10px;   
+        width: 123px;
+        height: 37px;
+        border-radius: 15px;
+        padding: 5px;
+        justify-content: center;
         transition: 300ms;
-    
+        border: none; 
+        
     }
-    .caja:hover {
-        transform: translate(5px, -5px);
-        box-shadow: -10px 10px 20px -10px rgb(0, 0, 0, 0.5);
-    } 
-
-    .caja .icon,
-    .caja h4,
-    .caja p {
-    position: relative; /* para que funcione la animación y se ponga por encima*/
-    z-index: 1; /* para que se ponga encima de todo */
-    transition: all 300ms;
+    .form-bottom:hover{
+        background-color: var(--dark--parad);
+        color: var(--sandy);
     }
-    .caja .icon {
-        font-size: 40px;
-        color: rgb(160, 121, 95);
-        transform: translatey(30px);
-      }
-      
-      .caja:hover .icon {
-        color: #ffffff;
-        font-size: 30px;
-        transform: translateY(0);
-      }
-
-
-    .caja h4,
-    .caja p {
-      margin-top: 10 px;
-    }
-    .caja h4 {
-    font-size: 30px;
-    transform: translatey(30px);
-    }
-   
-    .caja:hover h4 {
-    transform: translateY(0);
-    color: white;
-    }
-    
-    .caja p {
-    font-size: 14px;
-    transform: translatey(100px); /* moverlo 100px en el eje y */
-    opacity: 0;
+    .button-container {
+        display: flex;
+        justify-content: center;
     }
 
-    .caja:hover p {
-    transform: translateY(0);
-    opacity: 1;
-    color: white;
+    /*Estilos para el boton volver*/
+    .back-button-container {
+        display: flex; /* Añade flexbox */
+        justify-content: center; /* Centra el botón horizontalmente */
+        margin-top: 20px; /* Ajusta este valor según tus necesidades */
+        margin-bottom: 20px; /* Ajusta este valor según tus necesidades */
+        
     }
 
-    .caja .animacion {
+    /*Estilos para el boton volver*/
+    .back--bottom {
+        background-color: var(--aqua);
+        color: var(--dark--parad);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 2.1rem;
+        text-align: center;
+        margin: 4px;
+        /* margin-right: 20px; */
         width: 100px;
-        height: 100px;
-        position: absolute;
-        top: 250px;
-        left: -170px;
-        border-radius: 100%;
-        transition: all 300ms;
-        background: linear-gradient(to bottom, #995c06, var(--sandy)); /* New color */
+        height: 39px;
+        border-radius: 15px;
+        padding: 5px;
+        justify-content: center;
+        transition: 300ms;
+        border: none; 
+        position: relative;
+        float: left;
+       
     }
-    .caja:hover .animacion {
-        /* para que cuando se pasa el mouse realice la animación */
-        width: 40rem;
-        height: 40rem;
-        top: -150px;
-        left: -70px;
-    }
-
-    .caja2 .animacion {
-        background: linear-gradient(to bottom, var(--turquoise), var(--hour_turquoise));
-    }
-
-    .caja3 .animacion {
-        background: linear-gradient(to bottom, var(--aqua), var(--paradiso)); /* New color */
-    }
-
     
-    
+    .back--bottom:hover{
+        background-color: var(--dark--parad);
+        color: var(--sandy);
+    }
+    /*Estilos del pie de pagina*/
     .pie-pagina {
         position: relative;
         width: 100%;
@@ -373,10 +336,12 @@
         min-width: 320px;
     }
     .pie-pagina .footer_copy{
-        background-color: var(--section-color);
+
+        background-color: var(--section--color);
         padding: 15px 10px;
         text-align: center;
         color:var(--turquoise);
+        margin-top: 50px;
     }
     .pie-pagina .footer_copy small{
         font-size: 15px;

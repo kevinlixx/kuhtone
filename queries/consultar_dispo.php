@@ -77,7 +77,7 @@ $id_profesional= $_GET['id_perfil'];
         <h2 class= "subtitle"> Tus horarios disponibles </h2>
         <figure class ="figure-consult">
                 <img 
-                src="../img/pag1.jpg" 
+                src="../img/consulta_cita.svg" 
                 alt="img de cita"/>  
                 <figcaption></figcaption> 
             </figure>

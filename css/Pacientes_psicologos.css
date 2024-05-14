@@ -2,11 +2,7 @@
     :root{
         --turquoise: #568281;
         --font-color: #FFFFFF;
-        --section-color: #D3E1E1;
-        --beige: #d6c19d;
         --black: #000000 ;
-        --orange: #fdb249 ;
-        --hour_turquoise: #20D2C8; 
         /* News */
         --paradiso: #3E8E98;
         --sandy: #F4A26C;
@@ -15,9 +11,8 @@
         --fountain: #63B5BF;
         --gris: #D9D9D9;
         --gray--clean: #f9fafe;
-        --section-color: #D3E1E1;
+        --section--color: #E0E8FA;
     }
-    
     *{
         box-sizing: border-box;
         margin: 0;
@@ -195,17 +190,10 @@
         width: 160px;
         
     }
-    body{
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-    }
     main {
-        flex: 1 0 auto;
         width: 100%;
         min-width: 320px;
         margin-top: 5rem;
-        align-content: center;
     }
     .container-all {
         display: grid;
@@ -223,148 +211,159 @@
         display: block;
         position: relative ;
       }
-     
 
-      .title-categorias{
-        font-size: 40px;
-        margin: auto;
+/*Desde aqui empieza el css del formulario de pacientes */
+@keyframes color-change {
+    0% {
+        color: #3E8E98;
     }
-    .title-categorias-admin{
-        font-size: 2.4rem;
-        margin: auto;
+    50% {
+        color: #20D2C8;
     }
-    #catego-admin{
-        /* padding: 0px 100px; */
-        padding-left: 10%;
-        padding-right: 10%;
-        display: flex;
-        border-radius: 50px;
-        justify-content: center;
-        background: linear-gradient(to right, #2db4ae, #f8f8f8, #2db4ae );
-        box-shadow: 1px 1px 30px -12px #b3c9c8;
-        transition: all 300ms;
-        border: solid #f8f8f8;
-        text-align: center;
+    100% {
+        color: #32727A;
     }
-    #catego{
-        /* padding: 0px 100px; */
-        padding-left: 10%;
-        padding-right: 10%;
-        display: flex;
-        border-radius: 50px;
-        justify-content: center;
-        background: linear-gradient(to right, #2db4ae, #f8f8f8, #2db4ae );
-        box-shadow: 1px 1px 30px -12px #b3c9c8;
-        transition: all 300ms;
-        border: solid #f8f8f8;
+}
+/* Animación de cambip de color para el linea inferior del h2*/
+
+@keyframes underline-color-change {
+    0%, 100% {
+        background: #3E8E98;
     }
+    50% {
+        background: #20D2C8;
+    }
+}
+/* Animación de desplazamineto de la linea interior del h2 */
+@keyframes underline-slide {
+    0%, 100% {
+        transform: translateX(-30%); /* Cambia esta línea */
+    }
+    50% {
+        transform: translateX(30%); /* Cambia esta línea */
+    }
+}
+
+/* Codigo del h2 y llamado de la primer animación */
+.title--main{
+    font-size: 2.8rem;
+    text-align: center;
+    margin-bottom: 10px;
+    animation: color-change 1.5s infinite;
+    color: var(--paradiso);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Codigo del h2 con pseudo-clase y llamado de la animación para el underline */
+.title--main::after {
+    content: '';
+    position: absolute;
+    left: 22%; /* Centra el elemento */
+    bottom: 0;
+    height: 3px;
+    width: 58%;
+    background: #32727A;
+    animation: underline-color-change 2s infinite, underline-slide 2s infinite;
+    transform: translateX(-50%); /* Centra el elemento */
+}
+
+.design--container{
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+align-items: center;
+margin-bottom: 30px;
+}
+
+.psicologos--contenedor{
+box-shadow: 0 0 4px var(--turquoise);
+background: var(--gray--clean);   
+border-radius: 50px;
+width: 90%;
+display: flex;
+flex-direction: column;
+align-items: center;
+position: relative;
+}
+
+.psicologos--card{
+display: flex;
+flex-direction: column;
+width: 38%;
+margin: 20px;
+align-items: center;
+padding: 5px 10px;
+background: var(--font-color);   
+border-radius: 40px;
+box-shadow: 0 2px 0 var(--turquoise), 0 -2px 0 var(--turquoise);
+}
+.psicologos--card h4{
+margin-left: 6px;
+font-size: 1.9rem;
+text-align: center;
+padding: 5px 10px;
+color: var(--fountain);
+}
+
+.content--container {
+display: flex;
+width: 100%;
+}  
+
+.figure--card{
+/* width: 50%; */
+height: 130px;
+border-radius: 80px;
+align-content: center;
+}
+
+.figure--card img{
+width: 80px;
+height: 80px;
+border-radius: 80px;
+}
+
+.item--aco {
+    color: var(--fountain); 
+    font-size: 1.6em;
     
-
-    .container-caja {
-        display: flex;
-        flex-wrap: wrap;
-        margin-top: 5rem;
-        justify-content: center;
-    }
-    .container-caja a {
+}
+.psicologo--description p{
+    margin: 5px 10px;
+    text-align: justify;
+    font-size: 1.1rem;
+    font-weight: 600;
+    word-spacing: -1.1px;
+}
+.item--value {
+    font-size: 1.7rem; /* Cambia este valor al tamaño que prefieras */
+}
+/*estilos para el boton volver*/    
+    .back--bottom {
+        background-color: var(--aqua);
+        color: var(--dark--parad);
         text-decoration: none;
-        color: black;
-        display: block;
-    }
-    .caja {
-        height: 280px;
-        padding: 20px;
-        margin: 20px;
-        background: rgb(244, 242, 242);
-        /* box-shadow: 1.5px 1.5px 1.5px 1.5px black; */
+        font-weight: bold;
+        font-size: 1.4rem;
         text-align: center;
-        position: relative;
-        overflow: hidden;
-        cursor: pointer;
-        display: block;
-        position: relative;
+        margin: 10px;   
+        width: 89px;
+        height: 33px;
+        border-radius: 15px;
+        padding: 5px;
+        justify-content: center;
         transition: 300ms;
-    
-    }
-    .caja:hover {
-        transform: translate(5px, -5px);
-        box-shadow: -10px 10px 20px -10px rgb(0, 0, 0, 0.5);
-    } 
-
-    .caja .icon,
-    .caja h4,
-    .caja p {
-    position: relative; /* para que funcione la animación y se ponga por encima*/
-    z-index: 1; /* para que se ponga encima de todo */
-    transition: all 300ms;
-    }
-    .caja .icon {
-        font-size: 40px;
-        color: rgb(160, 121, 95);
-        transform: translatey(30px);
-      }
-      
-      .caja:hover .icon {
-        color: #ffffff;
-        font-size: 30px;
-        transform: translateY(0);
-      }
-
-
-    .caja h4,
-    .caja p {
-      margin-top: 10 px;
-    }
-    .caja h4 {
-    font-size: 30px;
-    transform: translatey(30px);
-    }
-   
-    .caja:hover h4 {
-    transform: translateY(0);
-    color: white;
+        border: none; 
+        float: right;
+        position: relative;    
     }
     
-    .caja p {
-    font-size: 14px;
-    transform: translatey(100px); /* moverlo 100px en el eje y */
-    opacity: 0;
+    .back--bottom:hover{
+        background-color: var(--dark--parad);
+        color: var(--sandy);
     }
 
-    .caja:hover p {
-    transform: translateY(0);
-    opacity: 1;
-    color: white;
-    }
-
-    .caja .animacion {
-        width: 100px;
-        height: 100px;
-        position: absolute;
-        top: 250px;
-        left: -170px;
-        border-radius: 100%;
-        transition: all 300ms;
-        background: linear-gradient(to bottom, #995c06, var(--sandy)); /* New color */
-    }
-    .caja:hover .animacion {
-        /* para que cuando se pasa el mouse realice la animación */
-        width: 40rem;
-        height: 40rem;
-        top: -150px;
-        left: -70px;
-    }
-
-    .caja2 .animacion {
-        background: linear-gradient(to bottom, var(--turquoise), var(--hour_turquoise));
-    }
-
-    .caja3 .animacion {
-        background: linear-gradient(to bottom, var(--aqua), var(--paradiso)); /* New color */
-    }
-
-    
-    
     .pie-pagina {
         position: relative;
         width: 100%;
