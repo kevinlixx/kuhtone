@@ -44,7 +44,7 @@ $consulta = mysqli_query($conection, $profesional ) or die ("Error al traer los 
                         <figcaption></figcaption> 
                     </figure>                
                 <div id="back_menu"></div>
-                <nav id="nav" class="menu-section">
+                <nav id="nav" class="menu-section">a
                     <img src="img/logo_header.svG" alt="">
                     <ul> 
                     <?php

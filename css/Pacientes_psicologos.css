@@ -211,43 +211,158 @@
         display: block;
         position: relative ;
       }
- 
-      /*Desde aqui empieza el css del formulario de mis citas */
-      @keyframes color-change {
-        0% {
-            color: #3E8E98;
-        }
-        50% {
-            color: #20D2C8;
-        }
-        100% {
-            color: #32727A;
-        }
+
+/*Desde aqui empieza el css del formulario de pacientes */
+@keyframes color-change {
+    0% {
+        color: #3E8E98;
     }
-    /* Animación de cambip de color para el linea inferior del h2*/
+    50% {
+        color: #20D2C8;
+    }
+    100% {
+        color: #32727A;
+    }
+}
+/* Animación de cambip de color para el linea inferior del h2*/
+
+@keyframes underline-color-change {
+    0%, 100% {
+        background: #3E8E98;
+    }
+    50% {
+        background: #20D2C8;
+    }
+}
+/* Animación de desplazamineto de la linea interior del h2 */
+@keyframes underline-slide {
+    0%, 100% {
+        transform: translateX(-30%); /* Cambia esta línea */
+    }
+    50% {
+        transform: translateX(30%); /* Cambia esta línea */
+    }
+}
+
+/* Codigo del h2 y llamado de la primer animación */
+.title--main{
+    font-size: 2.8rem;
+    text-align: center;
+    margin-bottom: 10px;
+    animation: color-change 1.5s infinite;
+    color: var(--paradiso);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Codigo del h2 con pseudo-clase y llamado de la animación para el underline */
+.title--main::after {
+    content: '';
+    position: absolute;
+    left: 22%; /* Centra el elemento */
+    bottom: 0;
+    height: 3px;
+    width: 58%;
+    background: #32727A;
+    animation: underline-color-change 2s infinite, underline-slide 2s infinite;
+    transform: translateX(-50%); /* Centra el elemento */
+}
+
+.design--container{
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+align-items: center;
+margin-bottom: 30px;
+}
+
+.psicologos--contenedor{
+box-shadow: 0 0 4px var(--turquoise);
+background: var(--gray--clean);   
+border-radius: 50px;
+width: 90%;
+display: flex;
+flex-direction: column;
+align-items: center;
+position: relative;
+}
+
+.psicologos--card{
+display: flex;
+flex-direction: column;
+width: 38%;
+margin: 20px;
+align-items: center;
+padding: 5px 10px;
+background: var(--font-color);   
+border-radius: 40px;
+box-shadow: 0 2px 0 var(--turquoise), 0 -2px 0 var(--turquoise);
+}
+.psicologos--card h4{
+margin-left: 6px;
+font-size: 1.9rem;
+text-align: center;
+padding: 5px 10px;
+color: var(--fountain);
+}
+
+.content--container {
+display: flex;
+width: 100%;
+}  
+
+.figure--card{
+/* width: 50%; */
+height: 130px;
+border-radius: 80px;
+align-content: center;
+}
+
+.figure--card img{
+width: 80px;
+height: 80px;
+border-radius: 80px;
+}
+
+.item--aco {
+    color: var(--fountain); 
+    font-size: 1.6em;
     
-    @keyframes underline-color-change {
-        0%, 100% {
-            background: #3E8E98;
-        }
-        50% {
-            background: #20D2C8;
-        }
-    }
-    #titulo-citas {
-        font-size: 30px;
+}
+.psicologo--description p{
+    margin: 5px 10px;
+    text-align: justify;
+    font-size: 1.1rem;
+    font-weight: 600;
+    word-spacing: -1.1px;
+}
+.item--value {
+    font-size: 1.7rem; /* Cambia este valor al tamaño que prefieras */
+}
+/*estilos para el boton volver*/    
+    .back--bottom {
+        background-color: var(--aqua);
+        color: var(--dark--parad);
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.4rem;
         text-align: center;
-        margin-bottom: 10px;
-        animation: color-change 1.5s infinite;
-        color: var(--paradiso);
-        position: relative;
-        overflow: hidden;
+        margin: 10px;   
+        width: 89px;
+        height: 33px;
+        border-radius: 15px;
+        padding: 5px;
+        justify-content: center;
+        transition: 300ms;
+        border: none; 
+        float: right;
+        position: relative;    
     }
-
     
-
-
-
+    .back--bottom:hover{
+        background-color: var(--dark--parad);
+        color: var(--sandy);
+    }
 
     .pie-pagina {
         position: relative;
