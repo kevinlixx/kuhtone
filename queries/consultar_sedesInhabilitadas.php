@@ -101,7 +101,6 @@ $id_admin= $_GET['id_perfil'];
                                         </section>
                                     </div>
                                     <a class="mas--select" href="consultar_sedesInhabilitadas.php?habilitar_sede='.$consulta_sedes["id_sede"].'">Habilitar sede</a>
-
                                 </div>';
                         
                     }

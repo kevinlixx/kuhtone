@@ -77,42 +77,41 @@ $id_admin= $_GET['id_perfil'];
         <h2 class= "subtitle"> Sedes </h2>
             
         <div class= "cites--container">
-        <div class="map">
-                <div class="map--container" id="map--container">
-                    </div>
-            </div>
+            <div class="map">
+                    <div class="map--container" id="map--container">
+                        </div>
+                </div>
             <div class="des--sedes">
         <?php
-         $consulta = mysqli_query($conection, "SELECT * FROM sedes Where estado_sede = 1") or die ("Error al traer los datos");
-            if(mysqli_num_rows($consulta) > 0)
-            {
-                    while($consulta_sedes= mysqli_fetch_array($consulta))
-                    {
-                        echo '
-                        
-                                <div class ="container--history"> 
-                                    <div class="info--container">
-                                        <section>
-                                            <h4>Id sede:</h4>
-                                            <p>'.$consulta_sedes["id_sede"].' </p>
-                                        </section>
-                                        <section>
-                                            <h4>Localización</h4>
-                                            <p>'.$consulta_sedes["nombre"].'</p>
-                                        </section>
-                                    </div>
-                                    <a class="mas--select" href="../updates_admin/modificar_sede.php?id_sede='.$consulta_sedes['id_sede'].'&id_perfil='.$id_admin.'">Modificar</a>
+            $consulta = mysqli_query($conection, "SELECT * FROM sedes Where estado_sede = 1") or die ("Error al traer los datos");
+                if(mysqli_num_rows($consulta) > 0)
+                {
+                        while($consulta_sedes= mysqli_fetch_array($consulta))
+                        {
+                            echo '
+                                    <div class ="container--history"> 
+                                        <div class="info--container">
+                                            <section>
+                                                <h4>Id sede:</h4>
+                                                <p>'.$consulta_sedes["id_sede"].' </p>
+                                            </section>
+                                            <section>
+                                                <h4>Localización</h4>
+                                                <p>'.$consulta_sedes["nombre"].'</p>
+                                            </section>
+                                        </div>
+                                        <a class="mas--select" href="../updates_admin/modificar_sede.php?id_sede='.$consulta_sedes['id_sede'].'&id_perfil='.$id_admin.'">Modificar</a>
 
-                                </div>';
-                        
+                                    </div>';
+                            
+                        }
                     }
+                    
+                else{
+                    echo '<script>alert("No tiene ninguna sede registrada");
+                    window.location.href="../insert_sede.php?id_perfil='.$id_admin.'";</script>';
                 }
-                
-            else{
-                echo '<script>alert("No tiene ninguna sede registrada");
-                window.location.href="../insert_sede.php?id_perfil='.$id_admin.'";</script>';
-            }
-            ?>
+                ?>
              </div>
         </div>
         
