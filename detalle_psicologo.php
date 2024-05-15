@@ -1,14 +1,16 @@
 <?php
-                
 session_start();
 include("./config/conexion.php");
 $id= $_GET['id'];
 $id_paciente= $_GET['id_perfil'];
 
+// Insertar el id del paciente y el id del profesional en la tabla asignacion_paciente_profesional
+$insert_query = "INSERT INTO asignacion_paciente_profesional (id_paciente, id_profesional) VALUES ($id_paciente, $id)";
+mysqli_query($conection, $insert_query) or die ("Error al insertar los datos");
+
 $profesional ="SELECT * FROM profesional WHERE id_profesional = $id";
 $consulta = mysqli_query($conection, $profesional ) or die ("Error al traer los datos");
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -150,7 +152,7 @@ $consulta = mysqli_query($conection, $profesional ) or die ("Error al traer los 
                 $_SESSION['id_profesional'] = $consulta_total["id_profesional"];
             }
             echo'
-                    <a href="./horario_citas.php?id_perfil='.$id_paciente.'" class="asignar--bottom">Asignar</a>
+                    <a href="./horario_citas.php?id_perfil='.$id_paciente.'&id_profesional='.$id.'" class="asignar--bottom">Asignar</a>
                     <a href="./psicologos.php?id_perfil='.$id_paciente.'" class="back--bottom">Volver</a>';
                     ?>
     
