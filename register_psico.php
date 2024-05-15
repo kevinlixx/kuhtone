@@ -189,6 +189,22 @@
                                 <i class="fa-solid fa-building"></i>
                                 <input class="document" type="text" placeholder="experiencia" name="experiencia">
                             </div>
+                            <?php
+                            // Primero, haz una consulta para obtener todas las sedes
+                            $query = "SELECT * FROM sede";
+                            $result = mysqli_query($conection, $query) or trigger_error("Query Failed! SQL-Error: ".mysqli_error($conection), E_USER_ERROR);
+
+                            // Luego, genera el select
+                            echo '<select name="sede">';
+
+                            // Itera sobre los resultados de la consulta
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                // Cada fila representa una sede. Usa los datos de la sede para generar una opción del select.
+                                echo '<option value="'.$row['id_sede'].'">'.$row['nombre_sede'].'</option>';
+                            }
+
+                            echo '</select>';
+                            ?>
                             <input class="button" type="submit" value="Registrarse" name="registrar">
                             <?php
                                 if(isset($_POST ['registrar'])){
@@ -208,9 +224,10 @@
                                     $especializacion= $_POST['especializacion'];
                                     $experiencia = $_POST['experiencia'];
                                     $estado_cuenta = 1;
+                                    $sede_id = $_POST['sede_id']; // Recupera el sede_id del formulario
 
-                                        $instruccion_SQL = "INSERT INTO profesional(id_profesional, nombres, apellidos, foto_perfil, fecha_nacimiento, id_genero, id_tipoDocumento, nro_documento, nom_universidad,descripcion, especializacion,experiencia, telefono_movil, correo_profesional, contrasena_profesional, estado_cuenta)
-                                        VALUES ('$id','$nombres','$apellidos','$img','$fecha_nacimiento','$genero','$tipo_document','$documento','$nom_universidad','$descripcion','$especializacion','$experiencia','$telefono_movil','$correo','$contrasena','$estado_cuenta')";
+                                        $instruccion_SQL = "INSERT INTO profesional(id_profesional, nombres, apellidos, foto_perfil, fecha_nacimiento, id_genero, id_tipoDocumento, nro_documento, nom_universidad,descripcion, especializacion,experiencia, telefono_movil, correo_profesional, contrasena_profesional, estado_cuenta, sede_id)
+                                        VALUES ('$id','$nombres','$apellidos','$img','$fecha_nacimiento','$genero','$tipo_document','$documento','$nom_universidad','$descripcion','$especializacion','$experiencia','$telefono_movil','$correo','$contrasena','$estado_cuenta','$sede_id')";
                                             $resultado = mysqli_query($conection,$instruccion_SQL) or trigger_error("Query Failed! SQL-Error: ".mysqli_error($conection), E_USER_ERROR);
                                             if($resultado) {
                                                 $id_perfil = mysqli_insert_id($conection);
