@@ -202,6 +202,20 @@ main {
     min-width: 320px;
     height: auto;
 }
+
+.map--container{
+    width: 100%; 
+    height: 300px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    z-index: 1;
+}
+.des--sedes{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
 .title--main{
     text-align: center;
     margin: 20px;
@@ -261,7 +275,7 @@ main {
                 0%, 100% {
                     background: #3E8E98;
                 }
-                50% {
+                50% {   
                     background: #20D2C8;
                 }
             }
@@ -307,10 +321,11 @@ main {
 .container--history{
     margin-top: 10px;
     display: flex;
-    background-color: var(--section-color);
+    box-shadow: 0 2px 0 var(--turquoise), 0 -2px 0 var(--turquoise);    
     border-radius: 70px;
     padding: 10px;
     align-items: center;
+    width: 100%;        
 }
 .info--container {
     width: 80%;
