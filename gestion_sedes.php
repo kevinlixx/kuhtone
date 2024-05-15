@@ -38,11 +38,11 @@
                     <img src="img/logo_header.svG" alt="">
                     <ul> 
                     <?php
-                      echo'
-                      <li><a href="./index_admin.php?id_perfil='.$id_admin.'">Inicio</a></li>
-                        <li><a href="./perfil_admin.php?id_perfil='.$id_admin.'">Mi perfil</a></li>
-                        <li><a href="./index.php" id="selected">Cerrar Sesion</a></li>';
-                        ?>
+                     echo'
+                         <li><a href="../index_admin.php?id_perfil='.$id_admin.'">Inicio</a></li>
+                       <li><a href="../perfil_admin.php?id_perfil='.$id_admin.'">Mi perfil</a></li>
+                       <li><a href="../index.php" id="selected">Cerrar Sesion</a></li>';
+                       ?>
                     </ul>
                 </nav>
             </div>
@@ -57,57 +57,82 @@
         </a>
     </header>
     <main>
-        <main>
             <div class="container-all" >
               <h1 class="title-categorias" id="catego">Opciones </h1>
               <div class="container-caja" id="container">
-                <a href="#"
+                <?php
+                echo'
+                <a href="./insert_sede.php?id_perfil='.$id_admin.'"';
+                ?>
                   ><div class="caja caja1">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-database-plus" width="52" height="52" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff9300" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-database-cog" width="52" height="52" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff9300" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                         <path d="M4 6c0 1.657 3.582 3 8 3s8 -1.343 8 -3s-3.582 -3 -8 -3s-8 1.343 -8 3" />
-                        <path d="M4 6v6c0 1.657 3.582 3 8 3c1.075 0 2.1 -.08 3.037 -.224" />
-                        <path d="M20 12v-6" />
-                        <path d="M4 12v6c0 1.657 3.582 3 8 3c.166 0 .331 -.002 .495 -.006" />
-                        <path d="M16 19h6" />
-                        <path d="M19 16v6" />
+                        <path d="M4 6v6c0 1.657 3.582 3 8 3c.21 0 .42 -.003 .626 -.01" />
+                        <path d="M20 11.5v-5.5" />
+                        <path d="M4 12v6c0 1.657 3.582 3 8 3" />
+                        <path d="M19.001 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                        <path d="M19.001 15.5v1.5" />
+                        <path d="M19.001 21v1.5" />
+                        <path d="M22.032 17.25l-1.299 .75" />
+                        <path d="M17.27 20l-1.3 .75" />
+                        <path d="M15.97 17.25l1.3 .75" />
+                        <path d="M20.733 20l1.3 .75" />
                       </svg>
-                    <h4>Registrar Sede</h4>
+                    <h4>Registrar sede</h4>
                     <p>Aqui puedes registrar las sedes de kuhtone.</p>
                     <div class="animacion">
                     </div>
                   </div>
               </a>
-                <a href="#">
+              <?php
+              echo '
+                <a href="./queries/consultar_sedes.php?id_perfil='.$id_admin.'">';
+                ?>
                   <div class="caja caja2">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-switch-3" width="52" height="52" viewBox="0 0 24 24" stroke-width="1.5" stroke="#009988" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-search" width="52" height="52" viewBox="0 0 24 24" stroke-width="1.5" stroke="#009988" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                        <path d="M3 17h2.397a5 5 0 0 0 4.096 -2.133l.177 -.253m3.66 -5.227l.177 -.254a5 5 0 0 1 4.096 -2.133h3.397" />
-                        <path d="M18 4l3 3l-3 3" />
-                        <path d="M3 7h2.397a5 5 0 0 1 4.096 2.133l4.014 5.734a5 5 0 0 0 4.096 2.133h3.397" />
-                        <path d="M18 20l3 -3l-3 -3" />
+                        <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
+                        <path d="M6 21v-2a4 4 0 0 1 4 -4h1.5" />
+                        <path d="M18 18m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+                        <path d="M20.2 20.2l1.8 1.8" />
                       </svg>
-                    <h4>Modificar sedes</h4>
-                    <p>Aquí puedes modificar su informacion o datos de las sedes.</p>
+                    <h4>Modificar sedes de kuhtone</h4>
+                    <p>Aquí puedes modificar la información de las sedes.</p>
                     <div class="animacion"></div></div
                 ></a>
-                <a href="#"
+                <?php
+              echo '
+                <a href="./queries/consultar_sedesInhabilitadas.php?id_perfil='.$id_admin.'">';
+                ?>
+                  <div class="caja caja2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-search" width="52" height="52" viewBox="0 0 24 24" stroke-width="1.5" stroke="#009988" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
+                        <path d="M6 21v-2a4 4 0 0 1 4 -4h1.5" />
+                        <path d="M18 18m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+                        <path d="M20.2 20.2l1.8 1.8" />
+                      </svg>
+                    <h4> sedes Inhabilitadas de kuhtone</h4>
+                    <p>Aquí puedes vovler a habilitar la información de las sedes.</p>
+                    <div class="animacion"></div></div
+                ></a>
+                <!-- <a href="#"
                   ><div class="caja caja3">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-cancel" width="52" height="52" viewBox="0 0 24 24" stroke-width="1.5" stroke="#7edfdf" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-x" width="52" height="52" viewBox="0 0 24 24" stroke-width="1.5" stroke="#7edfdf" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                         <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
                         <path d="M6 21v-2a4 4 0 0 1 4 -4h3.5" />
-                        <path d="M19 19m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-                        <path d="M17 21l4 -4" />
+                        <path d="M22 22l-5 -5" />
+                        <path d="M17 22l5 -5" />
                       </svg>
                     <h4>Inhabilitar Cuenta</h4>
                     <p>Aqui puedes cancelar o eliminar cuenta en caso de inactividad.</p>
                     <div class="animacion"></div></div
-                ></a>
+                ></a> -->
                 
               </div>
             </div>
-          </main>
     </main>
    <footer class="pie-pagina">
    <div class="footer_copy">

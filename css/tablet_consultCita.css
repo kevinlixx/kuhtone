@@ -10,15 +10,16 @@ html, body {
   }
 
   main{
-    min-height: 90vh;
+
   }
 .cites--container {
-    display: grid;
+    display: flex;
     justify-content: center;
-    grid-template-columns: auto auto;
+    flex-direction: column;
 }
 .container--history {
     margin: 8px;
+    width: 60%;
 }
 
 .back--bottom{

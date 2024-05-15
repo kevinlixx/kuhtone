@@ -79,6 +79,29 @@ header .menu-section{
     width: 150px;
     height: 150px;
 }
+.map{
+    display: flex;
+    justify-content: center;
+}
+.map--container {
+    width: 60%;
+    height: 300px;
+}
+
+.container--history{
+    width: 30%;
+}
+@media screen and (min-width: 1200px) {
+
+    .map--container {
+        width: 60%;
+        height: 300px;
+    }
+    .container--history{
+        width: 20%;
+    }
+    
+}
 .psicologo--description h4{
     font-size: 2.5rem;
 }
@@ -91,9 +114,9 @@ header .menu-section{
     
 }
 .cites--container{
-    display: grid;
+    display: flex;
     justify-content: center;
-     grid-template-columns: auto auto auto;
+    flex-direction: column;
 }
 .info--container{
     margin-right: 8px;
