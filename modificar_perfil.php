@@ -96,7 +96,7 @@ $consulta_perfil = $crudPerfil->obtenerPerfil('paciente', $id_paciente, 'id_paci
                                             <input type="email" value= "'.$consulta_perfil["correo"].'" name="correo">
                                         </div>
                                         <div class="footer-users">
-                                        <img src="./img/Contraseña-Perfil.svg" alt="Icono de Contraseña">  
+                                        <img src="./img/passw-Perfil.svg" alt="Icono de Contraseña">  
                                             <p>Contraseña</p>
                                             <input type="password" value= "'.$consulta_perfil["contrasena"].'" name="contrasena">
                                         </div>

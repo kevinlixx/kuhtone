@@ -154,7 +154,8 @@ $stmt->close();
         ?>
         <div class="button-container">
             <button class="form-bottom" onclick="location.href='./asistencia_paciente.php?id_paciente=<?php echo $id_paciente; ?>&id_profesional=<?php echo $id_profesional; ?>'">Asistencia</button>
-            <button class="form-bottom" onclick="location.href='./reportes_psicologo.php'">Reportes</button>
+            <button class="form-bottom" onclick="location.href='./reportes_psicologo.php?id_perfil=<?php echo $id_profesional; ?>&id_paciente=<?php echo $id_paciente; ?>'">Reportes</button>
+
         </div>
         <div class="back-button-container">
         <a href="./Citas_psicologo.php?id_perfil=<?php echo $id_profesional; ?>" class="back--bottom">Volver</a>

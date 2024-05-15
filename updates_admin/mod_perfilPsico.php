@@ -106,7 +106,7 @@
                                             <input type="number" value= "'.$consulta_perfil["telefono_movil"].'" name="telefono_movil">
                                         </div>
                                         <div class="footer-users">
-                                            <img src="../..//img/agenda-perfil.svg" alt="Icono de agenda">
+                                            <img src="../../img/agenda-perfil.svg" alt="Icono de agenda">
                                             <p>Fecha de Nacimiento</p>
                                             <input type="date" value= "'.$consulta_perfil["fecha_nacimiento"].'" name="fecha_nacimiento">
                                         </div>
