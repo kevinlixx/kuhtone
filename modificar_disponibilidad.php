@@ -9,10 +9,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/Style_dispo.css">
+    <link rel="stylesheet" href="./css/style_dispo.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <script src="https://kit.fontawesome.com/e1d55cc160.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/desktop_perfil.css" media="screen and (min-width: 800px)"/>
+    <link rel="stylesheet" href="./css/tablet_insertDispo.css" media="screen and (min-width: 600px)"/>
     <title>Document</title>
 </head>
 <body>
@@ -80,13 +81,15 @@
                             <p>Hora de finalización</p>
                             <input class="input-info" type="time" name="hora_final" value="' . $consulta_dispo["hora_final"] . '">
                             <div class="bottom">
-                            <input class="input-submit" name="modificar" type="submit" value="Modificar">
-                            <input class="input-submit" name="eliminar" type="submit" value="Eliminar">
+                            <input class="input-allow" name="modificar" type="submit" value="Modificar">
+                            <input class="input-allow" name="eliminar" type="submit" value="Eliminar">
                             </div>
                         </div>
                         
                     </div>
+                    <div class="submit-box">
                     <a href="./index_psicologos.php?id_perfil='.$id_profesional.'" class="back--bottom">Volver</a>
+                    </div>
                 </div>
             </section>';
             if (isset($_POST['modificar'])) {

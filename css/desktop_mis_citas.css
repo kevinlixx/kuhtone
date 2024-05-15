@@ -95,6 +95,10 @@ header .menu-section{
     margin-right: 37px;
     font-weight: 600;
 }
+.psicologo--description h4 {
+    text-align: left;
+}
+
 .design--container {
    
     flex-wrap: wrap;
