@@ -12,8 +12,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 
     <script src="https://kit.fontawesome.com/e1d55cc160.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./css/style_register.css">
-    <link rel="stylesheet" href="./css/desktop_detallePsicologos.css" media="screen and (min-width: 800px)"/>
+    <link rel="stylesheet" href="./css/style_registerAdmin.css">
+    <link rel="stylesheet" href="./css/desktop_registerAdmin.css" media="screen and (min-width: 800px)" />
 </head>
 <body>
     <header>
@@ -62,79 +62,37 @@
                 
                 <!--Formulario de Login y registro-->
                 <div class="contenedor__login-register">
-                    <!--Login-->
-                    <form action="" class="formulario__login" method="POST">
-                        <figure class="figure_login"> 
-                            <img 
-                            src="./img/logo_big.svg" 
-                            alt="lgo de kuhtone"
-                            />  
-                            <figcaption></figcaption> 
-                        </figure>
-                        <h2>Iniciar Sesión</h2>
-                        <input type="text" placeholder="Correo Electronico" name="correo">
-                        <input class="password" type="password" placeholder="Contraseña" name="contrasena">
-                        <a class="option--type" href="./login-register_psico.php">iniciar como psicologo</a>
-                        <a class="option--type" href="./login-register_admi.php">iniciar como administrador</a>
-                        <input class="button" type="submit" value="Entrar" name="ingresar">
-                        
-                        <?php 
-                            if(isset($_POST["ingresar"])){
-                            $correo=$_POST['correo'];
-                            $contrasena=$_POST['contrasena'];
-                            $sentencia=$conection->prepare("SELECT * FROM paciente WHERE correo=? AND contrasena=? AND estado_cuenta = 1");
-                            $sentencia->bind_param('ss',$correo,$contrasena);
-                            $sentencia->execute();
-                            $insertar = $sentencia ->get_result();
-                                if($fila = $insertar->fetch_assoc()){
-                                    $consulta = "SELECT * FROM paciente WHERE correo= '$correo' AND contrasena= '$contrasena' AND estado_cuenta = '1' ";
-                                    $consult = mysqli_query($conection, $consulta ) or die ("Error al traer los datos");
-
-                                    if($busqueda= mysqli_fetch_array($consult)){
-                                    echo '<script>alert("se has iniciado correctamente");window.location.href="./index_usr.php?id_perfil='.$busqueda["id_paciente"].'";  </script>';
-                                    }
-                                }else{
-                                    echo "<script>alert('Usuario o contraseña incorrecto intente nuevamente')</script>";
-                                    echo "<script>location.href='login-register.php'</script>";
-                                }
-                        }
-                            ?>
-                    </form>
 
                     <!--Register-->
                     <form  class="formulario__register" method="POST">
                             <figure class="figure_login"> 
                                 <img 
-                                src="./img/logo_big.svg" 
+                                src="./img/login_img_vector.svg" 
                                 alt="lgo de kuhtone"
                                 />  
                                 <figcaption></figcaption> 
                             </figure>
-                        <h2>Regístrarse</h2>
+                        <h2>Regístrar Profesional</h2>
                         <div class="grid">
                             <div class="grupo__input">
-                                <i  class="fa-solid fa-user"></i>
+                                <img src="img/userRegis_icon.svg" alt="Icono de usuario" class="input-icon">
                                 <input type="text" placeholder="Nombre" name="nombre">
                             </div>
                             <div class="grupo__input">
+                                <img src="img/userRegis_icon.svg" alt="Icono de usuario" class="input-icon">
                                 <input type="text" placeholder="Apellidos" name="apellido">
                             </div>
                             <div class="grupo__input">
-                                <i  class="fa-solid fa-envelope"></i>
-                        <input type="text" placeholder="Correo Electronico" name="correo">
+                                <img src="img/email_icon.svg" alt="Icono de correo" class="input-icon">
+                                <input type="text" placeholder="Correo Electronico" name="correo">
                                 </div>
                             <div class="grupo__input">
-                                <i class="fa-solid fa-key"></i>
-                        <input type="password" placeholder="Contraseña" name="contrasena">
+                                <img src="img/block_icon.svg" alt="Icono de llave" class="input-icon">
+                                <input type="password" placeholder="Contraseña" name="contrasena">
                                     </div>
-                            <!-- <div class="grupo__input">
-                                <i class="fa-solid fa-venus-mars"></i>
-                                <input type="gender" placeholder="Genero" class="genero">
-                            </div> -->
                             <div class="grupo__input">
-                            <div class="gender-box">
                                 <h3>Genero</h3>
-                                
+                                <div class="gender-box">
                                     <div class="gender-option">
                                     <?php 
                                         $sql=$conection->query("select *from genero");
@@ -149,13 +107,9 @@
                             </div>
                         </div>
                         </div>
-                            <div class="grupo__input">
-                                <i class="fa-solid fa-phone"></i>
-                                <input type="number" placeholder="Numero Telefonico" class="numtelefono" name="telefono_movil">
-                            </div>
                             <div class="grupo__input nacimiento">
                                 <h3>Fecha de Nacimiento</h3>
-                                <i class="fa-regular fa-calendar-days"></i>
+                                <img src="img/calendar_icon.svg" alt="Icono de calendario" class="input-icon">
                                 <input type="date" placeholder="Fecha Nacimiento"  name="fecha_nacimiento">
                             </div>
                             <div class="grupo__input document">
@@ -170,41 +124,48 @@
                                             </select>
                             </div>
                             <div class="grupo__input">
-                                <i class="fa-solid fa-id-card"></i>
-                                <input  type="number" placeholder="Numero Documento" name="documento">
+                                <img src="img/numDoc_icon.svg" alt="Icono de tarjeta de identificación" class="input-icon">
+                                <input  type="number" placeholder="Número Documento" name="documento">
                             </div>
                             <div class="grupo__input">
-                                <i class="fa-solid fa-building-columns"></i>
-                                <input  type="text" placeholder="universidad egresada" name="universidad">
+                                <img src="img/phone_icon.svg" alt="Icono de teléfono" class="input-icon">
+                                <input type="number" placeholder="Número Telefónico" class="numtelefono" name="telefono_movil">
                             </div>
                             <div class="grupo__input">
-                                <i class="fa-solid fa-book"></i>
+                                <img src="img/school_uni.svg" alt="Icono de teléfono" class="input-icon">
+                                <input  type="text" placeholder="Universidad egresada" name="universidad">
+                            </div>
+                            <div class="grupo__input">
+                                <img src="img/description_regis.svg" alt="Icono de teléfono" class="input-icon">
                                 <input  type="text" placeholder="descripcion" name="descripcion">
                             </div>
                             <div class="grupo__input">
-                            <i class="fa-solid fa-graduation-cap"></i>
+                                <img src="img/enfoque_especiali.svg" alt="Icono de teléfono" class="input-icon">
                                 <input  type="text" placeholder="especializacion" name="especializacion">
                             </div>
                             <div class="grupo__input">
-                                <i class="fa-solid fa-building"></i>
+                                <img src="img/experience.svg" alt="Icono de teléfono" class="input-icon">
                                 <input class="document" type="text" placeholder="experiencia" name="experiencia">
                             </div>
-                            <?php
-                            // Primero, haz una consulta para obtener todas las sedes
-                            $query = "SELECT * FROM sede";
-                            $result = mysqli_query($conection, $query) or trigger_error("Query Failed! SQL-Error: ".mysqli_error($conection), E_USER_ERROR);
+                            <div class="grupo__input">
+                                <h3>Sedes</h3>
+                                <?php
+                                // Primero, haz una consulta para obtener todas las sedes
+                                $query = "SELECT * FROM sedes";
+                                $result = mysqli_query($conection, $query) or trigger_error("Query Failed! SQL-Error: ".mysqli_error($conection), E_USER_ERROR);
+                                
+                                // Luego, genera el select
+                                echo '<select name="sede_id" class="form--select">';
 
-                            // Luego, genera el select
-                            echo '<select name="sede">';
+                                // Itera sobre los resultados de la consulta
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    // Cada fila representa una sede. Usa los datos de la sede para generar una opción del select.
+                                    echo '<option value="'.$row['id_sede'].'">'.$row['nombre'].'</option>';
+                                }
 
-                            // Itera sobre los resultados de la consulta
-                            while ($row = mysqli_fetch_assoc($result)) {
-                                // Cada fila representa una sede. Usa los datos de la sede para generar una opción del select.
-                                echo '<option value="'.$row['id_sede'].'">'.$row['nombre_sede'].'</option>';
-                            }
-
-                            echo '</select>';
-                            ?>
+                                echo '</select>';
+                                ?>
+                            </div>
                             <input class="button" type="submit" value="Registrarse" name="registrar">
                             <?php
                                 if(isset($_POST ['registrar'])){
@@ -232,7 +193,7 @@
                                             if($resultado) {
                                                 $id_perfil = mysqli_insert_id($conection);
                                                 echo "<script>alert('Se ha registrado exitosamente');
-                                                window.location.href='./gestion_admin.php?id_perfil=".$id_admin."';</script>";       
+                                                window.location.href='./gestion_psicologos.php?id_perfil=".$id_admin."';</script>";       
                                         } else {  
                                                   echo "<script>alert('error en realizar el registro');</script>";
                                         } 
