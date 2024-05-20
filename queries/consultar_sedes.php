@@ -16,9 +16,9 @@ $id_admin= $_GET['id_perfil'];
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@300;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/style_consultCita.css">
-    <link rel="stylesheet" href="../css/tablet_consultCita.css" media="screen and (min-width: 600px)"/>
-    <link rel="stylesheet" href="../css/desktop_consultCita.css" media="screen and (min-width: 800px)"/>
+    <link rel="stylesheet" href="../css/style_consultSede.css">
+    <link rel="stylesheet" href="../css/tablet_consultSede.css" media="screen and (min-width: 600px)"/>
+    <link rel="stylesheet" href="../css/desktop_consultSede.css" media="screen and (min-width: 800px)"/>
 </head>
 <body>
 <header>
