@@ -31,7 +31,7 @@
                     </figure>                
                 <div id="back_menu"></div>
                 <nav id="nav" class="menu-section">
-                    <img src="img/logo_header.svG" alt="">
+                    <img src="img/logo_header.svg" alt="">
                     <ul> 
                         <li><a href="./index.php" >Inicio</a></li>
                         <li><a href="./login-register.php" id="selected">Iniciar Sesion</a></li>
