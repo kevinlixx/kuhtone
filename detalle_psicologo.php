@@ -3,11 +3,6 @@ session_start();
 include("./config/conexion.php");
 $id= $_GET['id'];
 $id_paciente= $_GET['id_perfil'];
-//prueba
-// Insertar el id del paciente y el id del profesional en la tabla asignacion_paciente_profesional
-$insert_query = "INSERT INTO asignacion_paciente_profesional (id_paciente, id_profesional) VALUES ($id_paciente, $id)";
-mysqli_query($conection, $insert_query) or die ("Error al insertar los datos");
-
 $profesional ="SELECT * FROM profesional WHERE id_profesional = $id";
 $consulta = mysqli_query($conection, $profesional ) or die ("Error al traer los datos");
 ?>

@@ -162,6 +162,18 @@ $consulta = mysqli_query($conection, $profesional ) or die ("Error al traer los 
 
             ';
             if(isset($_POST['registro-agendamiento'])) {
+              // Verificar si la asignación ya existe
+              $check_query = "SELECT * FROM paciente_profesional WHERE id_paciente = $id_paciente AND id_profesional = $id_profesional";
+              $check_result = mysqli_query($conection, $check_query) or die ("Error al verificar los datos");
+
+              if (mysqli_num_rows($check_result) > 0) {
+                  // La asignación ya existe, no hacer nada o mostrar un mensaje
+                  echo "La asignación entre el paciente y el profesional ya existe.";
+              } else {
+                  // La asignación no existe, insertarla
+                  $insert_query = "INSERT INTO paciente_profesional (id_paciente, id_profesional) VALUES ($id_paciente, $id_profesional)";
+                  mysqli_query($conection, $insert_query) or die ("Error al insertar los datos");
+              }
               $id_agendamiento = "";
               $fecha_agendada = $_POST['selected-fecha'];
               $hora_agendada = $_POST['selectedHour'];
@@ -190,6 +202,7 @@ $consulta = mysqli_query($conection, $profesional ) or die ("Error al traer los 
                   } 
                   mysqli_close($conection);
               }
+              
           }
           
             echo'
