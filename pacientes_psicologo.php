@@ -10,11 +10,7 @@
     }
 
     // Consulta SQL para obtener los pacientes asignados a un profesional específico
-    $consulta = mysqli_query($conection, "SELECT paciente.* 
-                                         FROM paciente 
-                                         JOIN paciente_profesional ON paciente.id_paciente = paciente_profesional.id_paciente 
-                                         WHERE paciente_profesional.id_profesional = $id_profesional") 
-                                         or die ("Error al traer los datos");
+    $consulta = mysqli_query($conection, "SELECT paciente.* FROM paciente JOIN paciente_profesional ON paciente.id_paciente = paciente_profesional.id_paciente WHERE paciente_profesional.id_profesional = $id_profesional") or die ("Error al traer los datos");
 ?>
 <!DOCTYPE html>
 <html lang="en">
