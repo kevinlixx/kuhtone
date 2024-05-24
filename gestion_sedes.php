@@ -65,20 +65,7 @@
                 <a href="./insert_sede.php?id_perfil='.$id_admin.'"';
                 ?>
                   ><div class="caja caja1">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-database-cog" width="52" height="52" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff9300" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                        <path d="M4 6c0 1.657 3.582 3 8 3s8 -1.343 8 -3s-3.582 -3 -8 -3s-8 1.343 -8 3" />
-                        <path d="M4 6v6c0 1.657 3.582 3 8 3c.21 0 .42 -.003 .626 -.01" />
-                        <path d="M20 11.5v-5.5" />
-                        <path d="M4 12v6c0 1.657 3.582 3 8 3" />
-                        <path d="M19.001 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
-                        <path d="M19.001 15.5v1.5" />
-                        <path d="M19.001 21v1.5" />
-                        <path d="M22.032 17.25l-1.299 .75" />
-                        <path d="M17.27 20l-1.3 .75" />
-                        <path d="M15.97 17.25l1.3 .75" />
-                        <path d="M20.733 20l1.3 .75" />
-                      </svg>
+                  <object type="image/svg+xml" data="img/register_sede.svg" class="icon icon-tabler icon-tabler-switch-3" width="52" height="52"></object>
                     <h4>Registrar sede</h4>
                     <p>Aqui puedes registrar las sedes de kuhtone.</p>
                     <div class="animacion">
@@ -90,13 +77,7 @@
                 <a href="./queries/consultar_sedes.php?id_perfil='.$id_admin.'">';
                 ?>
                   <div class="caja caja2">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-search" width="52" height="52" viewBox="0 0 24 24" stroke-width="1.5" stroke="#009988" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                        <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
-                        <path d="M6 21v-2a4 4 0 0 1 4 -4h1.5" />
-                        <path d="M18 18m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-                        <path d="M20.2 20.2l1.8 1.8" />
-                      </svg>
+                  <object type="image/svg+xml" data="img/modifie_sede.svg" class="icon icon-tabler icon-tabler-switch-3" width="52" height="52"></object>
                     <h4>Modificar sedes de kuhtone</h4>
                     <p>Aquí puedes modificar la información de las sedes.</p>
                     <div class="animacion"></div></div
@@ -105,14 +86,8 @@
               echo '
                 <a href="./queries/consultar_sedesInhabilitadas.php?id_perfil='.$id_admin.'">';
                 ?>
-                  <div class="caja caja2">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-search" width="52" height="52" viewBox="0 0 24 24" stroke-width="1.5" stroke="#009988" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                        <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
-                        <path d="M6 21v-2a4 4 0 0 1 4 -4h1.5" />
-                        <path d="M18 18m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-                        <path d="M20.2 20.2l1.8 1.8" />
-                      </svg>
+                  <div class="caja caja3">
+                  <object type="image/svg+xml" data="img/sede_del.svg" class="icon icon-tabler icon-tabler-switch-3" width="52" height="52"></object>                   
                     <h4> sedes Inhabilitadas de kuhtone</h4>
                     <p>Aquí puedes vovler a habilitar la información de las sedes.</p>
                     <div class="animacion"></div></div

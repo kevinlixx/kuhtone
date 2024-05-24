@@ -118,7 +118,7 @@
                 <a href="./gestion_sedes.php?id_perfil='.$id_admin.'">';
                 ?>
                   <div class="caja caja1">
-                  <object type="image/svg+xml" data="img/del_accounts.svg" class="icon icon-tabler icon-tabler-switch-3" width="52" height="52"></object>
+                  <object type="image/svg+xml" data="img/location_index.svg" class="icon icon-tabler icon-tabler-switch-3" width="52" height="52"></object>
                    <h4>Sedes</h4>
                     <p>Aquí puedes gestionar las sedes de Kuhtone.</p>
                     <div class="animacion"></div>
