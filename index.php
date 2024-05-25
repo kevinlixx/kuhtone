@@ -22,7 +22,7 @@
         <section class="section_header">
             <figure class="figure_header">
                 <img src="./img/logo_header.svg" alt="lgo de kuhtone" />
-                <figcaptio></figcaptio n>
+                <figcaption></figcaption>
             </figure>
             <div class="menu menu-header">
 
