@@ -9,6 +9,8 @@
     <script src="https://kit.fontawesome.com/79e6024c63.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" /> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@300;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/tablet.css" media="screen and (min-width: 600px)" />
@@ -116,14 +118,15 @@
         <!-- Seccion de modalidad presencial: Modificar estructura para visualización de mapa con las sedes-->
         <div class="div-info-container" id="presencial">
             <div class="row--left">
-                <div class="col-md-6">
+                <div class="col-md-6 text-map">
                     <div class="text">
                         <h2>Si prefieres la atención presencial, también puedes agendar tu cita en sede del consultorio de tu preferencia</h2>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="image_svg">
-                        <img src="img/psico_intro.svg" alt="consultorio">
+                <div class="col-md-6 map">
+                    <div class="map">
+                         <div class="map--container" id="map--container">
+                            </div>
                     </div>
                 </div>
             </div>
@@ -135,6 +138,8 @@
         </div>
     </footer>
     <script src="js/script.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="./js/script_sedes.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,6 @@
+.map{
+    width: 350px;
+}
+.col-md-6.map,.col-md-6.text-map{
+    width: 100%;
+}
