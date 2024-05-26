@@ -23,7 +23,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@300;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/Pacientes_psicologos.css">
+    <link rel="stylesheet" href="./css/style_pacientes_psicologos.css">
     <link rel="stylesheet" href="./css/tablet_usr.css" media="screen and (min-width: 600px)"/>
     <link rel="stylesheet" href="./css/desktop_usr.css" media="screen and (min-width: 800px)"/>
 </head>
@@ -79,9 +79,9 @@
                 echo "<p style='color: #000000; font-weight: bold; text-align: center; font-size: 20px;'>No se encontraron pacientes asignados a este profesional.</p>";
             }
         ?>
-
+            <a href="./index_psicologos.php?id_perfil=<?php echo $id_profesional; ?>" class="back--bottom div-style">Volver</a>
         </div>
-        <a href="./index_psicologos.php?id_perfil=<?php echo $id_profesional; ?>" class="back--bottom">Volver</a>
+        <a href="./index_psicologos.php?id_perfil=<?php echo $id_profesional; ?>" class="back--bottom div-tablet" >Volver</a>
     </main>
     
     <footer class="pie-pagina">

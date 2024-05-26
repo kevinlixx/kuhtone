@@ -103,7 +103,6 @@ main {
     font-size: 3.3rem;
     margin: auto;
   }
-
   #catego{
 
     font-size: 5rem;
@@ -224,3 +223,9 @@ main {
 .pie-pagina .footer_copy small{
     font-size: 15px;
 } */
+
+@media screen and (min-width: 700px) {
+  .psicologos--card {
+    width: 24%;
+  }
+}

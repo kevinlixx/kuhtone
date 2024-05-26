@@ -9,31 +9,15 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     var divpsico= document.getElementById('psicologos--contenedor');
 // Obtiene las sedes de la base de datos
 getSedesFromDatabase().then(sedes => {
-    // Itera sobre las sedes y crea un marcador para cada una
     sedes.forEach(sede => {
-       var marker= L.marker([sede.latitud, sede.longitud]).addTo(map)
-            .bindPopup(sede.nombre);
-    // Obtén el div que quieres mostrar
-    
-    // Agrega un evento de clic al marcador
+        // Crear el enlace a Google Maps
+        var googleMapsLink = `https://www.google.com/maps/dir/?api=1&destination=${sede.latitud},${sede.longitud}`;
 
-    marker.on('click', function() {
-        // Enviar el ID de la sede a un archivo PHP
-        var sede_id = sede.id_sede; // Asegúrate de que 'id' es la propiedad correcta
-        $.ajax({
-            url: '../index.php', // Reemplaza esto con la ruta a tu archivo PHP
-            type: 'POST',
-            data: { sede_id: sede_id,
-             },
-            success: function(response) {
-                        },
-            error: function(error) {
-                // Aquí puedes manejar los errores
-                console.error('Error:', error);
-            }
-        });
-    });
+        // Crear el marcador y añadirlo al mapa
+        var marker = L.marker([sede.latitud, sede.longitud]).addTo(map);
 
+        // Añadir un popup al marcador con el enlace a Google Maps
+        marker.bindPopup(`<a href="${googleMapsLink}" target="_blank">${sede.nombre} - Abrir en Google Maps</a>`);
     });
 }).catch(error => {
     console.error('Error al obtener las sedes de la base de datos:', error);

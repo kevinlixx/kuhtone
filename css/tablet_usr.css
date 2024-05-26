@@ -1,3 +1,17 @@
 /* main{
     height: 90vh;
   }  */
+
+  /* de mis pacientes */
+.design--container{
+  flex-direction: row;
+}
+.psicologos--card{
+  width: 38%;
+}
+.back--bottom.div-style{
+  display: none;
+}
+.back--bottom.div-tablet{
+  display: flex;
+}
