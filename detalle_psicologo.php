@@ -41,12 +41,12 @@ $consulta = mysqli_query($conection, $profesional ) or die ("Error al traer los 
                         <figcaption></figcaption> 
                     </figure>                
                 <div id="back_menu"></div>
-                <nav id="nav" class="menu-section">a
+                <nav id="nav" class="menu-section">
                     <img src="img/logo_header.svG" alt="">
                     <ul> 
                     <?php
                       echo'
-                      <li><a href="./index_usr.php?id_perfil='.$id_paciente.'">Inicio</a></li>
+                        <li><a href="./index_usr.php?id_perfil='.$id_paciente.'">Inicio</a></li>
                         <li><a href="./queries/consultar_citas.php?id_perfil='.$id_paciente.'">Mis citas</a></li>
                         <li><a href="./perfil.php?id_perfil='.$id_paciente.'">Mi perfil</a></li>
                         <li><a href="./index.php" id="selected">Cerrar Sesion</a></li>';

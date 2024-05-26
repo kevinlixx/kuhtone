@@ -116,10 +116,14 @@ display: block;
 }
 .psicologo-perfil--container h4{
     font-size: 1.4rem;
+    text-align: left;
+    margin-left: 30px;
 }
 .psicologo-perfil--container p{
     font-size: 1.4rem;
-    text-align: justify;  
+    text-align: justify; 
+    text-align: left;
+    margin-left: 30px;
 }
 
 .psicologo-experience--container{

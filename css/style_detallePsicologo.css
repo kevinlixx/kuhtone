@@ -2,10 +2,16 @@
 :root{
     --turquoise: #568281;
     --font-color: #FFFFFF;
-    --section-color: #D3E1E1;
-    --beige: #d6c19d;
     --black: #000000 ;
-    --orange: #         ;
+    /* News */
+    --paradiso: #3E8E98;
+    --sandy: #F4A26C;
+    --aqua: #A8D6DC;
+    --dark--parad: #32727A;
+    --fountain: #63B5BF;
+    --gris: #D9D9D9;
+    --gray--clean: #E0E8FA;
+    --section-color: #D3E1E1;
 }
 *{
     box-sizing: border-box;
@@ -239,14 +245,12 @@ main {
 .psicologo-perfil--container h4{
     font-weight: bold;
     font-size: 1.4rem;
-    text-align: left;
-    margin-left: 30px;
+    text-align: center;
 }
 .psicologo-perfil--container p{
     font-weight: 100;
     font-size: 1.2rem;
-    text-align: left;
-    margin-left: 30px;
+    text-align: center;
     margin-bottom: 5px;
 }
 
